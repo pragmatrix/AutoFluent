@@ -9,11 +9,12 @@ module Generate =
 
     [<AutoOpen>]
     module Helper = 
-        let returnType (t: Type) = 
-            t.FullName
+        open RoslynHelper
+
+        let returnType (t: Type) = typeName t
 
         let parameter (t: Type) name = 
-            sprintf "%s %s" t.FullName name
+            sprintf "%s %s" (typeName t) name
 
         type Code = 
             | Scope of Code

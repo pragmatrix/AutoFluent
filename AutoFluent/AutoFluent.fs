@@ -4,7 +4,7 @@ open System
 open System.Reflection
 
 module AutoFluent = 
-    
+
     type FluentAssembly =
         { t: Assembly; types: FluentTypeProperties list }
 
