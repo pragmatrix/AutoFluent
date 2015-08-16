@@ -81,8 +81,37 @@ module Generate =
         |> List.map (fun (ns, tp) -> mkNamespace ns tp)
         |> Block
 
+    // inserts empty lines in between blocks.
+    let rec format (c: Code) = 
+        
+        let isBlock = function 
+            | Block _ -> true
+            | _ -> false
+
+        let mapFoldBlock blockBefore code = 
+            let blockNow = isBlock code
+            match blockBefore, blockNow with
+            | true, true ->
+                ([Line ""; code], blockNow)
+            | _ -> 
+                ([code], blockNow)
+        
+        match c with
+        | Scope scope -> format scope |> Scope
+        | Block blocks ->
+            blocks
+            |> List.map format
+            |> List.mapFold mapFoldBlock false
+            |> fst
+            |> List.collect id
+            |> Block
+
+        | Line l -> c
+
     let code (c: Code) =
         
+        let c = format c
+
         let rec lines indent (c: Code) =
             match c with
             | Line l -> Seq.singleton (indent + l)

@@ -2,7 +2,11 @@
 
 open System.Reflection
 open NUnit.Framework
+open FsUnit
+
 open AutoFluent
+
+open Generate
 
 [<TestFixture>]
 type Tests() =
@@ -16,3 +20,14 @@ type Tests() =
         |> Generate.code
         |> System.Console.Write
         
+    [<Test>]
+    member this.formatInsertsEmptyLineBetweenBlocks() = 
+    
+        let c = 
+            Block [
+                Block [Line "a"]
+                Block [Line "b"]
+            ]
+
+        let formatted = Generate.format c
+        formatted |> should equal (Block [Block[Line "a"]; Line ""; Block[Line "b"]])
