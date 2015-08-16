@@ -31,7 +31,7 @@ type Tests() =
         assembly
         |> Generate.assembly
         |> Generate.sourceLines
-        |> Seq.map System.Console.WriteLine
+        |> Seq.iter System.Console.WriteLine
         
     [<Test>]
     member this.formatInsertsEmptyLineBetweenBlocks() = 
@@ -52,7 +52,6 @@ type Tests() =
         let code = Generate.typeProperties fluent
         let code = Generate.sourceLines code
         let file = loadLines "TypeWithGenericProperty.cs"
-        code |> System.Console.WriteLine
-        ()
+        code |> should equal file
         
 
