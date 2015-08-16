@@ -63,6 +63,9 @@
     <Compile Include="AutoFluentTests.fs" />
     <Content Include="packages.config" />
     <Content Include="app.config" />
+    <None Include="TypeWithGenericProperty.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FsUnit.CustomMatchers">
@@ -96,8 +99,6 @@
       <HintPath>..\packages\Xamarin.Forms.1.4.4.6392\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
       <Private>True</Private>
     </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\AutoFluent\AutoFluent.fsproj">
       <Name>AutoFluent</Name>
       <Project>{9f8a9f46-455b-4e24-afc2-28d2c6c287a7}</Project>

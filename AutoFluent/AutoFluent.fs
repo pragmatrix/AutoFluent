@@ -11,12 +11,10 @@ module AutoFluent =
     and FluentTypeProperties =
         { t: Type; properties: PropertyInfo list }
 
-    let typeProperties (t: Type) =
+    let propertiesOfType (t: Type) =
         let canProcess (p : PropertyInfo) = 
             let setMethod = p.GetSetMethod()
-            let t = p.PropertyType
-            let isGeneric = t.IsGenericType
-            (not isGeneric) && (not p.IsSpecialName) && setMethod <> null && setMethod.GetParameters().Length = 1
+            (not p.IsSpecialName) && setMethod <> null && setMethod.GetParameters().Length = 1
 
         let properties =
             t.GetProperties(BindingFlags.Public ||| BindingFlags.Instance)
@@ -25,7 +23,7 @@ module AutoFluent =
         
         { t = t; properties = properties }
 
-    let assemblyProperties (assembly: Assembly) =
+    let propertiesOfAssembly (assembly: Assembly) =
 
         let canProcess (t: Type) = 
             let isStatic = t.IsSealed && t.IsAbstract
@@ -38,8 +36,9 @@ module AutoFluent =
 
         let fluentProperties = 
             types
-            |> List.map typeProperties
+            |> List.map propertiesOfType
             |> List.filter (fun tp -> tp.properties <> [])
 
         { t = assembly; types = fluentProperties }
+
 

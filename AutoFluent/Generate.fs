@@ -108,7 +108,7 @@ module Generate =
 
         | Line l -> c
 
-    let code (c: Code) =
+    let sourceLines (c: Code) =
         
         let c = format c
 
@@ -129,8 +129,8 @@ module Generate =
                     yield indent + "}"
                 }
 
-        let lines = lines "" c
-        String.Join("\n", lines)
+        lines "" c
+
         
 
  
