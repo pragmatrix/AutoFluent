@@ -16,7 +16,7 @@ module Generate =
             sprintf "%s %s" t.FullName name
 
         type Code = 
-            | Scope of Code list
+            | Scope of Code
             | Block of Code list
             | Line of string
 
@@ -25,9 +25,9 @@ module Generate =
         let rec toCode (o : obj) = 
             match o with
             | :? string as s -> Line s
-            | :? (obj list) as objs -> objs |> List.map toCode |> Scope
-            | :? (string list) as block -> block |> List.map Line |> Scope
-            | :? (Code list) as block -> block |> Scope
+            | :? (obj list) as objs -> objs |> List.map toCode |> Block |> Scope
+            | :? (string list) as block -> block |> List.map Line |> Block |> Scope
+            | :? (Code list) as block -> block |> Block |> Scope
             | _ -> failwithf "invalid type %s in code" (o.GetType().Name)
 
         let block (block: obj list) =
@@ -92,9 +92,7 @@ module Generate =
                 |> Seq.collect id
             | Scope scope ->
                 let l = 
-                    scope
-                    |> Seq.map (lines (indent + "\t"))
-                    |> Seq.collect id
+                    scope |> lines (indent + "\t")
 
                 seq {
                     yield indent + "{"
