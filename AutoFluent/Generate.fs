@@ -50,8 +50,13 @@ module Generate =
             ]
 
     let fluentPropertyExtensionMethod (t: Type) (property: PropertyInfo) = 
+        let constraints = 
+            let c = RoslynHelper.typeConstraints t
+            if c <> "" then " " + c else ""
+        
         block [
-            sprintf "public static %s %s(this %s, %s)" (returnType t) (replaceTypeName property.Name t) (parameter t "self") (parameter property.PropertyType  "value")
+            sprintf "public static %s %s(this %s, %s)%s"
+                (returnType t) (replaceTypeName property.Name t) (parameter t "self") (parameter property.PropertyType  "value") constraints
             [ 
                 sprintf "self.%s = value;" property.Name
                 sprintf "return self;"

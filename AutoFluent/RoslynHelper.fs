@@ -45,6 +45,51 @@ module RoslynHelper =
             let tn = sg.GenericName(name, arguments)
             sg.QualifiedName(ns, tn)
 
+        let typeName (t: Type) = 
+            (syntaxOfTypeName t).ToString()
+
+        // Roslyn seems to be too complicated to generate type constraints
+
+        // https://msdn.microsoft.com/en-us/library/d5x73970.aspx
+        // https://msdn.microsoft.com/en-us/library/system.type.getgenericparameterconstraints.aspx
+
+        let typeConstraints (t: Type) =
+
+            let ofArgument (t: Type) = 
+                let constraintTypes = t.GetGenericParameterConstraints()
+                let attributes = t.GenericParameterAttributes
+                let variance = attributes &&& GenericParameterAttributes.VarianceMask
+                let specialConstraints = attributes &&& GenericParameterAttributes.SpecialConstraintMask
+
+                if variance <> GenericParameterAttributes.None then
+                    failwith "a type constraint with co or contravariance is not yet supported"
+
+                let typeConstraints =
+                    constraintTypes 
+                    |> Array.map typeName
+
+                let allConstraints = 
+                    [
+                        if specialConstraints.HasFlag GenericParameterAttributes.ReferenceTypeConstraint then
+                            yield "class"
+                        if specialConstraints.HasFlag GenericParameterAttributes.NotNullableValueTypeConstraint then
+                            yield "struct"
+                        if specialConstraints.HasFlag GenericParameterAttributes.DefaultConstructorConstraint then
+                            yield "new()"
+                        yield! typeConstraints
+                    ]
+
+                String.Join(", ", allConstraints)
+
+            assert(t.IsGenericType)
+            let argumentConstraints =
+                t.GetGenericArguments()
+                |> Array.map (fun arg -> arg, ofArgument arg)
+                |> Array.choose (fun (arg, constraints) -> if constraints <> "" then Some (arg, constraints) else None)
+                |> Array.map (fun (arg, constraints) -> sprintf "where %s : %s" (typeName arg) constraints)
+
+            String.Join(" ", argumentConstraints)
+
     let typeName (t: Type) = 
         if t.IsGenericType then (syntaxOfTypeName(t).ToString()) else typeNameOfNonGenericType t
 
@@ -57,5 +102,7 @@ module RoslynHelper =
 
         sg.GenericName(newName, parameters).ToString()
 
-
+    let typeConstraints (t: Type) = 
+        if (not t.IsGenericType) then "" else
+        typeConstraints t
 

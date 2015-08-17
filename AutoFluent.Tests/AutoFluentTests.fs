@@ -18,16 +18,19 @@ type TypeWithGenericProperty() =
 type GenericTypeWithProperty<'T>() = 
     member val Property : bool = false with get, set
 
+type GenericTypeWithConstraintAndProperty<'T when 'T :> Exception>() = 
+    member val Property : bool = false with get, set
+
 [<AutoOpen>]
 module Helper = 
     let loadLines fn = 
         File.ReadAllLines(fn)
 
 [<TestFixture>]
-type Tests() =
+type AutoFluentTests() =
 
     [<Test>] 
-    member this.loadAssembly() = 
+    member this.xamarinForms() = 
         let assemblyToLoad = "Xamarin.Forms.Core" |> Assembly.Load
         let assembly = AutoFluent.propertiesOfAssembly assemblyToLoad
         assembly
@@ -63,4 +66,13 @@ type Tests() =
         let code = Generate.typeProperties fluent
         let code = Generate.sourceLines code
         let file = loadLines "GenericTypeWithProperty.cs"
+        code |> should equal file
+
+    [<Test>]
+    member this.canHandlePropertyInGenericTypeWithConstraints() = 
+        let t = typedefof<GenericTypeWithConstraintAndProperty<_>>
+        let fluent = AutoFluent.propertiesOfType t
+        let code = Generate.typeProperties fluent
+        let code = Generate.sourceLines code
+        let file = loadLines "GenericTypeWithConstraintAndProperty.cs"
         code |> should equal file
