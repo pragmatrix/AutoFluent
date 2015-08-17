@@ -58,7 +58,7 @@ type Tests() =
         
     [<Test>]
     member this.canHandlePropertyInGenericType() = 
-        let t = typeof<GenericTypeWithProperty<bool>>.GetGenericTypeDefinition()
+        let t = typedefof<GenericTypeWithProperty<_>>
         let fluent = AutoFluent.propertiesOfType t
         let code = Generate.typeProperties fluent
         let code = Generate.sourceLines code
