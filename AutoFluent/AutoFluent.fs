@@ -27,7 +27,7 @@ module AutoFluent =
 
         let canProcess (t: Type) = 
             let isStatic = t.IsSealed && t.IsAbstract
-            t.IsPublic && (not isStatic) && (not t.IsGenericType)
+            t.IsPublic && (not isStatic) // && (not t.IsGenericType)
 
         let types = 
             assembly.GetTypes()

@@ -15,6 +15,8 @@ open Generate
 type TypeWithGenericProperty() = 
     member val Property : System.Action<bool> = null with get, set
 
+type GenericTypeWithProperty<'T>() = 
+    member val Property : bool = false with get, set
 
 [<AutoOpen>]
 module Helper = 
@@ -54,4 +56,11 @@ type Tests() =
         let file = loadLines "TypeWithGenericProperty.cs"
         code |> should equal file
         
-
+    [<Test>]
+    member this.canHandlePropertyInGenericType() = 
+        let t = typeof<GenericTypeWithProperty<bool>>.GetGenericTypeDefinition()
+        let fluent = AutoFluent.propertiesOfType t
+        let code = Generate.typeProperties fluent
+        let code = Generate.sourceLines code
+        let file = loadLines "GenericTypeWithProperty.cs"
+        code |> should equal file

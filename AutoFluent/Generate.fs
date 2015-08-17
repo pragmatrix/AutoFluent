@@ -39,6 +39,8 @@ module Generate =
         let scope (nested: obj list) =
             nested
 
+        let replaceTypeName = replaceTypeName  
+        
         let staticClass (name: string) (blocks: Code list) =
             block [
                 sprintf "public static class %s" name
@@ -49,7 +51,7 @@ module Generate =
 
     let fluentPropertyExtensionMethod (t: Type) (property: PropertyInfo) = 
         block [
-            sprintf "public static %s %s(this %s, %s)" (returnType t) property.Name (parameter t "self") (parameter property.PropertyType  "value")
+            sprintf "public static %s %s(this %s, %s)" (returnType t) (replaceTypeName property.Name t) (parameter t "self") (parameter property.PropertyType  "value")
             [ 
                 sprintf "self.%s = value;" property.Name
                 sprintf "return self;"
@@ -61,7 +63,10 @@ module Generate =
             properties.properties
             |> List.map (fluentPropertyExtensionMethod properties.t)
 
-        staticClass (properties.t.Name + "FluentProperties") methods
+        let name = 
+            (RoslynHelper.Helper.typeNameWithoutFuzz properties.t) + "FluentProperties"
+            
+        staticClass name methods
 
     let assembly (assembly: FluentAssembly) =
         
