@@ -41,6 +41,13 @@ module Generate =
 
         let replaceTypeName = replaceTypeName  
         
+        let propertiesClassName (t: Type) =
+            let genericDiscriminator = 
+                if t.IsGenericType then t.GetTypeInfo().GenericTypeParameters.Length.ToString()
+                else ""
+                
+            (RoslynHelper.Helper.typeNameWithoutFuzz t) + "FluentProperties" + genericDiscriminator
+
         let staticClass (name: string) (blocks: Code list) =
             block [
                 sprintf "public static class %s" name
@@ -68,10 +75,7 @@ module Generate =
             properties.properties
             |> List.map (fluentPropertyExtensionMethod properties.t)
 
-        let name = 
-            (RoslynHelper.Helper.typeNameWithoutFuzz properties.t) + "FluentProperties"
-            
-        staticClass name methods
+        staticClass (propertiesClassName properties.t) methods
 
     let assembly (assembly: FluentAssembly) =
         

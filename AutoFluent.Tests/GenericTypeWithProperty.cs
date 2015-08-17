@@ -1,4 +1,4 @@
-﻿public static class GenericTypeWithPropertyFluentProperties
+﻿public static class GenericTypeWithPropertyFluentProperties1
 {
 	public static AutoFluent.Tests.GenericTypeWithProperty<T> Property<T>(this AutoFluent.Tests.GenericTypeWithProperty<T> self, System.Boolean value)
 	{
