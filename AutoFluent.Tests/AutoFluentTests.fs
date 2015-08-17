@@ -37,7 +37,25 @@ type AutoFluentTests() =
         |> Generate.assembly
         |> Generate.sourceLines
         |> Seq.iter System.Console.WriteLine
+    
+    [<Test>] 
+    member this.WPFPresentationCore() = 
+        let assemblyToLoad = "PresentationCore" |> Assembly.Load
+        let assembly = AutoFluent.propertiesOfAssembly assemblyToLoad
+        assembly
+        |> Generate.assembly
+        |> Generate.sourceLines
+        |> Seq.iter System.Console.WriteLine    
         
+    [<Test>] 
+    member this.WPFPresentationFramework() = 
+        let assemblyToLoad = "PresentationFramework" |> Assembly.Load
+        let assembly = AutoFluent.propertiesOfAssembly assemblyToLoad
+        assembly
+        |> Generate.assembly
+        |> Generate.sourceLines
+        |> Seq.iter System.Console.WriteLine
+    
     [<Test>]
     member this.formatInsertsEmptyLineBetweenBlocks() = 
     
