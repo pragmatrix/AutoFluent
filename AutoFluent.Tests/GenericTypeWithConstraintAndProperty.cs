@@ -1,6 +1,8 @@
 ﻿public static class GenericTypeWithConstraintAndPropertyFluentProperties1
 {
-	public static AutoFluent.Tests.GenericTypeWithConstraintAndProperty<T> Property<T>(this AutoFluent.Tests.GenericTypeWithConstraintAndProperty<T> self, System.Boolean value) where T : System.Exception
+	public static _SelfT Property<_SelfT, T>(this _SelfT self, System.Boolean value)
+		where _SelfT : AutoFluent.Tests.GenericTypeWithConstraintAndProperty<T>
+		where T : System.Exception
 	{
 		self.Property = value;
 		return self;

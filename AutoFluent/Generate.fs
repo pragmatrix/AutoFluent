@@ -9,16 +9,17 @@ module Generate =
 
     [<AutoOpen>]
     module Helper = 
-        open RoslynHelper
+        open Syntax
 
         let returnType (t: Type) = typeName t
 
-        let parameter (t: Type) name = 
-            sprintf "%s %s" (typeName t) name
+        let parameter (t: TypeName) name = 
+            sprintf "%s %s" (t |> string) name
 
         type Code = 
             | Scope of Code
             | Block of Code list
+            | Indent of Code
             | Line of string
 
         type Block = Code list
@@ -29,6 +30,7 @@ module Generate =
             | :? (obj list) as objs -> objs |> List.map toCode |> Block |> Scope
             | :? (string list) as block -> block |> List.map Line |> Block |> Scope
             | :? (Code list) as block -> block |> Block |> Scope
+            | :? Code as c -> c
             | _ -> failwithf "invalid type %s in code" (o.GetType().Name)
 
         let block (block: obj list) =
@@ -36,17 +38,23 @@ module Generate =
             |> List.map toCode
             |> Block
 
+        let indent (indent: obj list) =
+            indent
+            |> block
+            |> Indent
+
         let scope (nested: obj list) =
             nested
-
-        let replaceTypeName = replaceTypeName  
         
         let propertiesClassName (t: Type) =
+            let tn = typeName t
+            
             let genericDiscriminator = 
-                if t.IsGenericType then t.GetTypeInfo().GenericTypeParameters.Length.ToString()
-                else ""
-                
-            (RoslynHelper.Helper.typeNameWithoutFuzz t) + "FluentProperties" + genericDiscriminator
+                match tn.arguments with
+                | [] -> ""
+                | args -> List.length args |> string
+               
+            tn.localName + "FluentProperties" + genericDiscriminator
 
         let staticClass (name: string) (blocks: Code list) =
             block [
@@ -56,14 +64,27 @@ module Generate =
                 ]
             ]
 
-    let fluentPropertyExtensionMethod (t: Type) (property: PropertyInfo) = 
-        let constraints = 
-            let c = RoslynHelper.typeConstraints t
-            if c <> "" then " " + c else ""
+    let fluentPropertyExtensionMethod (self: Type) (property: PropertyInfo) = 
+
+        let selfTypeParameterName = "_SelfT"
+        let selfTypeParameter = Syntax.TypeParameter selfTypeParameterName
+
+        let selfTypeName = Syntax.typeName self
+
+        let selfConstraint = 
+            let c = Syntax.TypeConstraint selfTypeName
+            Syntax.ConstraintsClause(selfTypeParameterName, [c])
+
+        let constraints = selfConstraint :: Syntax.typeConstraints self
+
+        let typeParameters = 
+            selfTypeParameterName :: selfTypeName.allParameters
+            |> Syntax.formatTypeArguments
         
         block [
-            sprintf "public static %s %s(this %s, %s)%s"
-                (returnType t) (replaceTypeName property.Name t) (parameter t "self") (parameter property.PropertyType  "value") constraints
+            sprintf "public static %s %s%s(this %s, %s)"
+                selfTypeParameterName property.Name typeParameters (parameter selfTypeParameter "self") (parameter (Syntax.typeName property.PropertyType) "value")
+            indent (constraints |> List.map (string >> box))
             [ 
                 sprintf "self.%s = value;" property.Name
                 sprintf "return self;"
@@ -122,6 +143,7 @@ module Generate =
             |> Block
 
         | Line l -> c
+        | Indent indent -> format indent |> Indent
 
     let sourceLines (c: Code) =
         
@@ -134,15 +156,17 @@ module Generate =
                 block
                 |> Seq.map (lines indent)
                 |> Seq.collect id
-            | Scope scope ->
+            | Scope code ->
                 let l = 
-                    scope |> lines (indent + "\t")
+                    code |> lines (indent + "\t")
 
                 seq {
                     yield indent + "{"
                     yield! l
                     yield indent + "}"
                 }
+            | Indent code ->
+                code |> lines (indent + "\t")
 
         lines "" c
 

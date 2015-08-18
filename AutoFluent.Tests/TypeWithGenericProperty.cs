@@ -1,6 +1,7 @@
 ﻿public static class TypeWithGenericPropertyFluentProperties
 {
-	public static AutoFluent.Tests.TypeWithGenericProperty Property(this AutoFluent.Tests.TypeWithGenericProperty self, System.Action<System.Boolean> value)
+	public static _SelfT Property<_SelfT>(this _SelfT self, System.Action<System.Boolean> value)
+		where _SelfT : AutoFluent.Tests.TypeWithGenericProperty
 	{
 		self.Property = value;
 		return self;
