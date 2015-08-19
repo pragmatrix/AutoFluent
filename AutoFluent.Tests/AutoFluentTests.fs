@@ -8,6 +8,7 @@ open NUnit.Framework
 open FsUnit
 
 open AutoFluent
+open Reflection
 open Generate
 
 // Test-Types
@@ -35,9 +36,10 @@ module Helper =
 
     let sourceForPropertiesOfType t =
         t
-        |> AutoFluent.propertiesOfType
-        |> Generate.typeProperties
-        |> Generate.sourceLines
+        |> Type
+        |> Generate.fluentTypeProperties
+        |> Format.sourceLines
+        |> Seq.toArray
 
     let defaultDLLs = 
         [|
@@ -78,9 +80,9 @@ type AutoFluentTests() =
     [<Test; Category("LongRunning")>] 
     member this.xamarinForms() = 
         let assembly = "Xamarin.Forms.Core" |> Assembly.Load
-        AutoFluent.propertiesOfAssembly assembly
-        |> Generate.assembly
-        |> Generate.sourceLines
+        assembly
+        |> Generate.fluentProperties
+        |> Format.sourceLines
         |> compileAndDumpSource assembly []
         |> should equal 30208
 
@@ -106,9 +108,8 @@ type AutoFluentTests() =
     member this.WPFPresentationFramework() = 
         let assembly = "PresentationFramework" |> Assembly.Load
         assembly
-        |> AutoFluent.propertiesOfAssembly
-        |> Generate.assembly
-        |> Generate.sourceLines
+        |> Generate.fluentProperties
+        |> Format.sourceLines
         |> compileAndDumpSource assembly 
             [
                 "System.Printing.dll"
@@ -121,18 +122,6 @@ type AutoFluentTests() =
                 "ReachFramework.dll"
             ]
         |> should equal 130560
-    
-    [<Test>]
-    member this.formatInsertsEmptyLineBetweenBlocks() = 
-    
-        let c = 
-            Block [
-                Block [Line "a"]
-                Block [Line "b"]
-            ]
-
-        let formatted = Generate.format c
-        formatted |> should equal (Block [Block[Line "a"]; Line ""; Block[Line "b"]])
 
     [<Test>]
     member this.canHandleGenericProperties() =
@@ -157,3 +146,21 @@ type AutoFluentTests() =
         let code = sourceForPropertiesOfType typeof<SealedTypeWithProperty>
         let file = loadLines "SealedTypeWithProperty.cs"
         code |> should equal file
+
+open AutoFluent.Format
+
+[<TestFixture>]
+type FormatterTests() =
+    
+    [<Test>]
+    member this.formatInsertsEmptyLineBetweenBlocks() = 
+
+        let c = 
+            Block [
+                Block [Line "a"]
+                Block [Line "b"]
+            ]
+
+        let formatted = Format.separateBlocks c
+        formatted |> should equal (Block [Block[Line "a"]; Line ""; Block[Line "b"]])
+

@@ -1,7 +1,9 @@
 ﻿namespace AutoFluent.Tests
 
 open System
+
 open AutoFluent.Syntax
+open AutoFluent.Reflection
 
 open NUnit.Framework
 open FsUnit
@@ -14,11 +16,18 @@ type SyntaxTests() =
 
     [<Test>] 
     member this.simpleTypeConstraint() =
-        let r = typeConstraints typedefof<SimpleTypeConstraint<_>> |> List.map string
+        let r = 
+            typedefof<SimpleTypeConstraint<_>>
+            |> Type
+            |> typeConstraints  
+            |> List.map string
         r |> should equal ["where T : System.Exception"]
          
     [<Test>]
     member this.genericTypeName() = 
-        let r = typeName typedefof<List<_>> |> string
+        let r = 
+            typedefof<List<_>> 
+            |> Type
+            |> typeName |> string
         r |> should equal "Microsoft.FSharp.Collections.FSharpList<T>"
 

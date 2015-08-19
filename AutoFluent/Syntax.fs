@@ -3,6 +3,8 @@
 open System
 open System.Reflection
 
+open Reflection
+
 module Syntax =
 
     let join sep (strs: string list) = String.Join(sep, strs)
@@ -69,10 +71,9 @@ module Syntax =
             | ValueTypeConstraint -> "struct"
             | DefaultConstructorConstraint -> "new()"
 
-    [<AutoOpen>]
     module Helper = 
 
-        let rec typeName (t: Type) = 
+        let rec typeName (t: SystemType) = 
             if t.IsGenericParameter then
                 TypeParameter t.Name
             else
@@ -95,12 +96,12 @@ module Syntax =
         // https://msdn.microsoft.com/en-us/library/d5x73970.aspx
         // https://msdn.microsoft.com/en-us/library/system.type.getgenericparameterconstraints.aspx
 
-        let typeConstraints (t: Type) : ConstraintsClause list =
+        let typeConstraints (t: SystemType) : ConstraintsClause list =
 
             if not t.IsGenericType then []
             else
 
-            let ofArgument (t: Type) = 
+            let ofArgument (t: SystemType) = 
                 let constraintTypes = t.GetGenericParameterConstraints()
                 let attributes = t.GenericParameterAttributes
                 let variance = attributes &&& GenericParameterAttributes.VarianceMask
@@ -131,6 +132,6 @@ module Syntax =
             |> Seq.map (fun (arg, constraints) -> ConstraintsClause ((typeName arg |> string), constraints))
             |> Seq.toList
 
-    let typeName = typeName 
-    let typeConstraints = typeConstraints
+    let typeName (Type t) = Helper.typeName t
+    let typeConstraints (Type t) = Helper.typeConstraints t
 

@@ -1,91 +1,40 @@
 ﻿namespace AutoFluent
 
-open AutoFluent
-
 open System
 open System.Reflection
 open System.CodeDom.Compiler
 
+open Reflection
+
 module Generate =
 
-    [<AutoOpen>]
-    module Helper = 
-        open Syntax
-        open System.IO
-        open System.CodeDom
-
-        let returnType (t: Type) = typeName t
-
-        let parameter (t: TypeName) name = 
-            sprintf "%s %s" (t |> string) name
-
-        type Code = 
-            | Scope of Code
-            | Block of Code list
-            | Parts of Code list
-            | Indent of Code
-            | Line of string
-
-        type Block = Code list
-
-        let rec toCode (o : obj) = 
-            match o with
-            | :? string as s -> Line s
-            | :? (obj list) as objs -> objs |> List.map toCode |> Block |> Scope
-            | :? (string list) as block -> block |> List.map Line |> Block |> Scope
-            | :? (string array) as lines -> lines |> Array.map Line |> Array.toList |> Parts
-            | :? (Code list) as block -> block |> Block |> Scope
-            | :? Code as c -> c
-            | _ -> failwithf "invalid type %s in code" (o.GetType().Name)
-
-        let block (block: obj list) =
-            block
-            |> List.map toCode
-            |> Block
-
-        let indent (indent: obj list) =
-            indent
-            |> block
-            |> Indent
-
-        let scope (nested: obj list) =
-            nested
-        
-        let propertiesClassName (t: Type) =
-            let tn = typeName t
+    let private propertiesClassName (t: Type) =
+        let tn = Syntax.typeName t
             
-            let genericDiscriminator = 
-                match tn.arguments with
-                | [] -> ""
-                | args -> List.length args |> string
+        let genericDiscriminator = 
+            match tn.arguments with
+            | [] -> ""
+            | args -> List.length args |> string
                
-            tn.localName + "FluentProperties" + genericDiscriminator
+        tn.localName + "FluentProperties" + genericDiscriminator
 
-        let staticClass (name: string) (blocks: Code list) =
-            block [
-                sprintf "public static class %s" name
-                [ 
-                    yield! blocks 
-                ]
+    let private staticClass (name: string) (blocks: Format.Code list) =
+        Format.block [
+            sprintf "public static class %s" name
+            [ 
+                yield! blocks 
             ]
+        ]
 
-        // http://stackoverflow.com/questions/323640/can-i-convert-a-c-sharp-string-value-to-an-escaped-string-literal
+    let private fluentPropertyExtensionMethod (property: Property) = 
 
-        let private cSharpProvider = CodeDomProvider.CreateProvider("CSharp");
-
-        let toLiteral str = 
-            use writer = new StringWriter()
-            cSharpProvider.GenerateCodeFromExpression(CodePrimitiveExpression(str), writer, null)
-            string writer
-
-    let fluentPropertyExtensionMethod (self: Type) (property: PropertyInfo) = 
-
+        let self = property.declaringType
         let selfTypeParameterName = "SelfT"
     
         let selfTypeName = Syntax.typeName self
 
-        let isSealed = self.IsSealed
-
+        let isSealed = Type.isSealed self
+        
         let selfTypeParameter = 
             if isSealed then
                 selfTypeName
@@ -112,109 +61,74 @@ module Generate =
             |> Syntax.formatTypeArguments
         
         let attributes = 
-            let obsoleteAttribute = property.GetCustomAttribute<ObsoleteAttribute>()
-            if obsoleteAttribute <> null then
+            let obsoleteAttribute = property.attribute<ObsoleteAttribute>()
+            match obsoleteAttribute with
+            | None -> [||]
+            | Some attr ->
                 [| 
-                    sprintf "[System.Obsolete(%s)]" (toLiteral obsoleteAttribute.Message) 
+                    sprintf "[System.Obsolete(%s)]" (Format.literal attr.Message) 
                 |]
-            else [||]
 
-        block [
+        Format.block [
             attributes
             sprintf "public static %s %s%s(this %s, %s)"
-                selfTypeParameter.name property.Name typeParameters (parameter selfTypeParameter "self") (parameter (Syntax.typeName property.PropertyType) "value")
-            indent (constraints |> List.map (string >> box))
+                selfTypeParameter.name property.name typeParameters (Format.parameter selfTypeParameter "self") (Format.parameter (Syntax.typeName property.valueType) "value")
+            Format.indent (constraints |> List.map (string >> box))
             [ 
-                sprintf "self.%s = value;" property.Name
+                sprintf "self.%s = value;" property.name
                 sprintf "return self;"
             ]
         ]
     
-    let typeProperties (properties: FluentTypeProperties) =
+    let private fluentPropertiesClass (properties: Property list) = 
+        let t = List.head properties |> fun p -> p.declaringType
         let methods = 
-            properties.properties
-            |> List.map (fluentPropertyExtensionMethod properties.t)
+            properties
+            |> List.map fluentPropertyExtensionMethod
 
-        staticClass (propertiesClassName properties.t) methods
+        staticClass (propertiesClassName t) methods
 
-    let assembly (assembly: FluentAssembly) =
-        
-        let mkNamespace (name: string) (types: FluentTypeProperties list) = 
-            let generatedClasses = 
-                types 
-                |> List.map typeProperties
+    let fluentProperties (assembly: SystemAssembly) = 
+        let properties = 
+            assembly
+            |> Assembly.types
+            |> Seq.filter(Type.isStatic >> not)
+            |> Seq.map (fun t -> t.properties)
+            |> Seq.collect id
+            |> Seq.filter Property.isWritable
+            |> Seq.toList
 
-            block [
+        let mkTypeProperties (properties: Property list) =
+            properties
+            |> List.groupBy (fun p -> p.declaringType)
+            |> List.map snd
+            |> List.filter (List.isEmpty >> not)
+            |> List.map fluentPropertiesClass
+
+        let mkNamespace (name: string) (properties: Property list) = 
+            let classes = 
+                properties |> mkTypeProperties
+
+            Format.block [
                 sprintf "namespace %s" name
                 [
-                    yield! generatedClasses
+                    yield! classes
                 ]
             ]
-        
-        assembly.types
-        |> List.groupBy (fun tp -> tp.t.Namespace)
-        |> List.map (fun (ns, tp) -> mkNamespace ns tp)
-        |> Block
 
-    // inserts empty lines in between blocks.
-    let rec format (c: Code) = 
-        
-        let isBlock = function 
-            | Block _ -> true
-            | _ -> false
+        properties
+            |> List.groupBy (fun p -> p.declaringNamespace)
+            |> List.map (fun (ns, properties) -> mkNamespace ns properties)
+            |> Format.Block
 
-        let mapFoldBlock blockBefore code = 
-            let blockNow = isBlock code
-            match blockBefore, blockNow with
-            | true, true ->
-                ([Line ""; code], blockNow)
-            | _ -> 
-                ([code], blockNow)
-        
-        match c with
-        | Scope scope -> format scope |> Scope
-        | Block blocks ->
-            blocks
-            |> List.map format
-            |> List.mapFold mapFoldBlock false
-            |> fst
-            |> List.collect id
-            |> Block
-
-        | Line l -> c
-        | Parts lines -> c
-        | Indent indent -> format indent |> Indent
-
-    let sourceLines (c: Code) =
-        
-        let c = format c
-
-        let rec lines indent (c: Code) =
-            match c with
-            | Line l -> Seq.singleton (indent + l)
-            | Parts parts -> 
-                parts
-                |> Seq.map (lines indent)
-                |> Seq.collect id
-            | Block block -> 
-                block
-                |> Seq.map (lines indent)
-                |> Seq.collect id
-            | Scope code ->
-                let l = 
-                    code |> lines (indent + "\t")
-
-                seq {
-                    yield indent + "{"
-                    yield! l
-                    yield indent + "}"
-                }
-            | Indent code ->
-                code |> lines (indent + "\t")
-
-        lines "" c
+    let fluentTypeProperties (t: Type) = 
+        let properties = t.properties
+        match properties with
+        | [] -> Format.Block []
+        | _ -> fluentPropertiesClass properties
 
         
+        
 
- 
+        
 
