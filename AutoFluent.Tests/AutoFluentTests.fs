@@ -75,7 +75,7 @@ module Helper =
 [<TestFixture>]
 type AutoFluentTests() =
 
-    [<Test>] 
+    [<Test; Category("LongRunning")>] 
     member this.xamarinForms() = 
         let assembly = "Xamarin.Forms.Core" |> Assembly.Load
         AutoFluent.propertiesOfAssembly assembly
@@ -89,7 +89,7 @@ type AutoFluentTests() =
     // hmm, our way of loading assemblies must be refined here, we load the
     // 4.6er assemblies, but actually want the reference assemblies for the
     // platform we are compiling for and not we are running on
-    [<Test>] 
+    [<Test; Category("LongRunning")>] 
     member this.WPFPresentationCore() = 
         let assembly = "PresentationCore" |> Assembly.Load
         printfn "%A" assembly.FullName
@@ -102,7 +102,7 @@ type AutoFluentTests() =
             ["WindowsBase.dll"; "System.Xaml.dll"]
         |> should equal 0
 *)      
-    [<Test>] 
+    [<Test; Category("LongRunning")>] 
     member this.WPFPresentationFramework() = 
         let assembly = "PresentationFramework" |> Assembly.Load
         assembly
