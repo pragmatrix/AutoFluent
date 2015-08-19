@@ -1,4 +1,5 @@
 test:
-	categories:
-		except:
-			- LongRunning
+  categories:
+    except:
+      - LongRunning
+
