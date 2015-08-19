@@ -39,7 +39,7 @@ module Helper =
         |> Generate.typeProperties
         |> Generate.sourceLines
 
-    let defaultRefs = 
+    let defaultDLLs = 
         [|
             "System.Runtime.dll"
             "System.ObjectModel.dll"
@@ -48,14 +48,18 @@ module Helper =
             "System.Threading.Tasks.dll"
         |]
 
-    let compileAndDumpSource (assembly: Assembly) source = 
+    let compileAndDumpSource (assembly: Assembly) (dependentDlls : string list) source = 
         let source = Syntax.join "\n" (source |> Seq.toList)
         use codeProvider = new CSharpCodeProvider()
         let parameters = CompilerParameters()
+        // /filealign:512"
+        // filealign seems to be already set to 512
+        parameters.CompilerOptions <- "/optimize" 
         parameters.WarningLevel <- 4
         let refs = parameters.ReferencedAssemblies
         refs.Add(assembly.GetName().Name + ".dll") |> ignore
-        refs.AddRange(defaultRefs)
+        refs.AddRange(defaultDLLs)
+        refs.AddRange(dependentDlls |> List.toArray)
         let results = codeProvider.CompileAssemblyFromSource(parameters, [|source|])
         if results.Errors.Count <> 0 then
             for err in results.Errors do
@@ -63,7 +67,10 @@ module Helper =
             System.Console.Write source
             failwith "COMPILATION ERROR"
         else
+        let assembly = results.CompiledAssembly
+        let filepath = Uri(assembly.CodeBase).AbsolutePath
         System.Console.Write source
+        FileInfo(filepath).Length
 
 [<TestFixture>]
 type AutoFluentTests() =
@@ -74,25 +81,38 @@ type AutoFluentTests() =
         AutoFluent.propertiesOfAssembly assembly
         |> Generate.assembly
         |> Generate.sourceLines
-        |> compileAndDumpSource assembly
+        |> compileAndDumpSource assembly []
+        |> should equal 103936
 
     [<Test>] 
     member this.WPFPresentationCore() = 
-        let assemblyToLoad = "PresentationCore" |> Assembly.Load
-        let assembly = AutoFluent.propertiesOfAssembly assemblyToLoad
-        assembly
+        let assembly = "PresentationCore" |> Assembly.Load
+        assembly 
+        |> AutoFluent.propertiesOfAssembly
         |> Generate.assembly
         |> Generate.sourceLines
-        |> Seq.iter System.Console.WriteLine    
+        |> compileAndDumpSource assembly ["WindowsBase.dll"; "System.Xaml.dll"]
+        |> should equal 0
         
     [<Test>] 
     member this.WPFPresentationFramework() = 
-        let assemblyToLoad = "PresentationFramework" |> Assembly.Load
-        let assembly = AutoFluent.propertiesOfAssembly assemblyToLoad
+        let assembly = "PresentationFramework" |> Assembly.Load
         assembly
+        |> AutoFluent.propertiesOfAssembly
         |> Generate.assembly
         |> Generate.sourceLines
-        |> Seq.iter System.Console.WriteLine
+        |> compileAndDumpSource assembly 
+            [
+                "System.Printing.dll"
+                "UIAutomationProvider.dll"
+                "System.Xml.dll"
+                "PresentationCore.dll"
+                "PresentationFramework.dll"
+                "WindowsBase.dll"
+                "System.Xaml.dll"
+                "ReachFramework.dll"
+            ]
+        |> should equal 720384
     
     [<Test>]
     member this.formatInsertsEmptyLineBetweenBlocks() = 
