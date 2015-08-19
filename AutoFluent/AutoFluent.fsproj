@@ -51,8 +51,8 @@
   <Import Project="$(FSharpTargetsPath)" />
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
-    <Compile Include="AutoFluent.fs" />
     <Compile Include="Syntax.fs" />
+    <Compile Include="AutoFluent.fs" />
     <Compile Include="Generate.fs" />
   </ItemGroup>
   <ItemGroup>

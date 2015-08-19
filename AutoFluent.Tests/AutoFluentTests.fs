@@ -82,7 +82,7 @@ type AutoFluentTests() =
         |> Generate.assembly
         |> Generate.sourceLines
         |> compileAndDumpSource assembly []
-        |> should equal 103936
+        |> should equal 30208
 
 
 (*
@@ -120,7 +120,7 @@ type AutoFluentTests() =
                 "System.Xaml.dll"
                 "ReachFramework.dll"
             ]
-        |> should equal 720384
+        |> should equal 130560
     
     [<Test>]
     member this.formatInsertsEmptyLineBetweenBlocks() = 

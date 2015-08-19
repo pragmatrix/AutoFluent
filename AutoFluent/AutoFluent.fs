@@ -17,7 +17,7 @@ module AutoFluent =
             (not p.IsSpecialName) && setMethod <> null && setMethod.GetParameters().Length = 1
 
         let properties =
-            t.GetProperties(BindingFlags.Public ||| BindingFlags.Instance)
+            t.GetProperties(BindingFlags.Public ||| BindingFlags.Instance ||| BindingFlags.DeclaredOnly)
             |> Array.filter canProcess
             |> Array.toList
         
