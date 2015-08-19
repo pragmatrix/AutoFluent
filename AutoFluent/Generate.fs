@@ -88,7 +88,7 @@ module Generate =
 
         staticClass (propertiesClassName t) methods
 
-    let fluentProperties (assembly: SystemAssembly) = 
+    let fluentProperties (assembly: Assembly) = 
         let properties = 
             assembly
             |> Assembly.types

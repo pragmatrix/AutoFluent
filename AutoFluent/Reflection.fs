@@ -5,7 +5,6 @@ open System.Reflection
 
 module Reflection = 
 
-    type SystemAssembly = System.Reflection.Assembly
     type SystemType = System.Type
 
     type Type = Type of SystemType
@@ -29,7 +28,7 @@ module Reflection =
 
     [<CompilationRepresentation(CompilationRepresentationFlags.ModuleSuffix)>]
     module Assembly = 
-        let types (assembly: SystemAssembly) = 
+        let types (assembly: Assembly) = 
             assembly.GetTypes()
             |> Seq.filter (fun t -> t.IsPublic)
             |> Seq.map Type
