@@ -52,6 +52,7 @@ module Helper =
         let source = Syntax.join "\n" (source |> Seq.toList)
         use codeProvider = new CSharpCodeProvider()
         let parameters = CompilerParameters()
+        parameters.WarningLevel <- 4
         let refs = parameters.ReferencedAssemblies
         refs.Add(assembly.GetName().Name + ".dll") |> ignore
         refs.AddRange(defaultRefs)

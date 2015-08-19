@@ -4,12 +4,15 @@ open AutoFluent
 
 open System
 open System.Reflection
+open System.CodeDom.Compiler
 
 module Generate =
 
     [<AutoOpen>]
     module Helper = 
         open Syntax
+        open System.IO
+        open System.CodeDom
 
         let returnType (t: Type) = typeName t
 
@@ -19,6 +22,7 @@ module Generate =
         type Code = 
             | Scope of Code
             | Block of Code list
+            | Parts of Code list
             | Indent of Code
             | Line of string
 
@@ -29,6 +33,7 @@ module Generate =
             | :? string as s -> Line s
             | :? (obj list) as objs -> objs |> List.map toCode |> Block |> Scope
             | :? (string list) as block -> block |> List.map Line |> Block |> Scope
+            | :? (string array) as lines -> lines |> Array.map Line |> Array.toList |> Parts
             | :? (Code list) as block -> block |> Block |> Scope
             | :? Code as c -> c
             | _ -> failwithf "invalid type %s in code" (o.GetType().Name)
@@ -64,6 +69,13 @@ module Generate =
                 ]
             ]
 
+        let private cSharpProvider = CodeDomProvider.CreateProvider("CSharp");
+
+        let toLiteral str = 
+            use writer = new StringWriter()
+            cSharpProvider.GenerateCodeFromExpression(CodePrimitiveExpression(str), writer, null)
+            string writer
+
     let fluentPropertyExtensionMethod (self: Type) (property: PropertyInfo) = 
 
         let selfTypeParameterName = "SelfT"
@@ -97,7 +109,16 @@ module Generate =
                 selfTypeParameterName :: selfTypeName.allParameters
             |> Syntax.formatTypeArguments
         
+        let attributes = 
+            let obsoleteAttribute = property.GetCustomAttribute<ObsoleteAttribute>()
+            if obsoleteAttribute <> null then
+                [| 
+                    sprintf "[System.Obsolete(%s)]" (toLiteral obsoleteAttribute.Message) 
+                |]
+            else [||]
+
         block [
+            attributes
             sprintf "public static %s %s%s(this %s, %s)"
                 selfTypeParameter.name property.Name typeParameters (parameter selfTypeParameter "self") (parameter (Syntax.typeName property.PropertyType) "value")
             indent (constraints |> List.map (string >> box))
@@ -159,6 +180,7 @@ module Generate =
             |> Block
 
         | Line l -> c
+        | Parts lines -> c
         | Indent indent -> format indent |> Indent
 
     let sourceLines (c: Code) =
@@ -168,6 +190,10 @@ module Generate =
         let rec lines indent (c: Code) =
             match c with
             | Line l -> Seq.singleton (indent + l)
+            | Parts parts -> 
+                parts
+                |> Seq.map (lines indent)
+                |> Seq.collect id
             | Block block -> 
                 block
                 |> Seq.map (lines indent)
