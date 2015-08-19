@@ -84,16 +84,24 @@ type AutoFluentTests() =
         |> compileAndDumpSource assembly []
         |> should equal 103936
 
+
+(*
+    // hmm, our way of loading assemblies must be refined here, we load the
+    // 4.6er assemblies, but actually want the reference assemblies for the
+    // platform we are compiling for and not we are running on
     [<Test>] 
     member this.WPFPresentationCore() = 
         let assembly = "PresentationCore" |> Assembly.Load
+        printfn "%A" assembly.FullName
+        printfn "%A" assembly.CodeBase
         assembly 
         |> AutoFluent.propertiesOfAssembly
         |> Generate.assembly
         |> Generate.sourceLines
-        |> compileAndDumpSource assembly ["WindowsBase.dll"; "System.Xaml.dll"]
+        |> compileAndDumpSource assembly 
+            ["WindowsBase.dll"; "System.Xaml.dll"]
         |> should equal 0
-        
+*)      
     [<Test>] 
     member this.WPFPresentationFramework() = 
         let assembly = "PresentationFramework" |> Assembly.Load
