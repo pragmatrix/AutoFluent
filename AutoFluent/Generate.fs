@@ -66,24 +66,40 @@ module Generate =
 
     let fluentPropertyExtensionMethod (self: Type) (property: PropertyInfo) = 
 
-        let selfTypeParameterName = "_SelfT"
-        let selfTypeParameter = Syntax.TypeParameter selfTypeParameterName
-
+        let selfTypeParameterName = "SelfT"
+    
         let selfTypeName = Syntax.typeName self
 
-        let selfConstraint = 
-            let c = Syntax.TypeConstraint selfTypeName
-            Syntax.ConstraintsClause(selfTypeParameterName, [c])
+        let isSealed = self.IsSealed
 
-        let constraints = selfConstraint :: Syntax.typeConstraints self
+        let selfTypeParameter = 
+            if isSealed then
+                selfTypeName
+            else
+                Syntax.TypeParameter selfTypeParameterName
 
-        let typeParameters = 
-            selfTypeParameterName :: selfTypeName.allParameters
+        let constraints = 
+            let typeConstraints = Syntax.typeConstraints self
+
+            if isSealed then
+                typeConstraints
+            else
+            let selfConstraint = 
+                let c = Syntax.TypeConstraint selfTypeName
+                Syntax.ConstraintsClause(selfTypeParameterName, [c])
+
+            selfConstraint :: Syntax.typeConstraints self
+
+        let typeParameters =
+            if isSealed then
+                selfTypeName.allParameters
+            else
+                selfTypeParameterName :: selfTypeName.allParameters
             |> Syntax.formatTypeArguments
         
         block [
             sprintf "public static %s %s%s(this %s, %s)"
-                selfTypeParameterName property.Name typeParameters (parameter selfTypeParameter "self") (parameter (Syntax.typeName property.PropertyType) "value")
+                selfTypeParameter.name property.Name typeParameters (parameter selfTypeParameter "self") (parameter (Syntax.typeName property.PropertyType) "value")
             indent (constraints |> List.map (string >> box))
             [ 
                 sprintf "self.%s = value;" property.Name

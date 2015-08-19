@@ -57,13 +57,16 @@
     <Compile Include="AutoFluentTests.fs" />
     <Content Include="packages.config" />
     <Content Include="app.config" />
+    <None Include="SealedTypeWithProperty.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="TypeWithGenericProperty.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="GenericTypeWithProperty.cs">
+    <None Include="GenericTypeWithConstraintAndProperty.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="GenericTypeWithConstraintAndProperty.cs">
+    <None Include="GenericTypeWithProperty.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
