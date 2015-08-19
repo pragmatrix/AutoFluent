@@ -5,8 +5,8 @@ open System.Reflection
 
 module Reflection = 
 
-    type SystemType = System.Type
     type SystemAssembly = System.Reflection.Assembly
+    type SystemType = System.Type
 
     type Type = Type of SystemType
         with
@@ -28,6 +28,14 @@ module Reflection =
         member this.attribute() : 't option = this.sys.GetCustomAttribute<'t>() |> Option.ofObj
 
     [<CompilationRepresentation(CompilationRepresentationFlags.ModuleSuffix)>]
+    module Assembly = 
+        let types (assembly: SystemAssembly) = 
+            assembly.GetTypes()
+            |> Seq.filter (fun t -> t.IsPublic)
+            |> Seq.map Type
+            |> Seq.toList
+
+    [<CompilationRepresentation(CompilationRepresentationFlags.ModuleSuffix)>]
     module Type =
         let isSealed (Type t) = t.IsSealed
         let isAbstract (Type t) = t.IsAbstract
@@ -42,10 +50,3 @@ module Reflection =
             let sm = p.GetSetMethod() 
             sm <> null && sm.GetParameters().Length = 1
 
-    [<CompilationRepresentation(CompilationRepresentationFlags.ModuleSuffix)>]
-    module Assembly = 
-        let types (assembly: SystemAssembly) = 
-            assembly.GetTypes()
-            |> Seq.filter (fun t -> t.IsPublic)
-            |> Seq.map Type
-            |> Seq.toList
