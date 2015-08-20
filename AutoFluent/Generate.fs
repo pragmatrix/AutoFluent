@@ -69,6 +69,8 @@ module Generate =
 
     let private extensionMethod (em: MethodDef) = 
 
+        assert(em.self.IsSome)
+
         let parameters = 
             em.parameters
             |> List.map string
@@ -112,18 +114,22 @@ module Generate =
 
         let m = 
             let constraints = Syntax.typeConstraints self 
-
+            let selfTypeParameters = selfTypeName.allParameters
             if isSealed then
-                { m with self = Some selfTypeName; typeParameters = selfTypeName.allParameters; constraints = constraints }
+                { m with 
+                    self = Some selfTypeName
+                    typeParameters = selfTypeParameters
+                    constraints = constraints 
+                }
             else
-                let sc = 
+                let selfConstraints = 
                     let c = Syntax.TypeConstraint selfTypeName
                     Syntax.ConstraintsClause(selfTypeParameterName, [c])
                     
                 { m with 
                     self = Syntax.TypeParameter selfTypeParameterName |> Some
-                    typeParameters = selfTypeParameterName :: selfTypeName.allParameters
-                    constraints = sc :: constraints 
+                    typeParameters = selfTypeParameterName :: selfTypeParameters
+                    constraints = selfConstraints :: constraints 
                 }
         m |> extensionMethod
         
