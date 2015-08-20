@@ -26,6 +26,69 @@ module Generate =
             ]
         ]
 
+    type Parameter =  
+        {
+            typeName: Syntax.TypeName;
+            name: string
+        }
+        with
+        override this.ToString() = Format.parameter this.typeName this.name
+        static member mk tn n = { typeName = tn; name = n}
+
+
+    type MethodDef =
+        { 
+            attributes: string[]
+            name: string
+            parameters: Parameter list
+          
+            // generics
+            typeParameters: string list
+            self: Syntax.TypeName option
+            constraints: Syntax.ConstraintsClause list
+
+            // body
+            propertyToAssign: string
+        }
+        static member mk attributes name parameters =
+            {
+                attributes = attributes
+                name = name
+                parameters = parameters
+
+                // this (extension method)
+                self = None
+
+                // generics
+                typeParameters = []
+                constraints = []
+               
+                // body
+                propertyToAssign = ""
+            }
+
+    let private extensionMethod (em: MethodDef) = 
+
+        let parameters = 
+            em.parameters
+            |> List.map string
+            |> Syntax.join ", "
+
+        let typeParameters = 
+            em.typeParameters
+            |> Syntax.formatTypeArguments
+
+        Format.block [
+            em.attributes
+            sprintf "public static %s %s%s(this %s, %s)"
+                em.self.Value.name em.name typeParameters (Format.parameter em.self.Value "self") parameters
+            Format.indent (em.constraints |> List.map (string >> box))
+            [ 
+                sprintf "self.%s = value;" em.propertyToAssign
+                sprintf "return self;"
+            ]
+        ]
+
     let private fluentPropertyExtensionMethod (property: Property) = 
 
         let self = property.declaringType
@@ -34,31 +97,6 @@ module Generate =
         let selfTypeName = Syntax.typeName self
 
         let isSealed = Type.isSealed self
-        
-        let selfTypeParameter = 
-            if isSealed then
-                selfTypeName
-            else
-                Syntax.TypeParameter selfTypeParameterName
-
-        let constraints = 
-            let typeConstraints = Syntax.typeConstraints self
-
-            if isSealed then
-                typeConstraints
-            else
-            let selfConstraint = 
-                let c = Syntax.TypeConstraint selfTypeName
-                Syntax.ConstraintsClause(selfTypeParameterName, [c])
-
-            selfConstraint :: Syntax.typeConstraints self
-
-        let typeParameters =
-            if isSealed then
-                selfTypeName.allParameters
-            else
-                selfTypeParameterName :: selfTypeName.allParameters
-            |> Syntax.formatTypeArguments
         
         let attributes = 
             let obsoleteAttribute = property.attribute<ObsoleteAttribute>()
@@ -69,16 +107,26 @@ module Generate =
                     sprintf "[System.Obsolete(%s)]" (Format.literal attr.Message) 
                 |]
 
-        Format.block [
-            attributes
-            sprintf "public static %s %s%s(this %s, %s)"
-                selfTypeParameter.name property.name typeParameters (Format.parameter selfTypeParameter "self") (Format.parameter (Syntax.typeName property.valueType) "value")
-            Format.indent (constraints |> List.map (string >> box))
-            [ 
-                sprintf "self.%s = value;" property.name
-                sprintf "return self;"
-            ]
-        ]
+        let m = MethodDef.mk attributes property.name [Parameter.mk (Syntax.typeName property.valueType) "value"]
+        let m = { m with propertyToAssign = property.name }
+
+        let m = 
+            let constraints = Syntax.typeConstraints self 
+
+            if isSealed then
+                { m with self = Some selfTypeName; typeParameters = selfTypeName.allParameters; constraints = constraints }
+            else
+                let sc = 
+                    let c = Syntax.TypeConstraint selfTypeName
+                    Syntax.ConstraintsClause(selfTypeParameterName, [c])
+                    
+                { m with 
+                    self = Syntax.TypeParameter selfTypeParameterName |> Some
+                    typeParameters = selfTypeParameterName :: selfTypeName.allParameters
+                    constraints = sc :: constraints 
+                }
+        m |> extensionMethod
+        
     
     let private fluentPropertiesClass (properties: Property list) = 
         let t = List.head properties |> fun p -> p.declaringType
