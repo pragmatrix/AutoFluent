@@ -155,8 +155,8 @@ module Syntax =
         if first.ParameterType <> objType then None else
         let parameterTypeNames = 
             param 
-            |> Seq.map (fun p -> p.ParameterType |> typeName)
             |> Seq.skip 1
+            |> Seq.map (fun p -> p.ParameterType |> typeName)
             |> Seq.toList
 
         TypeName (actionTypeName, (typeName promoted) :: parameterTypeNames)
