@@ -153,9 +153,10 @@ module Syntax =
         let first = param.[0]
         if first.Name <> "sender" then None else
         if first.ParameterType <> objType then None else
-        let _::parameterTypeNames = 
+        let parameterTypeNames = 
             param 
             |> Seq.map (fun p -> p.ParameterType |> typeName)
+            |> Seq.skip 1
             |> Seq.toList
 
         TypeName (actionTypeName, (typeName promoted) :: parameterTypeNames)
