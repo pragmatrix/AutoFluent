@@ -73,12 +73,19 @@ module Syntax =
 
     module Helper = 
 
-        let rec typeName (t: SystemType) = 
+        let qualifiedName (t: Type) = 
+            // For some events, t.FullName is null, even though
+            // namespace and name is properly set, so we use
+            // Namespace and the Name as the "full" name instead.
+            t.Namespace + "." + t.Name
+
+        let rec typeName (t: Type) = 
             if t.IsGenericParameter then
                 TypeParameter t.Name
             else
+            let qName = qualifiedName t
             if not t.IsGenericType then
-                TypeName (t.FullName, [])
+                TypeName (qName, [])
             else
             let args = 
                 t.GetGenericArguments()
@@ -86,22 +93,21 @@ module Syntax =
                 |> Array.toList
 
             let name = 
-                let name = t.FullName
-                let i = name.IndexOf('`');
-                if i = -1 then name
-                else name.Remove i
+                let i = qName.IndexOf('`');
+                if i = -1 then qName
+                else qName.Remove i
 
             TypeName (name, args)
 
         // https://msdn.microsoft.com/en-us/library/d5x73970.aspx
         // https://msdn.microsoft.com/en-us/library/system.type.getgenericparameterconstraints.aspx
 
-        let typeConstraints (t: SystemType) : ConstraintsClause list =
+        let typeConstraints (t: Type) : ConstraintsClause list =
 
             if not t.IsGenericType then []
             else
 
-            let ofArgument (t: SystemType) = 
+            let ofArgument (t: Type) = 
                 let constraintTypes = t.GetGenericParameterConstraints()
                 let attributes = t.GenericParameterAttributes
                 let variance = attributes &&& GenericParameterAttributes.VarianceMask
@@ -132,6 +138,6 @@ module Syntax =
             |> Seq.map (fun (arg, constraints) -> ConstraintsClause ((typeName arg |> string), constraints))
             |> Seq.toList
 
-    let typeName (Type t) = Helper.typeName t
-    let typeConstraints (Type t) = Helper.typeConstraints t
+    let typeName (t: Type) = Helper.typeName t
+    let typeConstraints (t: Type) = Helper.typeConstraints t
 

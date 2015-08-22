@@ -18,7 +18,6 @@ type SyntaxTests() =
     member this.simpleTypeConstraint() =
         let r = 
             typedefof<SimpleTypeConstraint<_>>
-            |> Type
             |> typeConstraints  
             |> List.map string
         r |> should equal ["where T : System.Exception"]
@@ -27,7 +26,6 @@ type SyntaxTests() =
     member this.genericTypeName() = 
         let r = 
             typedefof<List<_>> 
-            |> Type
             |> typeName |> string
         r |> should equal "Microsoft.FSharp.Collections.FSharpList<T>"
 

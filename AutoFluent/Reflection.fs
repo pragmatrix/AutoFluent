@@ -5,47 +5,46 @@ open System.Reflection
 
 module Reflection = 
 
-    type SystemType = System.Type
-
-    type Type = Type of SystemType
+    type Type 
         with
-        member this.value = let (Type v) = this in v
-        member this.ns = this.value.Namespace
         member this.properties = 
-            this.value.GetProperties(BindingFlags.Public ||| BindingFlags.Instance ||| BindingFlags.DeclaredOnly) 
-            |> Seq.map Property 
+            this.GetProperties(BindingFlags.Public ||| BindingFlags.Instance ||| BindingFlags.DeclaredOnly) 
             |> Seq.toList
-        member this.attribute() : 't option = this.value.GetCustomAttribute<'t>() |> Option.ofObj
+        member this.events = 
+            this.GetEvents(BindingFlags.Public ||| BindingFlags.Instance ||| BindingFlags.DeclaredOnly)
+            |> Seq.toList
 
-    and Property = Property of PropertyInfo
-        with
-        member this.sys = let (Property value) = this in value
-        member this.valueType = this.sys.PropertyType |> Type
-        member this.name = this.sys.Name
-        member this.declaringType = this.sys.DeclaringType |> Type
-        member this.declaringNamespace = this.declaringType.ns
-        member this.attribute() : 't option = this.sys.GetCustomAttribute<'t>() |> Option.ofObj
+    type Event = EventInfo
+    type Property = PropertyInfo
+    type Type = System.Type
 
     [<CompilationRepresentation(CompilationRepresentationFlags.ModuleSuffix)>]
     module Assembly = 
         let types (assembly: Assembly) = 
             assembly.GetTypes()
             |> Seq.filter (fun t -> t.IsPublic)
-            |> Seq.map Type
             |> Seq.toList
 
     [<CompilationRepresentation(CompilationRepresentationFlags.ModuleSuffix)>]
     module Type =
-        let isSealed (Type t) = t.IsSealed
-        let isAbstract (Type t) = t.IsAbstract
+        let isSealed (t: Type) = t.IsSealed
+        let isAbstract (t: Type) = t.IsAbstract
         let isStatic t = (isSealed t) && (isAbstract t)
 
     [<CompilationRepresentation(CompilationRepresentationFlags.ModuleSuffix)>]
     module Property = 
-        let isReadable (Property p) = 
+        let isReadable (p: Property) = 
             let gm = p.GetGetMethod()
             gm <> null && gm.GetParameters().Length = 0
-        let isWritable (Property p) = 
+        let isWritable (p: Property) = 
             let sm = p.GetSetMethod() 
             sm <> null && sm.GetParameters().Length = 1
 
+    [<CompilationRepresentation(CompilationRepresentationFlags.ModuleSuffix)>]
+    module Event = 
+        let canAddHandler (e: Event) =
+            let am = e.GetAddMethod()
+            am <> null && am.GetParameters().Length = 1
+        let canRemoveHandler (e: Event) =
+            let rm = e.GetRemoveMethod()
+            rm <> null && rm.GetParameters().Length = 1

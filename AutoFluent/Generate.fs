@@ -8,7 +8,7 @@ open Reflection
 
 module Generate =
 
-    let private propertiesClassName (t: Type) =
+    let private className (discriminator: string) (t: Type) = 
         let tn = Syntax.typeName t
             
         let genericDiscriminator = 
@@ -16,7 +16,10 @@ module Generate =
             | [] -> ""
             | args -> List.length args |> string
                
-        tn.localName + "FluentProperties" + genericDiscriminator
+        tn.localName + discriminator + genericDiscriminator
+
+    let private propertiesClassName = className "FluentProperties"
+    let private eventsClassName = className "FluentEvents"
 
     let private staticClass (name: string) (blocks: Format.Code list) =
         Format.block [
@@ -47,8 +50,7 @@ module Generate =
             self: Syntax.TypeName option
             constraints: Syntax.ConstraintsClause list
 
-            // body
-            propertyToAssign: string
+            code: string
         }
         static member mk attributes name parameters =
             {
@@ -62,55 +64,62 @@ module Generate =
                 // generics
                 typeParameters = []
                 constraints = []
-               
-                // body
-                propertyToAssign = ""
+
+                code = ""
             }
 
-    let private extensionMethod (em: MethodDef) = 
+    let private extensionMethod (md: MethodDef) = 
 
-        assert(em.self.IsSome)
+        assert(md.self.IsSome)
 
         let parameters = 
-            em.parameters
+            md.parameters
             |> List.map string
             |> Syntax.join ", "
 
         let typeParameters = 
-            em.typeParameters
+            md.typeParameters
             |> Syntax.formatTypeArguments
 
         Format.block [
-            em.attributes
+            md.attributes
             sprintf "public static %s %s%s(this %s, %s)"
-                em.self.Value.name em.name typeParameters (Format.parameter em.self.Value "self") parameters
-            Format.indent (em.constraints |> List.map (string >> box))
+                md.self.Value.name md.name typeParameters (Format.parameter md.self.Value "self") parameters
+            Format.indent (md.constraints |> List.map (string >> box))
             [ 
-                sprintf "self.%s = value;" em.propertyToAssign
+                md.code
                 sprintf "return self;"
             ]
         ]
 
-    let private fluentPropertyExtensionMethod (property: Property) = 
+    let private promoteAttributes (mi: MemberInfo) =
+        let obsoleteAttribute = mi.GetCustomAttribute<ObsoleteAttribute>()
+        match obsoleteAttribute with
+        | null -> [||]
+        | attr ->
+            [| 
+                sprintf "[System.Obsolete(%s)]" (Format.literal attr.Message) 
+            |]
 
-        let self = property.declaringType
+    let private fluentExtensionMethod 
+        (t: Type)
+        (valueName: string) 
+        (methodNameF: string -> string) 
+        (codeF: string -> string)
+        (m: MemberInfo) = 
+
+        let name = m.Name
+        let self = m.DeclaringType
         let selfTypeParameterName = "SelfT"
     
         let selfTypeName = Syntax.typeName self
 
         let isSealed = Type.isSealed self
         
-        let attributes = 
-            let obsoleteAttribute = property.attribute<ObsoleteAttribute>()
-            match obsoleteAttribute with
-            | None -> [||]
-            | Some attr ->
-                [| 
-                    sprintf "[System.Obsolete(%s)]" (Format.literal attr.Message) 
-                |]
+        let attributes = promoteAttributes m
 
-        let m = MethodDef.mk attributes property.name [Parameter.mk (Syntax.typeName property.valueType) "value"]
-        let m = { m with propertyToAssign = property.name }
+        let m = MethodDef.mk attributes (methodNameF name) [Parameter.mk (Syntax.typeName t) valueName]
+        let m = { m with code = codeF name }
 
         let m = 
             let constraints = Syntax.typeConstraints self 
@@ -133,35 +142,54 @@ module Generate =
                 }
         m |> extensionMethod
         
+    let private fluentPropertyExtensionMethod (property: Property) = 
+        fluentExtensionMethod property.PropertyType "value" id (sprintf "self.%s = value;") (property :> MemberInfo)
+
+    let private fluentEventExtensionMethod (event: Event) = 
+        fluentExtensionMethod event.EventHandlerType "handler" (fun name -> "When" + name) (sprintf "self.%s += handler;") (event :> MemberInfo)
     
-    let private fluentPropertiesClass (properties: Property list) = 
-        let t = List.head properties |> fun p -> p.declaringType
+    let private mkFluentPropertiesClass (properties: Property list) = 
+        let t = List.head properties |> fun p -> p.DeclaringType
         let methods = 
             properties
             |> List.map fluentPropertyExtensionMethod
 
         staticClass (propertiesClassName t) methods
 
-    let fluentProperties (assembly: Assembly) = 
+    let private mkFluentEventsClass (events: Event list) = 
+        let t = List.head events |> fun p -> p.DeclaringType
+        let methods = 
+            events
+            |> List.map fluentEventExtensionMethod
+
+        staticClass (eventsClassName t) methods
+
+    let private classesForEachType (generator: 't list -> Format.Code) (members: 't list when 't :> MemberInfo)  = 
+        members
+        |> List.groupBy (fun p -> p.DeclaringType)
+        |> List.map snd
+        |> List.filter (List.isEmpty >> not)
+        |> List.map generator
+
+    let mkFluent 
+        (map: Type -> 't list when 't :> MemberInfo) 
+        (filter: 't -> bool) 
+        (generator: 't list -> Format.Code) (assembly: Assembly) = 
+        
         let properties = 
             assembly
             |> Assembly.types
             |> Seq.filter(Type.isStatic >> not)
-            |> Seq.map (fun t -> t.properties)
+            |> Seq.map map
             |> Seq.collect id
-            |> Seq.filter Property.isWritable
+            |> Seq.filter filter
             |> Seq.toList
 
-        let mkTypeProperties (properties: Property list) =
-            properties
-            |> List.groupBy (fun p -> p.declaringType)
-            |> List.map snd
-            |> List.filter (List.isEmpty >> not)
-            |> List.map fluentPropertiesClass
+        let mkClassesForEachType = classesForEachType generator
 
-        let mkNamespace (name: string) (properties: Property list) = 
+        let mkNamespace (name: string) (members: 't list) = 
             let classes = 
-                properties |> mkTypeProperties
+                members |> mkClassesForEachType
 
             Format.block [
                 sprintf "namespace %s" name
@@ -171,17 +199,29 @@ module Generate =
             ]
 
         properties
-            |> List.groupBy (fun p -> p.declaringNamespace)
-            |> List.map (fun (ns, properties) -> mkNamespace ns properties)
+            |> List.groupBy (fun p -> p.DeclaringType.Namespace)
+            |> List.map (fun (ns, events) -> mkNamespace ns events)
             |> Format.Block
+
+    let fluentEvents = mkFluent (fun t -> t.events) Event.canAddHandler mkFluentEventsClass
+    let fluentProperties = mkFluent (fun t -> t.properties) Property.isWritable mkFluentPropertiesClass
 
     let fluentTypeProperties (t: Type) = 
         let properties = t.properties
         match properties with
         | [] -> Format.Block []
-        | _ -> fluentPropertiesClass properties
+        | _ -> mkFluentPropertiesClass properties
 
+    let fluentTypeEvents (t: Type) = 
+        let events = t.events
+        match events with
+        | [] -> Format.Block []
+        | _ -> mkFluentEventsClass events
         
+    let fluentAssembly (assembly: Assembly) =
+        let properties = fluentProperties assembly
+        let events = fluentEvents assembly
+        Format.Block [properties; events]
         
 
         

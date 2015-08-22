@@ -36,7 +36,6 @@ module Helper =
 
     let sourceForPropertiesOfType t =
         t
-        |> Type
         |> Generate.fluentTypeProperties
         |> Format.sourceLines
         |> Seq.toArray
@@ -81,10 +80,10 @@ type AutoFluentTests() =
     member this.xamarinForms() = 
         let assembly = "Xamarin.Forms.Core" |> Assembly.Load
         assembly
-        |> Generate.fluentProperties
+        |> Generate.fluentAssembly
         |> Format.sourceLines
         |> compileAndDumpSource assembly []
-        |> should equal 30208
+        |> should equal 38912
 
 
 (*
@@ -108,7 +107,7 @@ type AutoFluentTests() =
     member this.WPFPresentationFramework() = 
         let assembly = "PresentationFramework" |> Assembly.Load
         assembly
-        |> Generate.fluentProperties
+        |> Generate.fluentAssembly
         |> Format.sourceLines
         |> compileAndDumpSource assembly 
             [
@@ -121,7 +120,7 @@ type AutoFluentTests() =
                 "System.Xaml.dll"
                 "ReachFramework.dll"
             ]
-        |> should equal 130560
+        |> should equal 156672
 
     [<Test>]
     member this.canHandleGenericProperties() =
