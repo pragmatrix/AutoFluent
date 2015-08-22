@@ -141,3 +141,27 @@ module Syntax =
     let typeName (t: Type) = Helper.typeName t
     let typeConstraints (t: Type) = Helper.typeConstraints t
 
+    let private objType = typeof<Object>
+    let private actionTypeName = (typeName typeof<Action>).name
+    let private voidType = typeof<Void>
+    
+    let tryPromoteEventHandler (promoted: Type) (t: Type) = 
+        let invoker = t.GetMethod("Invoke", BindingFlags.Public ||| BindingFlags.Instance ||| BindingFlags.DeclaredOnly)
+        if invoker = null || invoker.ReturnType <> voidType then None else
+        let param = invoker.GetParameters()
+        if (param.Length < 1) then None else
+        let first = param.[0]
+        if first.Name <> "sender" then None else
+        if first.ParameterType <> objType then None else
+        let _::parameterTypeNames = 
+            param 
+            |> Seq.map (fun p -> p.ParameterType |> typeName)
+            |> Seq.toList
+
+        TypeName (actionTypeName, (typeName promoted) :: parameterTypeNames)
+        |> Some
+
+
+
+
+

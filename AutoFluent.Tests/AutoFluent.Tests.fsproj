@@ -55,6 +55,7 @@
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="SyntaxTests.fs" />
     <Compile Include="AutoFluentTests.fs" />
+    <Compile Include="EventHandlerPromotionTests.fs" />
     <Content Include="packages.config" />
     <Content Include="app.config" />
     <None Include="SealedTypeWithProperty.cs">
