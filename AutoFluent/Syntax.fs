@@ -7,7 +7,7 @@ open Reflection
 
 module Syntax =
 
-    let join sep (strs: string list) = String.Join(sep, strs)
+    let join sep (strs: string seq) = String.Join(sep, strs)
     
     let formatTypeArguments(args: string list) =
         match args with

@@ -102,9 +102,8 @@ module Generate =
             |]
 
     let private fluentExtensionMethod 
-        (t: Type)
-        (valueName: string) 
         (methodNameF: string -> string) 
+        (parameters: Parameter list)
         (codeF: string -> string)
         (m: MemberInfo) = 
 
@@ -118,7 +117,7 @@ module Generate =
         
         let attributes = promoteAttributes m
 
-        let m = MethodDef.mk attributes (methodNameF name) [Parameter.mk (Syntax.typeName t) valueName]
+        let m = MethodDef.mk attributes (methodNameF name) parameters
         let m = { m with code = codeF name }
 
         let m = 
@@ -143,10 +142,43 @@ module Generate =
         m |> extensionMethod
         
     let private fluentPropertyExtensionMethod (property: Property) = 
-        fluentExtensionMethod property.PropertyType "value" id (sprintf "self.%s = value;") (property :> MemberInfo)
+        let propertyType = property.PropertyType
+        fluentExtensionMethod 
+            id 
+            [Parameter.mk (Syntax.typeName propertyType) "value"] 
+            (sprintf "self.%s = value;") 
+            (property :> MemberInfo)
+
+    let private parameters =  
+        seq {
+            for c in 1..Int32.MaxValue do
+                yield "arg" + (string c)
+        }
+
+    let private handlerProxy numberOfArgs cast = 
+        let parameterList = 
+            parameters
+            |> Seq.take numberOfArgs
+            |> Syntax.join ", "
+
+        sprintf "(%s) => handler((%s)%s);" parameterList cast parameterList
 
     let private fluentEventExtensionMethod (event: Event) = 
-        fluentExtensionMethod event.EventHandlerType "handler" (fun name -> "When" + name) (sprintf "self.%s += handler;") (event :> MemberInfo)
+        let actualSenderType = event.DeclaringType
+
+        let handlerType = event.EventHandlerType
+        let handlerTypeName, handlerCode = 
+            let eventTypeName = Syntax.typeName handlerType
+            match Syntax.tryPromoteEventHandler actualSenderType handlerType with
+            | None -> eventTypeName, "handler" 
+            | Some t -> 
+                t, handlerProxy (List.length t.arguments) (actualSenderType |> Syntax.typeName |> string)
+
+        fluentExtensionMethod 
+            (fun name -> "When" + name) 
+            [Parameter.mk  handlerTypeName "handler"] 
+            (fun value -> sprintf "self.%s += %s;" value handlerCode) 
+            (event :> MemberInfo)
     
     let private mkFluentPropertiesClass (properties: Property list) = 
         let t = List.head properties |> fun p -> p.DeclaringType
