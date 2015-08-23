@@ -101,6 +101,9 @@ module Generate =
                 sprintf "[System.Obsolete(%s)]" (Format.literal attr.Message) 
             |]
 
+    let private selfTypeParameterName = "SelfT"
+    let private selfTypeParameterTypeName = Syntax.TypeParameter selfTypeParameterName
+
     let private fluentExtensionMethod 
         (methodNameF: string -> string) 
         (parameters: Parameter list)
@@ -109,7 +112,6 @@ module Generate =
 
         let name = m.Name
         let self = m.DeclaringType
-        let selfTypeParameterName = "SelfT"
     
         let selfTypeName = Syntax.typeName self
 
@@ -135,7 +137,7 @@ module Generate =
                     Syntax.ConstraintsClause(selfTypeParameterName, [c])
                     
                 { m with 
-                    self = Syntax.TypeParameter selfTypeParameterName |> Some
+                    self = selfTypeParameterTypeName |> Some
                     typeParameters = selfTypeParameterName :: selfTypeParameters
                     constraints = selfConstraints :: constraints 
                 }
@@ -149,30 +151,35 @@ module Generate =
             (sprintf "self.%s = value;") 
             (property :> MemberInfo)
 
-    let private parameters =  
+    let private parameterNames =  
         seq {
             for c in 1..Int32.MaxValue do
                 yield "arg" + (string c)
         }
 
-    let private handlerProxy numberOfArgs cast = 
+    let private handlerForwarder numberOfArgs cast = 
         let parameterList = 
-            parameters
+            parameterNames
             |> Seq.take numberOfArgs
             |> Syntax.join ", "
 
-        sprintf "(%s) => handler((%s)%s);" parameterList cast parameterList
+        sprintf "(%s) => handler((%s)%s)" parameterList cast parameterList
 
     let private fluentEventExtensionMethod (event: Event) = 
-        let actualSenderType = event.DeclaringType
+
+        let actualSenderTypeName = 
+            if event.DeclaringType.IsSealed then
+                Syntax.typeName event.DeclaringType
+            else
+                selfTypeParameterTypeName
 
         let handlerType = event.EventHandlerType
         let handlerTypeName, handlerCode = 
             let eventTypeName = Syntax.typeName handlerType
-            match Syntax.tryPromoteEventHandler actualSenderType handlerType with
+            match Syntax.tryPromoteEventHandler actualSenderTypeName handlerType with
             | None -> eventTypeName, "handler" 
             | Some t -> 
-                t, handlerProxy (List.length t.arguments) (actualSenderType |> Syntax.typeName |> string)
+                t, handlerForwarder (List.length t.arguments) (actualSenderTypeName |> string)
 
         fluentExtensionMethod 
             (fun name -> "When" + name) 

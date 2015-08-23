@@ -145,7 +145,7 @@ module Syntax =
     let private actionTypeName = (typeName typeof<Action>).name
     let private voidType = typeof<Void>
     
-    let tryPromoteEventHandler (promoted: Type) (t: Type) = 
+    let tryPromoteEventHandler (promoted: TypeName) (t: Type) = 
         let invoker = t.GetMethod("Invoke", BindingFlags.Public ||| BindingFlags.Instance ||| BindingFlags.DeclaredOnly)
         if invoker = null || invoker.ReturnType <> voidType then None else
         let param = invoker.GetParameters()
@@ -159,7 +159,7 @@ module Syntax =
             |> Seq.map (fun p -> p.ParameterType |> typeName)
             |> Seq.toList
 
-        TypeName (actionTypeName, (typeName promoted) :: parameterTypeNames)
+        TypeName (actionTypeName, promoted :: parameterTypeNames)
         |> Some
 
 

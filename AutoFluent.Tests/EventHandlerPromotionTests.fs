@@ -27,45 +27,47 @@ type CustomEventHandlerWithSenderAndReturnValue =
 [<TestFixture>]
 type EventHandlerPromotionTests() = 
 
+    let promotedTypeName = typeName (typeof<Promoted>)
+
     [<Test>]
     member this.promotesEventHandler() = 
         typeof<EventHandler>
-        |> tryPromoteEventHandler typeof<Promoted>
+        |> tryPromoteEventHandler promotedTypeName
         |> should equal (Some (typeName typeof<Action<Promoted, EventArgs>>))
 
     [<Test>]
     member this.promotesTypedEventHandler() = 
         typeof<EventHandler<string>>
-        |> tryPromoteEventHandler typeof<Promoted>
+        |> tryPromoteEventHandler promotedTypeName
         |> should equal (Some (typeName typeof<Action<Promoted, string>>))
 
     [<Test>]
     member this.doesNotPromoteEventHandlerWithoutSender() = 
         typeof<EventHandlerWithoutSender>
-        |> tryPromoteEventHandler typeof<Promoted>
+        |> tryPromoteEventHandler promotedTypeName
         |> should equal None
 
     [<Test>]
     member this.promotesCustomEventHandlerWithSender() = 
         typeof<CustomEventHandlerWithSender>
-        |> tryPromoteEventHandler typeof<Promoted>
+        |> tryPromoteEventHandler promotedTypeName
         |> should equal (Some (typeName typeof<Action<Promoted, EventArgs>>))
 
     [<Test>]
     member this.doesNotPromoteCustomEventHandlerWithSenderAndReturnValue() = 
         typeof<CustomEventHandlerWithSenderAndReturnValue>
-        |> tryPromoteEventHandler typeof<Promoted>
+        |> tryPromoteEventHandler promotedTypeName
         |> should equal None
 
     [<Test>]
     member this.doesNotPromoteEventHandlerWithTypedSender() = 
         typeof<CustomEventHandlerWithTypedSender>
-        |> tryPromoteEventHandler typeof<Promoted>
+        |> tryPromoteEventHandler promotedTypeName
         |> should equal None
 
     [<Test>]
     member this.doesNotPromoteNonDelegate() = 
         typeof<string>
-        |> tryPromoteEventHandler typeof<Promoted>
+        |> tryPromoteEventHandler promotedTypeName
         |> should equal None
         

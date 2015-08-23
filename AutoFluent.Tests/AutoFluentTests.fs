@@ -83,7 +83,7 @@ type AutoFluentTests() =
         |> Generate.fluentAssembly
         |> Format.sourceLines
         |> compileAndDumpSource assembly []
-        |> should equal 38912
+        |> should equal 54784
 
 
 (*
@@ -120,7 +120,7 @@ type AutoFluentTests() =
                 "System.Xaml.dll"
                 "ReachFramework.dll"
             ]
-        |> should equal 156672
+        |> should equal 207360
 
     [<Test>]
     member this.canHandleGenericProperties() =
