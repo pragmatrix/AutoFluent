@@ -1,8 +1,6 @@
 ﻿namespace AutoFluent
 
 open System
-open System.Reflection
-open System.CodeDom.Compiler
 
 open Reflection
 
