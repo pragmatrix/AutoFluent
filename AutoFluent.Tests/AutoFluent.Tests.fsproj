@@ -75,6 +75,9 @@
     <None Include="VoidMethodWithNoParameters.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="VoidMethodWithClassTAndArrayT.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FsUnit.CustomMatchers">

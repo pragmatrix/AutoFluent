@@ -17,21 +17,25 @@ module Syntax =
     type TypeName = 
         | TypeName of string * TypeName list
         | TypeParameter of string
+        | TypeArray of TypeName * int // rank
         with
         member this.name = 
             match this with
             | TypeName (name, _) -> name
             | TypeParameter name -> name
+            | TypeArray _ -> failwithf "no name for %s" (string this)
         member this.localName = 
             match this with
             | TypeName (name, _) ->
                 let i = name.LastIndexOf "."
                 if i = -1 then name else name.Substring(i+1)
             | TypeParameter name -> name
+            | TypeArray _ -> failwithf "no localName for %s" (string this)
         member this.arguments = 
             match this with
             | TypeName (_, args) -> args
             | TypeParameter _ -> []
+            | TypeArray _ -> failwith "no arguments for %s" (string this)
         member this.allParameters = 
             match this with
             | TypeName (_, args) -> 
@@ -39,12 +43,13 @@ module Syntax =
                 |> List.map (fun tn -> tn.allParameters) 
                 |> List.collect id
             | TypeParameter p -> [p]
+            | TypeArray (tn, _) -> tn.allParameters
         override this.ToString() = 
             match this with
             | TypeName (name, []) -> name
             | TypeName (name, args) -> name + formatTypeArguments (args |> List.map string)
             | TypeParameter name -> name
-
+            | TypeArray (tn, rank) -> (string tn) + "[" + String(',', rank-1) + "]"
 
     type ConstraintsClause = ConstraintsClause of string * Constraint list
         with
@@ -88,6 +93,9 @@ module Syntax =
         let rec typeName (t: Type) = 
             if t.IsGenericParameter then
                 TypeParameter t.Name
+            else
+            if t.IsArray then
+                TypeArray (typeName (t.GetElementType()), t.GetArrayRank())
             else
             let qName = qualifiedName t
             if not t.IsGenericType then

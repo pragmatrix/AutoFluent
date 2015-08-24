@@ -41,7 +41,8 @@ type CompilationTests() =
 
     [<Test>]
     member this.voidMethodWithNoParameters() = 
-        testClassFile("VoidMethodWithNoParameters");
+        testClassFile("VoidMethodWithNoParameters")
 
-
-
+    [<Test>]
+    member this.voidMethodWithClassTAndArrayT() =
+        testClassFile("VoidMethodWithClassTAndArrayT") 
