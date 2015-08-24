@@ -84,9 +84,31 @@ module Format =
         | Parts lines -> c
         | Indent indent -> separateBlocks indent |> Indent
 
+    let rec trimList (l: Code list) : Code list option =
+        l
+        |> List.map trim
+        |> List.choose id
+        |> function [] -> None | l -> Some l
+
+    and trim (c: Code) : Code option =
+        match c with
+        | Scope c -> c |> trim |> Option.map Scope
+        | Indent c -> c |> trim |> Option.map Indent
+        | Block cs -> cs |> trimList |> Option.map Block
+        | Parts cs -> cs |> trimList |> Option.map Parts
+        | Line _ -> Some c
+
+    let sanitize (c: Code) =
+        c
+        |> trim
+        |> Option.map separateBlocks
+
     let sourceLines (c: Code) =
         
-        let c = separateBlocks c
+        let c = sanitize c
+        match c with
+        | None -> Seq.empty
+        | Some c ->
 
         let rec lines indent (c: Code) =
             match c with

@@ -10,6 +10,7 @@ open FsUnit
 open AutoFluent
 open Reflection
 open Generate
+open CompilationHelper
 
 // Test-Types
 
@@ -26,52 +27,6 @@ type GenericTypeWithConstraintAndProperty<'T when 'T :> Exception>() =
 type SealedTypeWithProperty() = 
     member val Property : bool = false with get, set
 
-[<AutoOpen>]
-module Helper = 
-    open Microsoft.CSharp
-    open System.CodeDom.Compiler
-
-    let loadLines fn = 
-        File.ReadAllLines(fn)
-
-    let sourceForPropertiesOfType t =
-        t
-        |> Generate.fluentTypeProperties
-        |> Format.sourceLines
-        |> Seq.toArray
-
-    let defaultDLLs = 
-        [|
-            "System.Runtime.dll"
-            "System.ObjectModel.dll"
-            "System.dll"
-            "System.IO.dll"
-            "System.Threading.Tasks.dll"
-        |]
-
-    let compileAndDumpSource (assembly: Assembly) (dependentDlls : string list) source = 
-        let source = Syntax.join "\n" (source |> Seq.toList)
-        use codeProvider = new CSharpCodeProvider()
-        let parameters = CompilerParameters()
-        // /filealign:512"
-        // filealign seems to be already set to 512
-        parameters.CompilerOptions <- "/optimize" 
-        parameters.WarningLevel <- 4
-        let refs = parameters.ReferencedAssemblies
-        refs.Add(assembly.GetName().Name + ".dll") |> ignore
-        refs.AddRange(defaultDLLs)
-        refs.AddRange(dependentDlls |> List.toArray)
-        let results = codeProvider.CompileAssemblyFromSource(parameters, [|source|])
-        if results.Errors.Count <> 0 then
-            for err in results.Errors do
-                printfn "ERROR: Line %d, Error %s: %s" err.Line err.ErrorNumber err.ErrorText
-            System.Console.Write source
-            failwith "COMPILATION ERROR"
-        else
-        let assembly = results.CompiledAssembly
-        let filepath = Uri(assembly.CodeBase).AbsolutePath
-        System.Console.Write source
-        FileInfo(filepath).Length
 
 [<TestFixture>]
 type AutoFluentTests() =
@@ -162,4 +117,17 @@ type FormatterTests() =
 
         let formatted = Format.separateBlocks c
         formatted |> should equal (Block [Block[Line "a"]; Line ""; Block[Line "b"]])
+
+    [<Test>]
+    member this.formatDoesNotInsertLinesBetweenEmptyBlocks() = 
+
+        let c = 
+            Block [
+                Block []
+                Block []
+            ]
+
+        let formatted = Format.sourceLines c |> Seq.toArray
+        formatted |> should equal [||]
+
 

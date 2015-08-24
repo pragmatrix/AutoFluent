@@ -77,7 +77,13 @@ module Syntax =
             // For some events, t.FullName is null, even though
             // namespace and name is properly set, so we use
             // Namespace and the Name as the "full" name instead.
-            t.Namespace + "." + t.Name
+            
+            // also note that Namespace can be null, too, this is then the global
+            // namespace
+
+            match t.ns with
+            | None -> t.Name
+            | Some ns -> ns + "." + t.Name
 
         let rec typeName (t: Type) = 
             if t.IsGenericParameter then
@@ -143,7 +149,7 @@ module Syntax =
 
     let private objType = typeof<Object>
     let private actionTypeName = (typeName typeof<Action>).name
-    let private voidType = typeof<Void>
+    let voidType = typeof<Void>
     
     let tryPromoteEventHandler (promoted: TypeName) (t: Type) = 
         let invoker = t.GetMethod("Invoke", BindingFlags.Public ||| BindingFlags.Instance ||| BindingFlags.DeclaredOnly)

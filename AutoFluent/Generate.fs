@@ -18,6 +18,7 @@ module Generate =
 
     let private propertiesClassName = className "FluentProperties"
     let private eventsClassName = className "FluentEvents"
+    let private voidMethodsClassName = className "FluentVoidMethods"
 
     let private staticClass (name: string) (blocks: Format.Code list) =
         Format.block [
@@ -70,8 +71,10 @@ module Generate =
 
         assert(md.self.IsSome)
 
+        let selfParameter = Parameter.mk md.self.Value "self"
+
         let parameters = 
-            md.parameters
+            selfParameter :: md.parameters
             |> List.map string
             |> Syntax.join ", "
 
@@ -81,8 +84,8 @@ module Generate =
 
         Format.block [
             md.attributes
-            sprintf "public static %s %s%s(this %s, %s)"
-                md.self.Value.name md.name typeParameters (Format.parameter md.self.Value "self") parameters
+            sprintf "public static %s %s%s(this %s)"
+                md.self.Value.name md.name typeParameters parameters
             Format.indent (md.constraints |> List.map (string >> box))
             [ 
                 md.code
@@ -182,36 +185,52 @@ module Generate =
         fluentExtensionMethod 
             (fun name -> "When" + name) 
             [Parameter.mk  handlerTypeName "handler"] 
-            (fun value -> sprintf "self.%s += %s;" value handlerCode) 
+            (fun name -> sprintf "self.%s += %s;" name handlerCode) 
             (event :> MemberInfo)
+
+    let private fluentVoidMethodExtensionMethod (vm: MethodInfo) = 
+
+        let parameters = 
+            vm.GetParameters()
+            |> Seq.map (fun p -> Parameter.mk (Syntax.typeName p.ParameterType) p.Name)
+            |> Seq.toList
+
+        let argumentList = 
+            parameters
+            |> List.map (fun p -> p.name)
+            |> Syntax.join ", "
+
+        fluentExtensionMethod 
+            (fun name -> "Do" + name)
+            parameters
+            (fun name -> sprintf "self.%s(%s);" name argumentList) 
+            (vm :> MemberInfo)
     
-    let private mkFluentPropertiesClass (properties: Property list) = 
-        let t = List.head properties |> fun p -> p.DeclaringType
-        let methods = 
-            properties
-            |> List.map fluentPropertyExtensionMethod
+    let private mkFluentPropertiesClass (t: Type) (properties: Property list) = 
+        properties
+        |> List.map fluentPropertyExtensionMethod
+        |> staticClass (propertiesClassName t)
 
-        staticClass (propertiesClassName t) methods
+    let private mkFluentEventsClass (t: Type) (events: Event list) = 
+        events
+        |> List.map fluentEventExtensionMethod
+        |> staticClass (eventsClassName t)
 
-    let private mkFluentEventsClass (events: Event list) = 
-        let t = List.head events |> fun p -> p.DeclaringType
-        let methods = 
-            events
-            |> List.map fluentEventExtensionMethod
+    let private mkFluentVoidMethodsClass (t: Type) (methods: Method list) = 
+        methods
+        |> List.map fluentVoidMethodExtensionMethod
+        |> staticClass (voidMethodsClassName t)
 
-        staticClass (eventsClassName t) methods
-
-    let private classesForEachType (generator: 't list -> Format.Code) (members: 't list when 't :> MemberInfo)  = 
+    let private classesForEachType (generator: Type -> 't list -> Format.Code) (members: 't list when 't :> MemberInfo)  = 
         members
         |> List.groupBy (fun p -> p.DeclaringType)
-        |> List.map snd
-        |> List.filter (List.isEmpty >> not)
-        |> List.map generator
+        |> List.filter (snd >> List.isEmpty >> not)
+        |> List.map (fun (t, m) -> generator t m)
 
     let mkFluent 
         (map: Type -> 't list when 't :> MemberInfo) 
         (filter: 't -> bool) 
-        (generator: 't list -> Format.Code) (assembly: Assembly) = 
+        (generator: Type -> 't list -> Format.Code) (assembly: Assembly) = 
         
         let properties = 
             assembly
@@ -224,9 +243,13 @@ module Generate =
 
         let mkClassesForEachType = classesForEachType generator
 
-        let mkNamespace (name: string) (members: 't list) = 
+        let mkNamespace (name: string option) (members: 't list) = 
             let classes = 
                 members |> mkClassesForEachType
+
+            match name with
+            | None -> Format.Block classes
+            | Some name ->
 
             Format.block [
                 sprintf "namespace %s" name
@@ -236,29 +259,34 @@ module Generate =
             ]
 
         properties
-            |> List.groupBy (fun p -> p.DeclaringType.Namespace)
+            |> List.groupBy (fun p -> p.DeclaringType.ns)
             |> List.map (fun (ns, events) -> mkNamespace ns events)
             |> Format.Block
 
-    let fluentEvents = mkFluent (fun t -> t.events) Event.canAddHandler mkFluentEventsClass
-    let fluentProperties = mkFluent (fun t -> t.properties) Property.isWritable mkFluentPropertiesClass
+    let fluentEvents = 
+        mkFluent (fun t -> t.events) Event.canAddHandler mkFluentEventsClass
+    let fluentProperties = 
+        mkFluent (fun t -> t.properties) Property.isWritable mkFluentPropertiesClass
+    let fluentVoidMethods = 
+        mkFluent (fun t -> t.methods) (fun m -> m.ReturnType = Syntax.voidType && (not m.IsSpecialName)) mkFluentVoidMethodsClass
 
     let fluentTypeProperties (t: Type) = 
         let properties = t.properties
         match properties with
         | [] -> Format.Block []
-        | _ -> mkFluentPropertiesClass properties
+        | _ -> mkFluentPropertiesClass t properties
 
     let fluentTypeEvents (t: Type) = 
         let events = t.events
         match events with
         | [] -> Format.Block []
-        | _ -> mkFluentEventsClass events
-        
+        | _ -> mkFluentEventsClass t events
+
     let fluentAssembly (assembly: Assembly) =
         let properties = fluentProperties assembly
         let events = fluentEvents assembly
-        Format.Block [properties; events]
+        let voidMethods = fluentVoidMethods assembly
+        Format.Block [properties; events; voidMethods]
         
 
         

@@ -5,18 +5,27 @@ open System.Reflection
 
 module Reflection = 
 
+    let private defaultBindingFlags = 
+        BindingFlags.Public ||| BindingFlags.Instance ||| BindingFlags.DeclaredOnly
+
     type Type 
         with
         member this.properties = 
-            this.GetProperties(BindingFlags.Public ||| BindingFlags.Instance ||| BindingFlags.DeclaredOnly) 
-            |> Seq.toList
+            this.GetProperties(defaultBindingFlags)
+            |> Array.toList
         member this.events = 
-            this.GetEvents(BindingFlags.Public ||| BindingFlags.Instance ||| BindingFlags.DeclaredOnly)
-            |> Seq.toList
+            this.GetEvents(defaultBindingFlags)
+            |> Array.toList
+        member this.methods = 
+            this.GetMethods(defaultBindingFlags)
+            |> Array.toList
+        member this.ns = 
+            this.Namespace |> Option.ofObj
 
+    type Type = System.Type
     type Event = EventInfo
     type Property = PropertyInfo
-    type Type = System.Type
+    type Method = MethodInfo
 
     [<CompilationRepresentation(CompilationRepresentationFlags.ModuleSuffix)>]
     module Assembly = 

@@ -54,7 +54,9 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="SyntaxTests.fs" />
+    <Compile Include="CompilationHelper.fs" />
     <Compile Include="AutoFluentTests.fs" />
+    <Compile Include="AutoFluentCompilationTests.fs" />
     <Compile Include="EventHandlerPromotionTests.fs" />
     <Content Include="packages.config" />
     <Content Include="app.config" />
@@ -68,6 +70,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="GenericTypeWithProperty.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="VoidMethodWithNoParameters.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
