@@ -2,7 +2,7 @@
 
 [![Build status](https://ci.appveyor.com/api/projects/status/ornm2laos0d7bio1?svg=true)](https://ci.appveyor.com/project/pragmatrix/autofluent)
 
-AutoFluent takes a .NET assembly and generates extension methods for properties and events, so that they can be used fluently in a method chain.
+AutoFluent takes a .NET assembly and generates extension methods for properties, events and methods that return void, so that they can be used in a method chain.
 
 ## Examples
 
@@ -18,11 +18,11 @@ TBD
 
 AutoFluent generated API packages will be released on NuGet. The naming convention of the generated packages is `[Name].AutoFluent`, where `[Name]` is the original API's name, assembly, or primary namespace. 
 
-To ease the transition to a fluent programming style, AutoFluent packages will have one dependency to a very small portable class library that contains all the code in [Collections.Fluent](https://github.com/pragmatrix/Collections.Fluent) and some more methods that are useful in method chains.
+To ease the transition to a fluent programming style, AutoFluent packages will have one dependency to a very small portable class library named [Fluent.Extensions](https://github.com/pragmatrix/Fluent.Extensions) that contains all the code in [Collections.Fluent](https://github.com/pragmatrix/Collections.Fluent) and some more methods that are useful in method chains.
 
 ## Generators
 
-Right now, AutoFluent generates extension methods for properties and events. Methods without a return value are planned, too, but are not implemented yet.
+Right now, AutoFluent generates extension methods for properties, events, and methods that return `void`.
 
 ### Properties
 
@@ -80,14 +80,39 @@ Removing handlers from events that are added with AutoFluent extension methods i
 
 ### Methods that return void
 
-This generator is not implemented yet. The current proposal is to prefix them with `Do` which is inspired by F# where the [keyword `do`](https://msdn.microsoft.com/en-us/library/dd393786.aspx) is used to execute code without defining a function or value.
+Methods that return void are prefixed with do `Do`, which is inspired by F# where the [keyword `do`](https://msdn.microsoft.com/en-us/library/dd393786.aspx) is used to execute code without defining a function or value.
+
+For each public void method in a non-static class or interface, an extension method of the following form is generated:
+
+    public static Label DoFocus(this Label self)
+    {
+        self.Focus();
+        return self;
+    }
+
+For non-sealed classes, type constraints are added:
+
+    public static SelfT DoFocus(this SelfT self)
+		where SelfT : Label
+    {
+        self.Focus();
+        return self;
+    }
+
+Void methods in generic classes with generic type parameters and generic parameters are supported. Type constraints are added as needed.
 
 ### Methods that return a non-void value
 
 Are not planned, because the importance of the return value can not be automatically classified, and generating an extension method for every method will probably make the generated class library too large.
 
+## Further ideas
+
+### Propagate methods to generate mixins
+
+Specifically in user interface APIs, properties that are named `Content` or `Children` are used to extend the control hierarchy. While it does not make sense to propagate `Content`'s methods to the declaring class, it could be convenient to add fluent extension methods like `AddTo` a container that supports a `Children` property with a type of `IList<Control>` for example.
+
 ## License & Copyright
 
 License: BSD
 
-Copyright © 2015 Armin Sander
+Copyright Â© 2015 Armin Sander
