@@ -58,6 +58,6 @@ module CompilationHelper =
             |> compileToAssembly dependencies
 
         let filepath = Uri(assembly.CodeBase).AbsolutePath
-        System.Console.Write source
+        System.Console.Write (Syntax.join "\n" source)
         FileInfo(filepath).Length
 
