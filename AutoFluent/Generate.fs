@@ -69,7 +69,9 @@ module Generate =
 
     let private extensionMethod (md: MethodDef) = 
 
-        assert(md.self.IsSome)
+        match md.self with
+        | None -> failwith "can only generate extension methods yet"
+        | Some self ->
 
         let selfParameter = Parameter.mk md.self.Value "self"
 
@@ -85,7 +87,7 @@ module Generate =
         Format.block [
             md.attributes
             sprintf "public static %s %s%s(this %s)"
-                md.self.Value.name md.name typeParameters parameters
+                (self |> string) md.name typeParameters parameters
             Format.indent (md.constraints |> List.map (string >> box))
             [ 
                 md.code

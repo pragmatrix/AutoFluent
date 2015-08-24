@@ -46,3 +46,7 @@ type CompilationTests() =
     [<Test>]
     member this.voidMethodWithClassTAndArrayT() =
         testClassFile("VoidMethodWithClassTAndArrayT") 
+
+    [<Test>]
+    member this.voidMethodWithSealedClassT() =
+        testClassFile("VoidMethodWithSealedClassT") 
