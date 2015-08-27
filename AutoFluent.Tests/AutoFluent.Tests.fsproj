@@ -111,6 +111,11 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics" />
+    <ProjectReference Include="..\AutoFluent.Command\AutoFluent.Command.fsproj">
+      <Name>AutoFluent.Command</Name>
+      <Project>{b647fa49-e011-4976-80c7-cc7a68fbde7e}</Project>
+      <Private>True</Private>
+    </ProjectReference>
     <ProjectReference Include="..\AutoFluent\AutoFluent.fsproj">
       <Name>AutoFluent</Name>
       <Project>{9f8a9f46-455b-4e24-afc2-28d2c6c287a7}</Project>
