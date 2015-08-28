@@ -9,8 +9,11 @@
     <licenseUrl>https://github.com/pragmatrix/AutoFluent</licenseUrl>
     <projectUrl>https://github.com/pragmatrix/AutoFluent</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>
+	<summary>
       Automatically generated fluent properties, events, and void methods for Xamarin.Forms. 
+	</summary>
+    <description>
+	  From within method chains:	
       Set a property by calling it like a method, for example .XAlign(TextAlignment.Center).
       Add an event handler by calling .With[EventName](lambda). 
       Call any method that returns void with .Do[MethodName](arguments).
