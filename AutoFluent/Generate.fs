@@ -157,6 +157,7 @@ module Generate =
     let private fluentPropertyExtensionMethod (t: Type) (property: Property) = 
         let propertyType = property.PropertyType
         fluentExtensionMethod 
+            t
             id 
             [Parameter.mk (Syntax.typeName propertyType) "value"] 
             (sprintf "self.%s = value;") 
@@ -182,7 +183,7 @@ module Generate =
 
         let actualSenderTypeName = 
             if explicitSelfT then
-                Syntax.typeName event.DeclaringType
+                Syntax.typeName t
             else
                 selfTypeParameterTypeName
 
@@ -195,6 +196,7 @@ module Generate =
                 t, handlerForwarder (List.length t.arguments) (actualSenderTypeName |> string)
 
         fluentExtensionMethod 
+            t
             (fun name -> "When" + name) 
             [Parameter.mk  handlerTypeName "handler"] 
             (fun name -> sprintf "self.%s += %s;" name handlerCode) 
@@ -213,6 +215,7 @@ module Generate =
             |> Syntax.join ", "
 
         fluentExtensionMethod 
+            t
             (fun name -> "Do" + name)
             parameters
             (fun name -> sprintf "self.%s(%s);" name argumentList) 
@@ -264,17 +267,17 @@ module Generate =
 
     let private mkFluentPropertiesClass (t: Type) (properties: Property list) = 
         properties
-        |> List.map fluentPropertyExtensionMethod
+        |> List.map (fluentPropertyExtensionMethod t)
         |> staticClass (propertiesClassName t)
 
     let private mkFluentEventsClass (t: Type) (events: Event list) = 
         events
-        |> List.map fluentEventExtensionMethod
+        |> List.map (fluentEventExtensionMethod t)
         |> staticClass (eventsClassName t)
 
     let private mkFluentVoidMethodsClass (t: Type) (methods: Method list) = 
         methods
-        |> List.map fluentVoidMethodExtensionMethod
+        |> List.map (fluentVoidMethodExtensionMethod t)
         |> staticClass (voidMethodsClassName t)
 
     let private mkSource t mi = 

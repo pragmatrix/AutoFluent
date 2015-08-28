@@ -136,6 +136,9 @@
     <Reference Include="UIAutomationProvider">
       <Private>True</Private>
     </Reference>
+    <Reference Include="UIAutomationTypes">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="WindowsBase">
       <Private>True</Private>
     </Reference>

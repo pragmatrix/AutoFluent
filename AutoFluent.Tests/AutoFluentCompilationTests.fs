@@ -33,6 +33,7 @@ module TestMethods =
         let result = 
             Generate.fluentAssembly assembly
             |> Format.sourceLines
+            |> Seq.filter (fun l -> l.Trim() <> "")
             |> Seq.toArray
 
         result 

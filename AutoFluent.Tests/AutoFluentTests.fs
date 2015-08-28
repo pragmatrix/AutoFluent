@@ -74,6 +74,7 @@ type AutoFluentTests() =
                 "WindowsBase.dll"
                 "System.Xaml.dll"
                 "ReachFramework.dll"
+                "UIAutomationTypes.dll"
             ]
         |> should equal 300032
 
