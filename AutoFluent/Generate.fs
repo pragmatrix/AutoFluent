@@ -231,7 +231,6 @@ module Generate =
 
     let mkFluent 
         (map: Type -> 't source list) 
-        (filter: 't source -> bool) 
         (generator: Type -> 't list -> Format.Code) (assembly: Assembly) = 
         
         let properties = 
@@ -240,7 +239,6 @@ module Generate =
             |> Seq.filter(Type.isStatic >> not)
             |> Seq.map map
             |> Seq.collect id
-            |> Seq.filter filter
             |> Seq.toList
 
         let mkClassesForEachType = classesForEachType generator
@@ -285,21 +283,32 @@ module Generate =
 
     let fluentEvents = 
         mkFluent 
-            (fun t -> t.events |> List.map (mkSource t)) 
-            (fun s -> Event.canAddHandler s.source)
+            (fun t -> t.events |> List.filter Event.canAddHandler |> List.map (mkSource t)) 
             mkFluentEventsClass
     
     let fluentProperties = 
         mkFluent 
-            (fun t -> t.properties |> List.map (mkSource t)) 
-            (fun s -> Property.isWritable s.source)
+            (fun t -> t.properties |> List.filter Property.isWritable |> List.map (mkSource t)) 
             mkFluentPropertiesClass
     
     let fluentVoidMethods = 
-        mkFluent 
-            (fun t -> t.methods |> List.map (mkSource t)) 
-            (fun m -> m.source.ReturnType = Syntax.voidType && (not m.source.IsSpecialName)) 
-            mkFluentVoidMethodsClass
+        let filter (t: Type) = 
+            let isDelegate = typeof<Delegate>.IsAssignableFrom t
+            let disposeMethod = Syntax.tryGetDisposeMember t
+            let getObjectDataMethod = Syntax.tryGetGetObjectDataMember t
+            fun (m: MethodInfo) ->
+                not isDelegate &&
+                m.ReturnType = Syntax.voidType && 
+                not m.IsSpecialName && 
+                m <> disposeMethod &&
+                m <> getObjectDataMethod
+
+        let query (t: Type) = 
+            t.methods
+            |> List.filter (filter t)
+            |> List.map (mkSource t)
+
+        mkFluent query mkFluentVoidMethodsClass
 
     let fluentTypeProperties (t: Type) = 
         let properties = t.properties

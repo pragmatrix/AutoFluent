@@ -6,6 +6,7 @@ open System.Reflection
 open Reflection
 
 module Syntax =
+    open System.Runtime.Serialization
 
     let join sep (strs: string seq) = String.Join(sep, strs)
     
@@ -176,6 +177,29 @@ module Syntax =
 
         TypeName (actionTypeName, promoted :: parameterTypeNames)
         |> Some
+
+    let private disposableInterface = typeof<IDisposable>        
+        
+    let tryGetDisposeMember (t: Type) : MethodInfo = 
+        match t.GetInterfaces() |> Array.tryFind ((=) disposableInterface) with
+        | None -> null
+        | _ ->
+        let map = t.GetInterfaceMap(disposableInterface)
+        assert(map.TargetMethods.Length = 1)
+        map.TargetMethods.[0]
+
+    let private serializableInterface = typeof<ISerializable>        
+    
+    let tryGetGetObjectDataMember (t: Type) : MethodInfo = 
+        match t.GetInterfaces() |> Array.tryFind ((=) serializableInterface) with
+        | None -> null
+        | _ ->
+        let map = t.GetInterfaceMap(serializableInterface)
+        assert(map.TargetMethods.Length = 1)
+        map.TargetMethods.[0]
+
+
+
 
 
 
