@@ -122,6 +122,7 @@ module Syntax =
             else
 
             let ofArgument (t: Type) = 
+                if not t.IsGenericParameter then [] else
                 let constraintTypes = t.GetGenericParameterConstraints()
                 let attributes = t.GenericParameterAttributes
                 let variance = attributes &&& GenericParameterAttributes.VarianceMask

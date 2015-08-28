@@ -36,15 +36,6 @@ A typical extension method for a simple property looks like this:
         return self;
     }
 
-If the property is declared in a non-sealed class, a generic method is generated and a type constraint is added, so that instances of derived classes do not lose their type in the method chain:
-
-    public static SelfT Title<SelfT>(this SelfT self, string value)
-        where SelfT : Label
-    {
-        self.Title = value;
-        return self;
-    }
-
 The generator can handle generic properties in generic classes and will add type parameters and constraints as needed.
 
 ### Events
@@ -57,26 +48,15 @@ For each public event in a non-static class or interface, an extension method wi
         return self;
     }
  
-Like with properties, extension methods for events in non-sealed classes are generic and use a type constraint that allows derived types to propagate through the method chain:
-
-    public static SelfT WhenClicked(this SelfT self, EventHandler<EventArgs> handler)
-        where SelfT : Label
-    {
-        self.Clicked += handler;
-        return self;
-    }
-
 If the type of the event's delegate has an initial first parameter in the form of `Object sender`, the first parameter is promoted to be of the actual type of the object that flows through the method chain:
 
-    public static SelfT WhenClicked(this SelfT self, Action<SelfT, EventArgs> handler)
-        where SelfT : Label
+    public static Label WhenClicked(this Label self, Action<Label, EventArgs> handler)
     {
-        self.Clicked += (arg0, arg1) => handler((SelfT)arg0, arg1);
+        self.Clicked += (arg0, arg1) => handler((Label)arg0, arg1);
         return self;
     }
 
 Removing handlers from events that are added with AutoFluent extension methods is not supported. If required, the event has to be added by using the original API.
-
 
 ### Methods that return void
 
@@ -90,20 +70,15 @@ For each public void method in a non-static class or interface, an extension met
         return self;
     }
 
-For non-sealed classes, type constraints are added:
-
-    public static SelfT DoFocus(this SelfT self)
-		where SelfT : Label
-    {
-        self.Focus();
-        return self;
-    }
-
 Void methods in generic classes with generic type parameters and generic parameters are supported. Type constraints are added as needed.
 
 ### Methods that return a non-void value
 
 Are not planned, because the importance of the return value can not be automatically classified, and generating an extension method for every method will probably make the generated class library too large.
+
+## Design Notes
+
+The initial design of AutoFluent added a type constraint to all extension methods that extend members of non-sealed classes to avoid the redeclaration of extension methods for each derived type. But type constraints are not taken into account in the overload resolution, which had the effect, that extension methods with the same name in a disjoint class hierarchy were ambiguous.
 
 ## Further ideas
 

@@ -6,6 +6,13 @@ open Reflection
 
 module Generate =
 
+    type ExtensionSource<'t when 't :> MemberInfo> = { 
+        t: Type
+        source: 't
+    }
+    
+    type 't source when 't :> MemberInfo = ExtensionSource<'t>
+
     let private className (discriminator: string) (t: Type) = 
         let tn = Syntax.typeName t
             
@@ -118,7 +125,7 @@ module Generate =
     
         let selfTypeName = Syntax.typeName self
 
-        let isSealed = Type.isSealed self
+        let explicitSelfType = true // Type.isSealed self
         
         let attributes = promoteAttributes m
 
@@ -128,7 +135,7 @@ module Generate =
         let m = 
             let constraints = Syntax.typeConstraints self 
             let selfTypeParameters = selfTypeName.allParameters
-            if isSealed then
+            if explicitSelfType then
                 { m with 
                     self = Some selfTypeName
                     typeParameters = selfTypeParameters
@@ -170,8 +177,10 @@ module Generate =
 
     let private fluentEventExtensionMethod (event: Event) = 
 
+        let explicitSelfT = true // event.DeclaringType.IsSealed
+
         let actualSenderTypeName = 
-            if event.DeclaringType.IsSealed then
+            if explicitSelfT then
                 Syntax.typeName event.DeclaringType
             else
                 selfTypeParameterTypeName
@@ -208,30 +217,17 @@ module Generate =
             (fun name -> sprintf "self.%s(%s);" name argumentList) 
             (vm :> MemberInfo)
     
-    let private mkFluentPropertiesClass (t: Type) (properties: Property list) = 
-        properties
-        |> List.map fluentPropertyExtensionMethod
-        |> staticClass (propertiesClassName t)
-
-    let private mkFluentEventsClass (t: Type) (events: Event list) = 
-        events
-        |> List.map fluentEventExtensionMethod
-        |> staticClass (eventsClassName t)
-
-    let private mkFluentVoidMethodsClass (t: Type) (methods: Method list) = 
-        methods
-        |> List.map fluentVoidMethodExtensionMethod
-        |> staticClass (voidMethodsClassName t)
-
-    let private classesForEachType (generator: Type -> 't list -> Format.Code) (members: 't list when 't :> MemberInfo)  = 
+    let private classesForEachType 
+        (generator: Type -> 't list -> Format.Code) 
+        (members: 't source list)  = 
         members
-        |> List.groupBy (fun p -> p.DeclaringType)
+        |> List.groupBy (fun p -> p.t)
         |> List.filter (snd >> List.isEmpty >> not)
-        |> List.map (fun (t, m) -> generator t m)
+        |> List.map (fun (t, m) -> generator t (m |> List.map (fun s -> s.source))
 
     let mkFluent 
-        (map: Type -> 't list when 't :> MemberInfo) 
-        (filter: 't -> bool) 
+        (map: Type -> 't source list) 
+        (filter: 't source -> bool) 
         (generator: Type -> 't list -> Format.Code) (assembly: Assembly) = 
         
         let properties = 
@@ -245,7 +241,7 @@ module Generate =
 
         let mkClassesForEachType = classesForEachType generator
 
-        let mkNamespace (name: string option) (members: 't list) = 
+        let mkNamespace (name: string option) (members: 't source list) = 
             let classes = 
                 members |> mkClassesForEachType
 
@@ -261,16 +257,45 @@ module Generate =
             ]
 
         properties
-            |> List.groupBy (fun p -> p.DeclaringType.ns)
+            |> List.groupBy (fun s -> s.t.ns)
             |> List.map (fun (ns, events) -> mkNamespace ns events)
             |> Format.Block
 
+    let private mkFluentPropertiesClass (t: Type) (properties: Property list) = 
+        properties
+        |> List.map fluentPropertyExtensionMethod
+        |> staticClass (propertiesClassName t)
+
+    let private mkFluentEventsClass (t: Type) (events: Event list) = 
+        events
+        |> List.map fluentEventExtensionMethod
+        |> staticClass (eventsClassName t)
+
+    let private mkFluentVoidMethodsClass (t: Type) (methods: Method list) = 
+        methods
+        |> List.map fluentVoidMethodExtensionMethod
+        |> staticClass (voidMethodsClassName t)
+
+    let private mkSource t mi = 
+        { t = t; source = mi }
+
     let fluentEvents = 
-        mkFluent (fun t -> t.events) Event.canAddHandler mkFluentEventsClass
+        mkFluent 
+            (fun t -> t.events |> List.map (mkSource t)) 
+            (fun s -> Event.canAddHandler s.source)
+            mkFluentEventsClass
+    
     let fluentProperties = 
-        mkFluent (fun t -> t.properties) Property.isWritable mkFluentPropertiesClass
+        mkFluent 
+            (fun t -> t.properties |> List.map (mkSource t)) 
+            (fun s -> Property.isWritable s.source)
+            mkFluentPropertiesClass
+    
     let fluentVoidMethods = 
-        mkFluent (fun t -> t.methods) (fun m -> m.ReturnType = Syntax.voidType && (not m.IsSpecialName)) mkFluentVoidMethodsClass
+        mkFluent 
+            (fun t -> t.methods |> List.map (mkSource t)) 
+            (fun m -> m.source.ReturnType = Syntax.voidType && (not m.source.IsSpecialName)) 
+            mkFluentVoidMethodsClass
 
     let fluentTypeProperties (t: Type) = 
         let properties = t.properties

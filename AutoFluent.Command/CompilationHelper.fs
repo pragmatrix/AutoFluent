@@ -34,7 +34,7 @@ module CompilationHelper =
         // filealign seems to be already set to 512
         parameters.CompilerOptions <- "/optimize" 
         parameters.WarningLevel <- 4
-        parameters.OutputAssembly <- outputAssembly
+        // parameters.OutputAssembly <- outputAssembly
         let refs = parameters.ReferencedAssemblies
         refs.AddRange(defaultDLLs)
         refs.AddRange(dependentDlls |> List.toArray)

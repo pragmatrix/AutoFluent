@@ -60,6 +60,9 @@
     <Compile Include="EventHandlerPromotionTests.fs" />
     <Content Include="packages.config" />
     <Content Include="app.config" />
+    <None Include="DerivedClassGetsExtensionMethodOfBaseProperty.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="VoidMethodWithSealedClassT.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

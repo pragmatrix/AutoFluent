@@ -15,8 +15,7 @@ namespace XF
 {
 	public static class TableSectionBaseFluentVoidMethods1
 	{
-		public static SelfT DoCopyTo<SelfT, T>(this SelfT self, T[] array, System.Int32 arrayIndex)
-			where SelfT : XF.TableSectionBase<T>
+		public static XF.TableSectionBase<T> DoCopyTo<T>(this XF.TableSectionBase<T> self, T[] array, System.Int32 arrayIndex)
 			where T : XF.BindableObject
 		{
 			self.CopyTo(array, arrayIndex);

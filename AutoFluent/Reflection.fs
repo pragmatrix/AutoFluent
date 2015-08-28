@@ -6,7 +6,9 @@ open System.Reflection
 module Reflection = 
 
     let private defaultBindingFlags = 
-        BindingFlags.Public ||| BindingFlags.Instance ||| BindingFlags.DeclaredOnly
+        // we need to get inherited members, too. Type constraints do not add to the
+        // extension method signature, which is used for the overload resolution.
+        BindingFlags.Public ||| BindingFlags.Instance // ||| BindingFlags.DeclaredOnly
 
     type Type 
         with

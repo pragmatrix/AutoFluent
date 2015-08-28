@@ -33,6 +33,10 @@ module TestMethods =
         let result = 
             Generate.fluentAssembly assembly
             |> Format.sourceLines
+            |> Seq.toArray
+
+        result 
+        |> Seq.iter (System.Console.WriteLine)
 
         result |> should equal output
 
@@ -50,3 +54,7 @@ type CompilationTests() =
     [<Test>]
     member this.voidMethodWithSealedClassT() =
         testClassFile("VoidMethodWithSealedClassT") 
+
+    [<Test>]
+    member this.derivedClassGetsExtensionMethodOfBaseProperty() =
+        testClassFile("DerivedClassGetsExtensionMethodOfBaseProperty") 
