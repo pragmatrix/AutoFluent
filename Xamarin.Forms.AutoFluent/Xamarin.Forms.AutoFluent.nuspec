@@ -6,8 +6,15 @@
     <title>Xamarin.Forms.AutoFluent</title>
     <authors>Armin Sander</authors>
     <owners>Armin Sander</owners>
+    <licenseUrl>https://github.com/pragmatrix/AutoFluent</licenseUrl>
+    <projectUrl>https://github.com/pragmatrix/AutoFluent</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Automatically generated fluent properties, events, and void methods for Xamarin.Forms</description>
+    <description>
+      Automatically generated fluent properties, events, and void methods for Xamarin.Forms. 
+      Set a property by calling it like a method, for example .XAlign(TextAlignment.Center).
+      Add an event handler by calling .With[EventName](lambda). 
+      Call any method that returns void with .Do[MethodName](arguments).
+    </description>
     <copyright>Copyright © 2015 Armin Sander</copyright>
     <dependencies>
       <dependency id="Fluent.Extensions" version="0.4.0-pre" />
