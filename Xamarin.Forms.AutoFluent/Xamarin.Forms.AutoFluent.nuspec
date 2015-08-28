@@ -15,7 +15,7 @@
     <description>
 	  From within method chains:	
       Set a property by calling it like a method, for example .XAlign(TextAlignment.Center).
-      Add an event handler by calling .With[EventName](lambda). 
+      Add an event handler by calling .When[EventName](lambda). 
       Call any method that returns void with .Do[MethodName](arguments).
     </description>
     <copyright>Copyright © 2015 Armin Sander</copyright>
