@@ -38,7 +38,8 @@ type AutoFluentTests() =
         |> Generate.fluentAssembly
         |> Format.sourceLines
         |> compileAndDumpSource assembly []
-        |> should equal 61952
+        |> should equal 315392
+        // 61952 (without inherited members)
 
 
 (*
@@ -76,7 +77,8 @@ type AutoFluentTests() =
                 "ReachFramework.dll"
                 "UIAutomationTypes.dll"
             ]
-        |> should equal 300032
+        |> should equal 5928448
+        // 300032 (without inherited members)
 
     [<Test>]
     member this.canHandleGenericProperties() =
