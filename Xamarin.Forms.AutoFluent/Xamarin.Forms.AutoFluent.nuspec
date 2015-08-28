@@ -13,6 +13,7 @@
       Automatically generated fluent properties, events, and void methods for Xamarin.Forms. 
 	</summary>
     <description>
+      Automatically generated fluent properties, events, and void methods for Xamarin.Forms. 
 	  From within method chains:	
       Set a property by calling it like a method, for example .XAlign(TextAlignment.Center).
       Add an event handler by calling .When[EventName](lambda). 
