@@ -20,7 +20,7 @@ update-nuget:
 
 # Xamarin.Forms.AutoFluent
 
-xfa-ver=0.2.0-pre
+xfa-ver=0.3.0-pre
 
 .PHONY: package-xfa
 package-xfa: ver=${xfa-ver}
