@@ -163,19 +163,8 @@ module Generate =
             (sprintf "self.%s = value;") 
             (property :> MemberInfo)
 
-    let private parameterNames =  
-        seq {
-            for c in 1..Int32.MaxValue do
-                yield "arg" + (string c)
-        }
-
-    let private handlerForwarder numberOfArgs cast = 
-        let parameterList = 
-            parameterNames
-            |> Seq.take numberOfArgs
-            |> Syntax.join ", "
-
-        sprintf "(%s) => handler((%s)%s)" parameterList cast parameterList
+    let private handlerForwarder eventTypeName = 
+        sprintf "new %s(handler.DemoteSender())" eventTypeName
 
     let private fluentEventExtensionMethod (t: Type) (event: Event) = 
 
@@ -193,7 +182,7 @@ module Generate =
             match Syntax.tryPromoteEventHandler actualSenderTypeName handlerType with
             | None -> eventTypeName, "handler" 
             | Some t -> 
-                t, handlerForwarder (List.length t.arguments) (actualSenderTypeName |> string)
+                t, handlerForwarder (eventTypeName |> string)
 
         fluentExtensionMethod 
             t

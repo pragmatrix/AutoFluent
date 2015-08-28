@@ -86,6 +86,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Fluent.Extensions">
+      <HintPath>..\packages\Fluent.Extensions.0.4.0-pre\lib\portable-net40+win+MonoAndroid10+xamarinios10+MonoTouch10\Fluent.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="FsUnit.CustomMatchers">
       <HintPath>..\packages\FsUnit.1.3.1.0\lib\FsUnit.CustomMatchers.dll</HintPath>
       <Private>True</Private>

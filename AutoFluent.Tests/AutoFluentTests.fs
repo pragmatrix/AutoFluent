@@ -38,7 +38,7 @@ type AutoFluentTests() =
         |> Generate.fluentAssembly
         |> Format.sourceLines
         |> compileAndDumpSource assembly []
-        |> should equal 313856
+        |> should equal 201728
         // 61952 (without inherited members)
 
 
@@ -77,7 +77,7 @@ type AutoFluentTests() =
                 "ReachFramework.dll"
                 "UIAutomationTypes.dll"
             ]
-        |> should equal 5910528
+        |> should equal 2808320
         // 300032 (without inherited members)
 
     [<Test>]

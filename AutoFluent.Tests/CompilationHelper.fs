@@ -24,6 +24,7 @@ module CompilationHelper =
             "System.dll"
             "System.IO.dll"
             "System.Threading.Tasks.dll"
+            "Fluent.Extensions.dll"
         |]
 
     let compileToAssembly (dependentDlls : string list) source = 
