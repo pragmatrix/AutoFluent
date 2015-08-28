@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>Xamarin.Forms.AutoFluent</title>
+    <authors>Armin Sander</authors>
+    <owners>Armin Sander</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Automatically generated fluent properties, events, and void methods for Xamarin.Forms</description>
+    <copyright>Copyright © 2015 Armin Sander</copyright>
+    <dependencies>
+      <dependency id="Fluent.Extensions" version="0.4.0-pre" />
+      <dependency id="Xamarin.Forms" version="1.4.4.6392" />
+    </dependencies>
+  </metadata>
+</package>

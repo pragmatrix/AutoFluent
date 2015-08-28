@@ -6,4 +6,4 @@ obj/
 *.ncrunchsolution
 *.ncrunchproject
 /_NCrunch_*
-
+*.nupkg
