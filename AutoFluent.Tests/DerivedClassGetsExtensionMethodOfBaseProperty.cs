@@ -23,7 +23,7 @@ namespace XF
 
 	public static class InstanceFluentProperties
 	{
-		public static XF.Base Test(this XF.Base self, System.Boolean value)
+		public static XF.Instance Test(this XF.Instance self, System.Boolean value)
 		{
 			self.Test = value;
 			return self;

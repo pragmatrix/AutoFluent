@@ -115,13 +115,14 @@ module Generate =
     let private selfTypeParameterTypeName = Syntax.TypeParameter selfTypeParameterName
 
     let private fluentExtensionMethod 
+        (t: Type)
         (methodNameF: string -> string) 
         (parameters: Parameter list)
         (codeF: string -> string)
         (m: MemberInfo) = 
 
         let name = m.Name
-        let self = m.DeclaringType
+        let self = t
     
         let selfTypeName = Syntax.typeName self
 
@@ -153,7 +154,7 @@ module Generate =
                 }
         m |> extensionMethod
         
-    let private fluentPropertyExtensionMethod (property: Property) = 
+    let private fluentPropertyExtensionMethod (t: Type) (property: Property) = 
         let propertyType = property.PropertyType
         fluentExtensionMethod 
             id 
@@ -175,7 +176,7 @@ module Generate =
 
         sprintf "(%s) => handler((%s)%s)" parameterList cast parameterList
 
-    let private fluentEventExtensionMethod (event: Event) = 
+    let private fluentEventExtensionMethod (t: Type) (event: Event) = 
 
         let explicitSelfT = true // event.DeclaringType.IsSealed
 
@@ -199,7 +200,7 @@ module Generate =
             (fun name -> sprintf "self.%s += %s;" name handlerCode) 
             (event :> MemberInfo)
 
-    let private fluentVoidMethodExtensionMethod (vm: MethodInfo) = 
+    let private fluentVoidMethodExtensionMethod (t: Type) (vm: MethodInfo) = 
 
         let parameters = 
             vm.GetParameters()
@@ -223,7 +224,7 @@ module Generate =
         members
         |> List.groupBy (fun p -> p.t)
         |> List.filter (snd >> List.isEmpty >> not)
-        |> List.map (fun (t, m) -> generator t (m |> List.map (fun s -> s.source))
+        |> List.map (fun (t, m) -> generator t (m |> List.map (fun s -> s.source)))
 
     let mkFluent 
         (map: Type -> 't source list) 
