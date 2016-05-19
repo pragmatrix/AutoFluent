@@ -59,3 +59,7 @@ type CompilationTests() =
     [<Test>]
     member this.derivedClassGetsExtensionMethodOfBaseProperty() =
         testClassFile("DerivedClassGetsExtensionMethodOfBaseProperty") 
+    
+    [<Test>]
+    member this.propertyOfNestedClass() =
+        testClassFile("PropertyOfNestedClass") 

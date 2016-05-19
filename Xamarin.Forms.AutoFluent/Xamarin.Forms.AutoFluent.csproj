@@ -35,40 +35,46 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <Choose>
+    <When Condition="($(TargetFrameworkIdentifier) == 'WindowsPhoneApp') Or ($(TargetFrameworkIdentifier) == '.NETCore') Or ($(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1' Or $(TargetFrameworkVersion) == 'v4.6.2')) Or ($(TargetFrameworkIdentifier) == 'WindowsPhone' And ($(TargetFrameworkVersion) == 'v8.0' Or $(TargetFrameworkVersion) == 'v8.1')) Or ($(TargetFrameworkIdentifier) == 'MonoAndroid') Or ($(TargetFrameworkIdentifier) == 'MonoTouch') Or ($(TargetFrameworkIdentifier) == 'Xamarin.iOS') Or ($(TargetFrameworkIdentifier) == 'Xamarin.Mac') Or ($(TargetFrameworkProfile) == 'Profile7') Or ($(TargetFrameworkProfile) == 'Profile31') Or ($(TargetFrameworkProfile) == 'Profile32') Or ($(TargetFrameworkProfile) == 'Profile44') Or ($(TargetFrameworkProfile) == 'Profile49') Or ($(TargetFrameworkProfile) == 'Profile78') Or ($(TargetFrameworkProfile) == 'Profile84') Or ($(TargetFrameworkProfile) == 'Profile111') Or ($(TargetFrameworkProfile) == 'Profile151') Or ($(TargetFrameworkProfile) == 'Profile157') Or ($(TargetFrameworkProfile) == 'Profile259')">
+      <PropertyGroup>
+        <__paket__Xamarin_Forms_targets>portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms</__paket__Xamarin_Forms_targets>
+      </PropertyGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == 'MonoAndroid'">
+      <PropertyGroup>
+        <__paket__Xamarin_Android_Support_Vector_Drawable_targets>Xamarin.Android.Support.Vector.Drawable</__paket__Xamarin_Android_Support_Vector_Drawable_targets>
+      </PropertyGroup>
+    </When>
+  </Choose>
   <ItemGroup>
+    <Content Include="README_FIRST.txt">
+      <Paket>True</Paket>
+    </Content>
+    <Resource Include="Toolkit.Content\ApplicationBar.Add.png">
+      <Paket>True</Paket>
+    </Resource>
+    <Resource Include="Toolkit.Content\ApplicationBar.Cancel.png">
+      <Paket>True</Paket>
+    </Resource>
+    <Resource Include="Toolkit.Content\ApplicationBar.Check.png">
+      <Paket>True</Paket>
+    </Resource>
+    <Resource Include="Toolkit.Content\ApplicationBar.Delete.png">
+      <Paket>True</Paket>
+    </Resource>
+    <Resource Include="Toolkit.Content\ApplicationBar.Select.png">
+      <Paket>True</Paket>
+    </Resource>
     <Compile Include="Xamarin.Forms.AutoFluent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Fluent.Extensions, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fluent.Extensions.0.4.0-pre\lib\portable-net40+win+MonoAndroid10+xamarinios10+MonoTouch10\Fluent.Extensions.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Xamarin.Forms.Core, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.Forms.1.4.4.6392\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Xamarin.Forms.Platform, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.Forms.1.4.4.6392\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Xamarin.Forms.Xaml, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.Forms.1.4.4.6392\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
     <None Include="Xamarin.Forms.AutoFluent.nuspec" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
-  <Import Project="..\packages\Xamarin.Forms.1.4.4.6392\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.4.4.6392\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Xamarin.Forms.1.4.4.6392\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Forms.1.4.4.6392\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets'))" />
-  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
@@ -76,4 +82,285 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == 'WindowsPhone' And $(TargetFrameworkVersion) == 'v8.0'">
+      <ItemGroup>
+        <Reference Include="Microsoft.Phone.Controls.Toolkit">
+          <HintPath>..\packages\WPtoolkit\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == 'MonoAndroid'">
+      <ItemGroup>
+        <Reference Include="Xamarin.Android.Support.Animated.Vector.Drawable">
+          <HintPath>..\packages\Xamarin.Android.Support.Animated.Vector.Drawable\lib\MonoAndroid403\Xamarin.Android.Support.Animated.Vector.Drawable.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == 'MonoAndroid'">
+      <ItemGroup>
+        <Reference Include="Xamarin.Android.Support.Design">
+          <HintPath>..\packages\Xamarin.Android.Support.Design\lib\MonoAndroid43\Xamarin.Android.Support.Design.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == 'MonoAndroid'">
+      <ItemGroup>
+        <Reference Include="Xamarin.Android.Support.v4">
+          <HintPath>..\packages\Xamarin.Android.Support.v4\lib\MonoAndroid403\Xamarin.Android.Support.v4.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == 'MonoAndroid'">
+      <ItemGroup>
+        <Reference Include="Xamarin.Android.Support.v7.AppCompat">
+          <HintPath>..\packages\Xamarin.Android.Support.v7.AppCompat\lib\MonoAndroid403\Xamarin.Android.Support.v7.AppCompat.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == 'MonoAndroid'">
+      <ItemGroup>
+        <Reference Include="Xamarin.Android.Support.v7.CardView">
+          <HintPath>..\packages\Xamarin.Android.Support.v7.CardView\lib\MonoAndroid403\Xamarin.Android.Support.v7.CardView.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == 'MonoAndroid'">
+      <ItemGroup>
+        <Reference Include="Xamarin.Android.Support.v7.MediaRouter">
+          <HintPath>..\packages\Xamarin.Android.Support.v7.MediaRouter\lib\MonoAndroid403\Xamarin.Android.Support.v7.MediaRouter.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == 'MonoAndroid'">
+      <ItemGroup>
+        <Reference Include="Xamarin.Android.Support.v7.RecyclerView">
+          <HintPath>..\packages\Xamarin.Android.Support.v7.RecyclerView\lib\MonoAndroid403\Xamarin.Android.Support.v7.RecyclerView.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == 'MonoAndroid'">
+      <ItemGroup>
+        <Reference Include="Xamarin.Android.Support.Vector.Drawable">
+          <HintPath>..\packages\Xamarin.Android.Support.Vector.Drawable\lib\MonoAndroid403\Xamarin.Android.Support.Vector.Drawable.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETCore' And $(TargetFrameworkVersion) == 'v4.5.1'">
+      <ItemGroup>
+        <Reference Include="Xamarin.Forms.Core">
+          <HintPath>..\packages\Xamarin.Forms\lib\win81\Xamarin.Forms.Core.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="Xamarin.Forms.Platform.WinRT.Tablet">
+          <HintPath>..\packages\Xamarin.Forms\lib\win81\Xamarin.Forms.Platform.WinRT.Tablet.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="Xamarin.Forms.Platform.WinRT">
+          <HintPath>..\packages\Xamarin.Forms\lib\win81\Xamarin.Forms.Platform.WinRT.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="Xamarin.Forms.Platform">
+          <HintPath>..\packages\Xamarin.Forms\lib\win81\Xamarin.Forms.Platform.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="Xamarin.Forms.Xaml">
+          <HintPath>..\packages\Xamarin.Forms\lib\win81\Xamarin.Forms.Xaml.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+    <When Condition="$(TargetFrameworkIdentifier) == 'MonoAndroid'">
+      <ItemGroup>
+        <Reference Include="FormsViewGroup">
+          <HintPath>..\packages\Xamarin.Forms\lib\MonoAndroid10\FormsViewGroup.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="Xamarin.Forms.Core">
+          <HintPath>..\packages\Xamarin.Forms\lib\MonoAndroid10\Xamarin.Forms.Core.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="Xamarin.Forms.Platform.Android">
+          <HintPath>..\packages\Xamarin.Forms\lib\MonoAndroid10\Xamarin.Forms.Platform.Android.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="Xamarin.Forms.Platform">
+          <HintPath>..\packages\Xamarin.Forms\lib\MonoAndroid10\Xamarin.Forms.Platform.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="Xamarin.Forms.Xaml">
+          <HintPath>..\packages\Xamarin.Forms\lib\MonoAndroid10\Xamarin.Forms.Xaml.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+    <When Condition="$(TargetFrameworkIdentifier) == 'MonoTouch'">
+      <ItemGroup>
+        <Reference Include="Xamarin.Forms.Core">
+          <HintPath>..\packages\Xamarin.Forms\lib\MonoTouch10\Xamarin.Forms.Core.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="Xamarin.Forms.Platform">
+          <HintPath>..\packages\Xamarin.Forms\lib\MonoTouch10\Xamarin.Forms.Platform.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="Xamarin.Forms.Platform.iOS.Classic">
+          <HintPath>..\packages\Xamarin.Forms\lib\MonoTouch10\Xamarin.Forms.Platform.iOS.Classic.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="Xamarin.Forms.Xaml">
+          <HintPath>..\packages\Xamarin.Forms\lib\MonoTouch10\Xamarin.Forms.Xaml.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+    <When Condition="$(TargetFrameworkIdentifier) == 'WindowsPhone' And ($(TargetFrameworkVersion) == 'v8.0' Or $(TargetFrameworkVersion) == 'v8.1')">
+      <ItemGroup>
+        <Reference Include="Xamarin.Forms.Core">
+          <HintPath>..\packages\Xamarin.Forms\lib\WP80\Xamarin.Forms.Core.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="Xamarin.Forms.Platform.WP8">
+          <HintPath>..\packages\Xamarin.Forms\lib\WP80\Xamarin.Forms.Platform.WP8.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="Xamarin.Forms.Platform">
+          <HintPath>..\packages\Xamarin.Forms\lib\WP80\Xamarin.Forms.Platform.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="Xamarin.Forms.Xaml">
+          <HintPath>..\packages\Xamarin.Forms\lib\WP80\Xamarin.Forms.Xaml.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+    <When Condition="$(TargetFrameworkIdentifier) == 'WindowsPhoneApp'">
+      <ItemGroup>
+        <Reference Include="Xamarin.Forms.Core">
+          <HintPath>..\packages\Xamarin.Forms\lib\wpa81\Xamarin.Forms.Core.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="Xamarin.Forms.Platform.WinRT.Phone">
+          <HintPath>..\packages\Xamarin.Forms\lib\wpa81\Xamarin.Forms.Platform.WinRT.Phone.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="Xamarin.Forms.Platform.WinRT">
+          <HintPath>..\packages\Xamarin.Forms\lib\wpa81\Xamarin.Forms.Platform.WinRT.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="Xamarin.Forms.Platform">
+          <HintPath>..\packages\Xamarin.Forms\lib\wpa81\Xamarin.Forms.Platform.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="Xamarin.Forms.Xaml">
+          <HintPath>..\packages\Xamarin.Forms\lib\wpa81\Xamarin.Forms.Xaml.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+    <When Condition="$(TargetFrameworkIdentifier) == 'Xamarin.iOS'">
+      <ItemGroup>
+        <Reference Include="Xamarin.Forms.Core">
+          <HintPath>..\packages\Xamarin.Forms\lib\Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="Xamarin.Forms.Platform">
+          <HintPath>..\packages\Xamarin.Forms\lib\Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="Xamarin.Forms.Platform.iOS">
+          <HintPath>..\packages\Xamarin.Forms\lib\Xamarin.iOS10\Xamarin.Forms.Platform.iOS.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="Xamarin.Forms.Xaml">
+          <HintPath>..\packages\Xamarin.Forms\lib\Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+    <When Condition="($(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1' Or $(TargetFrameworkVersion) == 'v4.6.2')) Or ($(TargetFrameworkIdentifier) == '.NETCore' And $(TargetFrameworkVersion) == 'v4.5') Or ($(TargetFrameworkIdentifier) == 'Xamarin.Mac') Or ($(TargetFrameworkProfile) == 'Profile7') Or ($(TargetFrameworkProfile) == 'Profile31') Or ($(TargetFrameworkProfile) == 'Profile32') Or ($(TargetFrameworkProfile) == 'Profile44') Or ($(TargetFrameworkProfile) == 'Profile49') Or ($(TargetFrameworkProfile) == 'Profile78') Or ($(TargetFrameworkProfile) == 'Profile84') Or ($(TargetFrameworkProfile) == 'Profile111') Or ($(TargetFrameworkProfile) == 'Profile151') Or ($(TargetFrameworkProfile) == 'Profile157') Or ($(TargetFrameworkProfile) == 'Profile259')">
+      <ItemGroup>
+        <Reference Include="Xamarin.Forms.Core">
+          <HintPath>..\packages\Xamarin.Forms\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="Xamarin.Forms.Platform">
+          <HintPath>..\packages\Xamarin.Forms\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="Xamarin.Forms.Xaml">
+          <HintPath>..\packages\Xamarin.Forms\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Import Project="..\packages\Xamarin.Android.Support.Vector.Drawable\build\$(__paket__Xamarin_Android_Support_Vector_Drawable_targets).targets" Condition="Exists('..\packages\Xamarin.Android.Support.Vector.Drawable\build\$(__paket__Xamarin_Android_Support_Vector_Drawable_targets).targets')" Label="Paket" />
+  <Import Project="..\packages\Xamarin.Forms\build\$(__paket__Xamarin_Forms_targets).targets" Condition="Exists('..\packages\Xamarin.Forms\build\$(__paket__Xamarin_Forms_targets).targets')" Label="Paket" />
 </Project>

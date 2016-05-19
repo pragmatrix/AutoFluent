@@ -79,7 +79,7 @@ module Syntax =
 
     module Helper = 
 
-        let qualifiedName (t: Type) = 
+        let rec qualifiedName (t: Type) = 
             // For some events, t.FullName is null, even though
             // namespace and name is properly set, so we use
             // Namespace and the Name as the "full" name instead.
@@ -87,6 +87,9 @@ module Syntax =
             // also note that Namespace can be null, too, this is then the global
             // namespace
 
+            if t.IsNested then
+                (qualifiedName t.DeclaringType) + "." + t.Name
+            else
             match t.ns with
             | None -> t.Name
             | Some ns -> ns + "." + t.Name

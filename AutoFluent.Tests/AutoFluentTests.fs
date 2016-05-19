@@ -37,7 +37,7 @@ type AutoFluentTests() =
         assembly
         |> Generate.fluentAssembly
         |> Format.sourceLines
-        |> compileAndDumpSource assembly []
+        |> compileAndDumpSource assembly ["System.Xml.dll"]
         |> should equal 201728
         // 61952 (without inherited members)
 
