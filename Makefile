@@ -20,7 +20,10 @@ update-nuget:
 
 # Xamarin.Forms.AutoFluent
 
-xfa-ver=0.5.0-pre
+# we want to always stay below the current xamarin forms version to avoid
+# confusion.
+
+xfa-ver=2.2.0.0-pre
 
 .PHONY: package-xfa
 package-xfa: ver=${xfa-ver}
