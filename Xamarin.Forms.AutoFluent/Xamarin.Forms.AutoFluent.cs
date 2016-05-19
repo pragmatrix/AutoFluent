@@ -4028,7 +4028,7 @@
 			return self;
 		}
 
-		public static Xamarin.Forms.Button ContentLayout(this Xamarin.Forms.Button self, Xamarin.Forms.ButtonContentLayout value)
+		public static Xamarin.Forms.Button ContentLayout(this Xamarin.Forms.Button self, Xamarin.Forms.Button.ButtonContentLayout value)
 		{
 			self.ContentLayout = value;
 			return self;
@@ -21141,8 +21141,3 @@ namespace Xamarin.Forms.Internals
 		}
 	}
 }
-System.Exception : COMPILATION ERROR
-   at Microsoft.FSharp.Core.Operators.FailWith[T](String message)
-   at AutoFluent.Tests.CompilationHelper.compileToAssembly(FSharpList`1 dependentDlls, IEnumerable`1 source) in C:\cygwin\home\armin\dev\AutoFluent\AutoFluent.Tests\CompilationHelper.fs:line 46
-   at AutoFluent.Tests.CompilationHelper.compileAndDumpSource(Assembly assembly, FSharpList`1 dependentDlls, IEnumerable`1 source) in C:\cygwin\home\armin\dev\AutoFluent\AutoFluent.Tests\CompilationHelper.fs:line 57
-   at AutoFluent.Tests.AutoFluentTests.xamarinForms() in C:\cygwin\home\armin\dev\AutoFluent\AutoFluent.Tests\AutoFluentTests.fs:line 37

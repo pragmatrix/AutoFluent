@@ -66,12 +66,30 @@
     </When>
   </Choose>
   <ItemGroup>
+    <Resource Include="Toolkit.Content\ApplicationBar.Add.png">
+      <Paket>True</Paket>
+    </Resource>
+    <Resource Include="Toolkit.Content\ApplicationBar.Cancel.png">
+      <Paket>True</Paket>
+    </Resource>
+    <Resource Include="Toolkit.Content\ApplicationBar.Check.png">
+      <Paket>True</Paket>
+    </Resource>
+    <Resource Include="Toolkit.Content\ApplicationBar.Delete.png">
+      <Paket>True</Paket>
+    </Resource>
+    <Resource Include="Toolkit.Content\ApplicationBar.Select.png">
+      <Paket>True</Paket>
+    </Resource>
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="SyntaxTests.fs" />
     <Compile Include="CompilationHelper.fs" />
     <Compile Include="AutoFluentTests.fs" />
     <Compile Include="AutoFluentCompilationTests.fs" />
     <Compile Include="EventHandlerPromotionTests.fs" />
+    <Content Include="README_FIRST.txt">
+      <Paket>True</Paket>
+    </Content>
     <Content Include="app.config" />
     <None Include="DerivedClassGetsExtensionMethodOfBaseProperty.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
