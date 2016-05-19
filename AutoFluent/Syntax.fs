@@ -36,7 +36,7 @@ module Syntax =
             match this with
             | TypeName (_, args) -> args
             | TypeParameter _ -> []
-            | TypeArray _ -> failwith "no arguments for %s" (string this)
+            | TypeArray _ -> failwithf "no arguments for %s" (string this)
         member this.allParameters = 
             match this with
             | TypeName (_, args) -> 
