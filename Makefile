@@ -32,10 +32,10 @@ package-xfa: conf=Release
 package-xfa: build
 	cd ${name} && ${nuget} pack ${name}.csproj -Version ${ver} -Prop Configuration=${conf}
 
-.PHONY: distribute-xfa
-distribute-xfa: ver=${xfa-ver}
-distribute-xfa: name=Xamarin.Forms.AutoFluent
-distribute-xfa: package-xfa
+.PHONY: publish-xfa
+publish-xfa: ver=${xfa-ver}
+publish-xfa: name=Xamarin.Forms.AutoFluent
+publish-xfa: package-xfa
 	cd ${name} && nuget push ${name}.${ver}.nupkg	
 
 
