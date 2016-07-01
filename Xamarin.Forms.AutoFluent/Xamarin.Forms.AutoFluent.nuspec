@@ -22,7 +22,7 @@
     <copyright>Copyright © 2016 Armin Sander</copyright>
     <dependencies>
       <dependency id="Fluent.Extensions" version="1.0.0" />
-      <dependency id="Xamarin.Forms" version="[2.2,2.3)" />
+      <dependency id="Xamarin.Forms" version="[2.3,2.4)" />
     </dependencies>
   </metadata>
 </package>
