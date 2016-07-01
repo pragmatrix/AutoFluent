@@ -1,15 +1,10 @@
 ﻿namespace AutoFluent.Tests
 
 open System
-open System.IO
-open System.Reflection
-
 open NUnit.Framework
 open FsUnit
-
 open AutoFluent
 open Reflection
-open Generate
 open CompilationHelper
 
 // Test-Types
@@ -37,9 +32,9 @@ type AutoFluentTests() =
         assembly
         |> Generate.fluentAssembly
         |> Format.sourceLines
-        |> compileAndDumpSource assembly ["System.Xml.dll"]
-        |> should equal 201728
-        // 61952 (without inherited members)
+        |> compileAndDumpSource assembly ["System.Xml.dll"; "System.Xml.ReaderWriter.dll"]
+        |> should equal 227328
+        // ~61952 (without inherited members)
 
 
 (*

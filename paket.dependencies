@@ -2,4 +2,5 @@ source https://www.nuget.org/api/v2
 nuget Fluent.Extensions prerelease
 nuget FsUnit
 nuget NUnit
+nuget System.Xml.ReaderWriter
 nuget Xamarin.Forms

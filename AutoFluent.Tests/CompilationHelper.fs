@@ -39,9 +39,9 @@ module CompilationHelper =
         refs.AddRange(defaultDLLs)
         refs.AddRange(dependentDlls |> List.toArray)
         let results = codeProvider.CompileAssemblyFromSource(parameters, [|source|])
-        if results.Errors.Count <> 0 then
+        if results.Errors.HasErrors then
             for err in results.Errors do
-                printfn "ERROR: Line %d, Error %s: %s" err.Line err.ErrorNumber err.ErrorText
+                printfn "%s: Line %d, Error %s: %s" (if err.IsWarning then "WARN" else "ERROR") err.Line err.ErrorNumber err.ErrorText
             System.Console.Write source
             failwith "COMPILATION ERROR"
         else
