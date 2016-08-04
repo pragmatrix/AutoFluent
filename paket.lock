@@ -2,12 +2,12 @@ NUGET
   remote: https://www.nuget.org/api/v2
     Fluent.Extensions (1.0)
     FSharp.Core (4.0.0.1)
-    FsUnit (2.3)
+    FsUnit (2.3.1)
       FSharp.Core (>= 3.1.2.5)
-      NUnit (3.4)
+      NUnit (3.4.1)
     Microsoft.NETCore.Platforms (1.0.1) - framework: dnxcore50, netstandard10, >= netstandard13
     Microsoft.NETCore.Targets (1.0.1) - framework: dnxcore50, netstandard10, >= netstandard13
-    NUnit (3.4)
+    NUnit (3.4.1)
     System.Collections (4.0.11) - framework: dnxcore50, >= netstandard13
       Microsoft.NETCore.Platforms (>= 1.0.1) - framework: dnxcore50, netstandard10, >= netstandard13
       Microsoft.NETCore.Targets (>= 1.0.1) - framework: dnxcore50, netstandard10, >= netstandard13
@@ -69,7 +69,7 @@ NUGET
       Microsoft.NETCore.Targets (>= 1.0.1) - framework: dnxcore50, netstandard11, netstandard12, netstandard13, >= netstandard15
       System.Reflection (>= 4.1) - framework: dnxcore50, netstandard11, netstandard12, netstandard13, >= netstandard15
       System.Reflection.Primitives (>= 4.0.1) - framework: dnxcore50, netstandard11, netstandard12, netstandard13, >= netstandard15
-      System.Runtime (>= 4.1) - framework: dnxcore50, netstandard11, netstandard12, netstandard13, >= netstandard15
+      System.Runtime (>= 4.1) - framework: >= net462, dnxcore50, netstandard11, netstandard12, netstandard13, >= netstandard15
       System.Runtime.Handles (>= 4.0.1) - framework: dnxcore50, netstandard13, >= netstandard15
     System.Text.Encoding (4.0.11) - framework: dnxcore50, netstandard10, >= netstandard13
       Microsoft.NETCore.Platforms (>= 1.0.1) - framework: dnxcore50, netstandard10, >= netstandard13
@@ -81,13 +81,13 @@ NUGET
       System.Runtime (>= 4.1) - framework: dnxcore50, netstandard10, >= netstandard13
       System.Text.Encoding (>= 4.0.11) - framework: dnxcore50, netstandard10, >= netstandard13
     System.Text.RegularExpressions (4.1) - framework: dnxcore50, >= netstandard13
-      System.Collections (>= 4.0.11) - framework: dnxcore50, >= netstandard15
-      System.Globalization (>= 4.0.11) - framework: dnxcore50, >= netstandard15
-      System.Resources.ResourceManager (>= 4.0.1) - framework: dnxcore50, >= netstandard15
-      System.Runtime (>= 4.1) - framework: dnxcore50, netstandard10, netstandard13, >= netstandard15
-      System.Runtime.Extensions (>= 4.1) - framework: dnxcore50, >= netstandard15
-      System.Threading (>= 4.0.11) - framework: dnxcore50, >= netstandard15
-    System.Threading (4.0.11) - framework: dnxcore50, >= netstandard15
+      System.Collections (>= 4.0.11) - framework: dnxcore50, >= netstandard16
+      System.Globalization (>= 4.0.11) - framework: dnxcore50, >= netstandard16
+      System.Resources.ResourceManager (>= 4.0.1) - framework: dnxcore50, >= netstandard16
+      System.Runtime (>= 4.1) - framework: dnxcore50, netstandard10, netstandard13, >= netstandard16
+      System.Runtime.Extensions (>= 4.1) - framework: dnxcore50, >= netstandard16
+      System.Threading (>= 4.0.11) - framework: dnxcore50, >= netstandard16
+    System.Threading (4.0.11) - framework: dnxcore50, >= netstandard16
       System.Runtime (>= 4.1) - framework: dnxcore50, netstandard10, >= netstandard13
       System.Threading.Tasks (>= 4.0.11) - framework: dnxcore50, netstandard10, >= netstandard13
     System.Threading.Tasks (4.0.11) - framework: dnxcore50, netstandard10, >= netstandard13
@@ -135,7 +135,7 @@ NUGET
       Xamarin.Android.Support.v4 (23.3)
     Xamarin.Android.Support.Vector.Drawable (23.3) - framework: monoandroid
       Xamarin.Android.Support.v4 (23.3)
-    Xamarin.Forms (2.3.0.107)
+    Xamarin.Forms (2.3.1.114)
       WPtoolkit (>= 4.2013.8.16) - framework: wpv8.0
       Xamarin.Android.Support.Design (23.3) - framework: monoandroid
       Xamarin.Android.Support.v4 (23.3) - framework: monoandroid
