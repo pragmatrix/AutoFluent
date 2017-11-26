@@ -121,6 +121,9 @@ module Generate =
         (codeF: string -> string)
         (m: MemberInfo) = 
 
+        let memberTypeParameters = Syntax.memberGenericParameters m
+        let memberConstraints = Syntax.memberConstraints m
+
         let name = m.Name
         let self = t
     
@@ -139,8 +142,8 @@ module Generate =
             if explicitSelfType then
                 { m with 
                     self = Some selfTypeName
-                    typeParameters = selfTypeParameters
-                    constraints = constraints 
+                    typeParameters = selfTypeParameters @ memberTypeParameters
+                    constraints = constraints @ memberConstraints
                 }
             else
                 let selfConstraints = 

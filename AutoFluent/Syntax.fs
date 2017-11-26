@@ -120,45 +120,65 @@ module Syntax =
         // https://msdn.microsoft.com/en-us/library/d5x73970.aspx
         // https://msdn.microsoft.com/en-us/library/system.type.getgenericparameterconstraints.aspx
 
-        let typeConstraints (t: Type) : ConstraintsClause list =
+        let typeConstraintOfArgument (t: Type) = 
+            if not t.IsGenericParameter then [] else
+            let constraintTypes = t.GetGenericParameterConstraints()
+            let attributes = t.GenericParameterAttributes
+            let variance = attributes &&& GenericParameterAttributes.VarianceMask
+            let specialConstraints = attributes &&& GenericParameterAttributes.SpecialConstraintMask
 
-            if not t.IsGenericType then []
-            else
+            if variance <> GenericParameterAttributes.None then
+                failwith "a type constraint with co or contravariance is not yet supported"
 
-            let ofArgument (t: Type) = 
-                if not t.IsGenericParameter then [] else
-                let constraintTypes = t.GetGenericParameterConstraints()
-                let attributes = t.GenericParameterAttributes
-                let variance = attributes &&& GenericParameterAttributes.VarianceMask
-                let specialConstraints = attributes &&& GenericParameterAttributes.SpecialConstraintMask
+            let typeConstraints =
+                constraintTypes 
+                |> Array.map (typeName >> TypeConstraint)
 
-                if variance <> GenericParameterAttributes.None then
-                    failwith "a type constraint with co or contravariance is not yet supported"
+            [
+                if specialConstraints.HasFlag GenericParameterAttributes.ReferenceTypeConstraint then
+                    yield ReferenceTypeConstraint
+                if specialConstraints.HasFlag GenericParameterAttributes.NotNullableValueTypeConstraint then
+                    yield ValueTypeConstraint
+                if specialConstraints.HasFlag GenericParameterAttributes.DefaultConstructorConstraint then
+                    yield DefaultConstructorConstraint
+                yield! typeConstraints
+            ]
 
-                let typeConstraints =
-                    constraintTypes 
-                    |> Array.map (typeName >> TypeConstraint)
-
-                [
-                    if specialConstraints.HasFlag GenericParameterAttributes.ReferenceTypeConstraint then
-                        yield ReferenceTypeConstraint
-                    if specialConstraints.HasFlag GenericParameterAttributes.NotNullableValueTypeConstraint then
-                        yield ValueTypeConstraint
-                    if specialConstraints.HasFlag GenericParameterAttributes.DefaultConstructorConstraint then
-                        yield DefaultConstructorConstraint
-                    yield! typeConstraints
-                ]
-
-
-            assert(t.IsGenericType)
-            t.GetGenericArguments()
-            |> Seq.map (fun arg -> arg, ofArgument arg)
-            |> Seq.filter (fun (arg, constraints) -> constraints <> [])
+        let typeConstraintsOfGenericArguments (arguments: Type[]) =
+            arguments
+            |> Seq.map (fun arg -> arg, typeConstraintOfArgument arg)
+            |> Seq.filter (fun (_, constraints) -> constraints <> [])
             |> Seq.map (fun (arg, constraints) -> ConstraintsClause ((typeName arg |> string), constraints))
             |> Seq.toList
 
+        let typeConstraints (t: Type) : ConstraintsClause list =
+            if not t.IsGenericType then [] else
+            t.GetGenericArguments()
+            |> typeConstraintsOfGenericArguments
+
+        let methodConstraints (m: MethodInfo) : ConstraintsClause list =
+            if not m.IsGenericMethod then [] else
+            m.GetGenericArguments()
+            |> typeConstraintsOfGenericArguments
+
     let typeName (t: Type) = Helper.typeName t
     let typeConstraints (t: Type) = Helper.typeConstraints t
+
+    let memberGenericParameters (m: MemberInfo) =
+        match m with
+        | :? MethodInfo as mi ->
+            mi.GetGenericArguments()
+            |> Seq.map typeName
+            |> Seq.map (fun tn -> tn.allParameters)
+            |> Seq.collect id
+            |> Seq.toList
+        | _ -> []
+
+    let memberConstraints (m: MemberInfo) = 
+        match m with
+        | :? MethodInfo as mi ->
+            Helper.methodConstraints mi
+        | _ -> []
 
     let private objType = typeof<Object>
     let private actionTypeName = (typeName typeof<Action>).name

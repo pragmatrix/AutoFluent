@@ -63,3 +63,7 @@ type CompilationTests() =
     [<Test>]
     member this.propertyOfNestedClass() =
         testClassFile("PropertyOfNestedClass") 
+
+    [<Test>]
+    member this.genericInterfaceMethod() =
+        testClassFile("GenericInterfaceMethod")
