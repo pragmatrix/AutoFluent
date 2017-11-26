@@ -13,7 +13,7 @@ namespace XF
 		public static XF.IMessagingCenter DoSend<TSender>(this XF.IMessagingCenter self, TSender sender, System.String message)
 			where TSender : class
 		{
-			self.Send(sender, message);
+			self.Send<TSender>(sender, message);
 			return self;
 		}
 	}

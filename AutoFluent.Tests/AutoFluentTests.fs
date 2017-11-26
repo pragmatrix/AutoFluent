@@ -33,7 +33,7 @@ type AutoFluentTests() =
         |> Generate.fluentAssembly
         |> Format.sourceLines
         |> compileAndDumpSource assembly ["System.Xml.dll"; "System.Xml.ReaderWriter.dll"]
-        |> should equal 233984
+        |> should equal 307200
         // ~61952 (without inherited members)
 
 

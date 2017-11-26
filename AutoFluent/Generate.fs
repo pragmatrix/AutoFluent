@@ -197,6 +197,10 @@ module Generate =
             |> Seq.map (fun p -> Parameter.mk (Syntax.typeName p.ParameterType) p.Name)
             |> Seq.toList
 
+        let genericArguments =
+            Syntax.memberGenericArguments vm
+            |> Syntax.formatTypeArguments
+
         let argumentList = 
             parameters
             |> List.map (fun p -> p.name)
@@ -206,7 +210,7 @@ module Generate =
             t
             (fun name -> "Do" + name)
             parameters
-            (fun name -> sprintf "self.%s(%s);" name argumentList) 
+            (fun name -> sprintf "self.%s%s(%s);" name genericArguments argumentList) 
             (vm :> MemberInfo)
     
     let private classesForEachType 
