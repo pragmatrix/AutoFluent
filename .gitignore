@@ -7,3 +7,4 @@ obj/
 *.ncrunchproject
 /_NCrunch_*
 *.nupkg
+/.paket/paket.exe
