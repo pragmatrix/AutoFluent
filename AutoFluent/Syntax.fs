@@ -2,11 +2,10 @@
 
 open System
 open System.Reflection
-
-open Reflection
+open System.Runtime.Serialization
+open AutoFluent.Reflection
 
 module Syntax =
-    open System.Runtime.Serialization
 
     let join sep (strs: string seq) = String.Join(sep, strs)
     
@@ -19,7 +18,6 @@ module Syntax =
         | TypeName of string * TypeName list
         | TypeParameter of string
         | TypeArray of TypeName * int // rank
-        with
         member this.name = 
             match this with
             | TypeName (name, _) -> name
@@ -52,17 +50,14 @@ module Syntax =
             | TypeParameter name -> name
             | TypeArray (tn, rank) -> (string tn) + "[" + String(',', rank-1) + "]"
 
-    type ConstraintsClause = ConstraintsClause of string * Constraint list
-        with
+    type ConstraintsClause =
+        | ConstraintsClause of string * Constraint list
         member this.parameter = 
-            match this with
-            | ConstraintsClause(p, _) -> p
+            this |> function ConstraintsClause(p, _) -> p
         member this.constraints =
-            match this with
-            | ConstraintsClause(_, c) -> c
+            this |> function ConstraintsClause(_, c) -> c
         override this.ToString() = 
-            match this with
-            | ConstraintsClause(tp, cl) -> sprintf "where %s : %s" tp (cl |> List.map(string) |> join ", ")
+            this |> function ConstraintsClause(tp, cl) -> sprintf "where %s : %s" tp (cl |> List.map(string) |> join ", ")
 
     and Constraint =
         | TypeConstraint of TypeName

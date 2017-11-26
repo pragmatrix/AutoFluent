@@ -10,8 +10,7 @@ module Reflection =
         // extension method signature, which is used for the overload resolution.
         BindingFlags.Public ||| BindingFlags.Instance // ||| BindingFlags.DeclaredOnly
 
-    type Type 
-        with
+    type Type with
         member this.properties = 
             this.GetProperties(defaultBindingFlags)
             |> Array.toList
