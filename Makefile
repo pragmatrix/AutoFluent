@@ -36,7 +36,7 @@ package-xfa: build
 publish-xfa: ver=${xfa-ver}
 publish-xfa: name=Xamarin.Forms.AutoFluent
 publish-xfa: package-xfa
-	cd ${name} && nuget push -Source nuget.org ${name}.${ver}.nupkg	
+	cd ${name} && nuget push -Source https://www.nuget.org/api/v2/package ${name}.${ver}.nupkg	
 
 
 
