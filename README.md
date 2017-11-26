@@ -90,4 +90,4 @@ Specifically in user interface APIs, properties that are named `Content` or `Chi
 
 License: BSD
 
-Copyright © 2016 Armin Sander
+Copyright © 2017 Armin Sander
