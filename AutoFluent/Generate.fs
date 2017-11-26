@@ -35,44 +35,40 @@ module Generate =
             ]
         ]
 
-    type Parameter =  
-        {
-            typeName: Syntax.TypeName;
-            name: string
-        }
-        with
+    type Parameter =  {
+        typeName: Syntax.TypeName;
+        name: string
+    } with
         override this.ToString() = Format.parameter this.typeName this.name
         static member mk tn n = { typeName = tn; name = n}
 
 
-    type MethodDef =
-        { 
-            attributes: string[]
-            name: string
-            parameters: Parameter list
+    type MethodDef = { 
+        attributes: string[]
+        name: string
+        parameters: Parameter list
           
+        // generics
+        typeArguments: string list
+        self: Syntax.TypeName option
+        constraints: Syntax.ConstraintsClause list
+
+        code: string
+    } with
+        static member mk attributes name parameters = {
+            attributes = attributes
+            name = name
+            parameters = parameters
+
+            // this (extension method)
+            self = None
+
             // generics
-            typeParameters: string list
-            self: Syntax.TypeName option
-            constraints: Syntax.ConstraintsClause list
+            typeArguments = []
+            constraints = []
 
-            code: string
+            code = ""
         }
-        static member mk attributes name parameters =
-            {
-                attributes = attributes
-                name = name
-                parameters = parameters
-
-                // this (extension method)
-                self = None
-
-                // generics
-                typeParameters = []
-                constraints = []
-
-                code = ""
-            }
 
     let private extensionMethod (md: MethodDef) = 
 
@@ -88,7 +84,7 @@ module Generate =
             |> Syntax.join ", "
 
         let typeParameters = 
-            md.typeParameters
+            md.typeArguments
             |> Syntax.formatTypeArguments
 
         Format.block [
@@ -121,7 +117,7 @@ module Generate =
         (codeF: string -> string)
         (m: MemberInfo) = 
 
-        let memberTypeParameters = Syntax.memberGenericParameters m
+        let memberTypeParameters = Syntax.memberGenericArguments m
         let memberConstraints = Syntax.memberConstraints m
 
         let name = m.Name
@@ -142,7 +138,7 @@ module Generate =
             if explicitSelfType then
                 { m with 
                     self = Some selfTypeName
-                    typeParameters = selfTypeParameters @ memberTypeParameters
+                    typeArguments = selfTypeParameters @ memberTypeParameters
                     constraints = constraints @ memberConstraints
                 }
             else
@@ -152,7 +148,7 @@ module Generate =
                     
                 { m with 
                     self = selfTypeParameterTypeName |> Some
-                    typeParameters = selfTypeParameterName :: selfTypeParameters
+                    typeArguments = selfTypeParameterName :: selfTypeParameters
                     constraints = selfConstraints :: constraints 
                 }
         m |> extensionMethod

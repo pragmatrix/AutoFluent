@@ -159,7 +159,7 @@ module Syntax =
     let typeName (t: Type) = Helper.typeName t
     let typeConstraints (t: Type) = Helper.typeConstraints t
 
-    let memberGenericParameters (m: MemberInfo) =
+    let memberGenericArguments (m: MemberInfo) =
         match m with
         | :? MethodInfo as mi ->
             mi.GetGenericArguments()
