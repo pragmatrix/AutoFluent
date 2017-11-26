@@ -23,7 +23,7 @@ update-nuget:
 # we want to always stay below the current xamarin forms version to avoid
 # confusion.
 
-xfa-ver=2.3.1.0
+xfa-ver=2.5.0
 
 .PHONY: package-xfa
 package-xfa: ver=${xfa-ver}

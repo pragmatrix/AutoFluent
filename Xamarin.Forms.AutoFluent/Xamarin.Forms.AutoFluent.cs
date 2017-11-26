@@ -1,10 +1,31 @@
 ﻿namespace Xamarin.Forms
 {
+	public static class AcceleratorFluentProperties
+	{
+		public static Xamarin.Forms.Accelerator Modifiers(this Xamarin.Forms.Accelerator self, System.Collections.Generic.IEnumerable<System.String> value)
+		{
+			self.Modifiers = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Accelerator Keys(this Xamarin.Forms.Accelerator self, System.Collections.Generic.IEnumerable<System.String> value)
+		{
+			self.Keys = value;
+			return self;
+		}
+	}
+
 	public static class ApplicationFluentProperties
 	{
 		public static Xamarin.Forms.Application MainPage(this Xamarin.Forms.Application self, Xamarin.Forms.Page value)
 		{
 			self.MainPage = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Application PanGestureId(this Xamarin.Forms.Application self, System.Int32 value)
+		{
+			self.PanGestureId = value;
 			return self;
 		}
 
@@ -32,9 +53,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.Application Platform(this Xamarin.Forms.Application self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.Application Parent(this Xamarin.Forms.Application self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Application EffectControlProvider(this Xamarin.Forms.Application self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -74,9 +107,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.BaseMenuItem Platform(this Xamarin.Forms.BaseMenuItem self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.BaseMenuItem Parent(this Xamarin.Forms.BaseMenuItem self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.BaseMenuItem EffectControlProvider(this Xamarin.Forms.BaseMenuItem self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -125,7 +170,8 @@
 			return self;
 		}
 
-		[System.Obsolete("XAlign is obsolete. Please use HorizontalTextAlignment instead.")]
+		[System.Obsolete("XAlign is obsolete as of version 2.0.0. Please use HorizontalTextAlignment instea" +
+	"d.")]
 		public static Xamarin.Forms.EntryCell XAlign(this Xamarin.Forms.EntryCell self, Xamarin.Forms.TextAlignment value)
 		{
 			self.XAlign = value;
@@ -162,9 +208,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.EntryCell Platform(this Xamarin.Forms.EntryCell self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.EntryCell Parent(this Xamarin.Forms.EntryCell self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.EntryCell EffectControlProvider(this Xamarin.Forms.EntryCell self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -249,9 +307,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.ImageCell Platform(this Xamarin.Forms.ImageCell self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.ImageCell Parent(this Xamarin.Forms.ImageCell self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ImageCell EffectControlProvider(this Xamarin.Forms.ImageCell self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -462,6 +532,30 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.ContentPresenter DisableLayout(this Xamarin.Forms.ContentPresenter self, System.Boolean value)
+		{
+			self.DisableLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ContentPresenter IsInNativeLayout(this Xamarin.Forms.ContentPresenter self, System.Boolean value)
+		{
+			self.IsInNativeLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ContentPresenter IsNativeStateConsistent(this Xamarin.Forms.ContentPresenter self, System.Boolean value)
+		{
+			self.IsNativeStateConsistent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ContentPresenter IsPlatformEnabled(this Xamarin.Forms.ContentPresenter self, System.Boolean value)
+		{
+			self.IsPlatformEnabled = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.ContentPresenter Resources(this Xamarin.Forms.ContentPresenter self, Xamarin.Forms.ResourceDictionary value)
 		{
 			self.Resources = value;
@@ -486,15 +580,51 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.ContentPresenter Platform(this Xamarin.Forms.ContentPresenter self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.ContentPresenter Parent(this Xamarin.Forms.ContentPresenter self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
 			return self;
 		}
 
+		public static Xamarin.Forms.ContentPresenter EffectControlProvider(this Xamarin.Forms.ContentPresenter self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.ContentPresenter BindingContext(this Xamarin.Forms.ContentPresenter self, System.Object value)
 		{
 			self.BindingContext = value;
+			return self;
+		}
+	}
+
+	public static class IWebViewControllerFluentProperties
+	{
+		public static Xamarin.Forms.IWebViewController CanGoBack(this Xamarin.Forms.IWebViewController self, System.Boolean value)
+		{
+			self.CanGoBack = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.IWebViewController CanGoForward(this Xamarin.Forms.IWebViewController self, System.Boolean value)
+		{
+			self.CanGoForward = value;
+			return self;
+		}
+	}
+
+	public static class IMenuItemControllerFluentProperties
+	{
+		public static Xamarin.Forms.IMenuItemController IsEnabled(this Xamarin.Forms.IMenuItemController self, System.Boolean value)
+		{
+			self.IsEnabled = value;
 			return self;
 		}
 	}
@@ -540,9 +670,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.GestureRecognizer Platform(this Xamarin.Forms.GestureRecognizer self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.GestureRecognizer Parent(this Xamarin.Forms.GestureRecognizer self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.GestureRecognizer EffectControlProvider(this Xamarin.Forms.GestureRecognizer self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -581,6 +723,12 @@
 			self.EffectControlProvider = value;
 			return self;
 		}
+
+		public static Xamarin.Forms.IElementController Platform(this Xamarin.Forms.IElementController self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
 	}
 
 	public static class IPageControllerFluentProperties
@@ -598,12 +746,48 @@
 		}
 	}
 
+	public static class IPinchGestureControllerFluentProperties
+	{
+		public static Xamarin.Forms.IPinchGestureController IsPinching(this Xamarin.Forms.IPinchGestureController self, System.Boolean value)
+		{
+			self.IsPinching = value;
+			return self;
+		}
+	}
+
 	public static class ITemplatedItemsListFluentProperties1
 	{
 		public static Xamarin.Forms.ITemplatedItemsList<TItem> Name<TItem>(this Xamarin.Forms.ITemplatedItemsList<TItem> self, System.String value)
 			where TItem : Xamarin.Forms.BindableObject
 		{
 			self.Name = value;
+			return self;
+		}
+	}
+
+	public static class IVisualElementControllerFluentProperties
+	{
+		public static Xamarin.Forms.IVisualElementController DisableLayout(this Xamarin.Forms.IVisualElementController self, System.Boolean value)
+		{
+			self.DisableLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.IVisualElementController IsInNativeLayout(this Xamarin.Forms.IVisualElementController self, System.Boolean value)
+		{
+			self.IsInNativeLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.IVisualElementController IsNativeStateConsistent(this Xamarin.Forms.IVisualElementController self, System.Boolean value)
+		{
+			self.IsNativeStateConsistent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.IVisualElementController IsPlatformEnabled(this Xamarin.Forms.IVisualElementController self, System.Boolean value)
+		{
+			self.IsPlatformEnabled = value;
 			return self;
 		}
 	}
@@ -640,6 +824,12 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.MenuItem IsEnabled(this Xamarin.Forms.MenuItem self, System.Boolean value)
+		{
+			self.IsEnabled = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.MenuItem AutomationId(this Xamarin.Forms.MenuItem self, System.String value)
 		{
 			self.AutomationId = value;
@@ -658,9 +848,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.MenuItem Platform(this Xamarin.Forms.MenuItem self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.MenuItem Parent(this Xamarin.Forms.MenuItem self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.MenuItem EffectControlProvider(this Xamarin.Forms.MenuItem self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -706,9 +908,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.PanGestureRecognizer Platform(this Xamarin.Forms.PanGestureRecognizer self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.PanGestureRecognizer Parent(this Xamarin.Forms.PanGestureRecognizer self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.PanGestureRecognizer EffectControlProvider(this Xamarin.Forms.PanGestureRecognizer self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -751,6 +965,12 @@
 		public static Xamarin.Forms.Binding Source(this Xamarin.Forms.Binding self, System.Object value)
 		{
 			self.Source = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Binding UpdateSourceEventName(this Xamarin.Forms.Binding self, System.String value)
+		{
+			self.UpdateSourceEventName = value;
 			return self;
 		}
 
@@ -820,7 +1040,7 @@
 			return self;
 		}
 
-		[System.Obsolete("Please use the Font properties directly. Obsolete in 1.3.0")]
+		[System.Obsolete("Font is obsolete as of version 1.3.0. Please use the Font properties directly.")]
 		public static Xamarin.Forms.Span Font(this Xamarin.Forms.Span self, Xamarin.Forms.Font value)
 		{
 			self.Font = value;
@@ -908,14 +1128,15 @@
 			return self;
 		}
 
-		[System.Obsolete("Obsolete in 1.0.2. Use Command instead")]
+		[System.Obsolete("TappedCallback is obsolete as of version 1.0.2. Please use Command instead.")]
 		public static Xamarin.Forms.TapGestureRecognizer TappedCallback(this Xamarin.Forms.TapGestureRecognizer self, System.Action<Xamarin.Forms.View, System.Object> value)
 		{
 			self.TappedCallback = value;
 			return self;
 		}
 
-		[System.Obsolete("Obsolete in 1.0.2. Use Command instead")]
+		[System.Obsolete("TappedCallbackParameter is obsolete as of version 1.0.2. Please use Command inste" +
+	"ad.")]
 		public static Xamarin.Forms.TapGestureRecognizer TappedCallbackParameter(this Xamarin.Forms.TapGestureRecognizer self, System.Object value)
 		{
 			self.TappedCallbackParameter = value;
@@ -940,9 +1161,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.TapGestureRecognizer Platform(this Xamarin.Forms.TapGestureRecognizer self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.TapGestureRecognizer Parent(this Xamarin.Forms.TapGestureRecognizer self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.TapGestureRecognizer EffectControlProvider(this Xamarin.Forms.TapGestureRecognizer self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -1021,6 +1254,18 @@
 		public static Xamarin.Forms.TemplatedPage Title(this Xamarin.Forms.TemplatedPage self, System.String value)
 		{
 			self.Title = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.TemplatedPage ContainerArea(this Xamarin.Forms.TemplatedPage self, Xamarin.Forms.Rectangle value)
+		{
+			self.ContainerArea = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.TemplatedPage IgnoresContainerArea(this Xamarin.Forms.TemplatedPage self, System.Boolean value)
+		{
+			self.IgnoresContainerArea = value;
 			return self;
 		}
 
@@ -1138,6 +1383,30 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.TemplatedPage DisableLayout(this Xamarin.Forms.TemplatedPage self, System.Boolean value)
+		{
+			self.DisableLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.TemplatedPage IsInNativeLayout(this Xamarin.Forms.TemplatedPage self, System.Boolean value)
+		{
+			self.IsInNativeLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.TemplatedPage IsNativeStateConsistent(this Xamarin.Forms.TemplatedPage self, System.Boolean value)
+		{
+			self.IsNativeStateConsistent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.TemplatedPage IsPlatformEnabled(this Xamarin.Forms.TemplatedPage self, System.Boolean value)
+		{
+			self.IsPlatformEnabled = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.TemplatedPage Resources(this Xamarin.Forms.TemplatedPage self, Xamarin.Forms.ResourceDictionary value)
 		{
 			self.Resources = value;
@@ -1162,9 +1431,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.TemplatedPage Platform(this Xamarin.Forms.TemplatedPage self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.TemplatedPage Parent(this Xamarin.Forms.TemplatedPage self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.TemplatedPage EffectControlProvider(this Xamarin.Forms.TemplatedPage self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -1327,6 +1608,30 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.TemplatedView DisableLayout(this Xamarin.Forms.TemplatedView self, System.Boolean value)
+		{
+			self.DisableLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.TemplatedView IsInNativeLayout(this Xamarin.Forms.TemplatedView self, System.Boolean value)
+		{
+			self.IsInNativeLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.TemplatedView IsNativeStateConsistent(this Xamarin.Forms.TemplatedView self, System.Boolean value)
+		{
+			self.IsNativeStateConsistent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.TemplatedView IsPlatformEnabled(this Xamarin.Forms.TemplatedView self, System.Boolean value)
+		{
+			self.IsPlatformEnabled = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.TemplatedView Resources(this Xamarin.Forms.TemplatedView self, Xamarin.Forms.ResourceDictionary value)
 		{
 			self.Resources = value;
@@ -1351,9 +1656,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.TemplatedView Platform(this Xamarin.Forms.TemplatedView self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.TemplatedView Parent(this Xamarin.Forms.TemplatedView self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.TemplatedView EffectControlProvider(this Xamarin.Forms.TemplatedView self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -1528,6 +1845,30 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.View DisableLayout(this Xamarin.Forms.View self, System.Boolean value)
+		{
+			self.DisableLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.View IsInNativeLayout(this Xamarin.Forms.View self, System.Boolean value)
+		{
+			self.IsInNativeLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.View IsNativeStateConsistent(this Xamarin.Forms.View self, System.Boolean value)
+		{
+			self.IsNativeStateConsistent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.View IsPlatformEnabled(this Xamarin.Forms.View self, System.Boolean value)
+		{
+			self.IsPlatformEnabled = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.View Resources(this Xamarin.Forms.View self, Xamarin.Forms.ResourceDictionary value)
 		{
 			self.Resources = value;
@@ -1552,9 +1893,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.View Platform(this Xamarin.Forms.View self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.View Parent(this Xamarin.Forms.View self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.View EffectControlProvider(this Xamarin.Forms.View self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -1579,8 +1932,8 @@
 			return self;
 		}
 
-		[System.Obsolete("Use BarBackgroundColor and BarTextColor to change NavigationPage bar color proper" +
-	"ties")]
+		[System.Obsolete("Tint is obsolete as of version 1.2.0. Please use BarBackgroundColor and BarTextCo" +
+	"lor to change NavigationPage bar color properties.")]
 		public static Xamarin.Forms.NavigationPage Tint(this Xamarin.Forms.NavigationPage self, Xamarin.Forms.Color value)
 		{
 			self.Tint = value;
@@ -1614,6 +1967,18 @@
 		public static Xamarin.Forms.NavigationPage Title(this Xamarin.Forms.NavigationPage self, System.String value)
 		{
 			self.Title = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.NavigationPage ContainerArea(this Xamarin.Forms.NavigationPage self, Xamarin.Forms.Rectangle value)
+		{
+			self.ContainerArea = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.NavigationPage IgnoresContainerArea(this Xamarin.Forms.NavigationPage self, System.Boolean value)
+		{
+			self.IgnoresContainerArea = value;
 			return self;
 		}
 
@@ -1731,6 +2096,30 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.NavigationPage DisableLayout(this Xamarin.Forms.NavigationPage self, System.Boolean value)
+		{
+			self.DisableLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.NavigationPage IsInNativeLayout(this Xamarin.Forms.NavigationPage self, System.Boolean value)
+		{
+			self.IsInNativeLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.NavigationPage IsNativeStateConsistent(this Xamarin.Forms.NavigationPage self, System.Boolean value)
+		{
+			self.IsNativeStateConsistent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.NavigationPage IsPlatformEnabled(this Xamarin.Forms.NavigationPage self, System.Boolean value)
+		{
+			self.IsPlatformEnabled = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.NavigationPage Resources(this Xamarin.Forms.NavigationPage self, Xamarin.Forms.ResourceDictionary value)
 		{
 			self.Resources = value;
@@ -1755,9 +2144,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.NavigationPage Platform(this Xamarin.Forms.NavigationPage self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.NavigationPage Parent(this Xamarin.Forms.NavigationPage self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.NavigationPage EffectControlProvider(this Xamarin.Forms.NavigationPage self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -1797,6 +2198,18 @@
 		public static Xamarin.Forms.Page Title(this Xamarin.Forms.Page self, System.String value)
 		{
 			self.Title = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Page ContainerArea(this Xamarin.Forms.Page self, Xamarin.Forms.Rectangle value)
+		{
+			self.ContainerArea = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Page IgnoresContainerArea(this Xamarin.Forms.Page self, System.Boolean value)
+		{
+			self.IgnoresContainerArea = value;
 			return self;
 		}
 
@@ -1914,6 +2327,30 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.Page DisableLayout(this Xamarin.Forms.Page self, System.Boolean value)
+		{
+			self.DisableLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Page IsInNativeLayout(this Xamarin.Forms.Page self, System.Boolean value)
+		{
+			self.IsInNativeLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Page IsNativeStateConsistent(this Xamarin.Forms.Page self, System.Boolean value)
+		{
+			self.IsNativeStateConsistent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Page IsPlatformEnabled(this Xamarin.Forms.Page self, System.Boolean value)
+		{
+			self.IsPlatformEnabled = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.Page Resources(this Xamarin.Forms.Page self, Xamarin.Forms.ResourceDictionary value)
 		{
 			self.Resources = value;
@@ -1938,9 +2375,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.Page Platform(this Xamarin.Forms.Page self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.Page Parent(this Xamarin.Forms.Page self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Page EffectControlProvider(this Xamarin.Forms.Page self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -2019,6 +2468,18 @@
 		public static Xamarin.Forms.CarouselPage Title(this Xamarin.Forms.CarouselPage self, System.String value)
 		{
 			self.Title = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.CarouselPage ContainerArea(this Xamarin.Forms.CarouselPage self, Xamarin.Forms.Rectangle value)
+		{
+			self.ContainerArea = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.CarouselPage IgnoresContainerArea(this Xamarin.Forms.CarouselPage self, System.Boolean value)
+		{
+			self.IgnoresContainerArea = value;
 			return self;
 		}
 
@@ -2136,6 +2597,30 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.CarouselPage DisableLayout(this Xamarin.Forms.CarouselPage self, System.Boolean value)
+		{
+			self.DisableLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.CarouselPage IsInNativeLayout(this Xamarin.Forms.CarouselPage self, System.Boolean value)
+		{
+			self.IsInNativeLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.CarouselPage IsNativeStateConsistent(this Xamarin.Forms.CarouselPage self, System.Boolean value)
+		{
+			self.IsNativeStateConsistent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.CarouselPage IsPlatformEnabled(this Xamarin.Forms.CarouselPage self, System.Boolean value)
+		{
+			self.IsPlatformEnabled = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.CarouselPage Resources(this Xamarin.Forms.CarouselPage self, Xamarin.Forms.ResourceDictionary value)
 		{
 			self.Resources = value;
@@ -2160,9 +2645,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.CarouselPage Platform(this Xamarin.Forms.CarouselPage self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.CarouselPage Parent(this Xamarin.Forms.CarouselPage self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.CarouselPage EffectControlProvider(this Xamarin.Forms.CarouselPage self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -2304,7 +2801,7 @@
 
 	public static class ToolbarItemFluentProperties
 	{
-		[System.Obsolete("Now that ToolbarItem is based on MenuItem, .Text has replaced .Name")]
+		[System.Obsolete("Name is obsolete as of version 1.3.0. Please use Text instead.")]
 		public static Xamarin.Forms.ToolbarItem Name(this Xamarin.Forms.ToolbarItem self, System.String value)
 		{
 			self.Name = value;
@@ -2353,6 +2850,12 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.ToolbarItem IsEnabled(this Xamarin.Forms.ToolbarItem self, System.Boolean value)
+		{
+			self.IsEnabled = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.ToolbarItem AutomationId(this Xamarin.Forms.ToolbarItem self, System.String value)
 		{
 			self.AutomationId = value;
@@ -2371,9 +2874,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.ToolbarItem Platform(this Xamarin.Forms.ToolbarItem self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.ToolbarItem Parent(this Xamarin.Forms.ToolbarItem self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ToolbarItem EffectControlProvider(this Xamarin.Forms.ToolbarItem self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -2416,9 +2931,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.Cell Platform(this Xamarin.Forms.Cell self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.Cell Parent(this Xamarin.Forms.Cell self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Cell EffectControlProvider(this Xamarin.Forms.Cell self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -2473,9 +3000,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.SwitchCell Platform(this Xamarin.Forms.SwitchCell self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.SwitchCell Parent(this Xamarin.Forms.SwitchCell self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.SwitchCell EffectControlProvider(this Xamarin.Forms.SwitchCell self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -2554,9 +3093,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.TextCell Platform(this Xamarin.Forms.TextCell self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.TextCell Parent(this Xamarin.Forms.TextCell self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.TextCell EffectControlProvider(this Xamarin.Forms.TextCell self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -2605,9 +3156,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.ViewCell Platform(this Xamarin.Forms.ViewCell self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.ViewCell Parent(this Xamarin.Forms.ViewCell self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ViewCell EffectControlProvider(this Xamarin.Forms.ViewCell self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -2713,6 +3276,12 @@
 		public static Xamarin.Forms.ListView SeparatorVisibility(this Xamarin.Forms.ListView self, Xamarin.Forms.SeparatorVisibility value)
 		{
 			self.SeparatorVisibility = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ListView RefreshAllowed(this Xamarin.Forms.ListView self, System.Boolean value)
+		{
+			self.RefreshAllowed = value;
 			return self;
 		}
 
@@ -2860,6 +3429,30 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.ListView DisableLayout(this Xamarin.Forms.ListView self, System.Boolean value)
+		{
+			self.DisableLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ListView IsInNativeLayout(this Xamarin.Forms.ListView self, System.Boolean value)
+		{
+			self.IsInNativeLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ListView IsNativeStateConsistent(this Xamarin.Forms.ListView self, System.Boolean value)
+		{
+			self.IsNativeStateConsistent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ListView IsPlatformEnabled(this Xamarin.Forms.ListView self, System.Boolean value)
+		{
+			self.IsPlatformEnabled = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.ListView Resources(this Xamarin.Forms.ListView self, Xamarin.Forms.ResourceDictionary value)
 		{
 			self.Resources = value;
@@ -2884,9 +3477,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.ListView Platform(this Xamarin.Forms.ListView self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.ListView Parent(this Xamarin.Forms.ListView self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ListView EffectControlProvider(this Xamarin.Forms.ListView self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -2920,6 +3525,12 @@
 		public static Xamarin.Forms.TableView RowHeight(this Xamarin.Forms.TableView self, System.Int32 value)
 		{
 			self.RowHeight = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.TableView Model(this Xamarin.Forms.TableView self, Xamarin.Forms.Internals.TableModel value)
+		{
+			self.Model = value;
 			return self;
 		}
 
@@ -3055,6 +3666,30 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.TableView DisableLayout(this Xamarin.Forms.TableView self, System.Boolean value)
+		{
+			self.DisableLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.TableView IsInNativeLayout(this Xamarin.Forms.TableView self, System.Boolean value)
+		{
+			self.IsInNativeLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.TableView IsNativeStateConsistent(this Xamarin.Forms.TableView self, System.Boolean value)
+		{
+			self.IsNativeStateConsistent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.TableView IsPlatformEnabled(this Xamarin.Forms.TableView self, System.Boolean value)
+		{
+			self.IsPlatformEnabled = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.TableView Resources(this Xamarin.Forms.TableView self, Xamarin.Forms.ResourceDictionary value)
 		{
 			self.Resources = value;
@@ -3079,9 +3714,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.TableView Platform(this Xamarin.Forms.TableView self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.TableView Parent(this Xamarin.Forms.TableView self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.TableView EffectControlProvider(this Xamarin.Forms.TableView self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -3262,6 +3909,34 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.ItemsView<TVisual> DisableLayout<TVisual>(this Xamarin.Forms.ItemsView<TVisual> self, System.Boolean value)
+			where TVisual : Xamarin.Forms.BindableObject
+		{
+			self.DisableLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ItemsView<TVisual> IsInNativeLayout<TVisual>(this Xamarin.Forms.ItemsView<TVisual> self, System.Boolean value)
+			where TVisual : Xamarin.Forms.BindableObject
+		{
+			self.IsInNativeLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ItemsView<TVisual> IsNativeStateConsistent<TVisual>(this Xamarin.Forms.ItemsView<TVisual> self, System.Boolean value)
+			where TVisual : Xamarin.Forms.BindableObject
+		{
+			self.IsNativeStateConsistent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ItemsView<TVisual> IsPlatformEnabled<TVisual>(this Xamarin.Forms.ItemsView<TVisual> self, System.Boolean value)
+			where TVisual : Xamarin.Forms.BindableObject
+		{
+			self.IsPlatformEnabled = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.ItemsView<TVisual> Resources<TVisual>(this Xamarin.Forms.ItemsView<TVisual> self, Xamarin.Forms.ResourceDictionary value)
 			where TVisual : Xamarin.Forms.BindableObject
 		{
@@ -3290,10 +3965,24 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.ItemsView<TVisual> Platform<TVisual>(this Xamarin.Forms.ItemsView<TVisual> self, Xamarin.Forms.Internals.IPlatform value)
+			where TVisual : Xamarin.Forms.BindableObject
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.ItemsView<TVisual> Parent<TVisual>(this Xamarin.Forms.ItemsView<TVisual> self, Xamarin.Forms.Element value)
 			where TVisual : Xamarin.Forms.BindableObject
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ItemsView<TVisual> EffectControlProvider<TVisual>(this Xamarin.Forms.ItemsView<TVisual> self, Xamarin.Forms.IEffectControlProvider value)
+			where TVisual : Xamarin.Forms.BindableObject
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -3483,6 +4172,30 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.AbsoluteLayout DisableLayout(this Xamarin.Forms.AbsoluteLayout self, System.Boolean value)
+		{
+			self.DisableLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.AbsoluteLayout IsInNativeLayout(this Xamarin.Forms.AbsoluteLayout self, System.Boolean value)
+		{
+			self.IsInNativeLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.AbsoluteLayout IsNativeStateConsistent(this Xamarin.Forms.AbsoluteLayout self, System.Boolean value)
+		{
+			self.IsNativeStateConsistent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.AbsoluteLayout IsPlatformEnabled(this Xamarin.Forms.AbsoluteLayout self, System.Boolean value)
+		{
+			self.IsPlatformEnabled = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.AbsoluteLayout Resources(this Xamarin.Forms.AbsoluteLayout self, Xamarin.Forms.ResourceDictionary value)
 		{
 			self.Resources = value;
@@ -3507,9 +4220,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.AbsoluteLayout Platform(this Xamarin.Forms.AbsoluteLayout self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.AbsoluteLayout Parent(this Xamarin.Forms.AbsoluteLayout self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.AbsoluteLayout EffectControlProvider(this Xamarin.Forms.AbsoluteLayout self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -3666,6 +4391,30 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.ActivityIndicator DisableLayout(this Xamarin.Forms.ActivityIndicator self, System.Boolean value)
+		{
+			self.DisableLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ActivityIndicator IsInNativeLayout(this Xamarin.Forms.ActivityIndicator self, System.Boolean value)
+		{
+			self.IsInNativeLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ActivityIndicator IsNativeStateConsistent(this Xamarin.Forms.ActivityIndicator self, System.Boolean value)
+		{
+			self.IsNativeStateConsistent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ActivityIndicator IsPlatformEnabled(this Xamarin.Forms.ActivityIndicator self, System.Boolean value)
+		{
+			self.IsPlatformEnabled = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.ActivityIndicator Resources(this Xamarin.Forms.ActivityIndicator self, Xamarin.Forms.ResourceDictionary value)
 		{
 			self.Resources = value;
@@ -3690,9 +4439,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.ActivityIndicator Platform(this Xamarin.Forms.ActivityIndicator self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.ActivityIndicator Parent(this Xamarin.Forms.ActivityIndicator self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ActivityIndicator EffectControlProvider(this Xamarin.Forms.ActivityIndicator self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -3843,6 +4604,30 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.BoxView DisableLayout(this Xamarin.Forms.BoxView self, System.Boolean value)
+		{
+			self.DisableLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.BoxView IsInNativeLayout(this Xamarin.Forms.BoxView self, System.Boolean value)
+		{
+			self.IsInNativeLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.BoxView IsNativeStateConsistent(this Xamarin.Forms.BoxView self, System.Boolean value)
+		{
+			self.IsNativeStateConsistent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.BoxView IsPlatformEnabled(this Xamarin.Forms.BoxView self, System.Boolean value)
+		{
+			self.IsPlatformEnabled = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.BoxView Resources(this Xamarin.Forms.BoxView self, Xamarin.Forms.ResourceDictionary value)
 		{
 			self.Resources = value;
@@ -3867,9 +4652,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.BoxView Platform(this Xamarin.Forms.BoxView self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.BoxView Parent(this Xamarin.Forms.BoxView self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.BoxView EffectControlProvider(this Xamarin.Forms.BoxView self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -4092,6 +4889,30 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.Button DisableLayout(this Xamarin.Forms.Button self, System.Boolean value)
+		{
+			self.DisableLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Button IsInNativeLayout(this Xamarin.Forms.Button self, System.Boolean value)
+		{
+			self.IsInNativeLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Button IsNativeStateConsistent(this Xamarin.Forms.Button self, System.Boolean value)
+		{
+			self.IsNativeStateConsistent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Button IsPlatformEnabled(this Xamarin.Forms.Button self, System.Boolean value)
+		{
+			self.IsPlatformEnabled = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.Button Resources(this Xamarin.Forms.Button self, Xamarin.Forms.ResourceDictionary value)
 		{
 			self.Resources = value;
@@ -4116,9 +4937,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.Button Platform(this Xamarin.Forms.Button self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.Button Parent(this Xamarin.Forms.Button self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Button EffectControlProvider(this Xamarin.Forms.Button self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -4287,6 +5120,30 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.ContentView DisableLayout(this Xamarin.Forms.ContentView self, System.Boolean value)
+		{
+			self.DisableLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ContentView IsInNativeLayout(this Xamarin.Forms.ContentView self, System.Boolean value)
+		{
+			self.IsInNativeLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ContentView IsNativeStateConsistent(this Xamarin.Forms.ContentView self, System.Boolean value)
+		{
+			self.IsNativeStateConsistent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ContentView IsPlatformEnabled(this Xamarin.Forms.ContentView self, System.Boolean value)
+		{
+			self.IsPlatformEnabled = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.ContentView Resources(this Xamarin.Forms.ContentView self, Xamarin.Forms.ResourceDictionary value)
 		{
 			self.Resources = value;
@@ -4311,9 +5168,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.ContentView Platform(this Xamarin.Forms.ContentView self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.ContentView Parent(this Xamarin.Forms.ContentView self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ContentView EffectControlProvider(this Xamarin.Forms.ContentView self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -4488,6 +5357,30 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.DatePicker DisableLayout(this Xamarin.Forms.DatePicker self, System.Boolean value)
+		{
+			self.DisableLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.DatePicker IsInNativeLayout(this Xamarin.Forms.DatePicker self, System.Boolean value)
+		{
+			self.IsInNativeLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.DatePicker IsNativeStateConsistent(this Xamarin.Forms.DatePicker self, System.Boolean value)
+		{
+			self.IsNativeStateConsistent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.DatePicker IsPlatformEnabled(this Xamarin.Forms.DatePicker self, System.Boolean value)
+		{
+			self.IsPlatformEnabled = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.DatePicker Resources(this Xamarin.Forms.DatePicker self, Xamarin.Forms.ResourceDictionary value)
 		{
 			self.Resources = value;
@@ -4512,9 +5405,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.DatePicker Platform(this Xamarin.Forms.DatePicker self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.DatePicker Parent(this Xamarin.Forms.DatePicker self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.DatePicker EffectControlProvider(this Xamarin.Forms.DatePicker self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -4695,6 +5600,30 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.Editor DisableLayout(this Xamarin.Forms.Editor self, System.Boolean value)
+		{
+			self.DisableLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Editor IsInNativeLayout(this Xamarin.Forms.Editor self, System.Boolean value)
+		{
+			self.IsInNativeLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Editor IsNativeStateConsistent(this Xamarin.Forms.Editor self, System.Boolean value)
+		{
+			self.IsNativeStateConsistent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Editor IsPlatformEnabled(this Xamarin.Forms.Editor self, System.Boolean value)
+		{
+			self.IsPlatformEnabled = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.Editor Resources(this Xamarin.Forms.Editor self, Xamarin.Forms.ResourceDictionary value)
 		{
 			self.Resources = value;
@@ -4719,9 +5648,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.Editor Platform(this Xamarin.Forms.Editor self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.Editor Parent(this Xamarin.Forms.Editor self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Editor EffectControlProvider(this Xamarin.Forms.Editor self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -4926,6 +5867,30 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.Entry DisableLayout(this Xamarin.Forms.Entry self, System.Boolean value)
+		{
+			self.DisableLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Entry IsInNativeLayout(this Xamarin.Forms.Entry self, System.Boolean value)
+		{
+			self.IsInNativeLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Entry IsNativeStateConsistent(this Xamarin.Forms.Entry self, System.Boolean value)
+		{
+			self.IsNativeStateConsistent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Entry IsPlatformEnabled(this Xamarin.Forms.Entry self, System.Boolean value)
+		{
+			self.IsPlatformEnabled = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.Entry Resources(this Xamarin.Forms.Entry self, Xamarin.Forms.ResourceDictionary value)
 		{
 			self.Resources = value;
@@ -4950,9 +5915,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.Entry Platform(this Xamarin.Forms.Entry self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.Entry Parent(this Xamarin.Forms.Entry self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Entry EffectControlProvider(this Xamarin.Forms.Entry self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -4974,6 +5951,12 @@
 		public static Xamarin.Forms.Frame OutlineColor(this Xamarin.Forms.Frame self, Xamarin.Forms.Color value)
 		{
 			self.OutlineColor = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Frame CornerRadius(this Xamarin.Forms.Frame self, System.Single value)
+		{
+			self.CornerRadius = value;
 			return self;
 		}
 
@@ -5133,6 +6116,30 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.Frame DisableLayout(this Xamarin.Forms.Frame self, System.Boolean value)
+		{
+			self.DisableLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Frame IsInNativeLayout(this Xamarin.Forms.Frame self, System.Boolean value)
+		{
+			self.IsInNativeLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Frame IsNativeStateConsistent(this Xamarin.Forms.Frame self, System.Boolean value)
+		{
+			self.IsNativeStateConsistent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Frame IsPlatformEnabled(this Xamarin.Forms.Frame self, System.Boolean value)
+		{
+			self.IsPlatformEnabled = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.Frame Resources(this Xamarin.Forms.Frame self, Xamarin.Forms.ResourceDictionary value)
 		{
 			self.Resources = value;
@@ -5157,9 +6164,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.Frame Platform(this Xamarin.Forms.Frame self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.Frame Parent(this Xamarin.Forms.Frame self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Frame EffectControlProvider(this Xamarin.Forms.Frame self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -5322,6 +6341,30 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.Image DisableLayout(this Xamarin.Forms.Image self, System.Boolean value)
+		{
+			self.DisableLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Image IsInNativeLayout(this Xamarin.Forms.Image self, System.Boolean value)
+		{
+			self.IsInNativeLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Image IsNativeStateConsistent(this Xamarin.Forms.Image self, System.Boolean value)
+		{
+			self.IsNativeStateConsistent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Image IsPlatformEnabled(this Xamarin.Forms.Image self, System.Boolean value)
+		{
+			self.IsPlatformEnabled = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.Image Resources(this Xamarin.Forms.Image self, Xamarin.Forms.ResourceDictionary value)
 		{
 			self.Resources = value;
@@ -5346,9 +6389,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.Image Platform(this Xamarin.Forms.Image self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.Image Parent(this Xamarin.Forms.Image self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Image EffectControlProvider(this Xamarin.Forms.Image self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -5397,9 +6452,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.UriImageSource Platform(this Xamarin.Forms.UriImageSource self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.UriImageSource Parent(this Xamarin.Forms.UriImageSource self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.UriImageSource EffectControlProvider(this Xamarin.Forms.UriImageSource self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -5550,6 +6617,30 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.InputView DisableLayout(this Xamarin.Forms.InputView self, System.Boolean value)
+		{
+			self.DisableLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.InputView IsInNativeLayout(this Xamarin.Forms.InputView self, System.Boolean value)
+		{
+			self.IsInNativeLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.InputView IsNativeStateConsistent(this Xamarin.Forms.InputView self, System.Boolean value)
+		{
+			self.IsNativeStateConsistent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.InputView IsPlatformEnabled(this Xamarin.Forms.InputView self, System.Boolean value)
+		{
+			self.IsPlatformEnabled = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.InputView Resources(this Xamarin.Forms.InputView self, Xamarin.Forms.ResourceDictionary value)
 		{
 			self.Resources = value;
@@ -5574,9 +6665,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.InputView Platform(this Xamarin.Forms.InputView self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.InputView Parent(this Xamarin.Forms.InputView self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.InputView EffectControlProvider(this Xamarin.Forms.InputView self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -5589,8 +6692,8 @@
 
 	public static class LabelFluentProperties
 	{
-		[System.Obsolete("Please use the Font attributes which are on the class itself. Obsoleted in v1.3.0" +
-	"")]
+		[System.Obsolete("Font is obsolete as of version 1.3.0. Please use the Font attributes which are on" +
+	" the class itself.")]
 		public static Xamarin.Forms.Label Font(this Xamarin.Forms.Label self, Xamarin.Forms.Font value)
 		{
 			self.Font = value;
@@ -5633,14 +6736,16 @@
 			return self;
 		}
 
-		[System.Obsolete("XAlign is obsolete. Please use HorizontalTextAlignment instead.")]
+		[System.Obsolete("XAlign is obsolete as of version 2.0.0. Please use HorizontalTextAlignment instea" +
+	"d.")]
 		public static Xamarin.Forms.Label XAlign(this Xamarin.Forms.Label self, Xamarin.Forms.TextAlignment value)
 		{
 			self.XAlign = value;
 			return self;
 		}
 
-		[System.Obsolete("YAlign is obsolete. Please use VerticalTextAlignment instead.")]
+		[System.Obsolete("YAlign is obsolete as of version 2.0.0. Please use VerticalTextAlignment instead." +
+	"")]
 		public static Xamarin.Forms.Label YAlign(this Xamarin.Forms.Label self, Xamarin.Forms.TextAlignment value)
 		{
 			self.YAlign = value;
@@ -5797,6 +6902,30 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.Label DisableLayout(this Xamarin.Forms.Label self, System.Boolean value)
+		{
+			self.DisableLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Label IsInNativeLayout(this Xamarin.Forms.Label self, System.Boolean value)
+		{
+			self.IsInNativeLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Label IsNativeStateConsistent(this Xamarin.Forms.Label self, System.Boolean value)
+		{
+			self.IsNativeStateConsistent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Label IsPlatformEnabled(this Xamarin.Forms.Label self, System.Boolean value)
+		{
+			self.IsPlatformEnabled = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.Label Resources(this Xamarin.Forms.Label self, Xamarin.Forms.ResourceDictionary value)
 		{
 			self.Resources = value;
@@ -5821,9 +6950,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.Label Platform(this Xamarin.Forms.Label self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.Label Parent(this Xamarin.Forms.Label self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Label EffectControlProvider(this Xamarin.Forms.Label self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -5866,6 +7007,24 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.MasterDetailPage CanChangeIsPresented(this Xamarin.Forms.MasterDetailPage self, System.Boolean value)
+		{
+			self.CanChangeIsPresented = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.MasterDetailPage DetailBounds(this Xamarin.Forms.MasterDetailPage self, Xamarin.Forms.Rectangle value)
+		{
+			self.DetailBounds = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.MasterDetailPage MasterBounds(this Xamarin.Forms.MasterDetailPage self, Xamarin.Forms.Rectangle value)
+		{
+			self.MasterBounds = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.MasterDetailPage BackgroundImage(this Xamarin.Forms.MasterDetailPage self, System.String value)
 		{
 			self.BackgroundImage = value;
@@ -5893,6 +7052,18 @@
 		public static Xamarin.Forms.MasterDetailPage Title(this Xamarin.Forms.MasterDetailPage self, System.String value)
 		{
 			self.Title = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.MasterDetailPage ContainerArea(this Xamarin.Forms.MasterDetailPage self, Xamarin.Forms.Rectangle value)
+		{
+			self.ContainerArea = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.MasterDetailPage IgnoresContainerArea(this Xamarin.Forms.MasterDetailPage self, System.Boolean value)
+		{
+			self.IgnoresContainerArea = value;
 			return self;
 		}
 
@@ -6010,6 +7181,30 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.MasterDetailPage DisableLayout(this Xamarin.Forms.MasterDetailPage self, System.Boolean value)
+		{
+			self.DisableLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.MasterDetailPage IsInNativeLayout(this Xamarin.Forms.MasterDetailPage self, System.Boolean value)
+		{
+			self.IsInNativeLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.MasterDetailPage IsNativeStateConsistent(this Xamarin.Forms.MasterDetailPage self, System.Boolean value)
+		{
+			self.IsNativeStateConsistent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.MasterDetailPage IsPlatformEnabled(this Xamarin.Forms.MasterDetailPage self, System.Boolean value)
+		{
+			self.IsPlatformEnabled = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.MasterDetailPage Resources(this Xamarin.Forms.MasterDetailPage self, Xamarin.Forms.ResourceDictionary value)
 		{
 			self.Resources = value;
@@ -6034,9 +7229,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.MasterDetailPage Platform(this Xamarin.Forms.MasterDetailPage self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.MasterDetailPage Parent(this Xamarin.Forms.MasterDetailPage self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.MasterDetailPage EffectControlProvider(this Xamarin.Forms.MasterDetailPage self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -6193,6 +7400,30 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.OpenGLView DisableLayout(this Xamarin.Forms.OpenGLView self, System.Boolean value)
+		{
+			self.DisableLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.OpenGLView IsInNativeLayout(this Xamarin.Forms.OpenGLView self, System.Boolean value)
+		{
+			self.IsInNativeLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.OpenGLView IsNativeStateConsistent(this Xamarin.Forms.OpenGLView self, System.Boolean value)
+		{
+			self.IsNativeStateConsistent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.OpenGLView IsPlatformEnabled(this Xamarin.Forms.OpenGLView self, System.Boolean value)
+		{
+			self.IsPlatformEnabled = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.OpenGLView Resources(this Xamarin.Forms.OpenGLView self, Xamarin.Forms.ResourceDictionary value)
 		{
 			self.Resources = value;
@@ -6217,9 +7448,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.OpenGLView Platform(this Xamarin.Forms.OpenGLView self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.OpenGLView Parent(this Xamarin.Forms.OpenGLView self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.OpenGLView EffectControlProvider(this Xamarin.Forms.OpenGLView self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -6370,6 +7613,30 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.ProgressBar DisableLayout(this Xamarin.Forms.ProgressBar self, System.Boolean value)
+		{
+			self.DisableLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ProgressBar IsInNativeLayout(this Xamarin.Forms.ProgressBar self, System.Boolean value)
+		{
+			self.IsInNativeLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ProgressBar IsNativeStateConsistent(this Xamarin.Forms.ProgressBar self, System.Boolean value)
+		{
+			self.IsNativeStateConsistent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ProgressBar IsPlatformEnabled(this Xamarin.Forms.ProgressBar self, System.Boolean value)
+		{
+			self.IsPlatformEnabled = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.ProgressBar Resources(this Xamarin.Forms.ProgressBar self, Xamarin.Forms.ResourceDictionary value)
 		{
 			self.Resources = value;
@@ -6394,9 +7661,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.ProgressBar Platform(this Xamarin.Forms.ProgressBar self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.ProgressBar Parent(this Xamarin.Forms.ProgressBar self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ProgressBar EffectControlProvider(this Xamarin.Forms.ProgressBar self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -6553,6 +7832,30 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.RelativeLayout DisableLayout(this Xamarin.Forms.RelativeLayout self, System.Boolean value)
+		{
+			self.DisableLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.RelativeLayout IsInNativeLayout(this Xamarin.Forms.RelativeLayout self, System.Boolean value)
+		{
+			self.IsInNativeLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.RelativeLayout IsNativeStateConsistent(this Xamarin.Forms.RelativeLayout self, System.Boolean value)
+		{
+			self.IsNativeStateConsistent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.RelativeLayout IsPlatformEnabled(this Xamarin.Forms.RelativeLayout self, System.Boolean value)
+		{
+			self.IsPlatformEnabled = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.RelativeLayout Resources(this Xamarin.Forms.RelativeLayout self, Xamarin.Forms.ResourceDictionary value)
 		{
 			self.Resources = value;
@@ -6577,9 +7880,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.RelativeLayout Platform(this Xamarin.Forms.RelativeLayout self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.RelativeLayout Parent(this Xamarin.Forms.RelativeLayout self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.RelativeLayout EffectControlProvider(this Xamarin.Forms.RelativeLayout self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -6748,6 +8063,30 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.ScrollView DisableLayout(this Xamarin.Forms.ScrollView self, System.Boolean value)
+		{
+			self.DisableLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ScrollView IsInNativeLayout(this Xamarin.Forms.ScrollView self, System.Boolean value)
+		{
+			self.IsInNativeLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ScrollView IsNativeStateConsistent(this Xamarin.Forms.ScrollView self, System.Boolean value)
+		{
+			self.IsNativeStateConsistent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ScrollView IsPlatformEnabled(this Xamarin.Forms.ScrollView self, System.Boolean value)
+		{
+			self.IsPlatformEnabled = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.ScrollView Resources(this Xamarin.Forms.ScrollView self, Xamarin.Forms.ResourceDictionary value)
 		{
 			self.Resources = value;
@@ -6772,9 +8111,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.ScrollView Platform(this Xamarin.Forms.ScrollView self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.ScrollView Parent(this Xamarin.Forms.ScrollView self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ScrollView EffectControlProvider(this Xamarin.Forms.ScrollView self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -6985,6 +8336,30 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.SearchBar DisableLayout(this Xamarin.Forms.SearchBar self, System.Boolean value)
+		{
+			self.DisableLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.SearchBar IsInNativeLayout(this Xamarin.Forms.SearchBar self, System.Boolean value)
+		{
+			self.IsInNativeLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.SearchBar IsNativeStateConsistent(this Xamarin.Forms.SearchBar self, System.Boolean value)
+		{
+			self.IsNativeStateConsistent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.SearchBar IsPlatformEnabled(this Xamarin.Forms.SearchBar self, System.Boolean value)
+		{
+			self.IsPlatformEnabled = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.SearchBar Resources(this Xamarin.Forms.SearchBar self, Xamarin.Forms.ResourceDictionary value)
 		{
 			self.Resources = value;
@@ -7009,9 +8384,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.SearchBar Platform(this Xamarin.Forms.SearchBar self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.SearchBar Parent(this Xamarin.Forms.SearchBar self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.SearchBar EffectControlProvider(this Xamarin.Forms.SearchBar self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -7174,6 +8561,30 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.Slider DisableLayout(this Xamarin.Forms.Slider self, System.Boolean value)
+		{
+			self.DisableLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Slider IsInNativeLayout(this Xamarin.Forms.Slider self, System.Boolean value)
+		{
+			self.IsInNativeLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Slider IsNativeStateConsistent(this Xamarin.Forms.Slider self, System.Boolean value)
+		{
+			self.IsNativeStateConsistent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Slider IsPlatformEnabled(this Xamarin.Forms.Slider self, System.Boolean value)
+		{
+			self.IsPlatformEnabled = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.Slider Resources(this Xamarin.Forms.Slider self, Xamarin.Forms.ResourceDictionary value)
 		{
 			self.Resources = value;
@@ -7198,9 +8609,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.Slider Platform(this Xamarin.Forms.Slider self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.Slider Parent(this Xamarin.Forms.Slider self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Slider EffectControlProvider(this Xamarin.Forms.Slider self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -7369,6 +8792,30 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.StackLayout DisableLayout(this Xamarin.Forms.StackLayout self, System.Boolean value)
+		{
+			self.DisableLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.StackLayout IsInNativeLayout(this Xamarin.Forms.StackLayout self, System.Boolean value)
+		{
+			self.IsInNativeLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.StackLayout IsNativeStateConsistent(this Xamarin.Forms.StackLayout self, System.Boolean value)
+		{
+			self.IsNativeStateConsistent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.StackLayout IsPlatformEnabled(this Xamarin.Forms.StackLayout self, System.Boolean value)
+		{
+			self.IsPlatformEnabled = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.StackLayout Resources(this Xamarin.Forms.StackLayout self, Xamarin.Forms.ResourceDictionary value)
 		{
 			self.Resources = value;
@@ -7393,9 +8840,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.StackLayout Platform(this Xamarin.Forms.StackLayout self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.StackLayout Parent(this Xamarin.Forms.StackLayout self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.StackLayout EffectControlProvider(this Xamarin.Forms.StackLayout self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -7564,6 +9023,30 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.Stepper DisableLayout(this Xamarin.Forms.Stepper self, System.Boolean value)
+		{
+			self.DisableLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Stepper IsInNativeLayout(this Xamarin.Forms.Stepper self, System.Boolean value)
+		{
+			self.IsInNativeLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Stepper IsNativeStateConsistent(this Xamarin.Forms.Stepper self, System.Boolean value)
+		{
+			self.IsNativeStateConsistent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Stepper IsPlatformEnabled(this Xamarin.Forms.Stepper self, System.Boolean value)
+		{
+			self.IsPlatformEnabled = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.Stepper Resources(this Xamarin.Forms.Stepper self, Xamarin.Forms.ResourceDictionary value)
 		{
 			self.Resources = value;
@@ -7588,9 +9071,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.Stepper Platform(this Xamarin.Forms.Stepper self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.Stepper Parent(this Xamarin.Forms.Stepper self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Stepper EffectControlProvider(this Xamarin.Forms.Stepper self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -7741,6 +9236,30 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.Switch DisableLayout(this Xamarin.Forms.Switch self, System.Boolean value)
+		{
+			self.DisableLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Switch IsInNativeLayout(this Xamarin.Forms.Switch self, System.Boolean value)
+		{
+			self.IsInNativeLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Switch IsNativeStateConsistent(this Xamarin.Forms.Switch self, System.Boolean value)
+		{
+			self.IsNativeStateConsistent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Switch IsPlatformEnabled(this Xamarin.Forms.Switch self, System.Boolean value)
+		{
+			self.IsPlatformEnabled = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.Switch Resources(this Xamarin.Forms.Switch self, Xamarin.Forms.ResourceDictionary value)
 		{
 			self.Resources = value;
@@ -7765,9 +9284,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.Switch Platform(this Xamarin.Forms.Switch self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.Switch Parent(this Xamarin.Forms.Switch self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Switch EffectControlProvider(this Xamarin.Forms.Switch self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -7843,6 +9374,18 @@
 		public static Xamarin.Forms.TabbedPage Title(this Xamarin.Forms.TabbedPage self, System.String value)
 		{
 			self.Title = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.TabbedPage ContainerArea(this Xamarin.Forms.TabbedPage self, Xamarin.Forms.Rectangle value)
+		{
+			self.ContainerArea = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.TabbedPage IgnoresContainerArea(this Xamarin.Forms.TabbedPage self, System.Boolean value)
+		{
+			self.IgnoresContainerArea = value;
 			return self;
 		}
 
@@ -7960,6 +9503,30 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.TabbedPage DisableLayout(this Xamarin.Forms.TabbedPage self, System.Boolean value)
+		{
+			self.DisableLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.TabbedPage IsInNativeLayout(this Xamarin.Forms.TabbedPage self, System.Boolean value)
+		{
+			self.IsInNativeLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.TabbedPage IsNativeStateConsistent(this Xamarin.Forms.TabbedPage self, System.Boolean value)
+		{
+			self.IsNativeStateConsistent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.TabbedPage IsPlatformEnabled(this Xamarin.Forms.TabbedPage self, System.Boolean value)
+		{
+			self.IsPlatformEnabled = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.TabbedPage Resources(this Xamarin.Forms.TabbedPage self, Xamarin.Forms.ResourceDictionary value)
 		{
 			self.Resources = value;
@@ -7984,9 +9551,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.TabbedPage Platform(this Xamarin.Forms.TabbedPage self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.TabbedPage Parent(this Xamarin.Forms.TabbedPage self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.TabbedPage EffectControlProvider(this Xamarin.Forms.TabbedPage self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -8149,6 +9728,30 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.TimePicker DisableLayout(this Xamarin.Forms.TimePicker self, System.Boolean value)
+		{
+			self.DisableLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.TimePicker IsInNativeLayout(this Xamarin.Forms.TimePicker self, System.Boolean value)
+		{
+			self.IsInNativeLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.TimePicker IsNativeStateConsistent(this Xamarin.Forms.TimePicker self, System.Boolean value)
+		{
+			self.IsNativeStateConsistent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.TimePicker IsPlatformEnabled(this Xamarin.Forms.TimePicker self, System.Boolean value)
+		{
+			self.IsPlatformEnabled = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.TimePicker Resources(this Xamarin.Forms.TimePicker self, Xamarin.Forms.ResourceDictionary value)
 		{
 			self.Resources = value;
@@ -8173,9 +9776,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.TimePicker Platform(this Xamarin.Forms.TimePicker self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.TimePicker Parent(this Xamarin.Forms.TimePicker self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.TimePicker EffectControlProvider(this Xamarin.Forms.TimePicker self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -8335,6 +9950,30 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.WebView DisableLayout(this Xamarin.Forms.WebView self, System.Boolean value)
+		{
+			self.DisableLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.WebView IsInNativeLayout(this Xamarin.Forms.WebView self, System.Boolean value)
+		{
+			self.IsInNativeLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.WebView IsNativeStateConsistent(this Xamarin.Forms.WebView self, System.Boolean value)
+		{
+			self.IsNativeStateConsistent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.WebView IsPlatformEnabled(this Xamarin.Forms.WebView self, System.Boolean value)
+		{
+			self.IsPlatformEnabled = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.WebView Resources(this Xamarin.Forms.WebView self, Xamarin.Forms.ResourceDictionary value)
 		{
 			self.Resources = value;
@@ -8359,9 +9998,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.WebView Platform(this Xamarin.Forms.WebView self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.WebView Parent(this Xamarin.Forms.WebView self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.WebView EffectControlProvider(this Xamarin.Forms.WebView self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -8542,6 +10193,30 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.Grid DisableLayout(this Xamarin.Forms.Grid self, System.Boolean value)
+		{
+			self.DisableLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Grid IsInNativeLayout(this Xamarin.Forms.Grid self, System.Boolean value)
+		{
+			self.IsInNativeLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Grid IsNativeStateConsistent(this Xamarin.Forms.Grid self, System.Boolean value)
+		{
+			self.IsNativeStateConsistent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Grid IsPlatformEnabled(this Xamarin.Forms.Grid self, System.Boolean value)
+		{
+			self.IsPlatformEnabled = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.Grid Resources(this Xamarin.Forms.Grid self, Xamarin.Forms.ResourceDictionary value)
 		{
 			self.Resources = value;
@@ -8566,9 +10241,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.Grid Platform(this Xamarin.Forms.Grid self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.Grid Parent(this Xamarin.Forms.Grid self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Grid EffectControlProvider(this Xamarin.Forms.Grid self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -8599,9 +10286,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.Element Platform(this Xamarin.Forms.Element self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.Element Parent(this Xamarin.Forms.Element self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Element EffectControlProvider(this Xamarin.Forms.Element self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -8782,6 +10481,34 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.Layout<T> DisableLayout<T>(this Xamarin.Forms.Layout<T> self, System.Boolean value)
+			where T : Xamarin.Forms.View
+		{
+			self.DisableLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Layout<T> IsInNativeLayout<T>(this Xamarin.Forms.Layout<T> self, System.Boolean value)
+			where T : Xamarin.Forms.View
+		{
+			self.IsInNativeLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Layout<T> IsNativeStateConsistent<T>(this Xamarin.Forms.Layout<T> self, System.Boolean value)
+			where T : Xamarin.Forms.View
+		{
+			self.IsNativeStateConsistent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Layout<T> IsPlatformEnabled<T>(this Xamarin.Forms.Layout<T> self, System.Boolean value)
+			where T : Xamarin.Forms.View
+		{
+			self.IsPlatformEnabled = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.Layout<T> Resources<T>(this Xamarin.Forms.Layout<T> self, Xamarin.Forms.ResourceDictionary value)
 			where T : Xamarin.Forms.View
 		{
@@ -8810,10 +10537,24 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.Layout<T> Platform<T>(this Xamarin.Forms.Layout<T> self, Xamarin.Forms.Internals.IPlatform value)
+			where T : Xamarin.Forms.View
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.Layout<T> Parent<T>(this Xamarin.Forms.Layout<T> self, Xamarin.Forms.Element value)
 			where T : Xamarin.Forms.View
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Layout<T> EffectControlProvider<T>(this Xamarin.Forms.Layout<T> self, Xamarin.Forms.IEffectControlProvider value)
+			where T : Xamarin.Forms.View
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -8971,6 +10712,30 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.Layout DisableLayout(this Xamarin.Forms.Layout self, System.Boolean value)
+		{
+			self.DisableLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Layout IsInNativeLayout(this Xamarin.Forms.Layout self, System.Boolean value)
+		{
+			self.IsInNativeLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Layout IsNativeStateConsistent(this Xamarin.Forms.Layout self, System.Boolean value)
+		{
+			self.IsNativeStateConsistent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Layout IsPlatformEnabled(this Xamarin.Forms.Layout self, System.Boolean value)
+		{
+			self.IsPlatformEnabled = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.Layout Resources(this Xamarin.Forms.Layout self, Xamarin.Forms.ResourceDictionary value)
 		{
 			self.Resources = value;
@@ -8995,9 +10760,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.Layout Platform(this Xamarin.Forms.Layout self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.Layout Parent(this Xamarin.Forms.Layout self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Layout EffectControlProvider(this Xamarin.Forms.Layout self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -9049,6 +10826,18 @@
 		public static Xamarin.Forms.ContentPage Title(this Xamarin.Forms.ContentPage self, System.String value)
 		{
 			self.Title = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ContentPage ContainerArea(this Xamarin.Forms.ContentPage self, Xamarin.Forms.Rectangle value)
+		{
+			self.ContainerArea = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ContentPage IgnoresContainerArea(this Xamarin.Forms.ContentPage self, System.Boolean value)
+		{
+			self.IgnoresContainerArea = value;
 			return self;
 		}
 
@@ -9166,6 +10955,30 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.ContentPage DisableLayout(this Xamarin.Forms.ContentPage self, System.Boolean value)
+		{
+			self.DisableLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ContentPage IsInNativeLayout(this Xamarin.Forms.ContentPage self, System.Boolean value)
+		{
+			self.IsInNativeLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ContentPage IsNativeStateConsistent(this Xamarin.Forms.ContentPage self, System.Boolean value)
+		{
+			self.IsNativeStateConsistent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ContentPage IsPlatformEnabled(this Xamarin.Forms.ContentPage self, System.Boolean value)
+		{
+			self.IsPlatformEnabled = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.ContentPage Resources(this Xamarin.Forms.ContentPage self, Xamarin.Forms.ResourceDictionary value)
 		{
 			self.Resources = value;
@@ -9190,9 +11003,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.ContentPage Platform(this Xamarin.Forms.ContentPage self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.ContentPage Parent(this Xamarin.Forms.ContentPage self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ContentPage EffectControlProvider(this Xamarin.Forms.ContentPage self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -9265,6 +11090,20 @@
 			where T : Xamarin.Forms.Page
 		{
 			self.Title = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.MultiPage<T> ContainerArea<T>(this Xamarin.Forms.MultiPage<T> self, Xamarin.Forms.Rectangle value)
+			where T : Xamarin.Forms.Page
+		{
+			self.ContainerArea = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.MultiPage<T> IgnoresContainerArea<T>(this Xamarin.Forms.MultiPage<T> self, System.Boolean value)
+			where T : Xamarin.Forms.Page
+		{
+			self.IgnoresContainerArea = value;
 			return self;
 		}
 
@@ -9401,6 +11240,34 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.MultiPage<T> DisableLayout<T>(this Xamarin.Forms.MultiPage<T> self, System.Boolean value)
+			where T : Xamarin.Forms.Page
+		{
+			self.DisableLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.MultiPage<T> IsInNativeLayout<T>(this Xamarin.Forms.MultiPage<T> self, System.Boolean value)
+			where T : Xamarin.Forms.Page
+		{
+			self.IsInNativeLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.MultiPage<T> IsNativeStateConsistent<T>(this Xamarin.Forms.MultiPage<T> self, System.Boolean value)
+			where T : Xamarin.Forms.Page
+		{
+			self.IsNativeStateConsistent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.MultiPage<T> IsPlatformEnabled<T>(this Xamarin.Forms.MultiPage<T> self, System.Boolean value)
+			where T : Xamarin.Forms.Page
+		{
+			self.IsPlatformEnabled = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.MultiPage<T> Resources<T>(this Xamarin.Forms.MultiPage<T> self, Xamarin.Forms.ResourceDictionary value)
 			where T : Xamarin.Forms.Page
 		{
@@ -9429,10 +11296,24 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.MultiPage<T> Platform<T>(this Xamarin.Forms.MultiPage<T> self, Xamarin.Forms.Internals.IPlatform value)
+			where T : Xamarin.Forms.Page
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.MultiPage<T> Parent<T>(this Xamarin.Forms.MultiPage<T> self, Xamarin.Forms.Element value)
 			where T : Xamarin.Forms.Page
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.MultiPage<T> EffectControlProvider<T>(this Xamarin.Forms.MultiPage<T> self, Xamarin.Forms.IEffectControlProvider value)
+			where T : Xamarin.Forms.Page
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -9560,6 +11441,30 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.VisualElement DisableLayout(this Xamarin.Forms.VisualElement self, System.Boolean value)
+		{
+			self.DisableLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.VisualElement IsInNativeLayout(this Xamarin.Forms.VisualElement self, System.Boolean value)
+		{
+			self.IsInNativeLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.VisualElement IsNativeStateConsistent(this Xamarin.Forms.VisualElement self, System.Boolean value)
+		{
+			self.IsNativeStateConsistent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.VisualElement IsPlatformEnabled(this Xamarin.Forms.VisualElement self, System.Boolean value)
+		{
+			self.IsPlatformEnabled = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.VisualElement Resources(this Xamarin.Forms.VisualElement self, Xamarin.Forms.ResourceDictionary value)
 		{
 			self.Resources = value;
@@ -9584,9 +11489,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.VisualElement Platform(this Xamarin.Forms.VisualElement self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.VisualElement Parent(this Xamarin.Forms.VisualElement self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.VisualElement EffectControlProvider(this Xamarin.Forms.VisualElement self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -9599,9 +11516,21 @@
 
 	public static class PickerFluentProperties
 	{
+		public static Xamarin.Forms.Picker ItemsSource(this Xamarin.Forms.Picker self, System.Collections.IList value)
+		{
+			self.ItemsSource = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.Picker SelectedIndex(this Xamarin.Forms.Picker self, System.Int32 value)
 		{
 			self.SelectedIndex = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Picker SelectedItem(this Xamarin.Forms.Picker self, System.Object value)
+		{
+			self.SelectedItem = value;
 			return self;
 		}
 
@@ -9614,6 +11543,12 @@
 		public static Xamarin.Forms.Picker Title(this Xamarin.Forms.Picker self, System.String value)
 		{
 			self.Title = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Picker ItemDisplayBinding(this Xamarin.Forms.Picker self, Xamarin.Forms.BindingBase value)
+		{
+			self.ItemDisplayBinding = value;
 			return self;
 		}
 
@@ -9749,6 +11684,30 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.Picker DisableLayout(this Xamarin.Forms.Picker self, System.Boolean value)
+		{
+			self.DisableLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Picker IsInNativeLayout(this Xamarin.Forms.Picker self, System.Boolean value)
+		{
+			self.IsInNativeLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Picker IsNativeStateConsistent(this Xamarin.Forms.Picker self, System.Boolean value)
+		{
+			self.IsNativeStateConsistent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Picker IsPlatformEnabled(this Xamarin.Forms.Picker self, System.Boolean value)
+		{
+			self.IsPlatformEnabled = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.Picker Resources(this Xamarin.Forms.Picker self, Xamarin.Forms.ResourceDictionary value)
 		{
 			self.Resources = value;
@@ -9773,9 +11732,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.Picker Platform(this Xamarin.Forms.Picker self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.Picker Parent(this Xamarin.Forms.Picker self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Picker EffectControlProvider(this Xamarin.Forms.Picker self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -9806,9 +11777,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.ImageSource Platform(this Xamarin.Forms.ImageSource self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.ImageSource Parent(this Xamarin.Forms.ImageSource self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ImageSource EffectControlProvider(this Xamarin.Forms.ImageSource self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -9845,9 +11828,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.FileImageSource Platform(this Xamarin.Forms.FileImageSource self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.FileImageSource Parent(this Xamarin.Forms.FileImageSource self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.FileImageSource EffectControlProvider(this Xamarin.Forms.FileImageSource self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -9884,9 +11879,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.StreamImageSource Platform(this Xamarin.Forms.StreamImageSource self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.StreamImageSource Parent(this Xamarin.Forms.StreamImageSource self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.StreamImageSource EffectControlProvider(this Xamarin.Forms.StreamImageSource self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -9899,21 +11906,45 @@
 
 	public static class OnPlatformFluentProperties1
 	{
+		[System.Obsolete(null)]
 		public static Xamarin.Forms.OnPlatform<T> Android<T>(this Xamarin.Forms.OnPlatform<T> self, T value)
 		{
 			self.Android = value;
 			return self;
 		}
 
+		[System.Obsolete(null)]
 		public static Xamarin.Forms.OnPlatform<T> iOS<T>(this Xamarin.Forms.OnPlatform<T> self, T value)
 		{
 			self.iOS = value;
 			return self;
 		}
 
+		[System.Obsolete(null)]
 		public static Xamarin.Forms.OnPlatform<T> WinPhone<T>(this Xamarin.Forms.OnPlatform<T> self, T value)
 		{
 			self.WinPhone = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.OnPlatform<T> Default<T>(this Xamarin.Forms.OnPlatform<T> self, T value)
+		{
+			self.Default = value;
+			return self;
+		}
+	}
+
+	public static class OnFluentProperties
+	{
+		public static Xamarin.Forms.On Platform(this Xamarin.Forms.On self, System.Collections.Generic.IList<System.String> value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.On Value(this Xamarin.Forms.On self, System.Object value)
+		{
+			self.Value = value;
 			return self;
 		}
 	}
@@ -9929,6 +11960,18 @@
 		public static Xamarin.Forms.OnIdiom<T> Tablet<T>(this Xamarin.Forms.OnIdiom<T> self, T value)
 		{
 			self.Tablet = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.OnIdiom<T> Desktop<T>(this Xamarin.Forms.OnIdiom<T> self, T value)
+		{
+			self.Desktop = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.OnIdiom<T> TV<T>(this Xamarin.Forms.OnIdiom<T> self, T value)
+		{
+			self.TV = value;
 			return self;
 		}
 	}
@@ -10116,6 +12159,12 @@
 
 	public static class PinchGestureRecognizerFluentProperties
 	{
+		public static Xamarin.Forms.PinchGestureRecognizer IsPinching(this Xamarin.Forms.PinchGestureRecognizer self, System.Boolean value)
+		{
+			self.IsPinching = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.PinchGestureRecognizer AutomationId(this Xamarin.Forms.PinchGestureRecognizer self, System.String value)
 		{
 			self.AutomationId = value;
@@ -10134,9 +12183,21 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.PinchGestureRecognizer Platform(this Xamarin.Forms.PinchGestureRecognizer self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.PinchGestureRecognizer Parent(this Xamarin.Forms.PinchGestureRecognizer self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.PinchGestureRecognizer EffectControlProvider(this Xamarin.Forms.PinchGestureRecognizer self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
 			return self;
 		}
 
@@ -10230,13 +12291,145 @@
 			return self;
 		}
 
+		public static Xamarin.Forms.AppLinkEntry Platform(this Xamarin.Forms.AppLinkEntry self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.AppLinkEntry Parent(this Xamarin.Forms.AppLinkEntry self, Xamarin.Forms.Element value)
 		{
 			self.Parent = value;
 			return self;
 		}
 
+		public static Xamarin.Forms.AppLinkEntry EffectControlProvider(this Xamarin.Forms.AppLinkEntry self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
+			return self;
+		}
+
 		public static Xamarin.Forms.AppLinkEntry BindingContext(this Xamarin.Forms.AppLinkEntry self, System.Object value)
+		{
+			self.BindingContext = value;
+			return self;
+		}
+	}
+
+	public static class ClickGestureRecognizerFluentProperties
+	{
+		public static Xamarin.Forms.ClickGestureRecognizer Command(this Xamarin.Forms.ClickGestureRecognizer self, System.Windows.Input.ICommand value)
+		{
+			self.Command = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ClickGestureRecognizer CommandParameter(this Xamarin.Forms.ClickGestureRecognizer self, System.Object value)
+		{
+			self.CommandParameter = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ClickGestureRecognizer NumberOfClicksRequired(this Xamarin.Forms.ClickGestureRecognizer self, System.Int32 value)
+		{
+			self.NumberOfClicksRequired = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ClickGestureRecognizer Buttons(this Xamarin.Forms.ClickGestureRecognizer self, Xamarin.Forms.ButtonsMask value)
+		{
+			self.Buttons = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ClickGestureRecognizer AutomationId(this Xamarin.Forms.ClickGestureRecognizer self, System.String value)
+		{
+			self.AutomationId = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ClickGestureRecognizer ClassId(this Xamarin.Forms.ClickGestureRecognizer self, System.String value)
+		{
+			self.ClassId = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ClickGestureRecognizer StyleId(this Xamarin.Forms.ClickGestureRecognizer self, System.String value)
+		{
+			self.StyleId = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ClickGestureRecognizer Platform(this Xamarin.Forms.ClickGestureRecognizer self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ClickGestureRecognizer Parent(this Xamarin.Forms.ClickGestureRecognizer self, Xamarin.Forms.Element value)
+		{
+			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ClickGestureRecognizer EffectControlProvider(this Xamarin.Forms.ClickGestureRecognizer self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.ClickGestureRecognizer BindingContext(this Xamarin.Forms.ClickGestureRecognizer self, System.Object value)
+		{
+			self.BindingContext = value;
+			return self;
+		}
+	}
+
+	public static class MenuFluentProperties
+	{
+		public static Xamarin.Forms.Menu Text(this Xamarin.Forms.Menu self, System.String value)
+		{
+			self.Text = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Menu AutomationId(this Xamarin.Forms.Menu self, System.String value)
+		{
+			self.AutomationId = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Menu ClassId(this Xamarin.Forms.Menu self, System.String value)
+		{
+			self.ClassId = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Menu StyleId(this Xamarin.Forms.Menu self, System.String value)
+		{
+			self.StyleId = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Menu Platform(this Xamarin.Forms.Menu self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Menu Parent(this Xamarin.Forms.Menu self, Xamarin.Forms.Element value)
+		{
+			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Menu EffectControlProvider(this Xamarin.Forms.Menu self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Menu BindingContext(this Xamarin.Forms.Menu self, System.Object value)
 		{
 			self.BindingContext = value;
 			return self;
@@ -10264,6 +12457,15 @@ namespace Xamarin.Forms.Xaml
 
 namespace Xamarin.Forms.Internals
 {
+	public static class LockableObservableListWrapperFluentProperties
+	{
+		public static Xamarin.Forms.Internals.LockableObservableListWrapper IsLocked(this Xamarin.Forms.Internals.LockableObservableListWrapper self, System.Boolean value)
+		{
+			self.IsLocked = value;
+			return self;
+		}
+	}
+
 	public static class NavigationRequestedEventArgsFluentProperties
 	{
 		public static Xamarin.Forms.Internals.NavigationRequestedEventArgs Animated(this Xamarin.Forms.Internals.NavigationRequestedEventArgs self, System.Boolean value)
@@ -10291,6 +12493,303 @@ namespace Xamarin.Forms.Internals
 		}
 	}
 
+	public static class TemplatedItemsListFluentProperties2
+	{
+		public static Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem> GroupDisplayBinding<TView, TItem>(this Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem> self, Xamarin.Forms.BindingBase value)
+			where TView : Xamarin.Forms.BindableObject, Xamarin.Forms.IItemsView<TItem>
+			where TItem : Xamarin.Forms.BindableObject
+		{
+			self.GroupDisplayBinding = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem> GroupHeaderTemplate<TView, TItem>(this Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem> self, Xamarin.Forms.DataTemplate value)
+			where TView : Xamarin.Forms.BindableObject, Xamarin.Forms.IItemsView<TItem>
+			where TItem : Xamarin.Forms.BindableObject
+		{
+			self.GroupHeaderTemplate = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem> GroupHeaderTemplateProperty<TView, TItem>(this Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem> self, Xamarin.Forms.BindableProperty value)
+			where TView : Xamarin.Forms.BindableObject, Xamarin.Forms.IItemsView<TItem>
+			where TItem : Xamarin.Forms.BindableObject
+		{
+			self.GroupHeaderTemplateProperty = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem> GroupShortNameBinding<TView, TItem>(this Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem> self, Xamarin.Forms.BindingBase value)
+			where TView : Xamarin.Forms.BindableObject, Xamarin.Forms.IItemsView<TItem>
+			where TItem : Xamarin.Forms.BindableObject
+		{
+			self.GroupShortNameBinding = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem> IsGroupingEnabledProperty<TView, TItem>(this Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem> self, Xamarin.Forms.BindableProperty value)
+			where TView : Xamarin.Forms.BindableObject, Xamarin.Forms.IItemsView<TItem>
+			where TItem : Xamarin.Forms.BindableObject
+		{
+			self.IsGroupingEnabledProperty = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem> Name<TView, TItem>(this Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem> self, System.String value)
+			where TView : Xamarin.Forms.BindableObject, Xamarin.Forms.IItemsView<TItem>
+			where TItem : Xamarin.Forms.BindableObject
+		{
+			self.Name = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem> ProgressiveLoadingProperty<TView, TItem>(this Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem> self, Xamarin.Forms.BindableProperty value)
+			where TView : Xamarin.Forms.BindableObject, Xamarin.Forms.IItemsView<TItem>
+			where TItem : Xamarin.Forms.BindableObject
+		{
+			self.ProgressiveLoadingProperty = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem> ShortName<TView, TItem>(this Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem> self, System.String value)
+			where TView : Xamarin.Forms.BindableObject, Xamarin.Forms.IItemsView<TItem>
+			where TItem : Xamarin.Forms.BindableObject
+		{
+			self.ShortName = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem> BindingContext<TView, TItem>(this Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem> self, System.Object value)
+			where TView : Xamarin.Forms.BindableObject, Xamarin.Forms.IItemsView<TItem>
+			where TItem : Xamarin.Forms.BindableObject
+		{
+			self.BindingContext = value;
+			return self;
+		}
+	}
+
+	public static class NavigationProxyFluentProperties
+	{
+		public static Xamarin.Forms.Internals.NavigationProxy Inner(this Xamarin.Forms.Internals.NavigationProxy self, Xamarin.Forms.INavigation value)
+		{
+			self.Inner = value;
+			return self;
+		}
+	}
+
+	public static class NavigationMenuFluentProperties
+	{
+		public static Xamarin.Forms.Internals.NavigationMenu Targets(this Xamarin.Forms.Internals.NavigationMenu self, System.Collections.Generic.IEnumerable<Xamarin.Forms.Page> value)
+		{
+			self.Targets = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu HorizontalOptions(this Xamarin.Forms.Internals.NavigationMenu self, Xamarin.Forms.LayoutOptions value)
+		{
+			self.HorizontalOptions = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu Margin(this Xamarin.Forms.Internals.NavigationMenu self, Xamarin.Forms.Thickness value)
+		{
+			self.Margin = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu VerticalOptions(this Xamarin.Forms.Internals.NavigationMenu self, Xamarin.Forms.LayoutOptions value)
+		{
+			self.VerticalOptions = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu AnchorX(this Xamarin.Forms.Internals.NavigationMenu self, System.Double value)
+		{
+			self.AnchorX = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu AnchorY(this Xamarin.Forms.Internals.NavigationMenu self, System.Double value)
+		{
+			self.AnchorY = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu BackgroundColor(this Xamarin.Forms.Internals.NavigationMenu self, Xamarin.Forms.Color value)
+		{
+			self.BackgroundColor = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu HeightRequest(this Xamarin.Forms.Internals.NavigationMenu self, System.Double value)
+		{
+			self.HeightRequest = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu InputTransparent(this Xamarin.Forms.Internals.NavigationMenu self, System.Boolean value)
+		{
+			self.InputTransparent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu IsEnabled(this Xamarin.Forms.Internals.NavigationMenu self, System.Boolean value)
+		{
+			self.IsEnabled = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu IsVisible(this Xamarin.Forms.Internals.NavigationMenu self, System.Boolean value)
+		{
+			self.IsVisible = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu MinimumHeightRequest(this Xamarin.Forms.Internals.NavigationMenu self, System.Double value)
+		{
+			self.MinimumHeightRequest = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu MinimumWidthRequest(this Xamarin.Forms.Internals.NavigationMenu self, System.Double value)
+		{
+			self.MinimumWidthRequest = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu Opacity(this Xamarin.Forms.Internals.NavigationMenu self, System.Double value)
+		{
+			self.Opacity = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu Rotation(this Xamarin.Forms.Internals.NavigationMenu self, System.Double value)
+		{
+			self.Rotation = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu RotationX(this Xamarin.Forms.Internals.NavigationMenu self, System.Double value)
+		{
+			self.RotationX = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu RotationY(this Xamarin.Forms.Internals.NavigationMenu self, System.Double value)
+		{
+			self.RotationY = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu Scale(this Xamarin.Forms.Internals.NavigationMenu self, System.Double value)
+		{
+			self.Scale = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu Style(this Xamarin.Forms.Internals.NavigationMenu self, Xamarin.Forms.Style value)
+		{
+			self.Style = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu StyleClass(this Xamarin.Forms.Internals.NavigationMenu self, System.Collections.Generic.IList<System.String> value)
+		{
+			self.StyleClass = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu TranslationX(this Xamarin.Forms.Internals.NavigationMenu self, System.Double value)
+		{
+			self.TranslationX = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu TranslationY(this Xamarin.Forms.Internals.NavigationMenu self, System.Double value)
+		{
+			self.TranslationY = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu WidthRequest(this Xamarin.Forms.Internals.NavigationMenu self, System.Double value)
+		{
+			self.WidthRequest = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu DisableLayout(this Xamarin.Forms.Internals.NavigationMenu self, System.Boolean value)
+		{
+			self.DisableLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu IsInNativeLayout(this Xamarin.Forms.Internals.NavigationMenu self, System.Boolean value)
+		{
+			self.IsInNativeLayout = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu IsNativeStateConsistent(this Xamarin.Forms.Internals.NavigationMenu self, System.Boolean value)
+		{
+			self.IsNativeStateConsistent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu IsPlatformEnabled(this Xamarin.Forms.Internals.NavigationMenu self, System.Boolean value)
+		{
+			self.IsPlatformEnabled = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu Resources(this Xamarin.Forms.Internals.NavigationMenu self, Xamarin.Forms.ResourceDictionary value)
+		{
+			self.Resources = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu AutomationId(this Xamarin.Forms.Internals.NavigationMenu self, System.String value)
+		{
+			self.AutomationId = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu ClassId(this Xamarin.Forms.Internals.NavigationMenu self, System.String value)
+		{
+			self.ClassId = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu StyleId(this Xamarin.Forms.Internals.NavigationMenu self, System.String value)
+		{
+			self.StyleId = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu Platform(this Xamarin.Forms.Internals.NavigationMenu self, Xamarin.Forms.Internals.IPlatform value)
+		{
+			self.Platform = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu Parent(this Xamarin.Forms.Internals.NavigationMenu self, Xamarin.Forms.Element value)
+		{
+			self.Parent = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu EffectControlProvider(this Xamarin.Forms.Internals.NavigationMenu self, Xamarin.Forms.IEffectControlProvider value)
+		{
+			self.EffectControlProvider = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu BindingContext(this Xamarin.Forms.Internals.NavigationMenu self, System.Object value)
+		{
+			self.BindingContext = value;
+			return self;
+		}
+	}
+
 	public static class ToolbarTrackerFluentProperties
 	{
 		public static Xamarin.Forms.Internals.ToolbarTracker AdditionalTargets(this Xamarin.Forms.Internals.ToolbarTracker self, System.Collections.Generic.IEnumerable<Xamarin.Forms.Page> value)
@@ -10312,11 +12811,86 @@ namespace Xamarin.Forms.Internals
 		}
 	}
 
+	public static class DeviceInfoFluentProperties
+	{
+		public static Xamarin.Forms.Internals.DeviceInfo CurrentOrientation(this Xamarin.Forms.Internals.DeviceInfo self, Xamarin.Forms.Internals.DeviceOrientation value)
+		{
+			self.CurrentOrientation = value;
+			return self;
+		}
+	}
+
 	public static class IDataTemplateFluentProperties
 	{
 		public static Xamarin.Forms.Internals.IDataTemplate LoadTemplate(this Xamarin.Forms.Internals.IDataTemplate self, System.Func<System.Object> value)
 		{
 			self.LoadTemplate = value;
+			return self;
+		}
+	}
+
+	public static class TypedBindingBaseFluentProperties
+	{
+		public static Xamarin.Forms.Internals.TypedBindingBase Converter(this Xamarin.Forms.Internals.TypedBindingBase self, Xamarin.Forms.IValueConverter value)
+		{
+			self.Converter = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.TypedBindingBase ConverterParameter(this Xamarin.Forms.Internals.TypedBindingBase self, System.Object value)
+		{
+			self.ConverterParameter = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.TypedBindingBase Source(this Xamarin.Forms.Internals.TypedBindingBase self, System.Object value)
+		{
+			self.Source = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.TypedBindingBase Mode(this Xamarin.Forms.Internals.TypedBindingBase self, Xamarin.Forms.BindingMode value)
+		{
+			self.Mode = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.TypedBindingBase StringFormat(this Xamarin.Forms.Internals.TypedBindingBase self, System.String value)
+		{
+			self.StringFormat = value;
+			return self;
+		}
+	}
+
+	public static class TypedBindingFluentProperties2
+	{
+		public static Xamarin.Forms.Internals.TypedBinding<TSource, TProperty> Converter<TSource, TProperty>(this Xamarin.Forms.Internals.TypedBinding<TSource, TProperty> self, Xamarin.Forms.IValueConverter value)
+		{
+			self.Converter = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.TypedBinding<TSource, TProperty> ConverterParameter<TSource, TProperty>(this Xamarin.Forms.Internals.TypedBinding<TSource, TProperty> self, System.Object value)
+		{
+			self.ConverterParameter = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.TypedBinding<TSource, TProperty> Source<TSource, TProperty>(this Xamarin.Forms.Internals.TypedBinding<TSource, TProperty> self, System.Object value)
+		{
+			self.Source = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.TypedBinding<TSource, TProperty> Mode<TSource, TProperty>(this Xamarin.Forms.Internals.TypedBinding<TSource, TProperty> self, Xamarin.Forms.BindingMode value)
+		{
+			self.Mode = value;
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.TypedBinding<TSource, TProperty> StringFormat<TSource, TProperty>(this Xamarin.Forms.Internals.TypedBinding<TSource, TProperty> self, System.String value)
+		{
+			self.StringFormat = value;
 			return self;
 		}
 	}
@@ -10374,6 +12948,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.Application WhenPlatformSet(this Xamarin.Forms.Application self, System.Action<Xamarin.Forms.Application, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.Application WhenPropertyChanged(this Xamarin.Forms.Application self, System.Action<Xamarin.Forms.Application, System.ComponentModel.PropertyChangedEventArgs> handler)
 		{
 			self.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(handler.DemoteSender());
@@ -10419,6 +12999,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.BaseMenuItem WhenPlatformSet(this Xamarin.Forms.BaseMenuItem self, System.Action<Xamarin.Forms.BaseMenuItem, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.BaseMenuItem WhenPropertyChanged(this Xamarin.Forms.BaseMenuItem self, System.Action<Xamarin.Forms.BaseMenuItem, System.ComponentModel.PropertyChangedEventArgs> handler)
 		{
 			self.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(handler.DemoteSender());
@@ -10458,6 +13044,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.EntryCell WhenForceUpdateSizeRequested(this Xamarin.Forms.EntryCell self, System.Action<Xamarin.Forms.EntryCell, System.EventArgs> handler)
+		{
+			self.ForceUpdateSizeRequested += new System.EventHandler(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.EntryCell WhenTapped(this Xamarin.Forms.EntryCell self, System.Action<Xamarin.Forms.EntryCell, System.EventArgs> handler)
 		{
 			self.Tapped += new System.EventHandler(handler.DemoteSender());
@@ -10485,6 +13077,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.EntryCell WhenDescendantRemoved(this Xamarin.Forms.EntryCell self, System.Action<Xamarin.Forms.EntryCell, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.EntryCell WhenPlatformSet(this Xamarin.Forms.EntryCell self, System.Action<Xamarin.Forms.EntryCell, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -10530,6 +13128,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.ImageCell WhenForceUpdateSizeRequested(this Xamarin.Forms.ImageCell self, System.Action<Xamarin.Forms.ImageCell, System.EventArgs> handler)
+		{
+			self.ForceUpdateSizeRequested += new System.EventHandler(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.ImageCell WhenTapped(this Xamarin.Forms.ImageCell self, System.Action<Xamarin.Forms.ImageCell, System.EventArgs> handler)
 		{
 			self.Tapped += new System.EventHandler(handler.DemoteSender());
@@ -10557,6 +13161,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.ImageCell WhenDescendantRemoved(this Xamarin.Forms.ImageCell self, System.Action<Xamarin.Forms.ImageCell, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.ImageCell WhenPlatformSet(this Xamarin.Forms.ImageCell self, System.Action<Xamarin.Forms.ImageCell, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -10653,6 +13263,18 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.ContentPresenter WhenBatchCommitted(this Xamarin.Forms.ContentPresenter self, System.Action<Xamarin.Forms.ContentPresenter, Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>> handler)
+		{
+			self.BatchCommitted += new System.EventHandler<Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.ContentPresenter WhenFocusChangeRequested(this Xamarin.Forms.ContentPresenter self, System.Action<Xamarin.Forms.ContentPresenter, Xamarin.Forms.VisualElement.FocusRequestArgs> handler)
+		{
+			self.FocusChangeRequested += new System.EventHandler<Xamarin.Forms.VisualElement.FocusRequestArgs>(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.ContentPresenter WhenChildAdded(this Xamarin.Forms.ContentPresenter self, System.Action<Xamarin.Forms.ContentPresenter, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.ChildAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
@@ -10677,6 +13299,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.ContentPresenter WhenPlatformSet(this Xamarin.Forms.ContentPresenter self, System.Action<Xamarin.Forms.ContentPresenter, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.ContentPresenter WhenPropertyChanged(this Xamarin.Forms.ContentPresenter self, System.Action<Xamarin.Forms.ContentPresenter, System.ComponentModel.PropertyChangedEventArgs> handler)
 		{
 			self.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(handler.DemoteSender());
@@ -10692,6 +13320,27 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.ContentPresenter WhenPropertyChanging(this Xamarin.Forms.ContentPresenter self, System.Action<Xamarin.Forms.ContentPresenter, Xamarin.Forms.PropertyChangingEventArgs> handler)
 		{
 			self.PropertyChanging += new Xamarin.Forms.PropertyChangingEventHandler(handler.DemoteSender());
+			return self;
+		}
+	}
+
+	public static class IWebViewControllerFluentEvents
+	{
+		public static Xamarin.Forms.IWebViewController WhenEvalRequested(this Xamarin.Forms.IWebViewController self, System.Action<Xamarin.Forms.IWebViewController, Xamarin.Forms.Internals.EvalRequested> handler)
+		{
+			self.EvalRequested += new System.EventHandler<Xamarin.Forms.Internals.EvalRequested>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.IWebViewController WhenGoBackRequested(this Xamarin.Forms.IWebViewController self, System.Action<Xamarin.Forms.IWebViewController, System.EventArgs> handler)
+		{
+			self.GoBackRequested += new System.EventHandler(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.IWebViewController WhenGoForwardRequested(this Xamarin.Forms.IWebViewController self, System.Action<Xamarin.Forms.IWebViewController, System.EventArgs> handler)
+		{
+			self.GoForwardRequested += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 	}
@@ -10773,6 +13422,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.GestureRecognizer WhenPlatformSet(this Xamarin.Forms.GestureRecognizer self, System.Action<Xamarin.Forms.GestureRecognizer, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.GestureRecognizer WhenPropertyChanged(this Xamarin.Forms.GestureRecognizer self, System.Action<Xamarin.Forms.GestureRecognizer, System.ComponentModel.PropertyChangedEventArgs> handler)
 		{
 			self.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(handler.DemoteSender());
@@ -10818,6 +13473,15 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.IDefinition WhenSizeChanged(this Xamarin.Forms.IDefinition self, System.Action<Xamarin.Forms.IDefinition, System.EventArgs> handler)
 		{
 			self.SizeChanged += new System.EventHandler(handler.DemoteSender());
+			return self;
+		}
+	}
+
+	public static class IElementControllerFluentEvents
+	{
+		public static Xamarin.Forms.IElementController WhenPlatformSet(this Xamarin.Forms.IElementController self, System.Action<Xamarin.Forms.IElementController, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 	}
@@ -10885,6 +13549,21 @@ namespace Xamarin.Forms
 		}
 	}
 
+	public static class IVisualElementControllerFluentEvents
+	{
+		public static Xamarin.Forms.IVisualElementController WhenBatchCommitted(this Xamarin.Forms.IVisualElementController self, System.Action<Xamarin.Forms.IVisualElementController, Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>> handler)
+		{
+			self.BatchCommitted += new System.EventHandler<Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.IVisualElementController WhenFocusChangeRequested(this Xamarin.Forms.IVisualElementController self, System.Action<Xamarin.Forms.IVisualElementController, Xamarin.Forms.VisualElement.FocusRequestArgs> handler)
+		{
+			self.FocusChangeRequested += new System.EventHandler<Xamarin.Forms.VisualElement.FocusRequestArgs>(handler.DemoteSender());
+			return self;
+		}
+	}
+
 	public static class MenuItemFluentEvents
 	{
 		public static Xamarin.Forms.MenuItem WhenClicked(this Xamarin.Forms.MenuItem self, System.Action<Xamarin.Forms.MenuItem, System.EventArgs> handler)
@@ -10914,6 +13593,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.MenuItem WhenDescendantRemoved(this Xamarin.Forms.MenuItem self, System.Action<Xamarin.Forms.MenuItem, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.MenuItem WhenPlatformSet(this Xamarin.Forms.MenuItem self, System.Action<Xamarin.Forms.MenuItem, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -10965,6 +13650,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.PanGestureRecognizer WhenDescendantRemoved(this Xamarin.Forms.PanGestureRecognizer self, System.Action<Xamarin.Forms.PanGestureRecognizer, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.PanGestureRecognizer WhenPlatformSet(this Xamarin.Forms.PanGestureRecognizer self, System.Action<Xamarin.Forms.PanGestureRecognizer, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -11133,6 +13824,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.TapGestureRecognizer WhenPlatformSet(this Xamarin.Forms.TapGestureRecognizer self, System.Action<Xamarin.Forms.TapGestureRecognizer, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.TapGestureRecognizer WhenPropertyChanged(this Xamarin.Forms.TapGestureRecognizer self, System.Action<Xamarin.Forms.TapGestureRecognizer, System.ComponentModel.PropertyChangedEventArgs> handler)
 		{
 			self.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(handler.DemoteSender());
@@ -11202,6 +13899,18 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.TemplatedPage WhenBatchCommitted(this Xamarin.Forms.TemplatedPage self, System.Action<Xamarin.Forms.TemplatedPage, Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>> handler)
+		{
+			self.BatchCommitted += new System.EventHandler<Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.TemplatedPage WhenFocusChangeRequested(this Xamarin.Forms.TemplatedPage self, System.Action<Xamarin.Forms.TemplatedPage, Xamarin.Forms.VisualElement.FocusRequestArgs> handler)
+		{
+			self.FocusChangeRequested += new System.EventHandler<Xamarin.Forms.VisualElement.FocusRequestArgs>(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.TemplatedPage WhenChildAdded(this Xamarin.Forms.TemplatedPage self, System.Action<Xamarin.Forms.TemplatedPage, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.ChildAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
@@ -11223,6 +13932,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.TemplatedPage WhenDescendantRemoved(this Xamarin.Forms.TemplatedPage self, System.Action<Xamarin.Forms.TemplatedPage, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.TemplatedPage WhenPlatformSet(this Xamarin.Forms.TemplatedPage self, System.Action<Xamarin.Forms.TemplatedPage, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -11283,6 +13998,18 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.TemplatedView WhenBatchCommitted(this Xamarin.Forms.TemplatedView self, System.Action<Xamarin.Forms.TemplatedView, Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>> handler)
+		{
+			self.BatchCommitted += new System.EventHandler<Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.TemplatedView WhenFocusChangeRequested(this Xamarin.Forms.TemplatedView self, System.Action<Xamarin.Forms.TemplatedView, Xamarin.Forms.VisualElement.FocusRequestArgs> handler)
+		{
+			self.FocusChangeRequested += new System.EventHandler<Xamarin.Forms.VisualElement.FocusRequestArgs>(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.TemplatedView WhenChildAdded(this Xamarin.Forms.TemplatedView self, System.Action<Xamarin.Forms.TemplatedView, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.ChildAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
@@ -11304,6 +14031,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.TemplatedView WhenDescendantRemoved(this Xamarin.Forms.TemplatedView self, System.Action<Xamarin.Forms.TemplatedView, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.TemplatedView WhenPlatformSet(this Xamarin.Forms.TemplatedView self, System.Action<Xamarin.Forms.TemplatedView, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -11379,6 +14112,18 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.View WhenBatchCommitted(this Xamarin.Forms.View self, System.Action<Xamarin.Forms.View, Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>> handler)
+		{
+			self.BatchCommitted += new System.EventHandler<Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.View WhenFocusChangeRequested(this Xamarin.Forms.View self, System.Action<Xamarin.Forms.View, Xamarin.Forms.VisualElement.FocusRequestArgs> handler)
+		{
+			self.FocusChangeRequested += new System.EventHandler<Xamarin.Forms.VisualElement.FocusRequestArgs>(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.View WhenChildAdded(this Xamarin.Forms.View self, System.Action<Xamarin.Forms.View, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.ChildAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
@@ -11400,6 +14145,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.View WhenDescendantRemoved(this Xamarin.Forms.View self, System.Action<Xamarin.Forms.View, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.View WhenPlatformSet(this Xamarin.Forms.View self, System.Action<Xamarin.Forms.View, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -11439,6 +14190,36 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.NavigationPage WhenPushed(this Xamarin.Forms.NavigationPage self, System.Action<Xamarin.Forms.NavigationPage, Xamarin.Forms.NavigationEventArgs> handler)
 		{
 			self.Pushed += new System.EventHandler<Xamarin.Forms.NavigationEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.NavigationPage WhenInsertPageBeforeRequested(this Xamarin.Forms.NavigationPage self, System.Action<Xamarin.Forms.NavigationPage, Xamarin.Forms.Internals.NavigationRequestedEventArgs> handler)
+		{
+			self.InsertPageBeforeRequested += new System.EventHandler<Xamarin.Forms.Internals.NavigationRequestedEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.NavigationPage WhenPopRequested(this Xamarin.Forms.NavigationPage self, System.Action<Xamarin.Forms.NavigationPage, Xamarin.Forms.Internals.NavigationRequestedEventArgs> handler)
+		{
+			self.PopRequested += new System.EventHandler<Xamarin.Forms.Internals.NavigationRequestedEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.NavigationPage WhenPopToRootRequested(this Xamarin.Forms.NavigationPage self, System.Action<Xamarin.Forms.NavigationPage, Xamarin.Forms.Internals.NavigationRequestedEventArgs> handler)
+		{
+			self.PopToRootRequested += new System.EventHandler<Xamarin.Forms.Internals.NavigationRequestedEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.NavigationPage WhenPushRequested(this Xamarin.Forms.NavigationPage self, System.Action<Xamarin.Forms.NavigationPage, Xamarin.Forms.Internals.NavigationRequestedEventArgs> handler)
+		{
+			self.PushRequested += new System.EventHandler<Xamarin.Forms.Internals.NavigationRequestedEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.NavigationPage WhenRemovePageRequested(this Xamarin.Forms.NavigationPage self, System.Action<Xamarin.Forms.NavigationPage, Xamarin.Forms.Internals.NavigationRequestedEventArgs> handler)
+		{
+			self.RemovePageRequested += new System.EventHandler<Xamarin.Forms.Internals.NavigationRequestedEventArgs>(handler.DemoteSender());
 			return self;
 		}
 
@@ -11490,6 +14271,18 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.NavigationPage WhenBatchCommitted(this Xamarin.Forms.NavigationPage self, System.Action<Xamarin.Forms.NavigationPage, Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>> handler)
+		{
+			self.BatchCommitted += new System.EventHandler<Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.NavigationPage WhenFocusChangeRequested(this Xamarin.Forms.NavigationPage self, System.Action<Xamarin.Forms.NavigationPage, Xamarin.Forms.VisualElement.FocusRequestArgs> handler)
+		{
+			self.FocusChangeRequested += new System.EventHandler<Xamarin.Forms.VisualElement.FocusRequestArgs>(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.NavigationPage WhenChildAdded(this Xamarin.Forms.NavigationPage self, System.Action<Xamarin.Forms.NavigationPage, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.ChildAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
@@ -11511,6 +14304,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.NavigationPage WhenDescendantRemoved(this Xamarin.Forms.NavigationPage self, System.Action<Xamarin.Forms.NavigationPage, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.NavigationPage WhenPlatformSet(this Xamarin.Forms.NavigationPage self, System.Action<Xamarin.Forms.NavigationPage, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -11583,6 +14382,18 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.Page WhenBatchCommitted(this Xamarin.Forms.Page self, System.Action<Xamarin.Forms.Page, Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>> handler)
+		{
+			self.BatchCommitted += new System.EventHandler<Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Page WhenFocusChangeRequested(this Xamarin.Forms.Page self, System.Action<Xamarin.Forms.Page, Xamarin.Forms.VisualElement.FocusRequestArgs> handler)
+		{
+			self.FocusChangeRequested += new System.EventHandler<Xamarin.Forms.VisualElement.FocusRequestArgs>(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.Page WhenChildAdded(this Xamarin.Forms.Page self, System.Action<Xamarin.Forms.Page, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.ChildAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
@@ -11604,6 +14415,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.Page WhenDescendantRemoved(this Xamarin.Forms.Page self, System.Action<Xamarin.Forms.Page, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Page WhenPlatformSet(this Xamarin.Forms.Page self, System.Action<Xamarin.Forms.Page, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -11688,6 +14505,18 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.CarouselPage WhenBatchCommitted(this Xamarin.Forms.CarouselPage self, System.Action<Xamarin.Forms.CarouselPage, Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>> handler)
+		{
+			self.BatchCommitted += new System.EventHandler<Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.CarouselPage WhenFocusChangeRequested(this Xamarin.Forms.CarouselPage self, System.Action<Xamarin.Forms.CarouselPage, Xamarin.Forms.VisualElement.FocusRequestArgs> handler)
+		{
+			self.FocusChangeRequested += new System.EventHandler<Xamarin.Forms.VisualElement.FocusRequestArgs>(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.CarouselPage WhenChildAdded(this Xamarin.Forms.CarouselPage self, System.Action<Xamarin.Forms.CarouselPage, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.ChildAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
@@ -11712,6 +14541,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.CarouselPage WhenPlatformSet(this Xamarin.Forms.CarouselPage self, System.Action<Xamarin.Forms.CarouselPage, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.CarouselPage WhenPropertyChanged(this Xamarin.Forms.CarouselPage self, System.Action<Xamarin.Forms.CarouselPage, System.ComponentModel.PropertyChangedEventArgs> handler)
 		{
 			self.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(handler.DemoteSender());
@@ -11733,7 +14568,7 @@ namespace Xamarin.Forms
 
 	public static class ToolbarItemFluentEvents
 	{
-		[System.Obsolete("Activated has been replaced by the more consistent \'Clicked\'")]
+		[System.Obsolete("Activated is obsolete as of version 1.3.0. Please use Clicked instead.")]
 		public static Xamarin.Forms.ToolbarItem WhenActivated(this Xamarin.Forms.ToolbarItem self, System.Action<Xamarin.Forms.ToolbarItem, System.EventArgs> handler)
 		{
 			self.Activated += new System.EventHandler(handler.DemoteSender());
@@ -11770,6 +14605,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.ToolbarItem WhenPlatformSet(this Xamarin.Forms.ToolbarItem self, System.Action<Xamarin.Forms.ToolbarItem, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.ToolbarItem WhenPropertyChanged(this Xamarin.Forms.ToolbarItem self, System.Action<Xamarin.Forms.ToolbarItem, System.ComponentModel.PropertyChangedEventArgs> handler)
 		{
 			self.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(handler.DemoteSender());
@@ -11803,6 +14644,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.Cell WhenForceUpdateSizeRequested(this Xamarin.Forms.Cell self, System.Action<Xamarin.Forms.Cell, System.EventArgs> handler)
+		{
+			self.ForceUpdateSizeRequested += new System.EventHandler(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.Cell WhenTapped(this Xamarin.Forms.Cell self, System.Action<Xamarin.Forms.Cell, System.EventArgs> handler)
 		{
 			self.Tapped += new System.EventHandler(handler.DemoteSender());
@@ -11830,6 +14677,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.Cell WhenDescendantRemoved(this Xamarin.Forms.Cell self, System.Action<Xamarin.Forms.Cell, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Cell WhenPlatformSet(this Xamarin.Forms.Cell self, System.Action<Xamarin.Forms.Cell, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -11872,6 +14725,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.SwitchCell WhenForceUpdateSizeRequested(this Xamarin.Forms.SwitchCell self, System.Action<Xamarin.Forms.SwitchCell, System.EventArgs> handler)
+		{
+			self.ForceUpdateSizeRequested += new System.EventHandler(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.SwitchCell WhenTapped(this Xamarin.Forms.SwitchCell self, System.Action<Xamarin.Forms.SwitchCell, System.EventArgs> handler)
 		{
 			self.Tapped += new System.EventHandler(handler.DemoteSender());
@@ -11899,6 +14758,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.SwitchCell WhenDescendantRemoved(this Xamarin.Forms.SwitchCell self, System.Action<Xamarin.Forms.SwitchCell, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.SwitchCell WhenPlatformSet(this Xamarin.Forms.SwitchCell self, System.Action<Xamarin.Forms.SwitchCell, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -11935,6 +14800,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.TextCell WhenForceUpdateSizeRequested(this Xamarin.Forms.TextCell self, System.Action<Xamarin.Forms.TextCell, System.EventArgs> handler)
+		{
+			self.ForceUpdateSizeRequested += new System.EventHandler(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.TextCell WhenTapped(this Xamarin.Forms.TextCell self, System.Action<Xamarin.Forms.TextCell, System.EventArgs> handler)
 		{
 			self.Tapped += new System.EventHandler(handler.DemoteSender());
@@ -11962,6 +14833,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.TextCell WhenDescendantRemoved(this Xamarin.Forms.TextCell self, System.Action<Xamarin.Forms.TextCell, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.TextCell WhenPlatformSet(this Xamarin.Forms.TextCell self, System.Action<Xamarin.Forms.TextCell, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -11998,6 +14875,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.ViewCell WhenForceUpdateSizeRequested(this Xamarin.Forms.ViewCell self, System.Action<Xamarin.Forms.ViewCell, System.EventArgs> handler)
+		{
+			self.ForceUpdateSizeRequested += new System.EventHandler(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.ViewCell WhenTapped(this Xamarin.Forms.ViewCell self, System.Action<Xamarin.Forms.ViewCell, System.EventArgs> handler)
 		{
 			self.Tapped += new System.EventHandler(handler.DemoteSender());
@@ -12025,6 +14908,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.ViewCell WhenDescendantRemoved(this Xamarin.Forms.ViewCell self, System.Action<Xamarin.Forms.ViewCell, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.ViewCell WhenPlatformSet(this Xamarin.Forms.ViewCell self, System.Action<Xamarin.Forms.ViewCell, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -12079,6 +14968,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.ListView WhenScrollToRequested(this Xamarin.Forms.ListView self, System.Action<Xamarin.Forms.ListView, Xamarin.Forms.ScrollToRequestedEventArgs> handler)
+		{
+			self.ScrollToRequested += new System.EventHandler<Xamarin.Forms.ScrollToRequestedEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.ListView WhenChildrenReordered(this Xamarin.Forms.ListView self, System.Action<Xamarin.Forms.ListView, System.EventArgs> handler)
 		{
 			self.ChildrenReordered += new System.EventHandler(handler.DemoteSender());
@@ -12109,6 +15004,18 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.ListView WhenBatchCommitted(this Xamarin.Forms.ListView self, System.Action<Xamarin.Forms.ListView, Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>> handler)
+		{
+			self.BatchCommitted += new System.EventHandler<Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.ListView WhenFocusChangeRequested(this Xamarin.Forms.ListView self, System.Action<Xamarin.Forms.ListView, Xamarin.Forms.VisualElement.FocusRequestArgs> handler)
+		{
+			self.FocusChangeRequested += new System.EventHandler<Xamarin.Forms.VisualElement.FocusRequestArgs>(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.ListView WhenChildAdded(this Xamarin.Forms.ListView self, System.Action<Xamarin.Forms.ListView, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.ChildAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
@@ -12133,6 +15040,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.ListView WhenPlatformSet(this Xamarin.Forms.ListView self, System.Action<Xamarin.Forms.ListView, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.ListView WhenPropertyChanged(this Xamarin.Forms.ListView self, System.Action<Xamarin.Forms.ListView, System.ComponentModel.PropertyChangedEventArgs> handler)
 		{
 			self.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(handler.DemoteSender());
@@ -12154,6 +15067,12 @@ namespace Xamarin.Forms
 
 	public static class TableViewFluentEvents
 	{
+		public static Xamarin.Forms.TableView WhenModelChanged(this Xamarin.Forms.TableView self, System.Action<Xamarin.Forms.TableView, System.EventArgs> handler)
+		{
+			self.ModelChanged += new System.EventHandler(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.TableView WhenChildrenReordered(this Xamarin.Forms.TableView self, System.Action<Xamarin.Forms.TableView, System.EventArgs> handler)
 		{
 			self.ChildrenReordered += new System.EventHandler(handler.DemoteSender());
@@ -12184,6 +15103,18 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.TableView WhenBatchCommitted(this Xamarin.Forms.TableView self, System.Action<Xamarin.Forms.TableView, Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>> handler)
+		{
+			self.BatchCommitted += new System.EventHandler<Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.TableView WhenFocusChangeRequested(this Xamarin.Forms.TableView self, System.Action<Xamarin.Forms.TableView, Xamarin.Forms.VisualElement.FocusRequestArgs> handler)
+		{
+			self.FocusChangeRequested += new System.EventHandler<Xamarin.Forms.VisualElement.FocusRequestArgs>(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.TableView WhenChildAdded(this Xamarin.Forms.TableView self, System.Action<Xamarin.Forms.TableView, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.ChildAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
@@ -12205,6 +15136,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.TableView WhenDescendantRemoved(this Xamarin.Forms.TableView self, System.Action<Xamarin.Forms.TableView, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.TableView WhenPlatformSet(this Xamarin.Forms.TableView self, System.Action<Xamarin.Forms.TableView, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -12264,6 +15201,20 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.ItemsView<TVisual> WhenBatchCommitted<TVisual>(this Xamarin.Forms.ItemsView<TVisual> self, System.Action<Xamarin.Forms.ItemsView<TVisual>, Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>> handler)
+			where TVisual : Xamarin.Forms.BindableObject
+		{
+			self.BatchCommitted += new System.EventHandler<Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.ItemsView<TVisual> WhenFocusChangeRequested<TVisual>(this Xamarin.Forms.ItemsView<TVisual> self, System.Action<Xamarin.Forms.ItemsView<TVisual>, Xamarin.Forms.VisualElement.FocusRequestArgs> handler)
+			where TVisual : Xamarin.Forms.BindableObject
+		{
+			self.FocusChangeRequested += new System.EventHandler<Xamarin.Forms.VisualElement.FocusRequestArgs>(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.ItemsView<TVisual> WhenChildAdded<TVisual>(this Xamarin.Forms.ItemsView<TVisual> self, System.Action<Xamarin.Forms.ItemsView<TVisual>, Xamarin.Forms.ElementEventArgs> handler)
 			where TVisual : Xamarin.Forms.BindableObject
 		{
@@ -12289,6 +15240,13 @@ namespace Xamarin.Forms
 			where TVisual : Xamarin.Forms.BindableObject
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.ItemsView<TVisual> WhenPlatformSet<TVisual>(this Xamarin.Forms.ItemsView<TVisual> self, System.Action<Xamarin.Forms.ItemsView<TVisual>, System.EventArgs> handler)
+			where TVisual : Xamarin.Forms.BindableObject
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -12410,6 +15368,18 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.AbsoluteLayout WhenBatchCommitted(this Xamarin.Forms.AbsoluteLayout self, System.Action<Xamarin.Forms.AbsoluteLayout, Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>> handler)
+		{
+			self.BatchCommitted += new System.EventHandler<Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.AbsoluteLayout WhenFocusChangeRequested(this Xamarin.Forms.AbsoluteLayout self, System.Action<Xamarin.Forms.AbsoluteLayout, Xamarin.Forms.VisualElement.FocusRequestArgs> handler)
+		{
+			self.FocusChangeRequested += new System.EventHandler<Xamarin.Forms.VisualElement.FocusRequestArgs>(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.AbsoluteLayout WhenChildAdded(this Xamarin.Forms.AbsoluteLayout self, System.Action<Xamarin.Forms.AbsoluteLayout, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.ChildAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
@@ -12431,6 +15401,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.AbsoluteLayout WhenDescendantRemoved(this Xamarin.Forms.AbsoluteLayout self, System.Action<Xamarin.Forms.AbsoluteLayout, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.AbsoluteLayout WhenPlatformSet(this Xamarin.Forms.AbsoluteLayout self, System.Action<Xamarin.Forms.AbsoluteLayout, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -12485,6 +15461,18 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.ActivityIndicator WhenBatchCommitted(this Xamarin.Forms.ActivityIndicator self, System.Action<Xamarin.Forms.ActivityIndicator, Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>> handler)
+		{
+			self.BatchCommitted += new System.EventHandler<Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.ActivityIndicator WhenFocusChangeRequested(this Xamarin.Forms.ActivityIndicator self, System.Action<Xamarin.Forms.ActivityIndicator, Xamarin.Forms.VisualElement.FocusRequestArgs> handler)
+		{
+			self.FocusChangeRequested += new System.EventHandler<Xamarin.Forms.VisualElement.FocusRequestArgs>(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.ActivityIndicator WhenChildAdded(this Xamarin.Forms.ActivityIndicator self, System.Action<Xamarin.Forms.ActivityIndicator, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.ChildAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
@@ -12506,6 +15494,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.ActivityIndicator WhenDescendantRemoved(this Xamarin.Forms.ActivityIndicator self, System.Action<Xamarin.Forms.ActivityIndicator, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.ActivityIndicator WhenPlatformSet(this Xamarin.Forms.ActivityIndicator self, System.Action<Xamarin.Forms.ActivityIndicator, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -12560,6 +15554,18 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.BoxView WhenBatchCommitted(this Xamarin.Forms.BoxView self, System.Action<Xamarin.Forms.BoxView, Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>> handler)
+		{
+			self.BatchCommitted += new System.EventHandler<Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.BoxView WhenFocusChangeRequested(this Xamarin.Forms.BoxView self, System.Action<Xamarin.Forms.BoxView, Xamarin.Forms.VisualElement.FocusRequestArgs> handler)
+		{
+			self.FocusChangeRequested += new System.EventHandler<Xamarin.Forms.VisualElement.FocusRequestArgs>(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.BoxView WhenChildAdded(this Xamarin.Forms.BoxView self, System.Action<Xamarin.Forms.BoxView, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.ChildAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
@@ -12581,6 +15587,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.BoxView WhenDescendantRemoved(this Xamarin.Forms.BoxView self, System.Action<Xamarin.Forms.BoxView, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.BoxView WhenPlatformSet(this Xamarin.Forms.BoxView self, System.Action<Xamarin.Forms.BoxView, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -12608,6 +15620,18 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.Button WhenClicked(this Xamarin.Forms.Button self, System.Action<Xamarin.Forms.Button, System.EventArgs> handler)
 		{
 			self.Clicked += new System.EventHandler(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Button WhenPressed(this Xamarin.Forms.Button self, System.Action<Xamarin.Forms.Button, System.EventArgs> handler)
+		{
+			self.Pressed += new System.EventHandler(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Button WhenReleased(this Xamarin.Forms.Button self, System.Action<Xamarin.Forms.Button, System.EventArgs> handler)
+		{
+			self.Released += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -12641,6 +15665,18 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.Button WhenBatchCommitted(this Xamarin.Forms.Button self, System.Action<Xamarin.Forms.Button, Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>> handler)
+		{
+			self.BatchCommitted += new System.EventHandler<Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Button WhenFocusChangeRequested(this Xamarin.Forms.Button self, System.Action<Xamarin.Forms.Button, Xamarin.Forms.VisualElement.FocusRequestArgs> handler)
+		{
+			self.FocusChangeRequested += new System.EventHandler<Xamarin.Forms.VisualElement.FocusRequestArgs>(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.Button WhenChildAdded(this Xamarin.Forms.Button self, System.Action<Xamarin.Forms.Button, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.ChildAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
@@ -12662,6 +15698,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.Button WhenDescendantRemoved(this Xamarin.Forms.Button self, System.Action<Xamarin.Forms.Button, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Button WhenPlatformSet(this Xamarin.Forms.Button self, System.Action<Xamarin.Forms.Button, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -12740,6 +15782,18 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.ContentView WhenBatchCommitted(this Xamarin.Forms.ContentView self, System.Action<Xamarin.Forms.ContentView, Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>> handler)
+		{
+			self.BatchCommitted += new System.EventHandler<Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.ContentView WhenFocusChangeRequested(this Xamarin.Forms.ContentView self, System.Action<Xamarin.Forms.ContentView, Xamarin.Forms.VisualElement.FocusRequestArgs> handler)
+		{
+			self.FocusChangeRequested += new System.EventHandler<Xamarin.Forms.VisualElement.FocusRequestArgs>(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.ContentView WhenChildAdded(this Xamarin.Forms.ContentView self, System.Action<Xamarin.Forms.ContentView, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.ChildAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
@@ -12761,6 +15815,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.ContentView WhenDescendantRemoved(this Xamarin.Forms.ContentView self, System.Action<Xamarin.Forms.ContentView, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.ContentView WhenPlatformSet(this Xamarin.Forms.ContentView self, System.Action<Xamarin.Forms.ContentView, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -12821,6 +15881,18 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.DatePicker WhenBatchCommitted(this Xamarin.Forms.DatePicker self, System.Action<Xamarin.Forms.DatePicker, Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>> handler)
+		{
+			self.BatchCommitted += new System.EventHandler<Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.DatePicker WhenFocusChangeRequested(this Xamarin.Forms.DatePicker self, System.Action<Xamarin.Forms.DatePicker, Xamarin.Forms.VisualElement.FocusRequestArgs> handler)
+		{
+			self.FocusChangeRequested += new System.EventHandler<Xamarin.Forms.VisualElement.FocusRequestArgs>(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.DatePicker WhenChildAdded(this Xamarin.Forms.DatePicker self, System.Action<Xamarin.Forms.DatePicker, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.ChildAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
@@ -12842,6 +15914,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.DatePicker WhenDescendantRemoved(this Xamarin.Forms.DatePicker self, System.Action<Xamarin.Forms.DatePicker, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.DatePicker WhenPlatformSet(this Xamarin.Forms.DatePicker self, System.Action<Xamarin.Forms.DatePicker, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -12908,6 +15986,18 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.Editor WhenBatchCommitted(this Xamarin.Forms.Editor self, System.Action<Xamarin.Forms.Editor, Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>> handler)
+		{
+			self.BatchCommitted += new System.EventHandler<Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Editor WhenFocusChangeRequested(this Xamarin.Forms.Editor self, System.Action<Xamarin.Forms.Editor, Xamarin.Forms.VisualElement.FocusRequestArgs> handler)
+		{
+			self.FocusChangeRequested += new System.EventHandler<Xamarin.Forms.VisualElement.FocusRequestArgs>(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.Editor WhenChildAdded(this Xamarin.Forms.Editor self, System.Action<Xamarin.Forms.Editor, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.ChildAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
@@ -12929,6 +16019,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.Editor WhenDescendantRemoved(this Xamarin.Forms.Editor self, System.Action<Xamarin.Forms.Editor, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Editor WhenPlatformSet(this Xamarin.Forms.Editor self, System.Action<Xamarin.Forms.Editor, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -12995,6 +16091,18 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.Entry WhenBatchCommitted(this Xamarin.Forms.Entry self, System.Action<Xamarin.Forms.Entry, Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>> handler)
+		{
+			self.BatchCommitted += new System.EventHandler<Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Entry WhenFocusChangeRequested(this Xamarin.Forms.Entry self, System.Action<Xamarin.Forms.Entry, Xamarin.Forms.VisualElement.FocusRequestArgs> handler)
+		{
+			self.FocusChangeRequested += new System.EventHandler<Xamarin.Forms.VisualElement.FocusRequestArgs>(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.Entry WhenChildAdded(this Xamarin.Forms.Entry self, System.Action<Xamarin.Forms.Entry, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.ChildAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
@@ -13016,6 +16124,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.Entry WhenDescendantRemoved(this Xamarin.Forms.Entry self, System.Action<Xamarin.Forms.Entry, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Entry WhenPlatformSet(this Xamarin.Forms.Entry self, System.Action<Xamarin.Forms.Entry, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -13076,6 +16190,18 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.Frame WhenBatchCommitted(this Xamarin.Forms.Frame self, System.Action<Xamarin.Forms.Frame, Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>> handler)
+		{
+			self.BatchCommitted += new System.EventHandler<Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Frame WhenFocusChangeRequested(this Xamarin.Forms.Frame self, System.Action<Xamarin.Forms.Frame, Xamarin.Forms.VisualElement.FocusRequestArgs> handler)
+		{
+			self.FocusChangeRequested += new System.EventHandler<Xamarin.Forms.VisualElement.FocusRequestArgs>(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.Frame WhenChildAdded(this Xamarin.Forms.Frame self, System.Action<Xamarin.Forms.Frame, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.ChildAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
@@ -13097,6 +16223,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.Frame WhenDescendantRemoved(this Xamarin.Forms.Frame self, System.Action<Xamarin.Forms.Frame, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Frame WhenPlatformSet(this Xamarin.Forms.Frame self, System.Action<Xamarin.Forms.Frame, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -13151,6 +16283,18 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.Image WhenBatchCommitted(this Xamarin.Forms.Image self, System.Action<Xamarin.Forms.Image, Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>> handler)
+		{
+			self.BatchCommitted += new System.EventHandler<Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Image WhenFocusChangeRequested(this Xamarin.Forms.Image self, System.Action<Xamarin.Forms.Image, Xamarin.Forms.VisualElement.FocusRequestArgs> handler)
+		{
+			self.FocusChangeRequested += new System.EventHandler<Xamarin.Forms.VisualElement.FocusRequestArgs>(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.Image WhenChildAdded(this Xamarin.Forms.Image self, System.Action<Xamarin.Forms.Image, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.ChildAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
@@ -13172,6 +16316,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.Image WhenDescendantRemoved(this Xamarin.Forms.Image self, System.Action<Xamarin.Forms.Image, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Image WhenPlatformSet(this Xamarin.Forms.Image self, System.Action<Xamarin.Forms.Image, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -13217,6 +16367,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.UriImageSource WhenDescendantRemoved(this Xamarin.Forms.UriImageSource self, System.Action<Xamarin.Forms.UriImageSource, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.UriImageSource WhenPlatformSet(this Xamarin.Forms.UriImageSource self, System.Action<Xamarin.Forms.UriImageSource, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -13271,6 +16427,18 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.InputView WhenBatchCommitted(this Xamarin.Forms.InputView self, System.Action<Xamarin.Forms.InputView, Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>> handler)
+		{
+			self.BatchCommitted += new System.EventHandler<Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.InputView WhenFocusChangeRequested(this Xamarin.Forms.InputView self, System.Action<Xamarin.Forms.InputView, Xamarin.Forms.VisualElement.FocusRequestArgs> handler)
+		{
+			self.FocusChangeRequested += new System.EventHandler<Xamarin.Forms.VisualElement.FocusRequestArgs>(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.InputView WhenChildAdded(this Xamarin.Forms.InputView self, System.Action<Xamarin.Forms.InputView, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.ChildAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
@@ -13292,6 +16460,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.InputView WhenDescendantRemoved(this Xamarin.Forms.InputView self, System.Action<Xamarin.Forms.InputView, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.InputView WhenPlatformSet(this Xamarin.Forms.InputView self, System.Action<Xamarin.Forms.InputView, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -13346,6 +16520,18 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.Label WhenBatchCommitted(this Xamarin.Forms.Label self, System.Action<Xamarin.Forms.Label, Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>> handler)
+		{
+			self.BatchCommitted += new System.EventHandler<Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Label WhenFocusChangeRequested(this Xamarin.Forms.Label self, System.Action<Xamarin.Forms.Label, Xamarin.Forms.VisualElement.FocusRequestArgs> handler)
+		{
+			self.FocusChangeRequested += new System.EventHandler<Xamarin.Forms.VisualElement.FocusRequestArgs>(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.Label WhenChildAdded(this Xamarin.Forms.Label self, System.Action<Xamarin.Forms.Label, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.ChildAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
@@ -13367,6 +16553,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.Label WhenDescendantRemoved(this Xamarin.Forms.Label self, System.Action<Xamarin.Forms.Label, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Label WhenPlatformSet(this Xamarin.Forms.Label self, System.Action<Xamarin.Forms.Label, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -13394,6 +16586,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.MasterDetailPage WhenIsPresentedChanged(this Xamarin.Forms.MasterDetailPage self, System.Action<Xamarin.Forms.MasterDetailPage, System.EventArgs> handler)
 		{
 			self.IsPresentedChanged += new System.EventHandler(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.MasterDetailPage WhenBackButtonPressed(this Xamarin.Forms.MasterDetailPage self, System.Action<Xamarin.Forms.MasterDetailPage, Xamarin.Forms.BackButtonPressedEventArgs> handler)
+		{
+			self.BackButtonPressed += new System.EventHandler<Xamarin.Forms.BackButtonPressedEventArgs>(handler.DemoteSender());
 			return self;
 		}
 
@@ -13445,6 +16643,18 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.MasterDetailPage WhenBatchCommitted(this Xamarin.Forms.MasterDetailPage self, System.Action<Xamarin.Forms.MasterDetailPage, Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>> handler)
+		{
+			self.BatchCommitted += new System.EventHandler<Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.MasterDetailPage WhenFocusChangeRequested(this Xamarin.Forms.MasterDetailPage self, System.Action<Xamarin.Forms.MasterDetailPage, Xamarin.Forms.VisualElement.FocusRequestArgs> handler)
+		{
+			self.FocusChangeRequested += new System.EventHandler<Xamarin.Forms.VisualElement.FocusRequestArgs>(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.MasterDetailPage WhenChildAdded(this Xamarin.Forms.MasterDetailPage self, System.Action<Xamarin.Forms.MasterDetailPage, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.ChildAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
@@ -13469,6 +16679,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.MasterDetailPage WhenPlatformSet(this Xamarin.Forms.MasterDetailPage self, System.Action<Xamarin.Forms.MasterDetailPage, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.MasterDetailPage WhenPropertyChanged(this Xamarin.Forms.MasterDetailPage self, System.Action<Xamarin.Forms.MasterDetailPage, System.ComponentModel.PropertyChangedEventArgs> handler)
 		{
 			self.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(handler.DemoteSender());
@@ -13490,6 +16706,12 @@ namespace Xamarin.Forms
 
 	public static class OpenGLViewFluentEvents
 	{
+		public static Xamarin.Forms.OpenGLView WhenDisplayRequested(this Xamarin.Forms.OpenGLView self, System.Action<Xamarin.Forms.OpenGLView, System.EventArgs> handler)
+		{
+			self.DisplayRequested += new System.EventHandler(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.OpenGLView WhenChildrenReordered(this Xamarin.Forms.OpenGLView self, System.Action<Xamarin.Forms.OpenGLView, System.EventArgs> handler)
 		{
 			self.ChildrenReordered += new System.EventHandler(handler.DemoteSender());
@@ -13520,6 +16742,18 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.OpenGLView WhenBatchCommitted(this Xamarin.Forms.OpenGLView self, System.Action<Xamarin.Forms.OpenGLView, Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>> handler)
+		{
+			self.BatchCommitted += new System.EventHandler<Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.OpenGLView WhenFocusChangeRequested(this Xamarin.Forms.OpenGLView self, System.Action<Xamarin.Forms.OpenGLView, Xamarin.Forms.VisualElement.FocusRequestArgs> handler)
+		{
+			self.FocusChangeRequested += new System.EventHandler<Xamarin.Forms.VisualElement.FocusRequestArgs>(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.OpenGLView WhenChildAdded(this Xamarin.Forms.OpenGLView self, System.Action<Xamarin.Forms.OpenGLView, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.ChildAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
@@ -13541,6 +16775,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.OpenGLView WhenDescendantRemoved(this Xamarin.Forms.OpenGLView self, System.Action<Xamarin.Forms.OpenGLView, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.OpenGLView WhenPlatformSet(this Xamarin.Forms.OpenGLView self, System.Action<Xamarin.Forms.OpenGLView, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -13595,6 +16835,18 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.ProgressBar WhenBatchCommitted(this Xamarin.Forms.ProgressBar self, System.Action<Xamarin.Forms.ProgressBar, Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>> handler)
+		{
+			self.BatchCommitted += new System.EventHandler<Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.ProgressBar WhenFocusChangeRequested(this Xamarin.Forms.ProgressBar self, System.Action<Xamarin.Forms.ProgressBar, Xamarin.Forms.VisualElement.FocusRequestArgs> handler)
+		{
+			self.FocusChangeRequested += new System.EventHandler<Xamarin.Forms.VisualElement.FocusRequestArgs>(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.ProgressBar WhenChildAdded(this Xamarin.Forms.ProgressBar self, System.Action<Xamarin.Forms.ProgressBar, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.ChildAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
@@ -13616,6 +16868,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.ProgressBar WhenDescendantRemoved(this Xamarin.Forms.ProgressBar self, System.Action<Xamarin.Forms.ProgressBar, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.ProgressBar WhenPlatformSet(this Xamarin.Forms.ProgressBar self, System.Action<Xamarin.Forms.ProgressBar, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -13676,6 +16934,18 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.RelativeLayout WhenBatchCommitted(this Xamarin.Forms.RelativeLayout self, System.Action<Xamarin.Forms.RelativeLayout, Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>> handler)
+		{
+			self.BatchCommitted += new System.EventHandler<Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.RelativeLayout WhenFocusChangeRequested(this Xamarin.Forms.RelativeLayout self, System.Action<Xamarin.Forms.RelativeLayout, Xamarin.Forms.VisualElement.FocusRequestArgs> handler)
+		{
+			self.FocusChangeRequested += new System.EventHandler<Xamarin.Forms.VisualElement.FocusRequestArgs>(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.RelativeLayout WhenChildAdded(this Xamarin.Forms.RelativeLayout self, System.Action<Xamarin.Forms.RelativeLayout, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.ChildAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
@@ -13697,6 +16967,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.RelativeLayout WhenDescendantRemoved(this Xamarin.Forms.RelativeLayout self, System.Action<Xamarin.Forms.RelativeLayout, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.RelativeLayout WhenPlatformSet(this Xamarin.Forms.RelativeLayout self, System.Action<Xamarin.Forms.RelativeLayout, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -13724,6 +17000,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.ScrollView WhenScrolled(this Xamarin.Forms.ScrollView self, System.Action<Xamarin.Forms.ScrollView, Xamarin.Forms.ScrolledEventArgs> handler)
 		{
 			self.Scrolled += new System.EventHandler<Xamarin.Forms.ScrolledEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.ScrollView WhenScrollToRequested(this Xamarin.Forms.ScrollView self, System.Action<Xamarin.Forms.ScrollView, Xamarin.Forms.ScrollToRequestedEventArgs> handler)
+		{
+			self.ScrollToRequested += new System.EventHandler<Xamarin.Forms.ScrollToRequestedEventArgs>(handler.DemoteSender());
 			return self;
 		}
 
@@ -13763,6 +17045,18 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.ScrollView WhenBatchCommitted(this Xamarin.Forms.ScrollView self, System.Action<Xamarin.Forms.ScrollView, Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>> handler)
+		{
+			self.BatchCommitted += new System.EventHandler<Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.ScrollView WhenFocusChangeRequested(this Xamarin.Forms.ScrollView self, System.Action<Xamarin.Forms.ScrollView, Xamarin.Forms.VisualElement.FocusRequestArgs> handler)
+		{
+			self.FocusChangeRequested += new System.EventHandler<Xamarin.Forms.VisualElement.FocusRequestArgs>(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.ScrollView WhenChildAdded(this Xamarin.Forms.ScrollView self, System.Action<Xamarin.Forms.ScrollView, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.ChildAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
@@ -13784,6 +17078,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.ScrollView WhenDescendantRemoved(this Xamarin.Forms.ScrollView self, System.Action<Xamarin.Forms.ScrollView, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.ScrollView WhenPlatformSet(this Xamarin.Forms.ScrollView self, System.Action<Xamarin.Forms.ScrollView, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -13850,6 +17150,18 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.SearchBar WhenBatchCommitted(this Xamarin.Forms.SearchBar self, System.Action<Xamarin.Forms.SearchBar, Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>> handler)
+		{
+			self.BatchCommitted += new System.EventHandler<Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.SearchBar WhenFocusChangeRequested(this Xamarin.Forms.SearchBar self, System.Action<Xamarin.Forms.SearchBar, Xamarin.Forms.VisualElement.FocusRequestArgs> handler)
+		{
+			self.FocusChangeRequested += new System.EventHandler<Xamarin.Forms.VisualElement.FocusRequestArgs>(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.SearchBar WhenChildAdded(this Xamarin.Forms.SearchBar self, System.Action<Xamarin.Forms.SearchBar, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.ChildAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
@@ -13871,6 +17183,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.SearchBar WhenDescendantRemoved(this Xamarin.Forms.SearchBar self, System.Action<Xamarin.Forms.SearchBar, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.SearchBar WhenPlatformSet(this Xamarin.Forms.SearchBar self, System.Action<Xamarin.Forms.SearchBar, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -13931,6 +17249,18 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.Slider WhenBatchCommitted(this Xamarin.Forms.Slider self, System.Action<Xamarin.Forms.Slider, Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>> handler)
+		{
+			self.BatchCommitted += new System.EventHandler<Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Slider WhenFocusChangeRequested(this Xamarin.Forms.Slider self, System.Action<Xamarin.Forms.Slider, Xamarin.Forms.VisualElement.FocusRequestArgs> handler)
+		{
+			self.FocusChangeRequested += new System.EventHandler<Xamarin.Forms.VisualElement.FocusRequestArgs>(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.Slider WhenChildAdded(this Xamarin.Forms.Slider self, System.Action<Xamarin.Forms.Slider, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.ChildAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
@@ -13952,6 +17282,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.Slider WhenDescendantRemoved(this Xamarin.Forms.Slider self, System.Action<Xamarin.Forms.Slider, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Slider WhenPlatformSet(this Xamarin.Forms.Slider self, System.Action<Xamarin.Forms.Slider, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -14012,6 +17348,18 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.StackLayout WhenBatchCommitted(this Xamarin.Forms.StackLayout self, System.Action<Xamarin.Forms.StackLayout, Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>> handler)
+		{
+			self.BatchCommitted += new System.EventHandler<Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.StackLayout WhenFocusChangeRequested(this Xamarin.Forms.StackLayout self, System.Action<Xamarin.Forms.StackLayout, Xamarin.Forms.VisualElement.FocusRequestArgs> handler)
+		{
+			self.FocusChangeRequested += new System.EventHandler<Xamarin.Forms.VisualElement.FocusRequestArgs>(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.StackLayout WhenChildAdded(this Xamarin.Forms.StackLayout self, System.Action<Xamarin.Forms.StackLayout, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.ChildAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
@@ -14033,6 +17381,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.StackLayout WhenDescendantRemoved(this Xamarin.Forms.StackLayout self, System.Action<Xamarin.Forms.StackLayout, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.StackLayout WhenPlatformSet(this Xamarin.Forms.StackLayout self, System.Action<Xamarin.Forms.StackLayout, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -14093,6 +17447,18 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.Stepper WhenBatchCommitted(this Xamarin.Forms.Stepper self, System.Action<Xamarin.Forms.Stepper, Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>> handler)
+		{
+			self.BatchCommitted += new System.EventHandler<Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Stepper WhenFocusChangeRequested(this Xamarin.Forms.Stepper self, System.Action<Xamarin.Forms.Stepper, Xamarin.Forms.VisualElement.FocusRequestArgs> handler)
+		{
+			self.FocusChangeRequested += new System.EventHandler<Xamarin.Forms.VisualElement.FocusRequestArgs>(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.Stepper WhenChildAdded(this Xamarin.Forms.Stepper self, System.Action<Xamarin.Forms.Stepper, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.ChildAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
@@ -14114,6 +17480,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.Stepper WhenDescendantRemoved(this Xamarin.Forms.Stepper self, System.Action<Xamarin.Forms.Stepper, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Stepper WhenPlatformSet(this Xamarin.Forms.Stepper self, System.Action<Xamarin.Forms.Stepper, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -14174,6 +17546,18 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.Switch WhenBatchCommitted(this Xamarin.Forms.Switch self, System.Action<Xamarin.Forms.Switch, Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>> handler)
+		{
+			self.BatchCommitted += new System.EventHandler<Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Switch WhenFocusChangeRequested(this Xamarin.Forms.Switch self, System.Action<Xamarin.Forms.Switch, Xamarin.Forms.VisualElement.FocusRequestArgs> handler)
+		{
+			self.FocusChangeRequested += new System.EventHandler<Xamarin.Forms.VisualElement.FocusRequestArgs>(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.Switch WhenChildAdded(this Xamarin.Forms.Switch self, System.Action<Xamarin.Forms.Switch, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.ChildAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
@@ -14195,6 +17579,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.Switch WhenDescendantRemoved(this Xamarin.Forms.Switch self, System.Action<Xamarin.Forms.Switch, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Switch WhenPlatformSet(this Xamarin.Forms.Switch self, System.Action<Xamarin.Forms.Switch, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -14279,6 +17669,18 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.TabbedPage WhenBatchCommitted(this Xamarin.Forms.TabbedPage self, System.Action<Xamarin.Forms.TabbedPage, Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>> handler)
+		{
+			self.BatchCommitted += new System.EventHandler<Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.TabbedPage WhenFocusChangeRequested(this Xamarin.Forms.TabbedPage self, System.Action<Xamarin.Forms.TabbedPage, Xamarin.Forms.VisualElement.FocusRequestArgs> handler)
+		{
+			self.FocusChangeRequested += new System.EventHandler<Xamarin.Forms.VisualElement.FocusRequestArgs>(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.TabbedPage WhenChildAdded(this Xamarin.Forms.TabbedPage self, System.Action<Xamarin.Forms.TabbedPage, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.ChildAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
@@ -14300,6 +17702,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.TabbedPage WhenDescendantRemoved(this Xamarin.Forms.TabbedPage self, System.Action<Xamarin.Forms.TabbedPage, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.TabbedPage WhenPlatformSet(this Xamarin.Forms.TabbedPage self, System.Action<Xamarin.Forms.TabbedPage, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -14354,6 +17762,18 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.TimePicker WhenBatchCommitted(this Xamarin.Forms.TimePicker self, System.Action<Xamarin.Forms.TimePicker, Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>> handler)
+		{
+			self.BatchCommitted += new System.EventHandler<Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.TimePicker WhenFocusChangeRequested(this Xamarin.Forms.TimePicker self, System.Action<Xamarin.Forms.TimePicker, Xamarin.Forms.VisualElement.FocusRequestArgs> handler)
+		{
+			self.FocusChangeRequested += new System.EventHandler<Xamarin.Forms.VisualElement.FocusRequestArgs>(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.TimePicker WhenChildAdded(this Xamarin.Forms.TimePicker self, System.Action<Xamarin.Forms.TimePicker, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.ChildAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
@@ -14375,6 +17795,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.TimePicker WhenDescendantRemoved(this Xamarin.Forms.TimePicker self, System.Action<Xamarin.Forms.TimePicker, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.TimePicker WhenPlatformSet(this Xamarin.Forms.TimePicker self, System.Action<Xamarin.Forms.TimePicker, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -14411,6 +17837,24 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.WebView WhenEvalRequested(this Xamarin.Forms.WebView self, System.Action<Xamarin.Forms.WebView, Xamarin.Forms.Internals.EvalRequested> handler)
+		{
+			self.EvalRequested += new System.EventHandler<Xamarin.Forms.Internals.EvalRequested>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.WebView WhenGoBackRequested(this Xamarin.Forms.WebView self, System.Action<Xamarin.Forms.WebView, System.EventArgs> handler)
+		{
+			self.GoBackRequested += new System.EventHandler(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.WebView WhenGoForwardRequested(this Xamarin.Forms.WebView self, System.Action<Xamarin.Forms.WebView, System.EventArgs> handler)
+		{
+			self.GoForwardRequested += new System.EventHandler(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.WebView WhenChildrenReordered(this Xamarin.Forms.WebView self, System.Action<Xamarin.Forms.WebView, System.EventArgs> handler)
 		{
 			self.ChildrenReordered += new System.EventHandler(handler.DemoteSender());
@@ -14441,6 +17885,18 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.WebView WhenBatchCommitted(this Xamarin.Forms.WebView self, System.Action<Xamarin.Forms.WebView, Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>> handler)
+		{
+			self.BatchCommitted += new System.EventHandler<Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.WebView WhenFocusChangeRequested(this Xamarin.Forms.WebView self, System.Action<Xamarin.Forms.WebView, Xamarin.Forms.VisualElement.FocusRequestArgs> handler)
+		{
+			self.FocusChangeRequested += new System.EventHandler<Xamarin.Forms.VisualElement.FocusRequestArgs>(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.WebView WhenChildAdded(this Xamarin.Forms.WebView self, System.Action<Xamarin.Forms.WebView, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.ChildAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
@@ -14462,6 +17918,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.WebView WhenDescendantRemoved(this Xamarin.Forms.WebView self, System.Action<Xamarin.Forms.WebView, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.WebView WhenPlatformSet(this Xamarin.Forms.WebView self, System.Action<Xamarin.Forms.WebView, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -14522,6 +17984,18 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.Grid WhenBatchCommitted(this Xamarin.Forms.Grid self, System.Action<Xamarin.Forms.Grid, Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>> handler)
+		{
+			self.BatchCommitted += new System.EventHandler<Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Grid WhenFocusChangeRequested(this Xamarin.Forms.Grid self, System.Action<Xamarin.Forms.Grid, Xamarin.Forms.VisualElement.FocusRequestArgs> handler)
+		{
+			self.FocusChangeRequested += new System.EventHandler<Xamarin.Forms.VisualElement.FocusRequestArgs>(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.Grid WhenChildAdded(this Xamarin.Forms.Grid self, System.Action<Xamarin.Forms.Grid, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.ChildAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
@@ -14543,6 +18017,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.Grid WhenDescendantRemoved(this Xamarin.Forms.Grid self, System.Action<Xamarin.Forms.Grid, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Grid WhenPlatformSet(this Xamarin.Forms.Grid self, System.Action<Xamarin.Forms.Grid, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -14598,6 +18078,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.Element WhenDescendantRemoved(this Xamarin.Forms.Element self, System.Action<Xamarin.Forms.Element, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Element WhenPlatformSet(this Xamarin.Forms.Element self, System.Action<Xamarin.Forms.Element, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -14664,6 +18150,20 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.Layout<T> WhenBatchCommitted<T>(this Xamarin.Forms.Layout<T> self, System.Action<Xamarin.Forms.Layout<T>, Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>> handler)
+			where T : Xamarin.Forms.View
+		{
+			self.BatchCommitted += new System.EventHandler<Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Layout<T> WhenFocusChangeRequested<T>(this Xamarin.Forms.Layout<T> self, System.Action<Xamarin.Forms.Layout<T>, Xamarin.Forms.VisualElement.FocusRequestArgs> handler)
+			where T : Xamarin.Forms.View
+		{
+			self.FocusChangeRequested += new System.EventHandler<Xamarin.Forms.VisualElement.FocusRequestArgs>(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.Layout<T> WhenChildAdded<T>(this Xamarin.Forms.Layout<T> self, System.Action<Xamarin.Forms.Layout<T>, Xamarin.Forms.ElementEventArgs> handler)
 			where T : Xamarin.Forms.View
 		{
@@ -14689,6 +18189,13 @@ namespace Xamarin.Forms
 			where T : Xamarin.Forms.View
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Layout<T> WhenPlatformSet<T>(this Xamarin.Forms.Layout<T> self, System.Action<Xamarin.Forms.Layout<T>, System.EventArgs> handler)
+			where T : Xamarin.Forms.View
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -14752,6 +18259,18 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.Layout WhenBatchCommitted(this Xamarin.Forms.Layout self, System.Action<Xamarin.Forms.Layout, Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>> handler)
+		{
+			self.BatchCommitted += new System.EventHandler<Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Layout WhenFocusChangeRequested(this Xamarin.Forms.Layout self, System.Action<Xamarin.Forms.Layout, Xamarin.Forms.VisualElement.FocusRequestArgs> handler)
+		{
+			self.FocusChangeRequested += new System.EventHandler<Xamarin.Forms.VisualElement.FocusRequestArgs>(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.Layout WhenChildAdded(this Xamarin.Forms.Layout self, System.Action<Xamarin.Forms.Layout, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.ChildAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
@@ -14773,6 +18292,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.Layout WhenDescendantRemoved(this Xamarin.Forms.Layout self, System.Action<Xamarin.Forms.Layout, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Layout WhenPlatformSet(this Xamarin.Forms.Layout self, System.Action<Xamarin.Forms.Layout, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -14845,6 +18370,18 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.ContentPage WhenBatchCommitted(this Xamarin.Forms.ContentPage self, System.Action<Xamarin.Forms.ContentPage, Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>> handler)
+		{
+			self.BatchCommitted += new System.EventHandler<Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.ContentPage WhenFocusChangeRequested(this Xamarin.Forms.ContentPage self, System.Action<Xamarin.Forms.ContentPage, Xamarin.Forms.VisualElement.FocusRequestArgs> handler)
+		{
+			self.FocusChangeRequested += new System.EventHandler<Xamarin.Forms.VisualElement.FocusRequestArgs>(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.ContentPage WhenChildAdded(this Xamarin.Forms.ContentPage self, System.Action<Xamarin.Forms.ContentPage, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.ChildAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
@@ -14866,6 +18403,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.ContentPage WhenDescendantRemoved(this Xamarin.Forms.ContentPage self, System.Action<Xamarin.Forms.ContentPage, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.ContentPage WhenPlatformSet(this Xamarin.Forms.ContentPage self, System.Action<Xamarin.Forms.ContentPage, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -14960,6 +18503,20 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.MultiPage<T> WhenBatchCommitted<T>(this Xamarin.Forms.MultiPage<T> self, System.Action<Xamarin.Forms.MultiPage<T>, Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>> handler)
+			where T : Xamarin.Forms.Page
+		{
+			self.BatchCommitted += new System.EventHandler<Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.MultiPage<T> WhenFocusChangeRequested<T>(this Xamarin.Forms.MultiPage<T> self, System.Action<Xamarin.Forms.MultiPage<T>, Xamarin.Forms.VisualElement.FocusRequestArgs> handler)
+			where T : Xamarin.Forms.Page
+		{
+			self.FocusChangeRequested += new System.EventHandler<Xamarin.Forms.VisualElement.FocusRequestArgs>(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.MultiPage<T> WhenChildAdded<T>(this Xamarin.Forms.MultiPage<T> self, System.Action<Xamarin.Forms.MultiPage<T>, Xamarin.Forms.ElementEventArgs> handler)
 			where T : Xamarin.Forms.Page
 		{
@@ -14985,6 +18542,13 @@ namespace Xamarin.Forms
 			where T : Xamarin.Forms.Page
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.MultiPage<T> WhenPlatformSet<T>(this Xamarin.Forms.MultiPage<T> self, System.Action<Xamarin.Forms.MultiPage<T>, System.EventArgs> handler)
+			where T : Xamarin.Forms.Page
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -15051,6 +18615,18 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.VisualElement WhenBatchCommitted(this Xamarin.Forms.VisualElement self, System.Action<Xamarin.Forms.VisualElement, Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>> handler)
+		{
+			self.BatchCommitted += new System.EventHandler<Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.VisualElement WhenFocusChangeRequested(this Xamarin.Forms.VisualElement self, System.Action<Xamarin.Forms.VisualElement, Xamarin.Forms.VisualElement.FocusRequestArgs> handler)
+		{
+			self.FocusChangeRequested += new System.EventHandler<Xamarin.Forms.VisualElement.FocusRequestArgs>(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.VisualElement WhenChildAdded(this Xamarin.Forms.VisualElement self, System.Action<Xamarin.Forms.VisualElement, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.ChildAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
@@ -15072,6 +18648,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.VisualElement WhenDescendantRemoved(this Xamarin.Forms.VisualElement self, System.Action<Xamarin.Forms.VisualElement, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.VisualElement WhenPlatformSet(this Xamarin.Forms.VisualElement self, System.Action<Xamarin.Forms.VisualElement, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -15132,6 +18714,18 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.Picker WhenBatchCommitted(this Xamarin.Forms.Picker self, System.Action<Xamarin.Forms.Picker, Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>> handler)
+		{
+			self.BatchCommitted += new System.EventHandler<Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Picker WhenFocusChangeRequested(this Xamarin.Forms.Picker self, System.Action<Xamarin.Forms.Picker, Xamarin.Forms.VisualElement.FocusRequestArgs> handler)
+		{
+			self.FocusChangeRequested += new System.EventHandler<Xamarin.Forms.VisualElement.FocusRequestArgs>(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.Picker WhenChildAdded(this Xamarin.Forms.Picker self, System.Action<Xamarin.Forms.Picker, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.ChildAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
@@ -15153,6 +18747,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.Picker WhenDescendantRemoved(this Xamarin.Forms.Picker self, System.Action<Xamarin.Forms.Picker, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Picker WhenPlatformSet(this Xamarin.Forms.Picker self, System.Action<Xamarin.Forms.Picker, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -15201,6 +18801,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.ImageSource WhenPlatformSet(this Xamarin.Forms.ImageSource self, System.Action<Xamarin.Forms.ImageSource, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.ImageSource WhenPropertyChanged(this Xamarin.Forms.ImageSource self, System.Action<Xamarin.Forms.ImageSource, System.ComponentModel.PropertyChangedEventArgs> handler)
 		{
 			self.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(handler.DemoteSender());
@@ -15246,6 +18852,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.FileImageSource WhenPlatformSet(this Xamarin.Forms.FileImageSource self, System.Action<Xamarin.Forms.FileImageSource, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.FileImageSource WhenPropertyChanged(this Xamarin.Forms.FileImageSource self, System.Action<Xamarin.Forms.FileImageSource, System.ComponentModel.PropertyChangedEventArgs> handler)
 		{
 			self.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(handler.DemoteSender());
@@ -15288,6 +18900,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.StreamImageSource WhenDescendantRemoved(this Xamarin.Forms.StreamImageSource self, System.Action<Xamarin.Forms.StreamImageSource, Xamarin.Forms.ElementEventArgs> handler)
 		{
 			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.StreamImageSource WhenPlatformSet(this Xamarin.Forms.StreamImageSource self, System.Action<Xamarin.Forms.StreamImageSource, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
 			return self;
 		}
 
@@ -15522,6 +19140,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.PinchGestureRecognizer WhenPlatformSet(this Xamarin.Forms.PinchGestureRecognizer self, System.Action<Xamarin.Forms.PinchGestureRecognizer, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.PinchGestureRecognizer WhenPropertyChanged(this Xamarin.Forms.PinchGestureRecognizer self, System.Action<Xamarin.Forms.PinchGestureRecognizer, System.ComponentModel.PropertyChangedEventArgs> handler)
 		{
 			self.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(handler.DemoteSender());
@@ -15567,6 +19191,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.AppLinkEntry WhenPlatformSet(this Xamarin.Forms.AppLinkEntry self, System.Action<Xamarin.Forms.AppLinkEntry, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
+			return self;
+		}
+
 		public static Xamarin.Forms.AppLinkEntry WhenPropertyChanged(this Xamarin.Forms.AppLinkEntry self, System.Action<Xamarin.Forms.AppLinkEntry, System.ComponentModel.PropertyChangedEventArgs> handler)
 		{
 			self.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(handler.DemoteSender());
@@ -15585,15 +19215,292 @@ namespace Xamarin.Forms
 			return self;
 		}
 	}
+
+	public static class ClickGestureRecognizerFluentEvents
+	{
+		public static Xamarin.Forms.ClickGestureRecognizer WhenClicked(this Xamarin.Forms.ClickGestureRecognizer self, System.Action<Xamarin.Forms.ClickGestureRecognizer, System.EventArgs> handler)
+		{
+			self.Clicked += new System.EventHandler(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.ClickGestureRecognizer WhenChildAdded(this Xamarin.Forms.ClickGestureRecognizer self, System.Action<Xamarin.Forms.ClickGestureRecognizer, Xamarin.Forms.ElementEventArgs> handler)
+		{
+			self.ChildAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.ClickGestureRecognizer WhenChildRemoved(this Xamarin.Forms.ClickGestureRecognizer self, System.Action<Xamarin.Forms.ClickGestureRecognizer, Xamarin.Forms.ElementEventArgs> handler)
+		{
+			self.ChildRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.ClickGestureRecognizer WhenDescendantAdded(this Xamarin.Forms.ClickGestureRecognizer self, System.Action<Xamarin.Forms.ClickGestureRecognizer, Xamarin.Forms.ElementEventArgs> handler)
+		{
+			self.DescendantAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.ClickGestureRecognizer WhenDescendantRemoved(this Xamarin.Forms.ClickGestureRecognizer self, System.Action<Xamarin.Forms.ClickGestureRecognizer, Xamarin.Forms.ElementEventArgs> handler)
+		{
+			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.ClickGestureRecognizer WhenPlatformSet(this Xamarin.Forms.ClickGestureRecognizer self, System.Action<Xamarin.Forms.ClickGestureRecognizer, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.ClickGestureRecognizer WhenPropertyChanged(this Xamarin.Forms.ClickGestureRecognizer self, System.Action<Xamarin.Forms.ClickGestureRecognizer, System.ComponentModel.PropertyChangedEventArgs> handler)
+		{
+			self.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.ClickGestureRecognizer WhenBindingContextChanged(this Xamarin.Forms.ClickGestureRecognizer self, System.Action<Xamarin.Forms.ClickGestureRecognizer, System.EventArgs> handler)
+		{
+			self.BindingContextChanged += new System.EventHandler(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.ClickGestureRecognizer WhenPropertyChanging(this Xamarin.Forms.ClickGestureRecognizer self, System.Action<Xamarin.Forms.ClickGestureRecognizer, Xamarin.Forms.PropertyChangingEventArgs> handler)
+		{
+			self.PropertyChanging += new Xamarin.Forms.PropertyChangingEventHandler(handler.DemoteSender());
+			return self;
+		}
+	}
+
+	public static class MenuFluentEvents
+	{
+		public static Xamarin.Forms.Menu WhenChildAdded(this Xamarin.Forms.Menu self, System.Action<Xamarin.Forms.Menu, Xamarin.Forms.ElementEventArgs> handler)
+		{
+			self.ChildAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Menu WhenChildRemoved(this Xamarin.Forms.Menu self, System.Action<Xamarin.Forms.Menu, Xamarin.Forms.ElementEventArgs> handler)
+		{
+			self.ChildRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Menu WhenDescendantAdded(this Xamarin.Forms.Menu self, System.Action<Xamarin.Forms.Menu, Xamarin.Forms.ElementEventArgs> handler)
+		{
+			self.DescendantAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Menu WhenDescendantRemoved(this Xamarin.Forms.Menu self, System.Action<Xamarin.Forms.Menu, Xamarin.Forms.ElementEventArgs> handler)
+		{
+			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Menu WhenPlatformSet(this Xamarin.Forms.Menu self, System.Action<Xamarin.Forms.Menu, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Menu WhenPropertyChanged(this Xamarin.Forms.Menu self, System.Action<Xamarin.Forms.Menu, System.ComponentModel.PropertyChangedEventArgs> handler)
+		{
+			self.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Menu WhenBindingContextChanged(this Xamarin.Forms.Menu self, System.Action<Xamarin.Forms.Menu, System.EventArgs> handler)
+		{
+			self.BindingContextChanged += new System.EventHandler(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Menu WhenPropertyChanging(this Xamarin.Forms.Menu self, System.Action<Xamarin.Forms.Menu, Xamarin.Forms.PropertyChangingEventArgs> handler)
+		{
+			self.PropertyChanging += new Xamarin.Forms.PropertyChangingEventHandler(handler.DemoteSender());
+			return self;
+		}
+	}
 }
 
 namespace Xamarin.Forms.Internals
 {
+	public static class IResourceDictionaryFluentEvents
+	{
+		public static Xamarin.Forms.Internals.IResourceDictionary WhenValuesChanged(this Xamarin.Forms.Internals.IResourceDictionary self, System.Action<Xamarin.Forms.Internals.IResourceDictionary, Xamarin.Forms.Internals.ResourcesChangedEventArgs> handler)
+		{
+			self.ValuesChanged += new System.EventHandler<Xamarin.Forms.Internals.ResourcesChangedEventArgs>(handler.DemoteSender());
+			return self;
+		}
+	}
+
+	public static class TemplatedItemsListFluentEvents2
+	{
+		public static Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem> WhenCollectionChanged<TView, TItem>(this Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem> self, System.Action<Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem>, System.Collections.Specialized.NotifyCollectionChangedEventArgs> handler)
+			where TView : Xamarin.Forms.BindableObject, Xamarin.Forms.IItemsView<TItem>
+			where TItem : Xamarin.Forms.BindableObject
+		{
+			self.CollectionChanged += new System.Collections.Specialized.NotifyCollectionChangedEventHandler(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem> WhenGroupedCollectionChanged<TView, TItem>(this Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem> self, System.Action<Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem>, System.Collections.Specialized.NotifyCollectionChangedEventArgs> handler)
+			where TView : Xamarin.Forms.BindableObject, Xamarin.Forms.IItemsView<TItem>
+			where TItem : Xamarin.Forms.BindableObject
+		{
+			self.GroupedCollectionChanged += new System.Collections.Specialized.NotifyCollectionChangedEventHandler(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem> WhenPropertyChanged<TView, TItem>(this Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem> self, System.Action<Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem>, System.ComponentModel.PropertyChangedEventArgs> handler)
+			where TView : Xamarin.Forms.BindableObject, Xamarin.Forms.IItemsView<TItem>
+			where TItem : Xamarin.Forms.BindableObject
+		{
+			self.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem> WhenBindingContextChanged<TView, TItem>(this Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem> self, System.Action<Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem>, System.EventArgs> handler)
+			where TView : Xamarin.Forms.BindableObject, Xamarin.Forms.IItemsView<TItem>
+			where TItem : Xamarin.Forms.BindableObject
+		{
+			self.BindingContextChanged += new System.EventHandler(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem> WhenPropertyChanging<TView, TItem>(this Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem> self, System.Action<Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem>, Xamarin.Forms.PropertyChangingEventArgs> handler)
+			where TView : Xamarin.Forms.BindableObject, Xamarin.Forms.IItemsView<TItem>
+			where TItem : Xamarin.Forms.BindableObject
+		{
+			self.PropertyChanging += new Xamarin.Forms.PropertyChangingEventHandler(handler.DemoteSender());
+			return self;
+		}
+	}
+
+	public static class TableModelFluentEvents
+	{
+		public static Xamarin.Forms.Internals.TableModel WhenItemLongPressed(this Xamarin.Forms.Internals.TableModel self, System.Action<Xamarin.Forms.Internals.TableModel, Xamarin.Forms.Internals.EventArg<System.Object>> handler)
+		{
+			self.ItemLongPressed += new System.EventHandler<Xamarin.Forms.Internals.EventArg<System.Object>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.TableModel WhenItemSelected(this Xamarin.Forms.Internals.TableModel self, System.Action<Xamarin.Forms.Internals.TableModel, Xamarin.Forms.Internals.EventArg<System.Object>> handler)
+		{
+			self.ItemSelected += new System.EventHandler<Xamarin.Forms.Internals.EventArg<System.Object>>(handler.DemoteSender());
+			return self;
+		}
+	}
+
+	public static class NavigationMenuFluentEvents
+	{
+		public static Xamarin.Forms.Internals.NavigationMenu WhenChildrenReordered(this Xamarin.Forms.Internals.NavigationMenu self, System.Action<Xamarin.Forms.Internals.NavigationMenu, System.EventArgs> handler)
+		{
+			self.ChildrenReordered += new System.EventHandler(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu WhenFocused(this Xamarin.Forms.Internals.NavigationMenu self, System.Action<Xamarin.Forms.Internals.NavigationMenu, Xamarin.Forms.FocusEventArgs> handler)
+		{
+			self.Focused += new System.EventHandler<Xamarin.Forms.FocusEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu WhenMeasureInvalidated(this Xamarin.Forms.Internals.NavigationMenu self, System.Action<Xamarin.Forms.Internals.NavigationMenu, System.EventArgs> handler)
+		{
+			self.MeasureInvalidated += new System.EventHandler(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu WhenSizeChanged(this Xamarin.Forms.Internals.NavigationMenu self, System.Action<Xamarin.Forms.Internals.NavigationMenu, System.EventArgs> handler)
+		{
+			self.SizeChanged += new System.EventHandler(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu WhenUnfocused(this Xamarin.Forms.Internals.NavigationMenu self, System.Action<Xamarin.Forms.Internals.NavigationMenu, Xamarin.Forms.FocusEventArgs> handler)
+		{
+			self.Unfocused += new System.EventHandler<Xamarin.Forms.FocusEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu WhenBatchCommitted(this Xamarin.Forms.Internals.NavigationMenu self, System.Action<Xamarin.Forms.Internals.NavigationMenu, Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>> handler)
+		{
+			self.BatchCommitted += new System.EventHandler<Xamarin.Forms.Internals.EventArg<Xamarin.Forms.VisualElement>>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu WhenFocusChangeRequested(this Xamarin.Forms.Internals.NavigationMenu self, System.Action<Xamarin.Forms.Internals.NavigationMenu, Xamarin.Forms.VisualElement.FocusRequestArgs> handler)
+		{
+			self.FocusChangeRequested += new System.EventHandler<Xamarin.Forms.VisualElement.FocusRequestArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu WhenChildAdded(this Xamarin.Forms.Internals.NavigationMenu self, System.Action<Xamarin.Forms.Internals.NavigationMenu, Xamarin.Forms.ElementEventArgs> handler)
+		{
+			self.ChildAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu WhenChildRemoved(this Xamarin.Forms.Internals.NavigationMenu self, System.Action<Xamarin.Forms.Internals.NavigationMenu, Xamarin.Forms.ElementEventArgs> handler)
+		{
+			self.ChildRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu WhenDescendantAdded(this Xamarin.Forms.Internals.NavigationMenu self, System.Action<Xamarin.Forms.Internals.NavigationMenu, Xamarin.Forms.ElementEventArgs> handler)
+		{
+			self.DescendantAdded += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu WhenDescendantRemoved(this Xamarin.Forms.Internals.NavigationMenu self, System.Action<Xamarin.Forms.Internals.NavigationMenu, Xamarin.Forms.ElementEventArgs> handler)
+		{
+			self.DescendantRemoved += new System.EventHandler<Xamarin.Forms.ElementEventArgs>(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu WhenPlatformSet(this Xamarin.Forms.Internals.NavigationMenu self, System.Action<Xamarin.Forms.Internals.NavigationMenu, System.EventArgs> handler)
+		{
+			self.PlatformSet += new System.EventHandler(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu WhenPropertyChanged(this Xamarin.Forms.Internals.NavigationMenu self, System.Action<Xamarin.Forms.Internals.NavigationMenu, System.ComponentModel.PropertyChangedEventArgs> handler)
+		{
+			self.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu WhenBindingContextChanged(this Xamarin.Forms.Internals.NavigationMenu self, System.Action<Xamarin.Forms.Internals.NavigationMenu, System.EventArgs> handler)
+		{
+			self.BindingContextChanged += new System.EventHandler(handler.DemoteSender());
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu WhenPropertyChanging(this Xamarin.Forms.Internals.NavigationMenu self, System.Action<Xamarin.Forms.Internals.NavigationMenu, Xamarin.Forms.PropertyChangingEventArgs> handler)
+		{
+			self.PropertyChanging += new Xamarin.Forms.PropertyChangingEventHandler(handler.DemoteSender());
+			return self;
+		}
+	}
+
 	public static class ToolbarTrackerFluentEvents
 	{
 		public static Xamarin.Forms.Internals.ToolbarTracker WhenCollectionChanged(this Xamarin.Forms.Internals.ToolbarTracker self, System.Action<Xamarin.Forms.Internals.ToolbarTracker, System.EventArgs> handler)
 		{
 			self.CollectionChanged += new System.EventHandler(handler.DemoteSender());
+			return self;
+		}
+	}
+
+	public static class DeviceInfoFluentEvents
+	{
+		public static Xamarin.Forms.Internals.DeviceInfo WhenPropertyChanged(this Xamarin.Forms.Internals.DeviceInfo self, System.Action<Xamarin.Forms.Internals.DeviceInfo, System.ComponentModel.PropertyChangedEventArgs> handler)
+		{
+			self.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(handler.DemoteSender());
 			return self;
 		}
 	}
@@ -15603,6 +19510,48 @@ namespace Xamarin.Forms
 {
 	public static class ApplicationFluentVoidMethods
 	{
+		public static Xamarin.Forms.Application DoQuit(this Xamarin.Forms.Application self)
+		{
+			self.Quit();
+			return self;
+		}
+
+		public static Xamarin.Forms.Application DoSetAppIndexingProvider(this Xamarin.Forms.Application self, Xamarin.Forms.IAppIndexingProvider provider)
+		{
+			self.SetAppIndexingProvider(provider);
+			return self;
+		}
+
+		public static Xamarin.Forms.Application DoSendOnAppLinkRequestReceived(this Xamarin.Forms.Application self, System.Uri uri)
+		{
+			self.SendOnAppLinkRequestReceived(uri);
+			return self;
+		}
+
+		public static Xamarin.Forms.Application DoSendResume(this Xamarin.Forms.Application self)
+		{
+			self.SendResume();
+			return self;
+		}
+
+		public static Xamarin.Forms.Application DoSendStart(this Xamarin.Forms.Application self)
+		{
+			self.SendStart();
+			return self;
+		}
+
+		public static Xamarin.Forms.Application DoSetValueFromRenderer(this Xamarin.Forms.Application self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.Application DoSetValueFromRenderer(this Xamarin.Forms.Application self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
 		public static Xamarin.Forms.Application DoRemoveDynamicResource(this Xamarin.Forms.Application self, Xamarin.Forms.BindableProperty property)
 		{
 			self.RemoveDynamicResource(property);
@@ -15650,10 +19599,28 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.Application DoSetValueCore(this Xamarin.Forms.Application self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class BaseMenuItemFluentVoidMethods
 	{
+		public static Xamarin.Forms.BaseMenuItem DoSetValueFromRenderer(this Xamarin.Forms.BaseMenuItem self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.BaseMenuItem DoSetValueFromRenderer(this Xamarin.Forms.BaseMenuItem self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
 		public static Xamarin.Forms.BaseMenuItem DoRemoveDynamicResource(this Xamarin.Forms.BaseMenuItem self, Xamarin.Forms.BindableProperty property)
 		{
 			self.RemoveDynamicResource(property);
@@ -15701,13 +19668,49 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.BaseMenuItem DoSetValueCore(this Xamarin.Forms.BaseMenuItem self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class EntryCellFluentVoidMethods
 	{
+		public static Xamarin.Forms.EntryCell DoSendCompleted(this Xamarin.Forms.EntryCell self)
+		{
+			self.SendCompleted();
+			return self;
+		}
+
 		public static Xamarin.Forms.EntryCell DoForceUpdateSize(this Xamarin.Forms.EntryCell self)
 		{
 			self.ForceUpdateSize();
+			return self;
+		}
+
+		public static Xamarin.Forms.EntryCell DoSendAppearing(this Xamarin.Forms.EntryCell self)
+		{
+			self.SendAppearing();
+			return self;
+		}
+
+		public static Xamarin.Forms.EntryCell DoSendDisappearing(this Xamarin.Forms.EntryCell self)
+		{
+			self.SendDisappearing();
+			return self;
+		}
+
+		public static Xamarin.Forms.EntryCell DoSetValueFromRenderer(this Xamarin.Forms.EntryCell self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.EntryCell DoSetValueFromRenderer(this Xamarin.Forms.EntryCell self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -15758,6 +19761,12 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.EntryCell DoSetValueCore(this Xamarin.Forms.EntryCell self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class ICellControllerFluentVoidMethods
@@ -15789,6 +19798,30 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.ImageCell DoForceUpdateSize(this Xamarin.Forms.ImageCell self)
 		{
 			self.ForceUpdateSize();
+			return self;
+		}
+
+		public static Xamarin.Forms.ImageCell DoSendAppearing(this Xamarin.Forms.ImageCell self)
+		{
+			self.SendAppearing();
+			return self;
+		}
+
+		public static Xamarin.Forms.ImageCell DoSendDisappearing(this Xamarin.Forms.ImageCell self)
+		{
+			self.SendDisappearing();
+			return self;
+		}
+
+		public static Xamarin.Forms.ImageCell DoSetValueFromRenderer(this Xamarin.Forms.ImageCell self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.ImageCell DoSetValueFromRenderer(this Xamarin.Forms.ImageCell self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -15839,6 +19872,12 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.ImageCell DoSetValueCore(this Xamarin.Forms.ImageCell self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class ColumnDefinitionFluentVoidMethods
@@ -15876,6 +19915,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.ColumnDefinition DoSetValue(this Xamarin.Forms.ColumnDefinition self, Xamarin.Forms.BindablePropertyKey propertyKey, System.Object value)
 		{
 			self.SetValue(propertyKey, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.ColumnDefinition DoSetValueCore(this Xamarin.Forms.ColumnDefinition self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
 			return self;
 		}
 	}
@@ -15933,6 +19978,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.ContentPresenter DoInvalidateMeasureNonVirtual(this Xamarin.Forms.ContentPresenter self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+		{
+			self.InvalidateMeasureNonVirtual(trigger);
+			return self;
+		}
+
 		public static Xamarin.Forms.ContentPresenter DoBatchBegin(this Xamarin.Forms.ContentPresenter self)
 		{
 			self.BatchBegin();
@@ -15945,6 +19996,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.ContentPresenter DoNativeSizeChanged(this Xamarin.Forms.ContentPresenter self)
+		{
+			self.NativeSizeChanged();
+			return self;
+		}
+
 		public static Xamarin.Forms.ContentPresenter DoLayout(this Xamarin.Forms.ContentPresenter self, Xamarin.Forms.Rectangle bounds)
 		{
 			self.Layout(bounds);
@@ -15954,6 +20011,18 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.ContentPresenter DoUnfocus(this Xamarin.Forms.ContentPresenter self)
 		{
 			self.Unfocus();
+			return self;
+		}
+
+		public static Xamarin.Forms.ContentPresenter DoSetValueFromRenderer(this Xamarin.Forms.ContentPresenter self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.ContentPresenter DoSetValueFromRenderer(this Xamarin.Forms.ContentPresenter self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -16004,6 +20073,12 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.ContentPresenter DoSetValueCore(this Xamarin.Forms.ContentPresenter self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class DataTemplateSelectorFluentVoidMethods
@@ -16017,6 +20092,48 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.DataTemplateSelector DoSetValue(this Xamarin.Forms.DataTemplateSelector self, Xamarin.Forms.BindableProperty property, System.Object value)
 		{
 			self.SetValue(property, value);
+			return self;
+		}
+	}
+
+	public static class IEditorControllerFluentVoidMethods
+	{
+		public static Xamarin.Forms.IEditorController DoSendCompleted(this Xamarin.Forms.IEditorController self)
+		{
+			self.SendCompleted();
+			return self;
+		}
+	}
+
+	public static class IGridControllerFluentVoidMethods
+	{
+		public static Xamarin.Forms.IGridController DoInvalidateMeasureInernalNonVirtual(this Xamarin.Forms.IGridController self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+		{
+			self.InvalidateMeasureInernalNonVirtual(trigger);
+			return self;
+		}
+	}
+
+	public static class IWebViewControllerFluentVoidMethods
+	{
+		public static Xamarin.Forms.IWebViewController DoSendNavigated(this Xamarin.Forms.IWebViewController self, Xamarin.Forms.WebNavigatedEventArgs args)
+		{
+			self.SendNavigated(args);
+			return self;
+		}
+
+		public static Xamarin.Forms.IWebViewController DoSendNavigating(this Xamarin.Forms.IWebViewController self, Xamarin.Forms.WebNavigatingEventArgs args)
+		{
+			self.SendNavigating(args);
+			return self;
+		}
+	}
+
+	public static class INavigationMenuControllerFluentVoidMethods
+	{
+		public static Xamarin.Forms.INavigationMenuController DoSendTargetSelected(this Xamarin.Forms.INavigationMenuController self, Xamarin.Forms.Page target)
+		{
+			self.SendTargetSelected(target);
 			return self;
 		}
 	}
@@ -16059,6 +20176,18 @@ namespace Xamarin.Forms
 
 	public static class GestureRecognizerFluentVoidMethods
 	{
+		public static Xamarin.Forms.GestureRecognizer DoSetValueFromRenderer(this Xamarin.Forms.GestureRecognizer self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.GestureRecognizer DoSetValueFromRenderer(this Xamarin.Forms.GestureRecognizer self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
 		public static Xamarin.Forms.GestureRecognizer DoRemoveDynamicResource(this Xamarin.Forms.GestureRecognizer self, Xamarin.Forms.BindableProperty property)
 		{
 			self.RemoveDynamicResource(property);
@@ -16106,10 +20235,22 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.GestureRecognizer DoSetValueCore(this Xamarin.Forms.GestureRecognizer self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class HtmlWebViewSourceFluentVoidMethods
 	{
+		public static Xamarin.Forms.HtmlWebViewSource DoLoad(this Xamarin.Forms.HtmlWebViewSource self, Xamarin.Forms.IWebViewDelegate renderer)
+		{
+			self.Load(renderer);
+			return self;
+		}
+
 		public static Xamarin.Forms.HtmlWebViewSource DoClearValue(this Xamarin.Forms.HtmlWebViewSource self, Xamarin.Forms.BindableProperty property)
 		{
 			self.ClearValue(property);
@@ -16145,6 +20286,12 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.HtmlWebViewSource DoSetValueCore(this Xamarin.Forms.HtmlWebViewSource self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class IButtonControllerFluentVoidMethods
@@ -16152,6 +20299,18 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.IButtonController DoSendClicked(this Xamarin.Forms.IButtonController self)
 		{
 			self.SendClicked();
+			return self;
+		}
+
+		public static Xamarin.Forms.IButtonController DoSendPressed(this Xamarin.Forms.IButtonController self)
+		{
+			self.SendPressed();
+			return self;
+		}
+
+		public static Xamarin.Forms.IButtonController DoSendReleased(this Xamarin.Forms.IButtonController self)
+		{
+			self.SendReleased();
 			return self;
 		}
 	}
@@ -16269,6 +20428,60 @@ namespace Xamarin.Forms
 		}
 	}
 
+	public static class IPanGestureControllerFluentVoidMethods
+	{
+		public static Xamarin.Forms.IPanGestureController DoSendPan(this Xamarin.Forms.IPanGestureController self, Xamarin.Forms.Element sender, System.Double totalX, System.Double totalY, System.Int32 gestureId)
+		{
+			self.SendPan(sender, totalX, totalY, gestureId);
+			return self;
+		}
+
+		public static Xamarin.Forms.IPanGestureController DoSendPanCanceled(this Xamarin.Forms.IPanGestureController self, Xamarin.Forms.Element sender, System.Int32 gestureId)
+		{
+			self.SendPanCanceled(sender, gestureId);
+			return self;
+		}
+
+		public static Xamarin.Forms.IPanGestureController DoSendPanCompleted(this Xamarin.Forms.IPanGestureController self, Xamarin.Forms.Element sender, System.Int32 gestureId)
+		{
+			self.SendPanCompleted(sender, gestureId);
+			return self;
+		}
+
+		public static Xamarin.Forms.IPanGestureController DoSendPanStarted(this Xamarin.Forms.IPanGestureController self, Xamarin.Forms.Element sender, System.Int32 gestureId)
+		{
+			self.SendPanStarted(sender, gestureId);
+			return self;
+		}
+	}
+
+	public static class IPinchGestureControllerFluentVoidMethods
+	{
+		public static Xamarin.Forms.IPinchGestureController DoSendPinch(this Xamarin.Forms.IPinchGestureController self, Xamarin.Forms.Element sender, System.Double scale, Xamarin.Forms.Point currentScalePoint)
+		{
+			self.SendPinch(sender, scale, currentScalePoint);
+			return self;
+		}
+
+		public static Xamarin.Forms.IPinchGestureController DoSendPinchCanceled(this Xamarin.Forms.IPinchGestureController self, Xamarin.Forms.Element sender)
+		{
+			self.SendPinchCanceled(sender);
+			return self;
+		}
+
+		public static Xamarin.Forms.IPinchGestureController DoSendPinchEnded(this Xamarin.Forms.IPinchGestureController self, Xamarin.Forms.Element sender)
+		{
+			self.SendPinchEnded(sender);
+			return self;
+		}
+
+		public static Xamarin.Forms.IPinchGestureController DoSendPinchStarted(this Xamarin.Forms.IPinchGestureController self, Xamarin.Forms.Element sender, Xamarin.Forms.Point intialScalePoint)
+		{
+			self.SendPinchStarted(sender, intialScalePoint);
+			return self;
+		}
+	}
+
 	public static class IScrollViewControllerFluentVoidMethods
 	{
 		public static Xamarin.Forms.IScrollViewController DoSendScrollFinished(this Xamarin.Forms.IScrollViewController self)
@@ -16346,6 +20559,24 @@ namespace Xamarin.Forms
 
 	public static class MenuItemFluentVoidMethods
 	{
+		public static Xamarin.Forms.MenuItem DoActivate(this Xamarin.Forms.MenuItem self)
+		{
+			self.Activate();
+			return self;
+		}
+
+		public static Xamarin.Forms.MenuItem DoSetValueFromRenderer(this Xamarin.Forms.MenuItem self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.MenuItem DoSetValueFromRenderer(this Xamarin.Forms.MenuItem self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
 		public static Xamarin.Forms.MenuItem DoRemoveDynamicResource(this Xamarin.Forms.MenuItem self, Xamarin.Forms.BindableProperty property)
 		{
 			self.RemoveDynamicResource(property);
@@ -16393,10 +20624,52 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.MenuItem DoSetValueCore(this Xamarin.Forms.MenuItem self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class PanGestureRecognizerFluentVoidMethods
 	{
+		public static Xamarin.Forms.PanGestureRecognizer DoSendPan(this Xamarin.Forms.PanGestureRecognizer self, Xamarin.Forms.Element sender, System.Double totalX, System.Double totalY, System.Int32 gestureId)
+		{
+			self.SendPan(sender, totalX, totalY, gestureId);
+			return self;
+		}
+
+		public static Xamarin.Forms.PanGestureRecognizer DoSendPanCanceled(this Xamarin.Forms.PanGestureRecognizer self, Xamarin.Forms.Element sender, System.Int32 gestureId)
+		{
+			self.SendPanCanceled(sender, gestureId);
+			return self;
+		}
+
+		public static Xamarin.Forms.PanGestureRecognizer DoSendPanCompleted(this Xamarin.Forms.PanGestureRecognizer self, Xamarin.Forms.Element sender, System.Int32 gestureId)
+		{
+			self.SendPanCompleted(sender, gestureId);
+			return self;
+		}
+
+		public static Xamarin.Forms.PanGestureRecognizer DoSendPanStarted(this Xamarin.Forms.PanGestureRecognizer self, Xamarin.Forms.Element sender, System.Int32 gestureId)
+		{
+			self.SendPanStarted(sender, gestureId);
+			return self;
+		}
+
+		public static Xamarin.Forms.PanGestureRecognizer DoSetValueFromRenderer(this Xamarin.Forms.PanGestureRecognizer self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.PanGestureRecognizer DoSetValueFromRenderer(this Xamarin.Forms.PanGestureRecognizer self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
 		public static Xamarin.Forms.PanGestureRecognizer DoRemoveDynamicResource(this Xamarin.Forms.PanGestureRecognizer self, Xamarin.Forms.BindableProperty property)
 		{
 			self.RemoveDynamicResource(property);
@@ -16444,6 +20717,31 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.PanGestureRecognizer DoSetValueCore(this Xamarin.Forms.PanGestureRecognizer self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
+	}
+
+	public static class PlatformEffectFluentVoidMethods2
+	{
+		public static Xamarin.Forms.PlatformEffect<TContainer, TControl> DoSetContainer<TContainer, TControl>(this Xamarin.Forms.PlatformEffect<TContainer, TControl> self, TContainer container)
+			where TContainer : class
+			where TControl : class
+		{
+			self.SetContainer(container);
+			return self;
+		}
+
+		public static Xamarin.Forms.PlatformEffect<TContainer, TControl> DoSetControl<TContainer, TControl>(this Xamarin.Forms.PlatformEffect<TContainer, TControl> self, TControl control)
+			where TContainer : class
+			where TControl : class
+		{
+			self.SetControl(control);
+			return self;
+		}
 	}
 
 	public static class BindableObjectFluentVoidMethods
@@ -16483,6 +20781,12 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.BindableObject DoSetValueCore(this Xamarin.Forms.BindableObject self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class RowDefinitionFluentVoidMethods
@@ -16520,6 +20824,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.RowDefinition DoSetValue(this Xamarin.Forms.RowDefinition self, Xamarin.Forms.BindablePropertyKey propertyKey, System.Object value)
 		{
 			self.SetValue(propertyKey, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.RowDefinition DoSetValueCore(this Xamarin.Forms.RowDefinition self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
 			return self;
 		}
 	}
@@ -16630,6 +20940,12 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.TableRoot DoSetValueCore(this Xamarin.Forms.TableRoot self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class TableSectionBaseFluentVoidMethods
@@ -16669,10 +20985,34 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.TableSectionBase DoSetValueCore(this Xamarin.Forms.TableSectionBase self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class TapGestureRecognizerFluentVoidMethods
 	{
+		public static Xamarin.Forms.TapGestureRecognizer DoSendTapped(this Xamarin.Forms.TapGestureRecognizer self, Xamarin.Forms.View sender)
+		{
+			self.SendTapped(sender);
+			return self;
+		}
+
+		public static Xamarin.Forms.TapGestureRecognizer DoSetValueFromRenderer(this Xamarin.Forms.TapGestureRecognizer self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.TapGestureRecognizer DoSetValueFromRenderer(this Xamarin.Forms.TapGestureRecognizer self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
 		public static Xamarin.Forms.TapGestureRecognizer DoRemoveDynamicResource(this Xamarin.Forms.TapGestureRecognizer self, Xamarin.Forms.BindableProperty property)
 		{
 			self.RemoveDynamicResource(property);
@@ -16720,6 +21060,12 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.TapGestureRecognizer DoSetValueCore(this Xamarin.Forms.TapGestureRecognizer self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class TemplatedPageFluentVoidMethods
@@ -16727,6 +21073,24 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.TemplatedPage DoForceLayout(this Xamarin.Forms.TemplatedPage self)
 		{
 			self.ForceLayout();
+			return self;
+		}
+
+		public static Xamarin.Forms.TemplatedPage DoSendAppearing(this Xamarin.Forms.TemplatedPage self)
+		{
+			self.SendAppearing();
+			return self;
+		}
+
+		public static Xamarin.Forms.TemplatedPage DoSendDisappearing(this Xamarin.Forms.TemplatedPage self)
+		{
+			self.SendDisappearing();
+			return self;
+		}
+
+		public static Xamarin.Forms.TemplatedPage DoInvalidateMeasureNonVirtual(this Xamarin.Forms.TemplatedPage self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+		{
+			self.InvalidateMeasureNonVirtual(trigger);
 			return self;
 		}
 
@@ -16742,6 +21106,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.TemplatedPage DoNativeSizeChanged(this Xamarin.Forms.TemplatedPage self)
+		{
+			self.NativeSizeChanged();
+			return self;
+		}
+
 		public static Xamarin.Forms.TemplatedPage DoLayout(this Xamarin.Forms.TemplatedPage self, Xamarin.Forms.Rectangle bounds)
 		{
 			self.Layout(bounds);
@@ -16751,6 +21121,18 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.TemplatedPage DoUnfocus(this Xamarin.Forms.TemplatedPage self)
 		{
 			self.Unfocus();
+			return self;
+		}
+
+		public static Xamarin.Forms.TemplatedPage DoSetValueFromRenderer(this Xamarin.Forms.TemplatedPage self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.TemplatedPage DoSetValueFromRenderer(this Xamarin.Forms.TemplatedPage self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -16801,6 +21183,12 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.TemplatedPage DoSetValueCore(this Xamarin.Forms.TemplatedPage self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class TemplatedViewFluentVoidMethods
@@ -16823,6 +21211,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.TemplatedView DoInvalidateMeasureNonVirtual(this Xamarin.Forms.TemplatedView self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+		{
+			self.InvalidateMeasureNonVirtual(trigger);
+			return self;
+		}
+
 		public static Xamarin.Forms.TemplatedView DoBatchBegin(this Xamarin.Forms.TemplatedView self)
 		{
 			self.BatchBegin();
@@ -16835,6 +21229,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.TemplatedView DoNativeSizeChanged(this Xamarin.Forms.TemplatedView self)
+		{
+			self.NativeSizeChanged();
+			return self;
+		}
+
 		public static Xamarin.Forms.TemplatedView DoLayout(this Xamarin.Forms.TemplatedView self, Xamarin.Forms.Rectangle bounds)
 		{
 			self.Layout(bounds);
@@ -16844,6 +21244,18 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.TemplatedView DoUnfocus(this Xamarin.Forms.TemplatedView self)
 		{
 			self.Unfocus();
+			return self;
+		}
+
+		public static Xamarin.Forms.TemplatedView DoSetValueFromRenderer(this Xamarin.Forms.TemplatedView self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.TemplatedView DoSetValueFromRenderer(this Xamarin.Forms.TemplatedView self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -16894,10 +21306,22 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.TemplatedView DoSetValueCore(this Xamarin.Forms.TemplatedView self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class UrlWebViewSourceFluentVoidMethods
 	{
+		public static Xamarin.Forms.UrlWebViewSource DoLoad(this Xamarin.Forms.UrlWebViewSource self, Xamarin.Forms.IWebViewDelegate renderer)
+		{
+			self.Load(renderer);
+			return self;
+		}
+
 		public static Xamarin.Forms.UrlWebViewSource DoClearValue(this Xamarin.Forms.UrlWebViewSource self, Xamarin.Forms.BindableProperty property)
 		{
 			self.ClearValue(property);
@@ -16933,10 +21357,22 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.UrlWebViewSource DoSetValueCore(this Xamarin.Forms.UrlWebViewSource self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class ViewFluentVoidMethods
 	{
+		public static Xamarin.Forms.View DoInvalidateMeasureNonVirtual(this Xamarin.Forms.View self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+		{
+			self.InvalidateMeasureNonVirtual(trigger);
+			return self;
+		}
+
 		public static Xamarin.Forms.View DoBatchBegin(this Xamarin.Forms.View self)
 		{
 			self.BatchBegin();
@@ -16949,6 +21385,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.View DoNativeSizeChanged(this Xamarin.Forms.View self)
+		{
+			self.NativeSizeChanged();
+			return self;
+		}
+
 		public static Xamarin.Forms.View DoLayout(this Xamarin.Forms.View self, Xamarin.Forms.Rectangle bounds)
 		{
 			self.Layout(bounds);
@@ -16958,6 +21400,18 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.View DoUnfocus(this Xamarin.Forms.View self)
 		{
 			self.Unfocus();
+			return self;
+		}
+
+		public static Xamarin.Forms.View DoSetValueFromRenderer(this Xamarin.Forms.View self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.View DoSetValueFromRenderer(this Xamarin.Forms.View self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -17008,6 +21462,12 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.View DoSetValueCore(this Xamarin.Forms.View self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class IAnimatableFluentVoidMethods
@@ -17033,6 +21493,24 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.NavigationPage DoSendAppearing(this Xamarin.Forms.NavigationPage self)
+		{
+			self.SendAppearing();
+			return self;
+		}
+
+		public static Xamarin.Forms.NavigationPage DoSendDisappearing(this Xamarin.Forms.NavigationPage self)
+		{
+			self.SendDisappearing();
+			return self;
+		}
+
+		public static Xamarin.Forms.NavigationPage DoInvalidateMeasureNonVirtual(this Xamarin.Forms.NavigationPage self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+		{
+			self.InvalidateMeasureNonVirtual(trigger);
+			return self;
+		}
+
 		public static Xamarin.Forms.NavigationPage DoBatchBegin(this Xamarin.Forms.NavigationPage self)
 		{
 			self.BatchBegin();
@@ -17045,6 +21523,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.NavigationPage DoNativeSizeChanged(this Xamarin.Forms.NavigationPage self)
+		{
+			self.NativeSizeChanged();
+			return self;
+		}
+
 		public static Xamarin.Forms.NavigationPage DoLayout(this Xamarin.Forms.NavigationPage self, Xamarin.Forms.Rectangle bounds)
 		{
 			self.Layout(bounds);
@@ -17054,6 +21538,18 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.NavigationPage DoUnfocus(this Xamarin.Forms.NavigationPage self)
 		{
 			self.Unfocus();
+			return self;
+		}
+
+		public static Xamarin.Forms.NavigationPage DoSetValueFromRenderer(this Xamarin.Forms.NavigationPage self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.NavigationPage DoSetValueFromRenderer(this Xamarin.Forms.NavigationPage self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -17104,6 +21600,12 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.NavigationPage DoSetValueCore(this Xamarin.Forms.NavigationPage self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class PageFluentVoidMethods
@@ -17111,6 +21613,24 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.Page DoForceLayout(this Xamarin.Forms.Page self)
 		{
 			self.ForceLayout();
+			return self;
+		}
+
+		public static Xamarin.Forms.Page DoSendAppearing(this Xamarin.Forms.Page self)
+		{
+			self.SendAppearing();
+			return self;
+		}
+
+		public static Xamarin.Forms.Page DoSendDisappearing(this Xamarin.Forms.Page self)
+		{
+			self.SendDisappearing();
+			return self;
+		}
+
+		public static Xamarin.Forms.Page DoInvalidateMeasureNonVirtual(this Xamarin.Forms.Page self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+		{
+			self.InvalidateMeasureNonVirtual(trigger);
 			return self;
 		}
 
@@ -17126,6 +21646,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.Page DoNativeSizeChanged(this Xamarin.Forms.Page self)
+		{
+			self.NativeSizeChanged();
+			return self;
+		}
+
 		public static Xamarin.Forms.Page DoLayout(this Xamarin.Forms.Page self, Xamarin.Forms.Rectangle bounds)
 		{
 			self.Layout(bounds);
@@ -17135,6 +21661,18 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.Page DoUnfocus(this Xamarin.Forms.Page self)
 		{
 			self.Unfocus();
+			return self;
+		}
+
+		public static Xamarin.Forms.Page DoSetValueFromRenderer(this Xamarin.Forms.Page self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.Page DoSetValueFromRenderer(this Xamarin.Forms.Page self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -17185,6 +21723,12 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.Page DoSetValueCore(this Xamarin.Forms.Page self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class CarouselPageFluentVoidMethods
@@ -17192,6 +21736,24 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.CarouselPage DoForceLayout(this Xamarin.Forms.CarouselPage self)
 		{
 			self.ForceLayout();
+			return self;
+		}
+
+		public static Xamarin.Forms.CarouselPage DoSendAppearing(this Xamarin.Forms.CarouselPage self)
+		{
+			self.SendAppearing();
+			return self;
+		}
+
+		public static Xamarin.Forms.CarouselPage DoSendDisappearing(this Xamarin.Forms.CarouselPage self)
+		{
+			self.SendDisappearing();
+			return self;
+		}
+
+		public static Xamarin.Forms.CarouselPage DoInvalidateMeasureNonVirtual(this Xamarin.Forms.CarouselPage self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+		{
+			self.InvalidateMeasureNonVirtual(trigger);
 			return self;
 		}
 
@@ -17207,6 +21769,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.CarouselPage DoNativeSizeChanged(this Xamarin.Forms.CarouselPage self)
+		{
+			self.NativeSizeChanged();
+			return self;
+		}
+
 		public static Xamarin.Forms.CarouselPage DoLayout(this Xamarin.Forms.CarouselPage self, Xamarin.Forms.Rectangle bounds)
 		{
 			self.Layout(bounds);
@@ -17216,6 +21784,18 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.CarouselPage DoUnfocus(this Xamarin.Forms.CarouselPage self)
 		{
 			self.Unfocus();
+			return self;
+		}
+
+		public static Xamarin.Forms.CarouselPage DoSetValueFromRenderer(this Xamarin.Forms.CarouselPage self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.CarouselPage DoSetValueFromRenderer(this Xamarin.Forms.CarouselPage self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -17266,6 +21846,12 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.CarouselPage DoSetValueCore(this Xamarin.Forms.CarouselPage self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class ResourceDictionaryFluentVoidMethods
@@ -17291,6 +21877,24 @@ namespace Xamarin.Forms
 
 	public static class ToolbarItemFluentVoidMethods
 	{
+		public static Xamarin.Forms.ToolbarItem DoActivate(this Xamarin.Forms.ToolbarItem self)
+		{
+			self.Activate();
+			return self;
+		}
+
+		public static Xamarin.Forms.ToolbarItem DoSetValueFromRenderer(this Xamarin.Forms.ToolbarItem self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.ToolbarItem DoSetValueFromRenderer(this Xamarin.Forms.ToolbarItem self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
 		public static Xamarin.Forms.ToolbarItem DoRemoveDynamicResource(this Xamarin.Forms.ToolbarItem self, Xamarin.Forms.BindableProperty property)
 		{
 			self.RemoveDynamicResource(property);
@@ -17338,6 +21942,57 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.ToolbarItem DoSetValueCore(this Xamarin.Forms.ToolbarItem self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
+	}
+
+	public static class IMessagingCenterFluentVoidMethods
+	{
+		public static Xamarin.Forms.IMessagingCenter DoSend<TSender, TArgs>(this Xamarin.Forms.IMessagingCenter self, TSender sender, System.String message, TArgs args)
+			where TSender : class
+		{
+			self.Send<TSender, TArgs>(sender, message, args);
+			return self;
+		}
+
+		public static Xamarin.Forms.IMessagingCenter DoSend<TSender>(this Xamarin.Forms.IMessagingCenter self, TSender sender, System.String message)
+			where TSender : class
+		{
+			self.Send<TSender>(sender, message);
+			return self;
+		}
+
+		public static Xamarin.Forms.IMessagingCenter DoSubscribe<TSender, TArgs>(this Xamarin.Forms.IMessagingCenter self, System.Object subscriber, System.String message, System.Action<TSender, TArgs> callback, TSender source)
+			where TSender : class
+		{
+			self.Subscribe<TSender, TArgs>(subscriber, message, callback, source);
+			return self;
+		}
+
+		public static Xamarin.Forms.IMessagingCenter DoSubscribe<TSender>(this Xamarin.Forms.IMessagingCenter self, System.Object subscriber, System.String message, System.Action<TSender> callback, TSender source)
+			where TSender : class
+		{
+			self.Subscribe<TSender>(subscriber, message, callback, source);
+			return self;
+		}
+
+		public static Xamarin.Forms.IMessagingCenter DoUnsubscribe<TSender, TArgs>(this Xamarin.Forms.IMessagingCenter self, System.Object subscriber, System.String message)
+			where TSender : class
+		{
+			self.Unsubscribe<TSender, TArgs>(subscriber, message);
+			return self;
+		}
+
+		public static Xamarin.Forms.IMessagingCenter DoUnsubscribe<TSender>(this Xamarin.Forms.IMessagingCenter self, System.Object subscriber, System.String message)
+			where TSender : class
+		{
+			self.Unsubscribe<TSender>(subscriber, message);
+			return self;
+		}
 	}
 
 	public static class CellFluentVoidMethods
@@ -17345,6 +22000,30 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.Cell DoForceUpdateSize(this Xamarin.Forms.Cell self)
 		{
 			self.ForceUpdateSize();
+			return self;
+		}
+
+		public static Xamarin.Forms.Cell DoSendAppearing(this Xamarin.Forms.Cell self)
+		{
+			self.SendAppearing();
+			return self;
+		}
+
+		public static Xamarin.Forms.Cell DoSendDisappearing(this Xamarin.Forms.Cell self)
+		{
+			self.SendDisappearing();
+			return self;
+		}
+
+		public static Xamarin.Forms.Cell DoSetValueFromRenderer(this Xamarin.Forms.Cell self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.Cell DoSetValueFromRenderer(this Xamarin.Forms.Cell self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -17395,6 +22074,12 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.Cell DoSetValueCore(this Xamarin.Forms.Cell self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class SwitchCellFluentVoidMethods
@@ -17402,6 +22087,30 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.SwitchCell DoForceUpdateSize(this Xamarin.Forms.SwitchCell self)
 		{
 			self.ForceUpdateSize();
+			return self;
+		}
+
+		public static Xamarin.Forms.SwitchCell DoSendAppearing(this Xamarin.Forms.SwitchCell self)
+		{
+			self.SendAppearing();
+			return self;
+		}
+
+		public static Xamarin.Forms.SwitchCell DoSendDisappearing(this Xamarin.Forms.SwitchCell self)
+		{
+			self.SendDisappearing();
+			return self;
+		}
+
+		public static Xamarin.Forms.SwitchCell DoSetValueFromRenderer(this Xamarin.Forms.SwitchCell self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.SwitchCell DoSetValueFromRenderer(this Xamarin.Forms.SwitchCell self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -17452,6 +22161,12 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.SwitchCell DoSetValueCore(this Xamarin.Forms.SwitchCell self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class TextCellFluentVoidMethods
@@ -17459,6 +22174,30 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.TextCell DoForceUpdateSize(this Xamarin.Forms.TextCell self)
 		{
 			self.ForceUpdateSize();
+			return self;
+		}
+
+		public static Xamarin.Forms.TextCell DoSendAppearing(this Xamarin.Forms.TextCell self)
+		{
+			self.SendAppearing();
+			return self;
+		}
+
+		public static Xamarin.Forms.TextCell DoSendDisappearing(this Xamarin.Forms.TextCell self)
+		{
+			self.SendDisappearing();
+			return self;
+		}
+
+		public static Xamarin.Forms.TextCell DoSetValueFromRenderer(this Xamarin.Forms.TextCell self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.TextCell DoSetValueFromRenderer(this Xamarin.Forms.TextCell self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -17509,6 +22248,12 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.TextCell DoSetValueCore(this Xamarin.Forms.TextCell self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class ViewCellFluentVoidMethods
@@ -17516,6 +22261,30 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.ViewCell DoForceUpdateSize(this Xamarin.Forms.ViewCell self)
 		{
 			self.ForceUpdateSize();
+			return self;
+		}
+
+		public static Xamarin.Forms.ViewCell DoSendAppearing(this Xamarin.Forms.ViewCell self)
+		{
+			self.SendAppearing();
+			return self;
+		}
+
+		public static Xamarin.Forms.ViewCell DoSendDisappearing(this Xamarin.Forms.ViewCell self)
+		{
+			self.SendDisappearing();
+			return self;
+		}
+
+		public static Xamarin.Forms.ViewCell DoSetValueFromRenderer(this Xamarin.Forms.ViewCell self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.ViewCell DoSetValueFromRenderer(this Xamarin.Forms.ViewCell self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -17566,10 +22335,34 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.ViewCell DoSetValueCore(this Xamarin.Forms.ViewCell self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class ListViewFluentVoidMethods
 	{
+		public static Xamarin.Forms.ListView DoSendCellAppearing(this Xamarin.Forms.ListView self, Xamarin.Forms.Cell cell)
+		{
+			self.SendCellAppearing(cell);
+			return self;
+		}
+
+		public static Xamarin.Forms.ListView DoSendCellDisappearing(this Xamarin.Forms.ListView self, Xamarin.Forms.Cell cell)
+		{
+			self.SendCellDisappearing(cell);
+			return self;
+		}
+
+		public static Xamarin.Forms.ListView DoSendRefreshing(this Xamarin.Forms.ListView self)
+		{
+			self.SendRefreshing();
+			return self;
+		}
+
 		public static Xamarin.Forms.ListView DoBeginRefresh(this Xamarin.Forms.ListView self)
 		{
 			self.BeginRefresh();
@@ -17594,6 +22387,24 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.ListView DoNotifyRowTapped(this Xamarin.Forms.ListView self, System.Int32 groupIndex, System.Int32 inGroupIndex, Xamarin.Forms.Cell cell)
+		{
+			self.NotifyRowTapped(groupIndex, inGroupIndex, cell);
+			return self;
+		}
+
+		public static Xamarin.Forms.ListView DoNotifyRowTapped(this Xamarin.Forms.ListView self, System.Int32 index, Xamarin.Forms.Cell cell)
+		{
+			self.NotifyRowTapped(index, cell);
+			return self;
+		}
+
+		public static Xamarin.Forms.ListView DoInvalidateMeasureNonVirtual(this Xamarin.Forms.ListView self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+		{
+			self.InvalidateMeasureNonVirtual(trigger);
+			return self;
+		}
+
 		public static Xamarin.Forms.ListView DoBatchBegin(this Xamarin.Forms.ListView self)
 		{
 			self.BatchBegin();
@@ -17606,6 +22417,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.ListView DoNativeSizeChanged(this Xamarin.Forms.ListView self)
+		{
+			self.NativeSizeChanged();
+			return self;
+		}
+
 		public static Xamarin.Forms.ListView DoLayout(this Xamarin.Forms.ListView self, Xamarin.Forms.Rectangle bounds)
 		{
 			self.Layout(bounds);
@@ -17615,6 +22432,18 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.ListView DoUnfocus(this Xamarin.Forms.ListView self)
 		{
 			self.Unfocus();
+			return self;
+		}
+
+		public static Xamarin.Forms.ListView DoSetValueFromRenderer(this Xamarin.Forms.ListView self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.ListView DoSetValueFromRenderer(this Xamarin.Forms.ListView self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -17665,10 +22494,22 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.ListView DoSetValueCore(this Xamarin.Forms.ListView self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class TableViewFluentVoidMethods
 	{
+		public static Xamarin.Forms.TableView DoInvalidateMeasureNonVirtual(this Xamarin.Forms.TableView self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+		{
+			self.InvalidateMeasureNonVirtual(trigger);
+			return self;
+		}
+
 		public static Xamarin.Forms.TableView DoBatchBegin(this Xamarin.Forms.TableView self)
 		{
 			self.BatchBegin();
@@ -17681,6 +22522,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.TableView DoNativeSizeChanged(this Xamarin.Forms.TableView self)
+		{
+			self.NativeSizeChanged();
+			return self;
+		}
+
 		public static Xamarin.Forms.TableView DoLayout(this Xamarin.Forms.TableView self, Xamarin.Forms.Rectangle bounds)
 		{
 			self.Layout(bounds);
@@ -17690,6 +22537,18 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.TableView DoUnfocus(this Xamarin.Forms.TableView self)
 		{
 			self.Unfocus();
+			return self;
+		}
+
+		public static Xamarin.Forms.TableView DoSetValueFromRenderer(this Xamarin.Forms.TableView self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.TableView DoSetValueFromRenderer(this Xamarin.Forms.TableView self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -17740,10 +22599,23 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.TableView DoSetValueCore(this Xamarin.Forms.TableView self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class ItemsViewFluentVoidMethods1
 	{
+		public static Xamarin.Forms.ItemsView<TVisual> DoInvalidateMeasureNonVirtual<TVisual>(this Xamarin.Forms.ItemsView<TVisual> self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+			where TVisual : Xamarin.Forms.BindableObject
+		{
+			self.InvalidateMeasureNonVirtual(trigger);
+			return self;
+		}
+
 		public static Xamarin.Forms.ItemsView<TVisual> DoBatchBegin<TVisual>(this Xamarin.Forms.ItemsView<TVisual> self)
 			where TVisual : Xamarin.Forms.BindableObject
 		{
@@ -17758,6 +22630,13 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.ItemsView<TVisual> DoNativeSizeChanged<TVisual>(this Xamarin.Forms.ItemsView<TVisual> self)
+			where TVisual : Xamarin.Forms.BindableObject
+		{
+			self.NativeSizeChanged();
+			return self;
+		}
+
 		public static Xamarin.Forms.ItemsView<TVisual> DoLayout<TVisual>(this Xamarin.Forms.ItemsView<TVisual> self, Xamarin.Forms.Rectangle bounds)
 			where TVisual : Xamarin.Forms.BindableObject
 		{
@@ -17769,6 +22648,20 @@ namespace Xamarin.Forms
 			where TVisual : Xamarin.Forms.BindableObject
 		{
 			self.Unfocus();
+			return self;
+		}
+
+		public static Xamarin.Forms.ItemsView<TVisual> DoSetValueFromRenderer<TVisual>(this Xamarin.Forms.ItemsView<TVisual> self, Xamarin.Forms.BindableProperty property, System.Object value)
+			where TVisual : Xamarin.Forms.BindableObject
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.ItemsView<TVisual> DoSetValueFromRenderer<TVisual>(this Xamarin.Forms.ItemsView<TVisual> self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+			where TVisual : Xamarin.Forms.BindableObject
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -17825,6 +22718,13 @@ namespace Xamarin.Forms
 			where TVisual : Xamarin.Forms.BindableObject
 		{
 			self.SetValue(propertyKey, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.ItemsView<TVisual> DoSetValueCore<TVisual>(this Xamarin.Forms.ItemsView<TVisual> self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+			where TVisual : Xamarin.Forms.BindableObject
+		{
+			self.SetValueCore(property, value, attributes);
 			return self;
 		}
 	}
@@ -17914,6 +22814,13 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.TableSectionBase<T> DoSetValueCore<T>(this Xamarin.Forms.TableSectionBase<T> self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+			where T : Xamarin.Forms.BindableObject
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class TableSectionFluentVoidMethods
@@ -17989,6 +22896,12 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.TableSection DoSetValueCore(this Xamarin.Forms.TableSection self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class DataTemplateFluentVoidMethods
@@ -18026,6 +22939,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.AbsoluteLayout DoInvalidateMeasureNonVirtual(this Xamarin.Forms.AbsoluteLayout self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+		{
+			self.InvalidateMeasureNonVirtual(trigger);
+			return self;
+		}
+
 		public static Xamarin.Forms.AbsoluteLayout DoBatchBegin(this Xamarin.Forms.AbsoluteLayout self)
 		{
 			self.BatchBegin();
@@ -18038,6 +22957,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.AbsoluteLayout DoNativeSizeChanged(this Xamarin.Forms.AbsoluteLayout self)
+		{
+			self.NativeSizeChanged();
+			return self;
+		}
+
 		public static Xamarin.Forms.AbsoluteLayout DoLayout(this Xamarin.Forms.AbsoluteLayout self, Xamarin.Forms.Rectangle bounds)
 		{
 			self.Layout(bounds);
@@ -18047,6 +22972,18 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.AbsoluteLayout DoUnfocus(this Xamarin.Forms.AbsoluteLayout self)
 		{
 			self.Unfocus();
+			return self;
+		}
+
+		public static Xamarin.Forms.AbsoluteLayout DoSetValueFromRenderer(this Xamarin.Forms.AbsoluteLayout self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.AbsoluteLayout DoSetValueFromRenderer(this Xamarin.Forms.AbsoluteLayout self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -18097,10 +23034,22 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.AbsoluteLayout DoSetValueCore(this Xamarin.Forms.AbsoluteLayout self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class ActivityIndicatorFluentVoidMethods
 	{
+		public static Xamarin.Forms.ActivityIndicator DoInvalidateMeasureNonVirtual(this Xamarin.Forms.ActivityIndicator self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+		{
+			self.InvalidateMeasureNonVirtual(trigger);
+			return self;
+		}
+
 		public static Xamarin.Forms.ActivityIndicator DoBatchBegin(this Xamarin.Forms.ActivityIndicator self)
 		{
 			self.BatchBegin();
@@ -18113,6 +23062,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.ActivityIndicator DoNativeSizeChanged(this Xamarin.Forms.ActivityIndicator self)
+		{
+			self.NativeSizeChanged();
+			return self;
+		}
+
 		public static Xamarin.Forms.ActivityIndicator DoLayout(this Xamarin.Forms.ActivityIndicator self, Xamarin.Forms.Rectangle bounds)
 		{
 			self.Layout(bounds);
@@ -18122,6 +23077,18 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.ActivityIndicator DoUnfocus(this Xamarin.Forms.ActivityIndicator self)
 		{
 			self.Unfocus();
+			return self;
+		}
+
+		public static Xamarin.Forms.ActivityIndicator DoSetValueFromRenderer(this Xamarin.Forms.ActivityIndicator self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.ActivityIndicator DoSetValueFromRenderer(this Xamarin.Forms.ActivityIndicator self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -18172,10 +23139,22 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.ActivityIndicator DoSetValueCore(this Xamarin.Forms.ActivityIndicator self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class BoxViewFluentVoidMethods
 	{
+		public static Xamarin.Forms.BoxView DoInvalidateMeasureNonVirtual(this Xamarin.Forms.BoxView self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+		{
+			self.InvalidateMeasureNonVirtual(trigger);
+			return self;
+		}
+
 		public static Xamarin.Forms.BoxView DoBatchBegin(this Xamarin.Forms.BoxView self)
 		{
 			self.BatchBegin();
@@ -18188,6 +23167,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.BoxView DoNativeSizeChanged(this Xamarin.Forms.BoxView self)
+		{
+			self.NativeSizeChanged();
+			return self;
+		}
+
 		public static Xamarin.Forms.BoxView DoLayout(this Xamarin.Forms.BoxView self, Xamarin.Forms.Rectangle bounds)
 		{
 			self.Layout(bounds);
@@ -18197,6 +23182,18 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.BoxView DoUnfocus(this Xamarin.Forms.BoxView self)
 		{
 			self.Unfocus();
+			return self;
+		}
+
+		public static Xamarin.Forms.BoxView DoSetValueFromRenderer(this Xamarin.Forms.BoxView self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.BoxView DoSetValueFromRenderer(this Xamarin.Forms.BoxView self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -18247,10 +23244,40 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.BoxView DoSetValueCore(this Xamarin.Forms.BoxView self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class ButtonFluentVoidMethods
 	{
+		public static Xamarin.Forms.Button DoSendClicked(this Xamarin.Forms.Button self)
+		{
+			self.SendClicked();
+			return self;
+		}
+
+		public static Xamarin.Forms.Button DoSendPressed(this Xamarin.Forms.Button self)
+		{
+			self.SendPressed();
+			return self;
+		}
+
+		public static Xamarin.Forms.Button DoSendReleased(this Xamarin.Forms.Button self)
+		{
+			self.SendReleased();
+			return self;
+		}
+
+		public static Xamarin.Forms.Button DoInvalidateMeasureNonVirtual(this Xamarin.Forms.Button self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+		{
+			self.InvalidateMeasureNonVirtual(trigger);
+			return self;
+		}
+
 		public static Xamarin.Forms.Button DoBatchBegin(this Xamarin.Forms.Button self)
 		{
 			self.BatchBegin();
@@ -18263,6 +23290,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.Button DoNativeSizeChanged(this Xamarin.Forms.Button self)
+		{
+			self.NativeSizeChanged();
+			return self;
+		}
+
 		public static Xamarin.Forms.Button DoLayout(this Xamarin.Forms.Button self, Xamarin.Forms.Rectangle bounds)
 		{
 			self.Layout(bounds);
@@ -18272,6 +23305,18 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.Button DoUnfocus(this Xamarin.Forms.Button self)
 		{
 			self.Unfocus();
+			return self;
+		}
+
+		public static Xamarin.Forms.Button DoSetValueFromRenderer(this Xamarin.Forms.Button self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.Button DoSetValueFromRenderer(this Xamarin.Forms.Button self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -18320,6 +23365,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.Button DoSetValue(this Xamarin.Forms.Button self, Xamarin.Forms.BindablePropertyKey propertyKey, System.Object value)
 		{
 			self.SetValue(propertyKey, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.Button DoSetValueCore(this Xamarin.Forms.Button self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
 			return self;
 		}
 	}
@@ -18374,6 +23425,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.ContentView DoInvalidateMeasureNonVirtual(this Xamarin.Forms.ContentView self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+		{
+			self.InvalidateMeasureNonVirtual(trigger);
+			return self;
+		}
+
 		public static Xamarin.Forms.ContentView DoBatchBegin(this Xamarin.Forms.ContentView self)
 		{
 			self.BatchBegin();
@@ -18386,6 +23443,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.ContentView DoNativeSizeChanged(this Xamarin.Forms.ContentView self)
+		{
+			self.NativeSizeChanged();
+			return self;
+		}
+
 		public static Xamarin.Forms.ContentView DoLayout(this Xamarin.Forms.ContentView self, Xamarin.Forms.Rectangle bounds)
 		{
 			self.Layout(bounds);
@@ -18395,6 +23458,18 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.ContentView DoUnfocus(this Xamarin.Forms.ContentView self)
 		{
 			self.Unfocus();
+			return self;
+		}
+
+		public static Xamarin.Forms.ContentView DoSetValueFromRenderer(this Xamarin.Forms.ContentView self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.ContentView DoSetValueFromRenderer(this Xamarin.Forms.ContentView self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -18445,10 +23520,22 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.ContentView DoSetValueCore(this Xamarin.Forms.ContentView self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class DatePickerFluentVoidMethods
 	{
+		public static Xamarin.Forms.DatePicker DoInvalidateMeasureNonVirtual(this Xamarin.Forms.DatePicker self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+		{
+			self.InvalidateMeasureNonVirtual(trigger);
+			return self;
+		}
+
 		public static Xamarin.Forms.DatePicker DoBatchBegin(this Xamarin.Forms.DatePicker self)
 		{
 			self.BatchBegin();
@@ -18461,6 +23548,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.DatePicker DoNativeSizeChanged(this Xamarin.Forms.DatePicker self)
+		{
+			self.NativeSizeChanged();
+			return self;
+		}
+
 		public static Xamarin.Forms.DatePicker DoLayout(this Xamarin.Forms.DatePicker self, Xamarin.Forms.Rectangle bounds)
 		{
 			self.Layout(bounds);
@@ -18470,6 +23563,18 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.DatePicker DoUnfocus(this Xamarin.Forms.DatePicker self)
 		{
 			self.Unfocus();
+			return self;
+		}
+
+		public static Xamarin.Forms.DatePicker DoSetValueFromRenderer(this Xamarin.Forms.DatePicker self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.DatePicker DoSetValueFromRenderer(this Xamarin.Forms.DatePicker self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -18520,10 +23625,28 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.DatePicker DoSetValueCore(this Xamarin.Forms.DatePicker self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class EditorFluentVoidMethods
 	{
+		public static Xamarin.Forms.Editor DoSendCompleted(this Xamarin.Forms.Editor self)
+		{
+			self.SendCompleted();
+			return self;
+		}
+
+		public static Xamarin.Forms.Editor DoInvalidateMeasureNonVirtual(this Xamarin.Forms.Editor self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+		{
+			self.InvalidateMeasureNonVirtual(trigger);
+			return self;
+		}
+
 		public static Xamarin.Forms.Editor DoBatchBegin(this Xamarin.Forms.Editor self)
 		{
 			self.BatchBegin();
@@ -18536,6 +23659,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.Editor DoNativeSizeChanged(this Xamarin.Forms.Editor self)
+		{
+			self.NativeSizeChanged();
+			return self;
+		}
+
 		public static Xamarin.Forms.Editor DoLayout(this Xamarin.Forms.Editor self, Xamarin.Forms.Rectangle bounds)
 		{
 			self.Layout(bounds);
@@ -18545,6 +23674,18 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.Editor DoUnfocus(this Xamarin.Forms.Editor self)
 		{
 			self.Unfocus();
+			return self;
+		}
+
+		public static Xamarin.Forms.Editor DoSetValueFromRenderer(this Xamarin.Forms.Editor self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.Editor DoSetValueFromRenderer(this Xamarin.Forms.Editor self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -18595,10 +23736,28 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.Editor DoSetValueCore(this Xamarin.Forms.Editor self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class EntryFluentVoidMethods
 	{
+		public static Xamarin.Forms.Entry DoSendCompleted(this Xamarin.Forms.Entry self)
+		{
+			self.SendCompleted();
+			return self;
+		}
+
+		public static Xamarin.Forms.Entry DoInvalidateMeasureNonVirtual(this Xamarin.Forms.Entry self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+		{
+			self.InvalidateMeasureNonVirtual(trigger);
+			return self;
+		}
+
 		public static Xamarin.Forms.Entry DoBatchBegin(this Xamarin.Forms.Entry self)
 		{
 			self.BatchBegin();
@@ -18611,6 +23770,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.Entry DoNativeSizeChanged(this Xamarin.Forms.Entry self)
+		{
+			self.NativeSizeChanged();
+			return self;
+		}
+
 		public static Xamarin.Forms.Entry DoLayout(this Xamarin.Forms.Entry self, Xamarin.Forms.Rectangle bounds)
 		{
 			self.Layout(bounds);
@@ -18620,6 +23785,18 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.Entry DoUnfocus(this Xamarin.Forms.Entry self)
 		{
 			self.Unfocus();
+			return self;
+		}
+
+		public static Xamarin.Forms.Entry DoSetValueFromRenderer(this Xamarin.Forms.Entry self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.Entry DoSetValueFromRenderer(this Xamarin.Forms.Entry self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -18670,6 +23847,12 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.Entry DoSetValueCore(this Xamarin.Forms.Entry self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class FrameFluentVoidMethods
@@ -18692,6 +23875,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.Frame DoInvalidateMeasureNonVirtual(this Xamarin.Forms.Frame self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+		{
+			self.InvalidateMeasureNonVirtual(trigger);
+			return self;
+		}
+
 		public static Xamarin.Forms.Frame DoBatchBegin(this Xamarin.Forms.Frame self)
 		{
 			self.BatchBegin();
@@ -18704,6 +23893,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.Frame DoNativeSizeChanged(this Xamarin.Forms.Frame self)
+		{
+			self.NativeSizeChanged();
+			return self;
+		}
+
 		public static Xamarin.Forms.Frame DoLayout(this Xamarin.Forms.Frame self, Xamarin.Forms.Rectangle bounds)
 		{
 			self.Layout(bounds);
@@ -18713,6 +23908,18 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.Frame DoUnfocus(this Xamarin.Forms.Frame self)
 		{
 			self.Unfocus();
+			return self;
+		}
+
+		public static Xamarin.Forms.Frame DoSetValueFromRenderer(this Xamarin.Forms.Frame self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.Frame DoSetValueFromRenderer(this Xamarin.Forms.Frame self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -18763,10 +23970,28 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.Frame DoSetValueCore(this Xamarin.Forms.Frame self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class ImageFluentVoidMethods
 	{
+		public static Xamarin.Forms.Image DoSetIsLoading(this Xamarin.Forms.Image self, System.Boolean isLoading)
+		{
+			self.SetIsLoading(isLoading);
+			return self;
+		}
+
+		public static Xamarin.Forms.Image DoInvalidateMeasureNonVirtual(this Xamarin.Forms.Image self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+		{
+			self.InvalidateMeasureNonVirtual(trigger);
+			return self;
+		}
+
 		public static Xamarin.Forms.Image DoBatchBegin(this Xamarin.Forms.Image self)
 		{
 			self.BatchBegin();
@@ -18779,6 +24004,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.Image DoNativeSizeChanged(this Xamarin.Forms.Image self)
+		{
+			self.NativeSizeChanged();
+			return self;
+		}
+
 		public static Xamarin.Forms.Image DoLayout(this Xamarin.Forms.Image self, Xamarin.Forms.Rectangle bounds)
 		{
 			self.Layout(bounds);
@@ -18788,6 +24019,18 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.Image DoUnfocus(this Xamarin.Forms.Image self)
 		{
 			self.Unfocus();
+			return self;
+		}
+
+		public static Xamarin.Forms.Image DoSetValueFromRenderer(this Xamarin.Forms.Image self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.Image DoSetValueFromRenderer(this Xamarin.Forms.Image self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -18838,10 +24081,28 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.Image DoSetValueCore(this Xamarin.Forms.Image self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class UriImageSourceFluentVoidMethods
 	{
+		public static Xamarin.Forms.UriImageSource DoSetValueFromRenderer(this Xamarin.Forms.UriImageSource self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.UriImageSource DoSetValueFromRenderer(this Xamarin.Forms.UriImageSource self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
 		public static Xamarin.Forms.UriImageSource DoRemoveDynamicResource(this Xamarin.Forms.UriImageSource self, Xamarin.Forms.BindableProperty property)
 		{
 			self.RemoveDynamicResource(property);
@@ -18889,10 +24150,22 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.UriImageSource DoSetValueCore(this Xamarin.Forms.UriImageSource self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class InputViewFluentVoidMethods
 	{
+		public static Xamarin.Forms.InputView DoInvalidateMeasureNonVirtual(this Xamarin.Forms.InputView self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+		{
+			self.InvalidateMeasureNonVirtual(trigger);
+			return self;
+		}
+
 		public static Xamarin.Forms.InputView DoBatchBegin(this Xamarin.Forms.InputView self)
 		{
 			self.BatchBegin();
@@ -18905,6 +24178,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.InputView DoNativeSizeChanged(this Xamarin.Forms.InputView self)
+		{
+			self.NativeSizeChanged();
+			return self;
+		}
+
 		public static Xamarin.Forms.InputView DoLayout(this Xamarin.Forms.InputView self, Xamarin.Forms.Rectangle bounds)
 		{
 			self.Layout(bounds);
@@ -18914,6 +24193,18 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.InputView DoUnfocus(this Xamarin.Forms.InputView self)
 		{
 			self.Unfocus();
+			return self;
+		}
+
+		public static Xamarin.Forms.InputView DoSetValueFromRenderer(this Xamarin.Forms.InputView self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.InputView DoSetValueFromRenderer(this Xamarin.Forms.InputView self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -18964,10 +24255,22 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.InputView DoSetValueCore(this Xamarin.Forms.InputView self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class LabelFluentVoidMethods
 	{
+		public static Xamarin.Forms.Label DoInvalidateMeasureNonVirtual(this Xamarin.Forms.Label self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+		{
+			self.InvalidateMeasureNonVirtual(trigger);
+			return self;
+		}
+
 		public static Xamarin.Forms.Label DoBatchBegin(this Xamarin.Forms.Label self)
 		{
 			self.BatchBegin();
@@ -18980,6 +24283,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.Label DoNativeSizeChanged(this Xamarin.Forms.Label self)
+		{
+			self.NativeSizeChanged();
+			return self;
+		}
+
 		public static Xamarin.Forms.Label DoLayout(this Xamarin.Forms.Label self, Xamarin.Forms.Rectangle bounds)
 		{
 			self.Layout(bounds);
@@ -18989,6 +24298,18 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.Label DoUnfocus(this Xamarin.Forms.Label self)
 		{
 			self.Unfocus();
+			return self;
+		}
+
+		public static Xamarin.Forms.Label DoSetValueFromRenderer(this Xamarin.Forms.Label self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.Label DoSetValueFromRenderer(this Xamarin.Forms.Label self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -19039,13 +24360,43 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.Label DoSetValueCore(this Xamarin.Forms.Label self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class MasterDetailPageFluentVoidMethods
 	{
+		public static Xamarin.Forms.MasterDetailPage DoUpdateMasterBehavior(this Xamarin.Forms.MasterDetailPage self)
+		{
+			self.UpdateMasterBehavior();
+			return self;
+		}
+
 		public static Xamarin.Forms.MasterDetailPage DoForceLayout(this Xamarin.Forms.MasterDetailPage self)
 		{
 			self.ForceLayout();
+			return self;
+		}
+
+		public static Xamarin.Forms.MasterDetailPage DoSendAppearing(this Xamarin.Forms.MasterDetailPage self)
+		{
+			self.SendAppearing();
+			return self;
+		}
+
+		public static Xamarin.Forms.MasterDetailPage DoSendDisappearing(this Xamarin.Forms.MasterDetailPage self)
+		{
+			self.SendDisappearing();
+			return self;
+		}
+
+		public static Xamarin.Forms.MasterDetailPage DoInvalidateMeasureNonVirtual(this Xamarin.Forms.MasterDetailPage self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+		{
+			self.InvalidateMeasureNonVirtual(trigger);
 			return self;
 		}
 
@@ -19061,6 +24412,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.MasterDetailPage DoNativeSizeChanged(this Xamarin.Forms.MasterDetailPage self)
+		{
+			self.NativeSizeChanged();
+			return self;
+		}
+
 		public static Xamarin.Forms.MasterDetailPage DoLayout(this Xamarin.Forms.MasterDetailPage self, Xamarin.Forms.Rectangle bounds)
 		{
 			self.Layout(bounds);
@@ -19070,6 +24427,18 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.MasterDetailPage DoUnfocus(this Xamarin.Forms.MasterDetailPage self)
 		{
 			self.Unfocus();
+			return self;
+		}
+
+		public static Xamarin.Forms.MasterDetailPage DoSetValueFromRenderer(this Xamarin.Forms.MasterDetailPage self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.MasterDetailPage DoSetValueFromRenderer(this Xamarin.Forms.MasterDetailPage self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -19120,6 +24489,12 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.MasterDetailPage DoSetValueCore(this Xamarin.Forms.MasterDetailPage self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class OpenGLViewFluentVoidMethods
@@ -19127,6 +24502,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.OpenGLView DoDisplay(this Xamarin.Forms.OpenGLView self)
 		{
 			self.Display();
+			return self;
+		}
+
+		public static Xamarin.Forms.OpenGLView DoInvalidateMeasureNonVirtual(this Xamarin.Forms.OpenGLView self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+		{
+			self.InvalidateMeasureNonVirtual(trigger);
 			return self;
 		}
 
@@ -19142,6 +24523,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.OpenGLView DoNativeSizeChanged(this Xamarin.Forms.OpenGLView self)
+		{
+			self.NativeSizeChanged();
+			return self;
+		}
+
 		public static Xamarin.Forms.OpenGLView DoLayout(this Xamarin.Forms.OpenGLView self, Xamarin.Forms.Rectangle bounds)
 		{
 			self.Layout(bounds);
@@ -19151,6 +24538,18 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.OpenGLView DoUnfocus(this Xamarin.Forms.OpenGLView self)
 		{
 			self.Unfocus();
+			return self;
+		}
+
+		public static Xamarin.Forms.OpenGLView DoSetValueFromRenderer(this Xamarin.Forms.OpenGLView self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.OpenGLView DoSetValueFromRenderer(this Xamarin.Forms.OpenGLView self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -19201,10 +24600,22 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.OpenGLView DoSetValueCore(this Xamarin.Forms.OpenGLView self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class ProgressBarFluentVoidMethods
 	{
+		public static Xamarin.Forms.ProgressBar DoInvalidateMeasureNonVirtual(this Xamarin.Forms.ProgressBar self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+		{
+			self.InvalidateMeasureNonVirtual(trigger);
+			return self;
+		}
+
 		public static Xamarin.Forms.ProgressBar DoBatchBegin(this Xamarin.Forms.ProgressBar self)
 		{
 			self.BatchBegin();
@@ -19217,6 +24628,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.ProgressBar DoNativeSizeChanged(this Xamarin.Forms.ProgressBar self)
+		{
+			self.NativeSizeChanged();
+			return self;
+		}
+
 		public static Xamarin.Forms.ProgressBar DoLayout(this Xamarin.Forms.ProgressBar self, Xamarin.Forms.Rectangle bounds)
 		{
 			self.Layout(bounds);
@@ -19226,6 +24643,18 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.ProgressBar DoUnfocus(this Xamarin.Forms.ProgressBar self)
 		{
 			self.Unfocus();
+			return self;
+		}
+
+		public static Xamarin.Forms.ProgressBar DoSetValueFromRenderer(this Xamarin.Forms.ProgressBar self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.ProgressBar DoSetValueFromRenderer(this Xamarin.Forms.ProgressBar self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -19276,6 +24705,12 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.ProgressBar DoSetValueCore(this Xamarin.Forms.ProgressBar self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class RelativeLayoutFluentVoidMethods
@@ -19298,6 +24733,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.RelativeLayout DoInvalidateMeasureNonVirtual(this Xamarin.Forms.RelativeLayout self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+		{
+			self.InvalidateMeasureNonVirtual(trigger);
+			return self;
+		}
+
 		public static Xamarin.Forms.RelativeLayout DoBatchBegin(this Xamarin.Forms.RelativeLayout self)
 		{
 			self.BatchBegin();
@@ -19310,6 +24751,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.RelativeLayout DoNativeSizeChanged(this Xamarin.Forms.RelativeLayout self)
+		{
+			self.NativeSizeChanged();
+			return self;
+		}
+
 		public static Xamarin.Forms.RelativeLayout DoLayout(this Xamarin.Forms.RelativeLayout self, Xamarin.Forms.Rectangle bounds)
 		{
 			self.Layout(bounds);
@@ -19319,6 +24766,18 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.RelativeLayout DoUnfocus(this Xamarin.Forms.RelativeLayout self)
 		{
 			self.Unfocus();
+			return self;
+		}
+
+		public static Xamarin.Forms.RelativeLayout DoSetValueFromRenderer(this Xamarin.Forms.RelativeLayout self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.RelativeLayout DoSetValueFromRenderer(this Xamarin.Forms.RelativeLayout self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -19369,10 +24828,28 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.RelativeLayout DoSetValueCore(this Xamarin.Forms.RelativeLayout self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class ScrollViewFluentVoidMethods
 	{
+		public static Xamarin.Forms.ScrollView DoSendScrollFinished(this Xamarin.Forms.ScrollView self)
+		{
+			self.SendScrollFinished();
+			return self;
+		}
+
+		public static Xamarin.Forms.ScrollView DoSetScrolledPosition(this Xamarin.Forms.ScrollView self, System.Double x, System.Double y)
+		{
+			self.SetScrolledPosition(x, y);
+			return self;
+		}
+
 		public static Xamarin.Forms.ScrollView DoForceLayout(this Xamarin.Forms.ScrollView self)
 		{
 			self.ForceLayout();
@@ -19391,6 +24868,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.ScrollView DoInvalidateMeasureNonVirtual(this Xamarin.Forms.ScrollView self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+		{
+			self.InvalidateMeasureNonVirtual(trigger);
+			return self;
+		}
+
 		public static Xamarin.Forms.ScrollView DoBatchBegin(this Xamarin.Forms.ScrollView self)
 		{
 			self.BatchBegin();
@@ -19403,6 +24886,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.ScrollView DoNativeSizeChanged(this Xamarin.Forms.ScrollView self)
+		{
+			self.NativeSizeChanged();
+			return self;
+		}
+
 		public static Xamarin.Forms.ScrollView DoLayout(this Xamarin.Forms.ScrollView self, Xamarin.Forms.Rectangle bounds)
 		{
 			self.Layout(bounds);
@@ -19412,6 +24901,18 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.ScrollView DoUnfocus(this Xamarin.Forms.ScrollView self)
 		{
 			self.Unfocus();
+			return self;
+		}
+
+		public static Xamarin.Forms.ScrollView DoSetValueFromRenderer(this Xamarin.Forms.ScrollView self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.ScrollView DoSetValueFromRenderer(this Xamarin.Forms.ScrollView self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -19462,10 +24963,28 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.ScrollView DoSetValueCore(this Xamarin.Forms.ScrollView self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class SearchBarFluentVoidMethods
 	{
+		public static Xamarin.Forms.SearchBar DoOnSearchButtonPressed(this Xamarin.Forms.SearchBar self)
+		{
+			self.OnSearchButtonPressed();
+			return self;
+		}
+
+		public static Xamarin.Forms.SearchBar DoInvalidateMeasureNonVirtual(this Xamarin.Forms.SearchBar self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+		{
+			self.InvalidateMeasureNonVirtual(trigger);
+			return self;
+		}
+
 		public static Xamarin.Forms.SearchBar DoBatchBegin(this Xamarin.Forms.SearchBar self)
 		{
 			self.BatchBegin();
@@ -19478,6 +24997,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.SearchBar DoNativeSizeChanged(this Xamarin.Forms.SearchBar self)
+		{
+			self.NativeSizeChanged();
+			return self;
+		}
+
 		public static Xamarin.Forms.SearchBar DoLayout(this Xamarin.Forms.SearchBar self, Xamarin.Forms.Rectangle bounds)
 		{
 			self.Layout(bounds);
@@ -19487,6 +25012,18 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.SearchBar DoUnfocus(this Xamarin.Forms.SearchBar self)
 		{
 			self.Unfocus();
+			return self;
+		}
+
+		public static Xamarin.Forms.SearchBar DoSetValueFromRenderer(this Xamarin.Forms.SearchBar self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.SearchBar DoSetValueFromRenderer(this Xamarin.Forms.SearchBar self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -19537,10 +25074,22 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.SearchBar DoSetValueCore(this Xamarin.Forms.SearchBar self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class SliderFluentVoidMethods
 	{
+		public static Xamarin.Forms.Slider DoInvalidateMeasureNonVirtual(this Xamarin.Forms.Slider self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+		{
+			self.InvalidateMeasureNonVirtual(trigger);
+			return self;
+		}
+
 		public static Xamarin.Forms.Slider DoBatchBegin(this Xamarin.Forms.Slider self)
 		{
 			self.BatchBegin();
@@ -19553,6 +25102,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.Slider DoNativeSizeChanged(this Xamarin.Forms.Slider self)
+		{
+			self.NativeSizeChanged();
+			return self;
+		}
+
 		public static Xamarin.Forms.Slider DoLayout(this Xamarin.Forms.Slider self, Xamarin.Forms.Rectangle bounds)
 		{
 			self.Layout(bounds);
@@ -19562,6 +25117,18 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.Slider DoUnfocus(this Xamarin.Forms.Slider self)
 		{
 			self.Unfocus();
+			return self;
+		}
+
+		public static Xamarin.Forms.Slider DoSetValueFromRenderer(this Xamarin.Forms.Slider self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.Slider DoSetValueFromRenderer(this Xamarin.Forms.Slider self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -19612,6 +25179,12 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.Slider DoSetValueCore(this Xamarin.Forms.Slider self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class StackLayoutFluentVoidMethods
@@ -19634,6 +25207,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.StackLayout DoInvalidateMeasureNonVirtual(this Xamarin.Forms.StackLayout self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+		{
+			self.InvalidateMeasureNonVirtual(trigger);
+			return self;
+		}
+
 		public static Xamarin.Forms.StackLayout DoBatchBegin(this Xamarin.Forms.StackLayout self)
 		{
 			self.BatchBegin();
@@ -19646,6 +25225,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.StackLayout DoNativeSizeChanged(this Xamarin.Forms.StackLayout self)
+		{
+			self.NativeSizeChanged();
+			return self;
+		}
+
 		public static Xamarin.Forms.StackLayout DoLayout(this Xamarin.Forms.StackLayout self, Xamarin.Forms.Rectangle bounds)
 		{
 			self.Layout(bounds);
@@ -19655,6 +25240,18 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.StackLayout DoUnfocus(this Xamarin.Forms.StackLayout self)
 		{
 			self.Unfocus();
+			return self;
+		}
+
+		public static Xamarin.Forms.StackLayout DoSetValueFromRenderer(this Xamarin.Forms.StackLayout self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.StackLayout DoSetValueFromRenderer(this Xamarin.Forms.StackLayout self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -19705,10 +25302,22 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.StackLayout DoSetValueCore(this Xamarin.Forms.StackLayout self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class StepperFluentVoidMethods
 	{
+		public static Xamarin.Forms.Stepper DoInvalidateMeasureNonVirtual(this Xamarin.Forms.Stepper self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+		{
+			self.InvalidateMeasureNonVirtual(trigger);
+			return self;
+		}
+
 		public static Xamarin.Forms.Stepper DoBatchBegin(this Xamarin.Forms.Stepper self)
 		{
 			self.BatchBegin();
@@ -19721,6 +25330,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.Stepper DoNativeSizeChanged(this Xamarin.Forms.Stepper self)
+		{
+			self.NativeSizeChanged();
+			return self;
+		}
+
 		public static Xamarin.Forms.Stepper DoLayout(this Xamarin.Forms.Stepper self, Xamarin.Forms.Rectangle bounds)
 		{
 			self.Layout(bounds);
@@ -19730,6 +25345,18 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.Stepper DoUnfocus(this Xamarin.Forms.Stepper self)
 		{
 			self.Unfocus();
+			return self;
+		}
+
+		public static Xamarin.Forms.Stepper DoSetValueFromRenderer(this Xamarin.Forms.Stepper self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.Stepper DoSetValueFromRenderer(this Xamarin.Forms.Stepper self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -19780,10 +25407,22 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.Stepper DoSetValueCore(this Xamarin.Forms.Stepper self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class SwitchFluentVoidMethods
 	{
+		public static Xamarin.Forms.Switch DoInvalidateMeasureNonVirtual(this Xamarin.Forms.Switch self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+		{
+			self.InvalidateMeasureNonVirtual(trigger);
+			return self;
+		}
+
 		public static Xamarin.Forms.Switch DoBatchBegin(this Xamarin.Forms.Switch self)
 		{
 			self.BatchBegin();
@@ -19796,6 +25435,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.Switch DoNativeSizeChanged(this Xamarin.Forms.Switch self)
+		{
+			self.NativeSizeChanged();
+			return self;
+		}
+
 		public static Xamarin.Forms.Switch DoLayout(this Xamarin.Forms.Switch self, Xamarin.Forms.Rectangle bounds)
 		{
 			self.Layout(bounds);
@@ -19805,6 +25450,18 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.Switch DoUnfocus(this Xamarin.Forms.Switch self)
 		{
 			self.Unfocus();
+			return self;
+		}
+
+		public static Xamarin.Forms.Switch DoSetValueFromRenderer(this Xamarin.Forms.Switch self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.Switch DoSetValueFromRenderer(this Xamarin.Forms.Switch self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -19855,6 +25512,12 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.Switch DoSetValueCore(this Xamarin.Forms.Switch self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class TabbedPageFluentVoidMethods
@@ -19862,6 +25525,24 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.TabbedPage DoForceLayout(this Xamarin.Forms.TabbedPage self)
 		{
 			self.ForceLayout();
+			return self;
+		}
+
+		public static Xamarin.Forms.TabbedPage DoSendAppearing(this Xamarin.Forms.TabbedPage self)
+		{
+			self.SendAppearing();
+			return self;
+		}
+
+		public static Xamarin.Forms.TabbedPage DoSendDisappearing(this Xamarin.Forms.TabbedPage self)
+		{
+			self.SendDisappearing();
+			return self;
+		}
+
+		public static Xamarin.Forms.TabbedPage DoInvalidateMeasureNonVirtual(this Xamarin.Forms.TabbedPage self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+		{
+			self.InvalidateMeasureNonVirtual(trigger);
 			return self;
 		}
 
@@ -19877,6 +25558,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.TabbedPage DoNativeSizeChanged(this Xamarin.Forms.TabbedPage self)
+		{
+			self.NativeSizeChanged();
+			return self;
+		}
+
 		public static Xamarin.Forms.TabbedPage DoLayout(this Xamarin.Forms.TabbedPage self, Xamarin.Forms.Rectangle bounds)
 		{
 			self.Layout(bounds);
@@ -19886,6 +25573,18 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.TabbedPage DoUnfocus(this Xamarin.Forms.TabbedPage self)
 		{
 			self.Unfocus();
+			return self;
+		}
+
+		public static Xamarin.Forms.TabbedPage DoSetValueFromRenderer(this Xamarin.Forms.TabbedPage self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.TabbedPage DoSetValueFromRenderer(this Xamarin.Forms.TabbedPage self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -19936,10 +25635,22 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.TabbedPage DoSetValueCore(this Xamarin.Forms.TabbedPage self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class TimePickerFluentVoidMethods
 	{
+		public static Xamarin.Forms.TimePicker DoInvalidateMeasureNonVirtual(this Xamarin.Forms.TimePicker self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+		{
+			self.InvalidateMeasureNonVirtual(trigger);
+			return self;
+		}
+
 		public static Xamarin.Forms.TimePicker DoBatchBegin(this Xamarin.Forms.TimePicker self)
 		{
 			self.BatchBegin();
@@ -19952,6 +25663,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.TimePicker DoNativeSizeChanged(this Xamarin.Forms.TimePicker self)
+		{
+			self.NativeSizeChanged();
+			return self;
+		}
+
 		public static Xamarin.Forms.TimePicker DoLayout(this Xamarin.Forms.TimePicker self, Xamarin.Forms.Rectangle bounds)
 		{
 			self.Layout(bounds);
@@ -19961,6 +25678,18 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.TimePicker DoUnfocus(this Xamarin.Forms.TimePicker self)
 		{
 			self.Unfocus();
+			return self;
+		}
+
+		public static Xamarin.Forms.TimePicker DoSetValueFromRenderer(this Xamarin.Forms.TimePicker self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.TimePicker DoSetValueFromRenderer(this Xamarin.Forms.TimePicker self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -20011,6 +25740,12 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.TimePicker DoSetValueCore(this Xamarin.Forms.TimePicker self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class WebViewFluentVoidMethods
@@ -20033,6 +25768,24 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.WebView DoSendNavigated(this Xamarin.Forms.WebView self, Xamarin.Forms.WebNavigatedEventArgs args)
+		{
+			self.SendNavigated(args);
+			return self;
+		}
+
+		public static Xamarin.Forms.WebView DoSendNavigating(this Xamarin.Forms.WebView self, Xamarin.Forms.WebNavigatingEventArgs args)
+		{
+			self.SendNavigating(args);
+			return self;
+		}
+
+		public static Xamarin.Forms.WebView DoInvalidateMeasureNonVirtual(this Xamarin.Forms.WebView self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+		{
+			self.InvalidateMeasureNonVirtual(trigger);
+			return self;
+		}
+
 		public static Xamarin.Forms.WebView DoBatchBegin(this Xamarin.Forms.WebView self)
 		{
 			self.BatchBegin();
@@ -20045,6 +25798,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.WebView DoNativeSizeChanged(this Xamarin.Forms.WebView self)
+		{
+			self.NativeSizeChanged();
+			return self;
+		}
+
 		public static Xamarin.Forms.WebView DoLayout(this Xamarin.Forms.WebView self, Xamarin.Forms.Rectangle bounds)
 		{
 			self.Layout(bounds);
@@ -20054,6 +25813,18 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.WebView DoUnfocus(this Xamarin.Forms.WebView self)
 		{
 			self.Unfocus();
+			return self;
+		}
+
+		public static Xamarin.Forms.WebView DoSetValueFromRenderer(this Xamarin.Forms.WebView self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.WebView DoSetValueFromRenderer(this Xamarin.Forms.WebView self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -20104,6 +25875,12 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.WebView DoSetValueCore(this Xamarin.Forms.WebView self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class AnimationFluentVoidMethods
@@ -20123,6 +25900,12 @@ namespace Xamarin.Forms
 
 	public static class GridFluentVoidMethods
 	{
+		public static Xamarin.Forms.Grid DoInvalidateMeasureInernalNonVirtual(this Xamarin.Forms.Grid self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+		{
+			self.InvalidateMeasureInernalNonVirtual(trigger);
+			return self;
+		}
+
 		public static Xamarin.Forms.Grid DoForceLayout(this Xamarin.Forms.Grid self)
 		{
 			self.ForceLayout();
@@ -20141,6 +25924,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.Grid DoInvalidateMeasureNonVirtual(this Xamarin.Forms.Grid self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+		{
+			self.InvalidateMeasureNonVirtual(trigger);
+			return self;
+		}
+
 		public static Xamarin.Forms.Grid DoBatchBegin(this Xamarin.Forms.Grid self)
 		{
 			self.BatchBegin();
@@ -20153,6 +25942,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.Grid DoNativeSizeChanged(this Xamarin.Forms.Grid self)
+		{
+			self.NativeSizeChanged();
+			return self;
+		}
+
 		public static Xamarin.Forms.Grid DoLayout(this Xamarin.Forms.Grid self, Xamarin.Forms.Rectangle bounds)
 		{
 			self.Layout(bounds);
@@ -20162,6 +25957,18 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.Grid DoUnfocus(this Xamarin.Forms.Grid self)
 		{
 			self.Unfocus();
+			return self;
+		}
+
+		public static Xamarin.Forms.Grid DoSetValueFromRenderer(this Xamarin.Forms.Grid self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.Grid DoSetValueFromRenderer(this Xamarin.Forms.Grid self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -20212,6 +26019,12 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.Grid DoSetValueCore(this Xamarin.Forms.Grid self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class DefinitionCollectionFluentVoidMethods1
@@ -20254,6 +26067,18 @@ namespace Xamarin.Forms
 
 	public static class ElementFluentVoidMethods
 	{
+		public static Xamarin.Forms.Element DoSetValueFromRenderer(this Xamarin.Forms.Element self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.Element DoSetValueFromRenderer(this Xamarin.Forms.Element self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
 		public static Xamarin.Forms.Element DoRemoveDynamicResource(this Xamarin.Forms.Element self, Xamarin.Forms.BindableProperty property)
 		{
 			self.RemoveDynamicResource(property);
@@ -20301,6 +26126,12 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.Element DoSetValueCore(this Xamarin.Forms.Element self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class LayoutFluentVoidMethods1
@@ -20326,6 +26157,13 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.Layout<T> DoInvalidateMeasureNonVirtual<T>(this Xamarin.Forms.Layout<T> self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+			where T : Xamarin.Forms.View
+		{
+			self.InvalidateMeasureNonVirtual(trigger);
+			return self;
+		}
+
 		public static Xamarin.Forms.Layout<T> DoBatchBegin<T>(this Xamarin.Forms.Layout<T> self)
 			where T : Xamarin.Forms.View
 		{
@@ -20340,6 +26178,13 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.Layout<T> DoNativeSizeChanged<T>(this Xamarin.Forms.Layout<T> self)
+			where T : Xamarin.Forms.View
+		{
+			self.NativeSizeChanged();
+			return self;
+		}
+
 		public static Xamarin.Forms.Layout<T> DoLayout<T>(this Xamarin.Forms.Layout<T> self, Xamarin.Forms.Rectangle bounds)
 			where T : Xamarin.Forms.View
 		{
@@ -20351,6 +26196,20 @@ namespace Xamarin.Forms
 			where T : Xamarin.Forms.View
 		{
 			self.Unfocus();
+			return self;
+		}
+
+		public static Xamarin.Forms.Layout<T> DoSetValueFromRenderer<T>(this Xamarin.Forms.Layout<T> self, Xamarin.Forms.BindableProperty property, System.Object value)
+			where T : Xamarin.Forms.View
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.Layout<T> DoSetValueFromRenderer<T>(this Xamarin.Forms.Layout<T> self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+			where T : Xamarin.Forms.View
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -20409,6 +26268,13 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.Layout<T> DoSetValueCore<T>(this Xamarin.Forms.Layout<T> self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+			where T : Xamarin.Forms.View
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class LayoutFluentVoidMethods
@@ -20431,6 +26297,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.Layout DoInvalidateMeasureNonVirtual(this Xamarin.Forms.Layout self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+		{
+			self.InvalidateMeasureNonVirtual(trigger);
+			return self;
+		}
+
 		public static Xamarin.Forms.Layout DoBatchBegin(this Xamarin.Forms.Layout self)
 		{
 			self.BatchBegin();
@@ -20443,6 +26315,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.Layout DoNativeSizeChanged(this Xamarin.Forms.Layout self)
+		{
+			self.NativeSizeChanged();
+			return self;
+		}
+
 		public static Xamarin.Forms.Layout DoLayout(this Xamarin.Forms.Layout self, Xamarin.Forms.Rectangle bounds)
 		{
 			self.Layout(bounds);
@@ -20452,6 +26330,18 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.Layout DoUnfocus(this Xamarin.Forms.Layout self)
 		{
 			self.Unfocus();
+			return self;
+		}
+
+		public static Xamarin.Forms.Layout DoSetValueFromRenderer(this Xamarin.Forms.Layout self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.Layout DoSetValueFromRenderer(this Xamarin.Forms.Layout self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -20502,6 +26392,12 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.Layout DoSetValueCore(this Xamarin.Forms.Layout self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class ContentPageFluentVoidMethods
@@ -20509,6 +26405,24 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.ContentPage DoForceLayout(this Xamarin.Forms.ContentPage self)
 		{
 			self.ForceLayout();
+			return self;
+		}
+
+		public static Xamarin.Forms.ContentPage DoSendAppearing(this Xamarin.Forms.ContentPage self)
+		{
+			self.SendAppearing();
+			return self;
+		}
+
+		public static Xamarin.Forms.ContentPage DoSendDisappearing(this Xamarin.Forms.ContentPage self)
+		{
+			self.SendDisappearing();
+			return self;
+		}
+
+		public static Xamarin.Forms.ContentPage DoInvalidateMeasureNonVirtual(this Xamarin.Forms.ContentPage self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+		{
+			self.InvalidateMeasureNonVirtual(trigger);
 			return self;
 		}
 
@@ -20524,6 +26438,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.ContentPage DoNativeSizeChanged(this Xamarin.Forms.ContentPage self)
+		{
+			self.NativeSizeChanged();
+			return self;
+		}
+
 		public static Xamarin.Forms.ContentPage DoLayout(this Xamarin.Forms.ContentPage self, Xamarin.Forms.Rectangle bounds)
 		{
 			self.Layout(bounds);
@@ -20533,6 +26453,18 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.ContentPage DoUnfocus(this Xamarin.Forms.ContentPage self)
 		{
 			self.Unfocus();
+			return self;
+		}
+
+		public static Xamarin.Forms.ContentPage DoSetValueFromRenderer(this Xamarin.Forms.ContentPage self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.ContentPage DoSetValueFromRenderer(this Xamarin.Forms.ContentPage self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -20583,6 +26515,12 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.ContentPage DoSetValueCore(this Xamarin.Forms.ContentPage self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class MultiPageFluentVoidMethods1
@@ -20591,6 +26529,27 @@ namespace Xamarin.Forms
 			where T : Xamarin.Forms.Page
 		{
 			self.ForceLayout();
+			return self;
+		}
+
+		public static Xamarin.Forms.MultiPage<T> DoSendAppearing<T>(this Xamarin.Forms.MultiPage<T> self)
+			where T : Xamarin.Forms.Page
+		{
+			self.SendAppearing();
+			return self;
+		}
+
+		public static Xamarin.Forms.MultiPage<T> DoSendDisappearing<T>(this Xamarin.Forms.MultiPage<T> self)
+			where T : Xamarin.Forms.Page
+		{
+			self.SendDisappearing();
+			return self;
+		}
+
+		public static Xamarin.Forms.MultiPage<T> DoInvalidateMeasureNonVirtual<T>(this Xamarin.Forms.MultiPage<T> self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+			where T : Xamarin.Forms.Page
+		{
+			self.InvalidateMeasureNonVirtual(trigger);
 			return self;
 		}
 
@@ -20608,6 +26567,13 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.MultiPage<T> DoNativeSizeChanged<T>(this Xamarin.Forms.MultiPage<T> self)
+			where T : Xamarin.Forms.Page
+		{
+			self.NativeSizeChanged();
+			return self;
+		}
+
 		public static Xamarin.Forms.MultiPage<T> DoLayout<T>(this Xamarin.Forms.MultiPage<T> self, Xamarin.Forms.Rectangle bounds)
 			where T : Xamarin.Forms.Page
 		{
@@ -20619,6 +26585,20 @@ namespace Xamarin.Forms
 			where T : Xamarin.Forms.Page
 		{
 			self.Unfocus();
+			return self;
+		}
+
+		public static Xamarin.Forms.MultiPage<T> DoSetValueFromRenderer<T>(this Xamarin.Forms.MultiPage<T> self, Xamarin.Forms.BindableProperty property, System.Object value)
+			where T : Xamarin.Forms.Page
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.MultiPage<T> DoSetValueFromRenderer<T>(this Xamarin.Forms.MultiPage<T> self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+			where T : Xamarin.Forms.Page
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -20677,10 +26657,23 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.MultiPage<T> DoSetValueCore<T>(this Xamarin.Forms.MultiPage<T> self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+			where T : Xamarin.Forms.Page
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class VisualElementFluentVoidMethods
 	{
+		public static Xamarin.Forms.VisualElement DoInvalidateMeasureNonVirtual(this Xamarin.Forms.VisualElement self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+		{
+			self.InvalidateMeasureNonVirtual(trigger);
+			return self;
+		}
+
 		public static Xamarin.Forms.VisualElement DoBatchBegin(this Xamarin.Forms.VisualElement self)
 		{
 			self.BatchBegin();
@@ -20693,6 +26686,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.VisualElement DoNativeSizeChanged(this Xamarin.Forms.VisualElement self)
+		{
+			self.NativeSizeChanged();
+			return self;
+		}
+
 		public static Xamarin.Forms.VisualElement DoLayout(this Xamarin.Forms.VisualElement self, Xamarin.Forms.Rectangle bounds)
 		{
 			self.Layout(bounds);
@@ -20702,6 +26701,18 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.VisualElement DoUnfocus(this Xamarin.Forms.VisualElement self)
 		{
 			self.Unfocus();
+			return self;
+		}
+
+		public static Xamarin.Forms.VisualElement DoSetValueFromRenderer(this Xamarin.Forms.VisualElement self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.VisualElement DoSetValueFromRenderer(this Xamarin.Forms.VisualElement self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -20752,10 +26763,22 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.VisualElement DoSetValueCore(this Xamarin.Forms.VisualElement self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class PickerFluentVoidMethods
 	{
+		public static Xamarin.Forms.Picker DoInvalidateMeasureNonVirtual(this Xamarin.Forms.Picker self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+		{
+			self.InvalidateMeasureNonVirtual(trigger);
+			return self;
+		}
+
 		public static Xamarin.Forms.Picker DoBatchBegin(this Xamarin.Forms.Picker self)
 		{
 			self.BatchBegin();
@@ -20768,6 +26791,12 @@ namespace Xamarin.Forms
 			return self;
 		}
 
+		public static Xamarin.Forms.Picker DoNativeSizeChanged(this Xamarin.Forms.Picker self)
+		{
+			self.NativeSizeChanged();
+			return self;
+		}
+
 		public static Xamarin.Forms.Picker DoLayout(this Xamarin.Forms.Picker self, Xamarin.Forms.Rectangle bounds)
 		{
 			self.Layout(bounds);
@@ -20777,6 +26806,18 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.Picker DoUnfocus(this Xamarin.Forms.Picker self)
 		{
 			self.Unfocus();
+			return self;
+		}
+
+		public static Xamarin.Forms.Picker DoSetValueFromRenderer(this Xamarin.Forms.Picker self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.Picker DoSetValueFromRenderer(this Xamarin.Forms.Picker self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
 			return self;
 		}
 
@@ -20827,10 +26868,28 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.Picker DoSetValueCore(this Xamarin.Forms.Picker self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class ImageSourceFluentVoidMethods
 	{
+		public static Xamarin.Forms.ImageSource DoSetValueFromRenderer(this Xamarin.Forms.ImageSource self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.ImageSource DoSetValueFromRenderer(this Xamarin.Forms.ImageSource self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
 		public static Xamarin.Forms.ImageSource DoRemoveDynamicResource(this Xamarin.Forms.ImageSource self, Xamarin.Forms.BindableProperty property)
 		{
 			self.RemoveDynamicResource(property);
@@ -20878,10 +26937,28 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.ImageSource DoSetValueCore(this Xamarin.Forms.ImageSource self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class FileImageSourceFluentVoidMethods
 	{
+		public static Xamarin.Forms.FileImageSource DoSetValueFromRenderer(this Xamarin.Forms.FileImageSource self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.FileImageSource DoSetValueFromRenderer(this Xamarin.Forms.FileImageSource self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
 		public static Xamarin.Forms.FileImageSource DoRemoveDynamicResource(this Xamarin.Forms.FileImageSource self, Xamarin.Forms.BindableProperty property)
 		{
 			self.RemoveDynamicResource(property);
@@ -20929,10 +27006,28 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.FileImageSource DoSetValueCore(this Xamarin.Forms.FileImageSource self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class StreamImageSourceFluentVoidMethods
 	{
+		public static Xamarin.Forms.StreamImageSource DoSetValueFromRenderer(this Xamarin.Forms.StreamImageSource self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.StreamImageSource DoSetValueFromRenderer(this Xamarin.Forms.StreamImageSource self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
 		public static Xamarin.Forms.StreamImageSource DoRemoveDynamicResource(this Xamarin.Forms.StreamImageSource self, Xamarin.Forms.BindableProperty property)
 		{
 			self.RemoveDynamicResource(property);
@@ -20980,6 +27075,12 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.StreamImageSource DoSetValueCore(this Xamarin.Forms.StreamImageSource self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class BehaviorFluentVoidMethods
@@ -21017,6 +27118,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.Behavior DoSetValue(this Xamarin.Forms.Behavior self, Xamarin.Forms.BindablePropertyKey propertyKey, System.Object value)
 		{
 			self.SetValue(propertyKey, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.Behavior DoSetValueCore(this Xamarin.Forms.Behavior self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
 			return self;
 		}
 	}
@@ -21064,6 +27171,13 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.Behavior<T> DoSetValueCore<T>(this Xamarin.Forms.Behavior<T> self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+			where T : Xamarin.Forms.BindableObject
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class EventTriggerFluentVoidMethods
@@ -21101,6 +27215,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.EventTrigger DoSetValue(this Xamarin.Forms.EventTrigger self, Xamarin.Forms.BindablePropertyKey propertyKey, System.Object value)
 		{
 			self.SetValue(propertyKey, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.EventTrigger DoSetValueCore(this Xamarin.Forms.EventTrigger self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
 			return self;
 		}
 	}
@@ -21142,6 +27262,12 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.TriggerBase DoSetValueCore(this Xamarin.Forms.TriggerBase self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class TriggerFluentVoidMethods
@@ -21179,6 +27305,12 @@ namespace Xamarin.Forms
 		public static Xamarin.Forms.Trigger DoSetValue(this Xamarin.Forms.Trigger self, Xamarin.Forms.BindablePropertyKey propertyKey, System.Object value)
 		{
 			self.SetValue(propertyKey, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.Trigger DoSetValueCore(this Xamarin.Forms.Trigger self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
 			return self;
 		}
 	}
@@ -21220,6 +27352,12 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.DataTrigger DoSetValueCore(this Xamarin.Forms.DataTrigger self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class MultiTriggerFluentVoidMethods
@@ -21259,10 +27397,22 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.MultiTrigger DoSetValueCore(this Xamarin.Forms.MultiTrigger self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class WebViewSourceFluentVoidMethods
 	{
+		public static Xamarin.Forms.WebViewSource DoLoad(this Xamarin.Forms.WebViewSource self, Xamarin.Forms.IWebViewDelegate renderer)
+		{
+			self.Load(renderer);
+			return self;
+		}
+
 		public static Xamarin.Forms.WebViewSource DoClearValue(this Xamarin.Forms.WebViewSource self, Xamarin.Forms.BindableProperty property)
 		{
 			self.ClearValue(property);
@@ -21298,10 +27448,52 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.WebViewSource DoSetValueCore(this Xamarin.Forms.WebViewSource self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class PinchGestureRecognizerFluentVoidMethods
 	{
+		public static Xamarin.Forms.PinchGestureRecognizer DoSendPinch(this Xamarin.Forms.PinchGestureRecognizer self, Xamarin.Forms.Element sender, System.Double delta, Xamarin.Forms.Point currentScalePoint)
+		{
+			self.SendPinch(sender, delta, currentScalePoint);
+			return self;
+		}
+
+		public static Xamarin.Forms.PinchGestureRecognizer DoSendPinchCanceled(this Xamarin.Forms.PinchGestureRecognizer self, Xamarin.Forms.Element sender)
+		{
+			self.SendPinchCanceled(sender);
+			return self;
+		}
+
+		public static Xamarin.Forms.PinchGestureRecognizer DoSendPinchEnded(this Xamarin.Forms.PinchGestureRecognizer self, Xamarin.Forms.Element sender)
+		{
+			self.SendPinchEnded(sender);
+			return self;
+		}
+
+		public static Xamarin.Forms.PinchGestureRecognizer DoSendPinchStarted(this Xamarin.Forms.PinchGestureRecognizer self, Xamarin.Forms.Element sender, Xamarin.Forms.Point initialScalePoint)
+		{
+			self.SendPinchStarted(sender, initialScalePoint);
+			return self;
+		}
+
+		public static Xamarin.Forms.PinchGestureRecognizer DoSetValueFromRenderer(this Xamarin.Forms.PinchGestureRecognizer self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.PinchGestureRecognizer DoSetValueFromRenderer(this Xamarin.Forms.PinchGestureRecognizer self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
 		public static Xamarin.Forms.PinchGestureRecognizer DoRemoveDynamicResource(this Xamarin.Forms.PinchGestureRecognizer self, Xamarin.Forms.BindableProperty property)
 		{
 			self.RemoveDynamicResource(property);
@@ -21349,6 +27541,12 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.PinchGestureRecognizer DoSetValueCore(this Xamarin.Forms.PinchGestureRecognizer self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class IAppLinksFluentVoidMethods
@@ -21374,6 +27572,18 @@ namespace Xamarin.Forms
 
 	public static class AppLinkEntryFluentVoidMethods
 	{
+		public static Xamarin.Forms.AppLinkEntry DoSetValueFromRenderer(this Xamarin.Forms.AppLinkEntry self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.AppLinkEntry DoSetValueFromRenderer(this Xamarin.Forms.AppLinkEntry self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
 		public static Xamarin.Forms.AppLinkEntry DoRemoveDynamicResource(this Xamarin.Forms.AppLinkEntry self, Xamarin.Forms.BindableProperty property)
 		{
 			self.RemoveDynamicResource(property);
@@ -21421,6 +27631,12 @@ namespace Xamarin.Forms
 			self.SetValue(propertyKey, value);
 			return self;
 		}
+
+		public static Xamarin.Forms.AppLinkEntry DoSetValueCore(this Xamarin.Forms.AppLinkEntry self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
 	}
 
 	public static class IApplicationControllerFluentVoidMethods
@@ -21431,15 +27647,609 @@ namespace Xamarin.Forms
 			return self;
 		}
 	}
+
+	public static class ClickGestureRecognizerFluentVoidMethods
+	{
+		public static Xamarin.Forms.ClickGestureRecognizer DoSendClicked(this Xamarin.Forms.ClickGestureRecognizer self, Xamarin.Forms.View sender, Xamarin.Forms.ButtonsMask buttons)
+		{
+			self.SendClicked(sender, buttons);
+			return self;
+		}
+
+		public static Xamarin.Forms.ClickGestureRecognizer DoSetValueFromRenderer(this Xamarin.Forms.ClickGestureRecognizer self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.ClickGestureRecognizer DoSetValueFromRenderer(this Xamarin.Forms.ClickGestureRecognizer self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.ClickGestureRecognizer DoRemoveDynamicResource(this Xamarin.Forms.ClickGestureRecognizer self, Xamarin.Forms.BindableProperty property)
+		{
+			self.RemoveDynamicResource(property);
+			return self;
+		}
+
+		public static Xamarin.Forms.ClickGestureRecognizer DoSetDynamicResource(this Xamarin.Forms.ClickGestureRecognizer self, Xamarin.Forms.BindableProperty property, System.String key)
+		{
+			self.SetDynamicResource(property, key);
+			return self;
+		}
+
+		public static Xamarin.Forms.ClickGestureRecognizer DoClearValue(this Xamarin.Forms.ClickGestureRecognizer self, Xamarin.Forms.BindableProperty property)
+		{
+			self.ClearValue(property);
+			return self;
+		}
+
+		public static Xamarin.Forms.ClickGestureRecognizer DoClearValue(this Xamarin.Forms.ClickGestureRecognizer self, Xamarin.Forms.BindablePropertyKey propertyKey)
+		{
+			self.ClearValue(propertyKey);
+			return self;
+		}
+
+		public static Xamarin.Forms.ClickGestureRecognizer DoRemoveBinding(this Xamarin.Forms.ClickGestureRecognizer self, Xamarin.Forms.BindableProperty property)
+		{
+			self.RemoveBinding(property);
+			return self;
+		}
+
+		public static Xamarin.Forms.ClickGestureRecognizer DoSetBinding(this Xamarin.Forms.ClickGestureRecognizer self, Xamarin.Forms.BindableProperty targetProperty, Xamarin.Forms.BindingBase binding)
+		{
+			self.SetBinding(targetProperty, binding);
+			return self;
+		}
+
+		public static Xamarin.Forms.ClickGestureRecognizer DoSetValue(this Xamarin.Forms.ClickGestureRecognizer self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValue(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.ClickGestureRecognizer DoSetValue(this Xamarin.Forms.ClickGestureRecognizer self, Xamarin.Forms.BindablePropertyKey propertyKey, System.Object value)
+		{
+			self.SetValue(propertyKey, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.ClickGestureRecognizer DoSetValueCore(this Xamarin.Forms.ClickGestureRecognizer self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
+	}
+
+	public static class MenuFluentVoidMethods
+	{
+		public static Xamarin.Forms.Menu DoInvalidate(this Xamarin.Forms.Menu self)
+		{
+			self.Invalidate();
+			return self;
+		}
+
+		public static Xamarin.Forms.Menu DoAdd(this Xamarin.Forms.Menu self, Xamarin.Forms.Menu item)
+		{
+			self.Add(item);
+			return self;
+		}
+
+		public static Xamarin.Forms.Menu DoClear(this Xamarin.Forms.Menu self)
+		{
+			self.Clear();
+			return self;
+		}
+
+		public static Xamarin.Forms.Menu DoCopyTo(this Xamarin.Forms.Menu self, Xamarin.Forms.Menu[] array, System.Int32 arrayIndex)
+		{
+			self.CopyTo(array, arrayIndex);
+			return self;
+		}
+
+		public static Xamarin.Forms.Menu DoInsert(this Xamarin.Forms.Menu self, System.Int32 index, Xamarin.Forms.Menu item)
+		{
+			self.Insert(index, item);
+			return self;
+		}
+
+		public static Xamarin.Forms.Menu DoRemoveAt(this Xamarin.Forms.Menu self, System.Int32 index)
+		{
+			self.RemoveAt(index);
+			return self;
+		}
+
+		public static Xamarin.Forms.Menu DoSetValueFromRenderer(this Xamarin.Forms.Menu self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.Menu DoSetValueFromRenderer(this Xamarin.Forms.Menu self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.Menu DoRemoveDynamicResource(this Xamarin.Forms.Menu self, Xamarin.Forms.BindableProperty property)
+		{
+			self.RemoveDynamicResource(property);
+			return self;
+		}
+
+		public static Xamarin.Forms.Menu DoSetDynamicResource(this Xamarin.Forms.Menu self, Xamarin.Forms.BindableProperty property, System.String key)
+		{
+			self.SetDynamicResource(property, key);
+			return self;
+		}
+
+		public static Xamarin.Forms.Menu DoClearValue(this Xamarin.Forms.Menu self, Xamarin.Forms.BindableProperty property)
+		{
+			self.ClearValue(property);
+			return self;
+		}
+
+		public static Xamarin.Forms.Menu DoClearValue(this Xamarin.Forms.Menu self, Xamarin.Forms.BindablePropertyKey propertyKey)
+		{
+			self.ClearValue(propertyKey);
+			return self;
+		}
+
+		public static Xamarin.Forms.Menu DoRemoveBinding(this Xamarin.Forms.Menu self, Xamarin.Forms.BindableProperty property)
+		{
+			self.RemoveBinding(property);
+			return self;
+		}
+
+		public static Xamarin.Forms.Menu DoSetBinding(this Xamarin.Forms.Menu self, Xamarin.Forms.BindableProperty targetProperty, Xamarin.Forms.BindingBase binding)
+		{
+			self.SetBinding(targetProperty, binding);
+			return self;
+		}
+
+		public static Xamarin.Forms.Menu DoSetValue(this Xamarin.Forms.Menu self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValue(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.Menu DoSetValue(this Xamarin.Forms.Menu self, Xamarin.Forms.BindablePropertyKey propertyKey, System.Object value)
+		{
+			self.SetValue(propertyKey, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.Menu DoSetValueCore(this Xamarin.Forms.Menu self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
+	}
 }
 
 namespace Xamarin.Forms.Internals
 {
+	public static class ActionSheetArgumentsFluentVoidMethods
+	{
+		public static Xamarin.Forms.Internals.ActionSheetArguments DoSetResult(this Xamarin.Forms.Internals.ActionSheetArguments self, System.String result)
+		{
+			self.SetResult(result);
+			return self;
+		}
+	}
+
+	public static class AlertArgumentsFluentVoidMethods
+	{
+		public static Xamarin.Forms.Internals.AlertArguments DoSetResult(this Xamarin.Forms.Internals.AlertArguments self, System.Boolean result)
+		{
+			self.SetResult(result);
+			return self;
+		}
+	}
+
+	public static class DelegateLogListenerFluentVoidMethods
+	{
+		public static Xamarin.Forms.Internals.DelegateLogListener DoWarning(this Xamarin.Forms.Internals.DelegateLogListener self, System.String category, System.String message)
+		{
+			self.Warning(category, message);
+			return self;
+		}
+	}
+
+	public static class LockableObservableListWrapperFluentVoidMethods
+	{
+		public static Xamarin.Forms.Internals.LockableObservableListWrapper DoInternalAdd(this Xamarin.Forms.Internals.LockableObservableListWrapper self, System.String item)
+		{
+			self.InternalAdd(item);
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.LockableObservableListWrapper DoAdd(this Xamarin.Forms.Internals.LockableObservableListWrapper self, System.String item)
+		{
+			self.Add(item);
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.LockableObservableListWrapper DoInternalClear(this Xamarin.Forms.Internals.LockableObservableListWrapper self)
+		{
+			self.InternalClear();
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.LockableObservableListWrapper DoClear(this Xamarin.Forms.Internals.LockableObservableListWrapper self)
+		{
+			self.Clear();
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.LockableObservableListWrapper DoCopyTo(this Xamarin.Forms.Internals.LockableObservableListWrapper self, System.String[] array, System.Int32 arrayIndex)
+		{
+			self.CopyTo(array, arrayIndex);
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.LockableObservableListWrapper DoInternalInsert(this Xamarin.Forms.Internals.LockableObservableListWrapper self, System.Int32 index, System.String item)
+		{
+			self.InternalInsert(index, item);
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.LockableObservableListWrapper DoInsert(this Xamarin.Forms.Internals.LockableObservableListWrapper self, System.Int32 index, System.String item)
+		{
+			self.Insert(index, item);
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.LockableObservableListWrapper DoInternalRemoveAt(this Xamarin.Forms.Internals.LockableObservableListWrapper self, System.Int32 index)
+		{
+			self.InternalRemoveAt(index);
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.LockableObservableListWrapper DoRemoveAt(this Xamarin.Forms.Internals.LockableObservableListWrapper self, System.Int32 index)
+		{
+			self.RemoveAt(index);
+			return self;
+		}
+	}
+
+	public static class IFontElementFluentVoidMethods
+	{
+		public static Xamarin.Forms.Internals.IFontElement DoOnFontFamilyChanged(this Xamarin.Forms.Internals.IFontElement self, System.String oldValue, System.String newValue)
+		{
+			self.OnFontFamilyChanged(oldValue, newValue);
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.IFontElement DoOnFontSizeChanged(this Xamarin.Forms.Internals.IFontElement self, System.Double oldValue, System.Double newValue)
+		{
+			self.OnFontSizeChanged(oldValue, newValue);
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.IFontElement DoOnFontAttributesChanged(this Xamarin.Forms.Internals.IFontElement self, Xamarin.Forms.FontAttributes oldValue, Xamarin.Forms.FontAttributes newValue)
+		{
+			self.OnFontAttributesChanged(oldValue, newValue);
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.IFontElement DoOnFontChanged(this Xamarin.Forms.Internals.IFontElement self, Xamarin.Forms.Font oldValue, Xamarin.Forms.Font newValue)
+		{
+			self.OnFontChanged(oldValue, newValue);
+			return self;
+		}
+	}
+
+	public static class LogListenerFluentVoidMethods
+	{
+		public static Xamarin.Forms.Internals.LogListener DoWarning(this Xamarin.Forms.Internals.LogListener self, System.String category, System.String message)
+		{
+			self.Warning(category, message);
+			return self;
+		}
+	}
+
+	public static class NavigationModelFluentVoidMethods
+	{
+		public static Xamarin.Forms.Internals.NavigationModel DoClear(this Xamarin.Forms.Internals.NavigationModel self)
+		{
+			self.Clear();
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationModel DoInsertPageBefore(this Xamarin.Forms.Internals.NavigationModel self, Xamarin.Forms.Page page, Xamarin.Forms.Page before)
+		{
+			self.InsertPageBefore(page, before);
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationModel DoPopToRoot(this Xamarin.Forms.Internals.NavigationModel self, Xamarin.Forms.Page ancestralNav)
+		{
+			self.PopToRoot(ancestralNav);
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationModel DoPush(this Xamarin.Forms.Internals.NavigationModel self, Xamarin.Forms.Page page, Xamarin.Forms.Page ancestralNav)
+		{
+			self.Push(page, ancestralNav);
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationModel DoPushModal(this Xamarin.Forms.Internals.NavigationModel self, Xamarin.Forms.Page page)
+		{
+			self.PushModal(page);
+			return self;
+		}
+	}
+
+	public static class RegistrarFluentVoidMethods1
+	{
+		public static Xamarin.Forms.Internals.Registrar<TRegistrable> DoRegister<TRegistrable>(this Xamarin.Forms.Internals.Registrar<TRegistrable> self, System.Type tview, System.Type trender)
+			where TRegistrable : class
+		{
+			self.Register(tview, trender);
+			return self;
+		}
+	}
+
+	public static class TemplatedItemsListFluentVoidMethods2
+	{
+		public static Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem> DoClearValue<TView, TItem>(this Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem> self, Xamarin.Forms.BindableProperty property)
+			where TView : Xamarin.Forms.BindableObject, Xamarin.Forms.IItemsView<TItem>
+			where TItem : Xamarin.Forms.BindableObject
+		{
+			self.ClearValue(property);
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem> DoClearValue<TView, TItem>(this Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem> self, Xamarin.Forms.BindablePropertyKey propertyKey)
+			where TView : Xamarin.Forms.BindableObject, Xamarin.Forms.IItemsView<TItem>
+			where TItem : Xamarin.Forms.BindableObject
+		{
+			self.ClearValue(propertyKey);
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem> DoRemoveBinding<TView, TItem>(this Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem> self, Xamarin.Forms.BindableProperty property)
+			where TView : Xamarin.Forms.BindableObject, Xamarin.Forms.IItemsView<TItem>
+			where TItem : Xamarin.Forms.BindableObject
+		{
+			self.RemoveBinding(property);
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem> DoSetBinding<TView, TItem>(this Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem> self, Xamarin.Forms.BindableProperty targetProperty, Xamarin.Forms.BindingBase binding)
+			where TView : Xamarin.Forms.BindableObject, Xamarin.Forms.IItemsView<TItem>
+			where TItem : Xamarin.Forms.BindableObject
+		{
+			self.SetBinding(targetProperty, binding);
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem> DoSetValue<TView, TItem>(this Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem> self, Xamarin.Forms.BindableProperty property, System.Object value)
+			where TView : Xamarin.Forms.BindableObject, Xamarin.Forms.IItemsView<TItem>
+			where TItem : Xamarin.Forms.BindableObject
+		{
+			self.SetValue(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem> DoSetValue<TView, TItem>(this Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem> self, Xamarin.Forms.BindablePropertyKey propertyKey, System.Object value)
+			where TView : Xamarin.Forms.BindableObject, Xamarin.Forms.IItemsView<TItem>
+			where TItem : Xamarin.Forms.BindableObject
+		{
+			self.SetValue(propertyKey, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem> DoSetValueCore<TView, TItem>(this Xamarin.Forms.Internals.TemplatedItemsList<TView, TItem> self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+			where TView : Xamarin.Forms.BindableObject, Xamarin.Forms.IItemsView<TItem>
+			where TItem : Xamarin.Forms.BindableObject
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
+	}
+
 	public static class TickerFluentVoidMethods
 	{
 		public static Xamarin.Forms.Internals.Ticker DoRemove(this Xamarin.Forms.Internals.Ticker self, System.Int32 handle)
 		{
 			self.Remove(handle);
+			return self;
+		}
+	}
+
+	public static class NavigationProxyFluentVoidMethods
+	{
+		public static Xamarin.Forms.Internals.NavigationProxy DoInsertPageBefore(this Xamarin.Forms.Internals.NavigationProxy self, Xamarin.Forms.Page page, Xamarin.Forms.Page before)
+		{
+			self.InsertPageBefore(page, before);
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationProxy DoRemovePage(this Xamarin.Forms.Internals.NavigationProxy self, Xamarin.Forms.Page page)
+		{
+			self.RemovePage(page);
+			return self;
+		}
+	}
+
+	public static class TableModelFluentVoidMethods
+	{
+		public static Xamarin.Forms.Internals.TableModel DoRowLongPressed(this Xamarin.Forms.Internals.TableModel self, System.Int32 section, System.Int32 row)
+		{
+			self.RowLongPressed(section, row);
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.TableModel DoRowLongPressed(this Xamarin.Forms.Internals.TableModel self, System.Object item)
+		{
+			self.RowLongPressed(item);
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.TableModel DoRowSelected(this Xamarin.Forms.Internals.TableModel self, System.Int32 section, System.Int32 row)
+		{
+			self.RowSelected(section, row);
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.TableModel DoRowSelected(this Xamarin.Forms.Internals.TableModel self, System.Object item)
+		{
+			self.RowSelected(item);
+			return self;
+		}
+	}
+
+	public static class NavigationMenuFluentVoidMethods
+	{
+		public static Xamarin.Forms.Internals.NavigationMenu DoAdd(this Xamarin.Forms.Internals.NavigationMenu self, Xamarin.Forms.Page target)
+		{
+			self.Add(target);
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu DoRemove(this Xamarin.Forms.Internals.NavigationMenu self, Xamarin.Forms.Page target)
+		{
+			self.Remove(target);
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu DoSendTargetSelected(this Xamarin.Forms.Internals.NavigationMenu self, Xamarin.Forms.Page target)
+		{
+			self.SendTargetSelected(target);
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu DoInvalidateMeasureNonVirtual(this Xamarin.Forms.Internals.NavigationMenu self, Xamarin.Forms.Internals.InvalidationTrigger trigger)
+		{
+			self.InvalidateMeasureNonVirtual(trigger);
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu DoBatchBegin(this Xamarin.Forms.Internals.NavigationMenu self)
+		{
+			self.BatchBegin();
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu DoBatchCommit(this Xamarin.Forms.Internals.NavigationMenu self)
+		{
+			self.BatchCommit();
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu DoNativeSizeChanged(this Xamarin.Forms.Internals.NavigationMenu self)
+		{
+			self.NativeSizeChanged();
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu DoLayout(this Xamarin.Forms.Internals.NavigationMenu self, Xamarin.Forms.Rectangle bounds)
+		{
+			self.Layout(bounds);
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu DoUnfocus(this Xamarin.Forms.Internals.NavigationMenu self)
+		{
+			self.Unfocus();
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu DoSetValueFromRenderer(this Xamarin.Forms.Internals.NavigationMenu self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu DoSetValueFromRenderer(this Xamarin.Forms.Internals.NavigationMenu self, Xamarin.Forms.BindablePropertyKey property, System.Object value)
+		{
+			self.SetValueFromRenderer(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu DoRemoveDynamicResource(this Xamarin.Forms.Internals.NavigationMenu self, Xamarin.Forms.BindableProperty property)
+		{
+			self.RemoveDynamicResource(property);
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu DoSetDynamicResource(this Xamarin.Forms.Internals.NavigationMenu self, Xamarin.Forms.BindableProperty property, System.String key)
+		{
+			self.SetDynamicResource(property, key);
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu DoClearValue(this Xamarin.Forms.Internals.NavigationMenu self, Xamarin.Forms.BindableProperty property)
+		{
+			self.ClearValue(property);
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu DoClearValue(this Xamarin.Forms.Internals.NavigationMenu self, Xamarin.Forms.BindablePropertyKey propertyKey)
+		{
+			self.ClearValue(propertyKey);
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu DoRemoveBinding(this Xamarin.Forms.Internals.NavigationMenu self, Xamarin.Forms.BindableProperty property)
+		{
+			self.RemoveBinding(property);
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu DoSetBinding(this Xamarin.Forms.Internals.NavigationMenu self, Xamarin.Forms.BindableProperty targetProperty, Xamarin.Forms.BindingBase binding)
+		{
+			self.SetBinding(targetProperty, binding);
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu DoSetValue(this Xamarin.Forms.Internals.NavigationMenu self, Xamarin.Forms.BindableProperty property, System.Object value)
+		{
+			self.SetValue(property, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu DoSetValue(this Xamarin.Forms.Internals.NavigationMenu self, Xamarin.Forms.BindablePropertyKey propertyKey, System.Object value)
+		{
+			self.SetValue(propertyKey, value);
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.NavigationMenu DoSetValueCore(this Xamarin.Forms.Internals.NavigationMenu self, Xamarin.Forms.BindableProperty property, System.Object value, Xamarin.Forms.Internals.SetValueFlags attributes)
+		{
+			self.SetValueCore(property, value, attributes);
+			return self;
+		}
+	}
+
+	public static class IPlatformServicesFluentVoidMethods
+	{
+		public static Xamarin.Forms.Internals.IPlatformServices DoBeginInvokeOnMainThread(this Xamarin.Forms.Internals.IPlatformServices self, System.Action action)
+		{
+			self.BeginInvokeOnMainThread(action);
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.IPlatformServices DoOpenUriAction(this Xamarin.Forms.Internals.IPlatformServices self, System.Uri uri)
+		{
+			self.OpenUriAction(uri);
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.IPlatformServices DoStartTimer(this Xamarin.Forms.Internals.IPlatformServices self, System.TimeSpan interval, System.Func<System.Boolean> callback)
+		{
+			self.StartTimer(interval, callback);
+			return self;
+		}
+
+		public static Xamarin.Forms.Internals.IPlatformServices DoQuitApplication(this Xamarin.Forms.Internals.IPlatformServices self)
+		{
+			self.QuitApplication();
 			return self;
 		}
 	}
@@ -21452,15 +28262,16 @@ namespace Xamarin.Forms.Internals
 			return self;
 		}
 
-		public static Xamarin.Forms.Internals.INameScope DoRegisterName(this Xamarin.Forms.Internals.INameScope self, System.String name, System.Object scopedElement, System.Xml.IXmlLineInfo xmlLineInfo)
-		{
-			self.RegisterName(name, scopedElement, xmlLineInfo);
-			return self;
-		}
-
 		public static Xamarin.Forms.Internals.INameScope DoUnregisterName(this Xamarin.Forms.Internals.INameScope self, System.String name)
 		{
 			self.UnregisterName(name);
+			return self;
+		}
+
+		[System.Obsolete(null)]
+		public static Xamarin.Forms.Internals.INameScope DoRegisterName(this Xamarin.Forms.Internals.INameScope self, System.String name, System.Object scopedElement, System.Xml.IXmlLineInfo xmlLineInfo)
+		{
+			self.RegisterName(name, scopedElement, xmlLineInfo);
 			return self;
 		}
 	}
