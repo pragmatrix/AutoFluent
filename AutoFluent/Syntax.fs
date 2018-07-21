@@ -75,19 +75,27 @@ module Syntax =
     module Helper = 
 
         let rec qualifiedName (t: Type) = 
+
+            let typeName =
+                if t.IsByRef
+                then 
+                    if not (t.Name.EndsWith("&")) 
+                    then failwithf "internal error: type's name '%s' is byref, but does not end with '&'" t.Name
+                    else t.Name.Substring(0, t.Name.Length-1)
+                else t.Name
+
             // For some events, t.FullName is null, even though
             // namespace and name is properly set, so we use
             // Namespace and the Name as the "full" name instead.
             
             // also note that Namespace can be null, too, this is then the global
             // namespace
-
             if t.IsNested then
-                (qualifiedName t.DeclaringType) + "." + t.Name
+                (qualifiedName t.DeclaringType) + "." + typeName
             else
             match t.ns with
-            | None -> t.Name
-            | Some ns -> ns + "." + t.Name
+            | None -> typeName
+            | Some ns -> ns + "." + typeName
 
         let rec typeName (t: Type) = 
             if t.IsGenericParameter then
