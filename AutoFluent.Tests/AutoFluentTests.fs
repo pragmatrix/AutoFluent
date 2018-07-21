@@ -32,7 +32,12 @@ type AutoFluentTests() =
         assembly
         |> Generate.fluentAssembly
         |> Format.sourceLines
-        |> compileAndDumpSource assembly ["System.Xml.dll"; "System.Xml.ReaderWriter.dll"]
+        |> compileAndDumpSource assembly 
+            [
+                "System.Xml.dll"
+                "System.Xml.ReaderWriter.dll"
+                "netstandard.dll"
+            ]
         |> should equal 307200
         // ~61952 (without inherited members)
 
