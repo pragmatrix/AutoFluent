@@ -10,7 +10,7 @@ public static class CFluentVoidMethods
 {
 	public static C DoM(this C self, out System.Int32 outParam)
 	{
-		self.M(outParam);
+		self.M(out outParam);
 		return self;
 	}
 }

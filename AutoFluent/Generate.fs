@@ -37,12 +37,20 @@ module Generate =
         ]
 
     type Parameter = {
-        TypeName: Syntax.TypeName;
+        TypeName: Syntax.TypeName
         Name: string
+        IsOut: bool
     } with
-        override this.ToString() = Format.parameter this.TypeName this.Name
-        static member mk tn n = { TypeName = tn; Name = n}
+        override this.ToString() = Format.parameter this.TypeName this.Name this.IsOut
+        static member mk tn n isOut = { TypeName = tn; Name = n; IsOut = isOut }
 
+    module Format = 
+        let parameterAsArgument p = 
+            let prefix = 
+                match p.IsOut with
+                | true -> "out "
+                | false -> ""
+            sprintf "%s%s" prefix (Format.name p.Name)
 
     type MethodDef = { 
         Attributes: string[]
@@ -71,45 +79,13 @@ module Generate =
             Code = ""
         }
 
-    module private Format =
-
-        // https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/
-        let keywords = 
-            HashSet<_> [
-                "abstract"; "as"; "base"; "bool"
-                "break"; "byte"; "case"; "catch"
-                "char"; "checked"; "class"; "const"
-                "continue"; "decimal"; "default"; "delegate"
-                "do"; "double"; "else"; "enum"
-                "event"; "explicit"; "extern"; "false"
-                "finally"; "fixed"; "float"; "for"
-                "foreach"; "goto"; "if"; "implicit"
-                "in"; "int"; "interface"; "internal"
-                "is"; "lock"; "long"; "namespace"
-                "new"; "null"; "object"; "operator"
-                "out"; "override"; "params"; "private"
-                "protected"; "public"; "readonly"; "ref"
-                "return"; "sbyte"; "sealed"; "short"
-                "sizeof"; "stackalloc"; "static"; "string"
-                "struct"; "switch"; "this"; "throw"
-                "true"; "try"; "typeof"; "uint"
-                "ulong"; "unchecked"; "unsafe"; "ushort"
-                "using"; "virtual"; "void"
-                "volatile"; "while"
-            ]
-
-        let inline name name =
-            match keywords.Contains(name) with
-            | true -> "@" + name
-            | false -> name
-
     let private extensionMethod (md: MethodDef) = 
 
         match md.Self with
         | None -> failwith "can only generate extension methods yet"
         | Some self ->
 
-        let selfParameter = Parameter.mk md.Self.Value "self"
+        let selfParameter = Parameter.mk md.Self.Value "self" false
 
         let parameters = 
             selfParameter :: md.Parameters
@@ -191,7 +167,7 @@ module Generate =
         fluentExtensionMethod 
             t
             id 
-            [Parameter.mk (Syntax.typeName propertyType) "value"] 
+            [Parameter.mk (Syntax.typeName propertyType) "value" false] 
             (sprintf "self.%s = value;") 
             (property :> MemberInfo)
 
@@ -219,7 +195,7 @@ module Generate =
         fluentExtensionMethod 
             t
             (fun name -> "When" + name) 
-            [Parameter.mk  handlerTypeName "handler"] 
+            [Parameter.mk  handlerTypeName "handler" false] 
             (fun name -> sprintf "self.%s += %s;" name handlerCode) 
             (event :> MemberInfo)
 
@@ -227,7 +203,7 @@ module Generate =
 
         let parameters = 
             vm.GetParameters()
-            |> Seq.map (fun p -> Parameter.mk (Syntax.typeName p.ParameterType) p.Name)
+            |> Seq.map (fun p -> Parameter.mk (Syntax.typeName p.ParameterType) p.Name p.IsOut)
             |> Seq.toList
 
         let genericArguments =
@@ -236,7 +212,7 @@ module Generate =
 
         let argumentList = 
             parameters
-            |> List.map (fun p -> p.Name)
+            |> List.map Format.parameterAsArgument
             |> Syntax.join ", "
 
         fluentExtensionMethod 

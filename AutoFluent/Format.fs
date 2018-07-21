@@ -2,6 +2,7 @@
 
 open Syntax
 open System.IO
+open System.Collections.Generic
 open System.CodeDom
 open System.CodeDom.Compiler
 
@@ -11,8 +12,43 @@ module Format =
 
     let returnType (t: Type) = typeName t
 
-    let parameter (t: TypeName) name = 
-        sprintf "%s %s" (t |> string) name
+    // https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/
+    let private keywords = 
+        HashSet<_> [
+            "abstract"; "as"; "base"; "bool"
+            "break"; "byte"; "case"; "catch"
+            "char"; "checked"; "class"; "const"
+            "continue"; "decimal"; "default"; "delegate"
+            "do"; "double"; "else"; "enum"
+            "event"; "explicit"; "extern"; "false"
+            "finally"; "fixed"; "float"; "for"
+            "foreach"; "goto"; "if"; "implicit"
+            "in"; "int"; "interface"; "internal"
+            "is"; "lock"; "long"; "namespace"
+            "new"; "null"; "object"; "operator"
+            "out"; "override"; "params"; "private"
+            "protected"; "public"; "readonly"; "ref"
+            "return"; "sbyte"; "sealed"; "short"
+            "sizeof"; "stackalloc"; "static"; "string"
+            "struct"; "switch"; "this"; "throw"
+            "true"; "try"; "typeof"; "uint"
+            "ulong"; "unchecked"; "unsafe"; "ushort"
+            "using"; "virtual"; "void"
+            "volatile"; "while"
+        ]
+
+    let name name =
+        match keywords.Contains(name) with
+        | true -> "@" + name
+        | false -> name
+
+    let parameter (typeName: TypeName) parameterName isOut = 
+        let prefix = 
+            if isOut
+            then "out "
+            else ""
+
+        sprintf "%s%s %s" prefix (string typeName) (name parameterName)
 
     type Code = 
         | Scope of Code

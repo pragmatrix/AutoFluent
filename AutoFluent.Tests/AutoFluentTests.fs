@@ -38,7 +38,7 @@ type AutoFluentTests() =
                 "System.Xml.ReaderWriter.dll"
                 "netstandard.dll"
             ]
-        |> should equal 307200
+        |> should equal 326144
         // ~61952 (without inherited members)
 
 
