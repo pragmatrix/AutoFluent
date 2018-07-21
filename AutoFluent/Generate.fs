@@ -1,8 +1,9 @@
 ﻿namespace AutoFluent
 
 open System
-
-open Reflection
+open System.Collections.Generic
+open System.Reflection
+open AutoFluent.Reflection
 
 module Generate =
 
@@ -70,6 +71,38 @@ module Generate =
             code = ""
         }
 
+    module private Format =
+
+        // https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/
+        let keywords = 
+            HashSet<_> [
+                "abstract"; "as"; "base"; "bool"
+                "break"; "byte"; "case"; "catch"
+                "char"; "checked"; "class"; "const"
+                "continue"; "decimal"; "default"; "delegate"
+                "do"; "double"; "else"; "enum"
+                "event"; "explicit"; "extern"; "false"
+                "finally"; "fixed"; "float"; "for"
+                "foreach"; "goto"; "if"; "implicit"
+                "in"; "int"; "interface"; "internal"
+                "is"; "lock"; "long"; "namespace"
+                "new"; "null"; "object"; "operator"
+                "out"; "override"; "params"; "private"
+                "protected"; "public"; "readonly"; "ref"
+                "return"; "sbyte"; "sealed"; "short"
+                "sizeof"; "stackalloc"; "static"; "string"
+                "struct"; "switch"; "this"; "throw"
+                "true"; "try"; "typeof"; "uint"
+                "ulong"; "unchecked"; "unsafe"; "ushort"
+                "using"; "virtual"; "void"
+                "volatile"; "while"
+            ]
+
+        let inline name name =
+            match keywords.Contains(name) with
+            | true -> "@" + name
+            | false -> name
+
     let private extensionMethod (md: MethodDef) = 
 
         match md.self with
@@ -90,11 +123,11 @@ module Generate =
         Format.block [
             md.attributes
             sprintf "public static %s %s%s(this %s)"
-                (self |> string) md.name typeParameters parameters
+                (self |> string) (Format.name md.name) typeParameters parameters
             Format.indent (md.constraints |> List.map (string >> box))
             [ 
                 md.code
-                sprintf "return self;"
+                "return self;"
             ]
         ]
 
@@ -130,7 +163,7 @@ module Generate =
         let attributes = promoteAttributes m
 
         let m = MethodDef.mk attributes (methodNameF name) parameters
-        let m = { m with code = codeF name }
+        let m = { m with code = codeF (Format.name name) }
 
         let m = 
             let constraints = Syntax.typeConstraints self 
