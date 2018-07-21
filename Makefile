@@ -23,7 +23,7 @@ update-nuget:
 # we want to always stay below the current xamarin forms version to avoid
 # confusion.
 
-xfa-ver=2.5.0
+xfa-ver=3.1.0
 
 .PHONY: package-xfa
 package-xfa: ver=${xfa-ver}
@@ -36,7 +36,7 @@ package-xfa: build
 publish-xfa: ver=${xfa-ver}
 publish-xfa: name=Xamarin.Forms.AutoFluent
 publish-xfa: package-xfa
-	cd ${name} && nuget push -Source https://www.nuget.org/api/v2/package ${name}.${ver}.nupkg	
+	cd ${name} && nuget push -source https://www.nuget.org/api/v2/package/ ${name}.${ver}.nupkg	
 
 
 

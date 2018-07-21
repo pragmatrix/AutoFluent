@@ -19,10 +19,10 @@
       Add an event handler by calling .When[EventName](lambda). 
       Call any method that returns void with .Do[MethodName](arguments).
     </description>
-    <copyright>Copyright © 2017 Armin Sander</copyright>
+    <copyright>Copyright © 2018 Armin Sander</copyright>
     <dependencies>
-      <dependency id="Fluent.Extensions" version="1.0.0" />
-      <dependency id="Xamarin.Forms" version="[3.1,3.2)" />
+      <dependency id="Fluent.Extensions" version="2.0.0" />
+      <dependency id="Xamarin.Forms" version="[3.1,4.0)" />
     </dependencies>
   </metadata>
 </package>
