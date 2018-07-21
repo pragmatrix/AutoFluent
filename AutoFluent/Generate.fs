@@ -8,8 +8,8 @@ open AutoFluent.Reflection
 module Generate =
 
     type ExtensionSource<'t when 't :> MemberInfo> = { 
-        t: Type
-        source: 't
+        Type: Type
+        Source: 't
     }
     
     type 't source when 't :> MemberInfo = ExtensionSource<'t>
@@ -36,39 +36,39 @@ module Generate =
             ]
         ]
 
-    type Parameter =  {
-        typeName: Syntax.TypeName;
-        name: string
+    type Parameter = {
+        TypeName: Syntax.TypeName;
+        Name: string
     } with
-        override this.ToString() = Format.parameter this.typeName this.name
-        static member mk tn n = { typeName = tn; name = n}
+        override this.ToString() = Format.parameter this.TypeName this.Name
+        static member mk tn n = { TypeName = tn; Name = n}
 
 
     type MethodDef = { 
-        attributes: string[]
-        name: string
-        parameters: Parameter list
+        Attributes: string[]
+        Name: string
+        Parameters: Parameter list
           
         // generics
-        typeArguments: string list
-        self: Syntax.TypeName option
-        constraints: Syntax.ConstraintsClause list
+        TypeArguments: string list
+        Self: Syntax.TypeName option
+        Constraints: Syntax.ConstraintsClause list
 
-        code: string
+        Code: string
     } with
         static member mk attributes name parameters = {
-            attributes = attributes
-            name = name
-            parameters = parameters
+            Attributes = attributes
+            Name = name
+            Parameters = parameters
 
             // this (extension method)
-            self = None
+            Self = None
 
             // generics
-            typeArguments = []
-            constraints = []
+            TypeArguments = []
+            Constraints = []
 
-            code = ""
+            Code = ""
         }
 
     module private Format =
@@ -105,28 +105,28 @@ module Generate =
 
     let private extensionMethod (md: MethodDef) = 
 
-        match md.self with
+        match md.Self with
         | None -> failwith "can only generate extension methods yet"
         | Some self ->
 
-        let selfParameter = Parameter.mk md.self.Value "self"
+        let selfParameter = Parameter.mk md.Self.Value "self"
 
         let parameters = 
-            selfParameter :: md.parameters
+            selfParameter :: md.Parameters
             |> List.map string
             |> Syntax.join ", "
 
         let typeParameters = 
-            md.typeArguments
+            md.TypeArguments
             |> Syntax.formatTypeArguments
 
         Format.block [
-            md.attributes
+            md.Attributes
             sprintf "public static %s %s%s(this %s)"
-                (self |> string) (Format.name md.name) typeParameters parameters
-            Format.indent (md.constraints |> List.map (string >> box))
+                (self |> string) (Format.name md.Name) typeParameters parameters
+            Format.indent (md.Constraints |> List.map (string >> box))
             [ 
-                md.code
+                md.Code
                 "return self;"
             ]
         ]
@@ -163,16 +163,16 @@ module Generate =
         let attributes = promoteAttributes m
 
         let m = MethodDef.mk attributes (methodNameF name) parameters
-        let m = { m with code = codeF (Format.name name) }
+        let m = { m with Code = codeF (Format.name name) }
 
         let m = 
             let constraints = Syntax.typeConstraints self 
             let selfTypeParameters = selfTypeName.allParameters
             if explicitSelfType then
                 { m with 
-                    self = Some selfTypeName
-                    typeArguments = selfTypeParameters @ memberTypeParameters
-                    constraints = constraints @ memberConstraints
+                    Self = Some selfTypeName
+                    TypeArguments = selfTypeParameters @ memberTypeParameters
+                    Constraints = constraints @ memberConstraints
                 }
             else
                 let selfConstraints = 
@@ -180,9 +180,9 @@ module Generate =
                     Syntax.ConstraintsClause(selfTypeParameterName, [c])
                     
                 { m with 
-                    self = selfTypeParameterTypeName |> Some
-                    typeArguments = selfTypeParameterName :: selfTypeParameters
-                    constraints = selfConstraints :: constraints 
+                    Self = selfTypeParameterTypeName |> Some
+                    TypeArguments = selfTypeParameterName :: selfTypeParameters
+                    Constraints = selfConstraints :: constraints 
                 }
         m |> extensionMethod
         
@@ -236,7 +236,7 @@ module Generate =
 
         let argumentList = 
             parameters
-            |> List.map (fun p -> p.name)
+            |> List.map (fun p -> p.Name)
             |> Syntax.join ", "
 
         fluentExtensionMethod 
@@ -250,9 +250,9 @@ module Generate =
         (generator: Type -> 't list -> Format.Code) 
         (members: 't source list)  = 
         members
-        |> List.groupBy (fun p -> p.t)
+        |> List.groupBy (fun p -> p.Type)
         |> List.filter (snd >> List.isEmpty >> not)
-        |> List.map (fun (t, m) -> generator t (m |> List.map (fun s -> s.source)))
+        |> List.map (fun (t, m) -> generator t (m |> List.map (fun s -> s.Source)))
 
     let mkFluent 
         (map: Type -> 't source list) 
@@ -284,7 +284,7 @@ module Generate =
             ]
 
         properties
-            |> List.groupBy (fun s -> s.t.ns)
+            |> List.groupBy (fun s -> s.Type.ns)
             |> List.map (fun (ns, events) -> mkNamespace ns events)
             |> Format.Block
 
@@ -304,7 +304,7 @@ module Generate =
         |> staticClass (voidMethodsClassName t)
 
     let private mkSource t mi = 
-        { t = t; source = mi }
+        { Type = t; Source = mi }
 
     let fluentEvents = 
         mkFluent 
