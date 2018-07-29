@@ -2,7 +2,22 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;net47</TargetFrameworks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PackageId>Xamarin.Forms.AutoFluent</PackageId>
+    <Title>Xamarin.Forms.AutoFluent</Title>
+    <Authors>Armin Sander</Authors>
+    <Description>
+      Automatically generated fluent properties, events, and void methods for Xamarin.Forms. From within method chains:	
+      Set a property by invoking it as a method, for example .XAlign(TextAlignment.Center). Add an event handler by calling .When[EventName](lambda). Call any method that returns void with .Do[MethodName](arguments).
+    </Description>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageTags>fluent fluent-interface Xamarin.Forms method-chaining autofluent</PackageTags>
+    <PackageLicenseUrl>https://github.com/pragmatrix/AutoFluent</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/pragmatrix/AutoFluent</PackageProjectUrl>
+    <Copyright>Copyright © 2018 Armin Sander</Copyright>
+    <PackageReleaseNotes>Multitargeted to netstandard2.0, net47</PackageReleaseNotes>
   </PropertyGroup>
   <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>

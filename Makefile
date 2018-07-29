@@ -12,31 +12,27 @@ build-release: build
 .PHONY: build
 build:
 	${msbuild} AutoFluent.sln /p:Configuration=${conf} 
-	
-.PHONY: update-nuget
-update-nuget:
-	rm -f /usr/local/bin/nuget.exe
-	cd /usr/local/bin && wget https://www.nuget.org/nuget.exe && chmod +x nuget.exe
 
 # Xamarin.Forms.AutoFluent
 
 # we want to always stay below the current xamarin forms version to avoid
 # confusion.
 
-xfa-ver=3.1.0
+xfa-ver=3.1.1
 
 .PHONY: package-xfa
 package-xfa: ver=${xfa-ver}
 package-xfa: name=Xamarin.Forms.AutoFluent
 package-xfa: conf=Release
-package-xfa: build
-	cd ${name} && ${nuget} pack ${name}.csproj -Version ${ver} -Prop Configuration=${conf}
+package-xfa: 
+	cd ${name} && dotnet pack ${name}.csproj /p:PackageVersion=${ver} -c ${conf}
 
 .PHONY: publish-xfa
 publish-xfa: ver=${xfa-ver}
 publish-xfa: name=Xamarin.Forms.AutoFluent
+publish-xfa: conf=Release
 publish-xfa: package-xfa
-	cd ${name} && nuget push -source https://www.nuget.org/api/v2/package/ ${name}.${ver}.nupkg	
+	cd ${name}/bin/${conf} && nuget push -source https://www.nuget.org/api/v2/package/ ${name}.${ver}.nupkg	
 
 
 
