@@ -18,7 +18,7 @@ build:
 # we want to always stay below the current xamarin forms version to avoid
 # confusion.
 
-xfa-ver=3.1.1
+xfa-ver=3.1.2
 
 .PHONY: package-xfa
 package-xfa: ver=${xfa-ver}

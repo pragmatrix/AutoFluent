@@ -2,7 +2,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <TargetFrameworks>netstandard2.0;net47</TargetFrameworks>
+    <TargetFrameworks>netstandard1.6;netstandard2.0;net47</TargetFrameworks>
   </PropertyGroup>
   <PropertyGroup>
     <PackageId>Xamarin.Forms.AutoFluent</PackageId>
@@ -17,7 +17,7 @@
     <PackageLicenseUrl>https://github.com/pragmatrix/AutoFluent</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/pragmatrix/AutoFluent</PackageProjectUrl>
     <Copyright>Copyright © 2018 Armin Sander</Copyright>
-    <PackageReleaseNotes>Multitargeted to netstandard2.0, net47</PackageReleaseNotes>
+    <PackageReleaseNotes>Multitargeted to netstandard1.6, netstandard2.0, net47</PackageReleaseNotes>
   </PropertyGroup>
   <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>
