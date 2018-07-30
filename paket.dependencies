@@ -1,6 +1,8 @@
 version 5.174.5
 framework: auto-detect
 source https://www.nuget.org/api/v2
+
+nuget NetStandard.Library
 nuget Fluent.Extensions
 nuget FsUnit
 nuget NUnit
